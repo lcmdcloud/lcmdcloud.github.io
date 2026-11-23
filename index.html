@@ -12,6 +12,9 @@
   />
   <style>
     :root {
+      --top-h: 54px;
+      --sub-h: 44px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
       --bg: #f5f7fb;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
@@ -23,7 +26,7 @@
       --primary: #2563eb;
       --primary-soft: #eff6ff;
       --primary-border: #bfdbfe;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
+      --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.08);
     }
 
     html.dark {
@@ -38,7 +41,7 @@
       --primary: #60a5fa;
       --primary-soft: rgba(59, 130, 246, 0.16);
       --primary-border: rgba(96, 165, 250, 0.34);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
+      --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.45);
     }
 
     * { box-sizing: border-box; }
@@ -58,27 +61,29 @@
       flex-direction: column;
     }
 
-    /* Row 1: Primary Top Navigation */
+    /* Row 1: Locked 3-Column Grid Baseline (Center tabs NEVER shift horizontally) */
     .topbar {
-      min-height: 54px;
+      height: var(--top-h);
       flex-shrink: 0;
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 8px 20px;
-      display: flex;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
       gap: 12px;
+      position: relative;
       z-index: 40;
     }
 
     .brand {
+      justify-self: start;
       display: inline-flex;
       align-items: center;
       gap: 9px;
       text-decoration: none;
       color: var(--text);
-      flex-shrink: 0;
+      min-width: 112px;
     }
     .brand-logo {
       width: 30px;
@@ -86,6 +91,7 @@
       border-radius: 8px;
       object-fit: cover;
       border: 1px solid var(--border);
+      flex-shrink: 0;
     }
     .brand-name {
       font-size: 16px;
@@ -94,10 +100,13 @@
       white-space: nowrap;
     }
 
+    /* Primary Tabs with Smooth Sliding Pill Indicator */
     .top-tabs {
-      display: flex;
+      justify-self: center;
+      position: relative;
+      display: inline-flex;
       align-items: center;
-      gap: 4px;
+      gap: 2px;
       background: var(--surface-muted);
       border: 1px solid var(--border);
       border-radius: 11px;
@@ -107,7 +116,25 @@
     }
     .top-tabs::-webkit-scrollbar { display: none; }
 
+    .top-indicator {
+      position: absolute;
+      top: 3px;
+      bottom: 3px;
+      left: 0;
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0;
+      transition: transform 0.28s var(--ease-out), width 0.28s var(--ease-out), opacity 0.18s ease;
+      will-change: transform, width;
+    }
+    .top-indicator.ready { opacity: 1; }
+
     .top-tab {
+      position: relative;
+      z-index: 1;
       border: 0;
       background: transparent;
       color: var(--text-secondary);
@@ -120,14 +147,11 @@
       align-items: center;
       gap: 6px;
       white-space: nowrap;
-      transition: all 0.14s ease;
+      transition: color 0.18s ease;
     }
     .top-tab:hover { color: var(--text); }
-    .top-tab.active {
-      background: var(--surface);
-      color: var(--primary);
-      box-shadow: var(--shadow-sm);
-    }
+    .top-tab.active { color: var(--primary); }
+
     .tab-badge {
       font-size: 11px;
       font-weight: 700;
@@ -136,18 +160,22 @@
       background: var(--primary-soft);
       color: var(--primary);
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-variant-numeric: tabular-nums;
+      min-width: 24px;
+      text-align: center;
     }
 
     .top-right {
+      justify-self: end;
       display: flex;
       align-items: center;
       gap: 8px;
-      flex-shrink: 0;
     }
 
     .tool-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 5px;
       height: 32px;
       padding: 0 11px;
@@ -160,7 +188,7 @@
       text-decoration: none;
       cursor: pointer;
       white-space: nowrap;
-      transition: all 0.14s ease;
+      transition: color 0.15s ease, border-color 0.15s ease, background-color 0.15s ease, opacity 0.18s ease;
     }
     .tool-btn:hover {
       border-color: var(--primary);
@@ -178,8 +206,13 @@
       border-color: var(--primary);
       color: #ffffff;
     }
+    .tool-btn.is-ghost {
+      opacity: 0;
+      pointer-events: none;
+    }
 
     .lang-seg {
+      position: relative;
       display: inline-flex;
       background: var(--surface-muted);
       border: 1px solid var(--border);
@@ -195,6 +228,8 @@
       font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
+      min-width: 44px;
+      transition: background-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
     }
     .lang-seg button.active {
       background: var(--surface);
@@ -202,9 +237,9 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Row 2: Compact Product Sub-Tabs */
+    /* Row 2: Fixed 44px Subbar Baseline (NEVER collapses — ZERO vertical jump across all 4 tabs!) */
     .subbar {
-      height: 44px;
+      height: var(--sub-h);
       flex-shrink: 0;
       background: var(--surface-soft);
       border-bottom: 1px solid var(--border);
@@ -213,22 +248,23 @@
       align-items: center;
       justify-content: space-between;
       gap: 12px;
+      position: relative;
       z-index: 30;
     }
-    .subbar.hidden { display: none; }
 
     .sub-left {
       display: flex;
       align-items: center;
       gap: 14px;
       min-width: 0;
+      height: 100%;
       overflow-x: auto;
       scrollbar-width: none;
     }
     .sub-left::-webkit-scrollbar { display: none; }
 
     .sub-prod-name {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 800;
       color: var(--text);
       white-space: nowrap;
@@ -236,46 +272,127 @@
       border-right: 1px solid var(--border);
     }
     .sub-tabs {
-      display: flex;
+      position: relative;
+      display: inline-flex;
       align-items: center;
       gap: 4px;
+      height: 100%;
     }
+    .sub-indicator {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2.5px;
+      border-radius: 2px 2px 0 0;
+      background: var(--primary);
+      pointer-events: none;
+      opacity: 0;
+      transition: transform 0.26s var(--ease-out), width 0.26s var(--ease-out), opacity 0.16s ease;
+      will-change: transform, width;
+    }
+    .sub-indicator.ready { opacity: 1; }
+
     .sub-tab {
       border: 0;
       background: transparent;
       color: var(--text-secondary);
-      height: 44px;
+      height: 100%;
       padding: 0 14px;
       font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
       display: inline-flex;
       align-items: center;
-      border-bottom: 2.5px solid transparent;
-      transition: all 0.14s ease;
       white-space: nowrap;
+      transition: color 0.16s ease;
     }
     .sub-tab:hover { color: var(--text); }
-    .sub-tab.active {
-      color: var(--primary);
-      border-bottom-color: var(--primary);
+    .sub-tab.active { color: var(--primary); }
+
+    .sub-info-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      white-space: nowrap;
     }
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      flex-shrink: 0;
+    }
+
     .sub-right {
       display: flex;
       align-items: center;
       gap: 10px;
       font-size: 12.5px;
       color: var(--text-muted);
+      font-variant-numeric: tabular-nums;
       flex-shrink: 0;
     }
 
-    /* Full-Width Content Stage */
+    /* Sleek Top Loading Progress Bar (Zero jarring full-screen white flash) */
+    .progress-bar {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+      height: 2.5px;
+      overflow: hidden;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+    .progress-bar.active { opacity: 1; }
+    .progress-bar::after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, var(--primary), #7c3aed, transparent);
+      animation: progress-slide 1.1s ease-in-out infinite;
+    }
+    @keyframes progress-slide {
+      0% { transform: translateX(-110%); }
+      100% { transform: translateX(350%); }
+    }
+
+    /* Stage with Keep-Alive View Panes + Smooth Cross-Fade & Subtle Lift */
     .stage {
       flex: 1;
       width: 100%;
       min-height: 0;
       position: relative;
       background: var(--bg);
+      overflow: hidden;
+    }
+
+    .view-pane {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translate3d(0, 8px, 0);
+      transition: opacity 0.24s var(--ease-out), transform 0.26s var(--ease-out), visibility 0s linear 0.24s;
+      will-change: opacity, transform;
+      background: var(--bg);
+    }
+    .view-pane.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translate3d(0, 0, 0);
+      transition: opacity 0.24s var(--ease-out), transform 0.26s var(--ease-out), visibility 0s linear 0s;
+      z-index: 2;
     }
 
     .doc-frame {
@@ -287,10 +404,10 @@
     }
     html.dark .doc-frame.models-frame { background: #0b0f17; }
 
-    .frame-loader {
+    .pane-loader {
       position: absolute;
       inset: 0;
-      z-index: 15;
+      z-index: 5;
       background: var(--bg);
       display: flex;
       flex-direction: column;
@@ -299,16 +416,19 @@
       gap: 12px;
       color: var(--text-secondary);
       font-size: 14px;
-      transition: opacity 0.18s ease;
+      transition: opacity 0.22s ease;
     }
-    .frame-loader.done { opacity: 0; pointer-events: none; }
+    .pane-loader.done {
+      opacity: 0;
+      pointer-events: none;
+    }
     .spinner {
-      width: 28px;
-      height: 28px;
+      width: 26px;
+      height: 26px;
       border-radius: 50%;
-      border: 3px solid var(--border);
+      border: 2.5px solid var(--border);
       border-top-color: var(--primary);
-      animation: spin 0.75s linear infinite;
+      animation: spin 0.72s linear infinite;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
@@ -317,6 +437,7 @@
       width: 100%;
       height: 100%;
       overflow: auto;
+      scrollbar-gutter: stable;
       padding: 40px 20px;
       display: flex;
       align-items: flex-start;
@@ -360,9 +481,10 @@
       background: var(--surface-soft);
       color: var(--text);
       text-decoration: none;
-      transition: all 0.15s ease;
+      transition: transform 0.16s var(--ease-out), border-color 0.16s ease, background-color 0.16s ease, color 0.16s ease;
     }
     .official-link:hover {
+      transform: translateY(-2px);
       border-color: var(--primary);
       background: var(--primary-soft);
       color: var(--primary);
@@ -371,11 +493,14 @@
     .official-link span { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 3px; }
     .official-link.wide { grid-column: span 2; }
 
-    /* Mobile Responsive Layout */
+    /* Mobile Responsive Baseline */
     @media (max-width: 820px) {
       .topbar {
+        height: auto;
         padding: 8px 12px;
+        display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
         gap: 8px;
       }
       .top-tabs {
@@ -393,15 +518,18 @@
         padding: 0 12px;
       }
       .sub-prod-name, .sub-date { display: none; }
-      .sub-tab {
-        height: 40px;
-        padding: 0 11px;
-        font-size: 13px;
-      }
+      .sub-tab { padding: 0 11px; font-size: 13px; }
       .official-panel { padding: 18px 12px; }
       .official-card { padding: 22px 18px; border-radius: 16px; }
       .official-grid { grid-template-columns: 1fr; }
       .official-link.wide { grid-column: span 1; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .top-indicator, .sub-indicator, .view-pane, .pane-loader, .official-link {
+        transition: none !important;
+        animation: none !important;
+      }
     }
   </style>
 </head>
@@ -412,11 +540,13 @@
       <span class="brand-name" id="brand-name">懒猫微服</span>
     </a>
 
-    <nav class="top-tabs" id="top-tabs" aria-label="Main sections"></nav>
+    <nav class="top-tabs" id="top-tabs" aria-label="Main sections">
+      <div class="top-indicator" id="top-indicator"></div>
+    </nav>
 
     <div class="top-right">
       <a class="tool-btn accent hide-mobile" id="btn-site-shortcut" href="https://lazycat.cloud/" target="_blank" rel="noopener">lazycat.cloud ↗</a>
-      <a class="tool-btn" id="btn-open-new" href="#" target="_blank" rel="noopener" style="display:none;">
+      <a class="tool-btn" id="btn-open-new" href="#" target="_blank" rel="noopener">
         <span class="hide-mobile" id="btn-open-label">独立打开</span>
         <span>↗</span>
       </a>
@@ -429,16 +559,18 @@
   </header>
 
   <div class="subbar" id="subbar">
-    <div class="sub-left">
-      <span class="sub-prod-name" id="sub-prod-name">--</span>
-      <nav class="sub-tabs" id="sub-tabs"></nav>
+    <div class="sub-left" id="sub-left">
+      <span class="sub-prod-name" id="sub-prod-name">懒猫微服 LC03</span>
+      <nav class="sub-tabs" id="sub-tabs">
+        <div class="sub-indicator" id="sub-indicator"></div>
+      </nav>
+      <div class="sub-info-pill" id="sub-info-pill" style="display:none;"></div>
     </div>
     <div class="sub-right" id="sub-right"></div>
+    <div class="progress-bar" id="progress-bar"></div>
   </div>
 
-  <main class="stage" id="stage">
-    <div class="frame-loader"><div class="spinner"></div><span>Loading…</span></div>
-  </main>
+  <main class="stage" id="stage"></main>
 
   <script>
     (function () {
@@ -456,6 +588,10 @@
           loadingDoc: '正在加载页面…',
           slowHint: '加载较慢？新窗口打开 ↗',
           officialProductBtn: '官网产品页 ↗',
+          modelsSubTitle: 'AI Pod 模型广场',
+          modelsSubInfo: (ms) => `实时收录 ${ms.visibleCount} 款模型 · ${ms.categoryCount} 大分类 · AI Pod v${ms.appVersion}`,
+          officialSubTitle: '懒猫官网',
+          officialSubInfo: '官方产品主页与应用商店直达',
           officialEyebrow: '中文官网 · lazycat.cloud',
           officialTitle: '懒猫微服官方入口',
           officialSub: '直达懒猫微服、懒猫算力舱 AI Pod 官方网站与应用商店。',
@@ -479,6 +615,10 @@
           loadingDoc: 'Loading page…',
           slowHint: 'Taking a while? Open in new tab ↗',
           officialProductBtn: 'lcmd.cloud ↗',
+          modelsSubTitle: 'AI Pod Model Store',
+          modelsSubInfo: (ms) => `${ms.visibleCount} models · ${ms.categoryCount} categories · AI Pod v${ms.appVersion}`,
+          officialSubTitle: 'Official Website',
+          officialSubInfo: 'Direct links to lcmd.cloud official product pages',
           officialEyebrow: 'Global Official Website · lcmd.cloud',
           officialTitle: 'LCMD Global Official Site',
           officialSub: 'Visit lcmd.cloud for international LCMD Micro Server & AI Pod product pages and ordering.',
@@ -505,6 +645,10 @@
         manifest: null,
         section: 'LC03',
         slot: 'brochure',
+        topBuilt: false,
+        lastSubKey: '',
+        panes: new Map(), // viewKey -> { el, loaded }
+        activeKey: null,
       };
 
       const $ = (s) => document.querySelector(s);
@@ -577,24 +721,69 @@
         return docs;
       }
 
-      function mountIframe(srcUrl, title, extraClass) {
-        const L = t();
-        const stage = $('#stage');
-        stage.innerHTML = `
-          <div class="frame-loader" id="frame-loader">
-            <div class="spinner"></div>
-            <span>${esc(L.loadingDoc)}</span>
-            <a class="tool-btn" href="${esc(srcUrl)}" target="_blank" rel="noopener" style="margin-top:4px;">${esc(L.slowHint)}</a>
-          </div>
-          <iframe class="doc-frame ${extraClass || ''}" id="doc-frame" src="${esc(srcUrl)}" title="${esc(title)}"></iframe>
-        `;
-        const frame = $('#doc-frame');
-        const loader = $('#frame-loader');
-        frame.addEventListener('load', () => loader?.classList.add('done'));
-        setTimeout(() => loader?.classList.add('done'), 8000);
+      function moveIndicator(container, indicator, activeEl) {
+        if (!container || !indicator || !activeEl) {
+          indicator?.classList.remove('ready');
+          return;
+        }
+        const x = activeEl.offsetLeft;
+        const w = activeEl.offsetWidth;
+        indicator.style.width = `${w}px`;
+        indicator.style.transform = `translate3d(${x}px, 0, 0)`;
+        indicator.classList.add('ready');
       }
 
-      function renderTopbar() {
+      function setTopProgress(loading) {
+        $('#progress-bar')?.classList.toggle('active', Boolean(loading));
+      }
+
+      /* Build top tabs ONCE, then update text & active class in place -> silky sliding pill, zero DOM flicker */
+      function ensureTopTabs() {
+        const m = state.manifest;
+        const container = $('#top-tabs');
+        if (!m || state.topBuilt) return;
+
+        const frag = document.createDocumentFragment();
+        for (const p of m.products || []) {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'top-tab';
+          btn.dataset.sec = p.id;
+          btn.innerHTML = `<span class="js-tab-label"></span>`;
+          frag.appendChild(btn);
+        }
+        const mBtn = document.createElement('button');
+        mBtn.type = 'button';
+        mBtn.className = 'top-tab';
+        mBtn.dataset.sec = 'models';
+        mBtn.innerHTML = `<span class="js-tab-label"></span><span class="tab-badge" id="tab-model-cnt"></span>`;
+        frag.appendChild(mBtn);
+
+        const oBtn = document.createElement('button');
+        oBtn.type = 'button';
+        oBtn.className = 'top-tab';
+        oBtn.dataset.sec = 'official';
+        oBtn.innerHTML = `<span class="js-tab-label"></span>`;
+        frag.appendChild(oBtn);
+
+        container.appendChild(frag);
+        container.addEventListener('click', (e) => {
+          const btn = e.target.closest('[data-sec]');
+          if (!btn) return;
+          const sec = btn.dataset.sec;
+          if (sec === state.section) return;
+          state.section = sec;
+          if (sec !== 'models' && sec !== 'official') {
+            const docs = getProductDocs(sec);
+            if (docs.length && !docs.some((d) => d.slot === state.slot)) state.slot = docs[0].slot;
+          }
+          syncHash();
+          render();
+        });
+        state.topBuilt = true;
+      }
+
+      function updateTopbar() {
         const L = t();
         document.documentElement.lang = isEn() ? 'en' : 'zh-CN';
         document.documentElement.classList.toggle('dark', state.theme === 'dark');
@@ -606,87 +795,54 @@
         $('#btn-site-shortcut').href = L.siteShortcutUrl;
         $('#btn-open-label').textContent = L.openNew;
 
-        const m = state.manifest;
-        const products = m?.products || [];
-        const modelCount = m?.modelStoreSummary?.visibleCount ?? '--';
+        ensureTopTabs();
+        const cntEl = $('#tab-model-cnt');
+        if (cntEl) cntEl.textContent = state.manifest?.modelStoreSummary?.visibleCount ?? '--';
 
-        const tabs = [
-          ...products.map(
-            (p) => `
-              <button type="button" class="top-tab ${state.section === p.id ? 'active' : ''}" data-sec="${esc(p.id)}">
-                ${esc(sectionTabLabel(p.id))}
-              </button>
-            `,
-          ),
-          `<button type="button" class="top-tab ${state.section === 'models' ? 'active' : ''}" data-sec="models">
-            <span>${esc(L.tabModels)}</span>
-            <span class="tab-badge">${esc(modelCount)}</span>
-          </button>`,
-          `<button type="button" class="top-tab ${state.section === 'official' ? 'active' : ''}" data-sec="official">
-            <span>${esc(L.tabOfficial)}</span>
-          </button>`,
-        ];
+        let activeBtn = null;
+        $$('#top-tabs [data-sec]').forEach((btn) => {
+          const sec = btn.dataset.sec;
+          const lbl = btn.querySelector('.js-tab-label');
+          if (lbl) {
+            if (sec === 'models') lbl.textContent = L.tabModels;
+            else if (sec === 'official') lbl.textContent = L.tabOfficial;
+            else lbl.textContent = sectionTabLabel(sec);
+          }
+          const isAct = sec === state.section;
+          btn.classList.toggle('active', isAct);
+          if (isAct) activeBtn = btn;
+        });
 
-        $('#top-tabs').innerHTML = tabs.join('');
-        $$('#top-tabs [data-sec]').forEach((btn) =>
-          btn.addEventListener('click', () => {
-            const sec = btn.dataset.sec;
-            state.section = sec;
-            if (sec !== 'models' && sec !== 'official') {
-              const docs = getProductDocs(sec);
-              if (docs.length && !docs.some((d) => d.slot === state.slot)) state.slot = docs[0].slot;
-            }
-            syncHash();
-            render();
-          }),
-        );
+        requestAnimationFrame(() => moveIndicator($('#top-tabs'), $('#top-indicator'), activeBtn));
       }
 
-      function renderStage() {
+      function updateSubbar() {
         const L = t();
         const m = state.manifest;
-        const subbar = $('#subbar');
-        const stage = $('#stage');
-        const openBtn = $('#btn-open-new');
         if (!m) return;
 
+        const prodNameEl = $('#sub-prod-name');
+        const subTabsEl = $('#sub-tabs');
+        const subInfoEl = $('#sub-info-pill');
+        const subRightEl = $('#sub-right');
+
         if (state.section === 'models') {
-          subbar.classList.add('hidden');
-          const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1&v=${m.buildVer || ''}`;
-          openBtn.style.display = 'inline-flex';
-          openBtn.href = `model-store/?lang=${state.lang}`;
-          mountIframe(url, 'AI Model Store', 'models-frame');
+          prodNameEl.textContent = L.modelsSubTitle;
+          subTabsEl.style.display = 'none';
+          subInfoEl.style.display = 'inline-flex';
+          subInfoEl.innerHTML = `<span class="live-dot"></span><span>${esc(L.modelsSubInfo(m.modelStoreSummary || {}))}</span>`;
+          subRightEl.innerHTML = `<span class="sub-date">${esc((m.updatedAt || '').slice(0, 10))}</span>`;
+          state.lastSubKey = 'models';
           return;
         }
 
         if (state.section === 'official') {
-          subbar.classList.add('hidden');
-          openBtn.style.display = 'inline-flex';
-          openBtn.href = L.siteShortcutUrl;
-          stage.innerHTML = `
-            <div class="official-panel">
-              <div class="official-card">
-                <div class="official-eyebrow">${esc(L.officialEyebrow)}</div>
-                <h2>${esc(L.officialTitle)}</h2>
-                <p>${esc(L.officialSub)}</p>
-                <div class="official-grid">
-                  ${L.officialLinks
-                    .map(
-                      (lk) => `
-                        <a class="official-link ${lk.wide ? 'wide' : ''}" href="${esc(lk.url)}" target="_blank" rel="noopener">
-                          <div>
-                            <strong>${esc(lk.title)}</strong>
-                            <span>${esc(lk.desc)}</span>
-                          </div>
-                          <span>↗</span>
-                        </a>
-                      `,
-                    )
-                    .join('')}
-                </div>
-              </div>
-            </div>
-          `;
+          prodNameEl.textContent = L.officialSubTitle;
+          subTabsEl.style.display = 'none';
+          subInfoEl.style.display = 'inline-flex';
+          subInfoEl.innerHTML = `<span>${esc(L.officialSubInfo)}</span>`;
+          subRightEl.innerHTML = `<a class="tool-btn" href="${esc(L.siteShortcutUrl)}" target="_blank" rel="noopener">${esc(L.siteShortcutLabel)}</a>`;
+          state.lastSubKey = 'official';
           return;
         }
 
@@ -698,43 +854,154 @@
         let activeDoc = docs.find((d) => d.slot === state.slot) || docs[0];
         if (activeDoc) state.slot = activeDoc.slot;
 
-        subbar.classList.remove('hidden');
-        $('#sub-prod-name').textContent = isEn() ? product.nameEn : product.nameZh;
+        prodNameEl.textContent = isEn() ? product.nameEn : product.nameZh;
+        subTabsEl.style.display = 'inline-flex';
+        subInfoEl.style.display = 'none';
 
-        $('#sub-tabs').innerHTML = docs
-          .map(
-            (d) => `
-              <button type="button" class="sub-tab ${activeDoc && d.slot === activeDoc.slot ? 'active' : ''}" data-slot="${esc(d.slot)}">
-                ${esc(isEn() ? d.titleEn : d.titleZh)}
-              </button>
-            `,
-          )
-          .join('');
+        const subKey = `${product.id}:${state.lang}:${docs.map((d) => d.slot).join(',')}`;
+        if (state.lastSubKey !== subKey) {
+          // Keep indicator element, rebuild buttons only when product or language changes
+          const ind = $('#sub-indicator');
+          subTabsEl.innerHTML = '';
+          subTabsEl.appendChild(ind);
+          for (const d of docs) {
+            const btn = document.createElement('button');
+            btn.type = 'button';
+            btn.className = 'sub-tab';
+            btn.dataset.slot = d.slot;
+            btn.textContent = isEn() ? d.titleEn : d.titleZh;
+            subTabsEl.appendChild(btn);
+          }
+          state.lastSubKey = subKey;
+        }
 
-        $$('#sub-tabs [data-slot]').forEach((btn) =>
-          btn.addEventListener('click', () => {
-            state.slot = btn.dataset.slot;
-            syncHash();
-            render();
-          }),
-        );
+        let activeSubBtn = null;
+        $$('#sub-tabs [data-slot]').forEach((btn) => {
+          const isAct = activeDoc && btn.dataset.slot === activeDoc.slot;
+          btn.classList.toggle('active', isAct);
+          if (isAct) activeSubBtn = btn;
+        });
+
+        requestAnimationFrame(() => moveIndicator(subTabsEl, $('#sub-indicator'), activeSubBtn));
 
         const officialUrl = isEn() ? (product.officialEn || 'https://lcmd.cloud/') : (product.officialZh || 'https://lazycat.cloud/');
-        $('#sub-right').innerHTML = `
+        subRightEl.innerHTML = `
           <span class="sub-date">${esc((m.updatedAt || '').slice(0, 10))}</span>
           <a class="tool-btn" href="${esc(officialUrl)}" target="_blank" rel="noopener">${esc(L.officialProductBtn)}</a>
         `;
+      }
 
+      /* Keep-Alive View Pane Manager: zero reload flicker, silky 240ms cross-fade + 8px glide */
+      function showPane(key, createFn) {
+        const stage = $('#stage');
+        let record = state.panes.get(key);
+        if (!record) {
+          const el = document.createElement('div');
+          el.className = 'view-pane';
+          el.dataset.key = key;
+          record = { el, loaded: false };
+          createFn(el, record);
+          stage.appendChild(el);
+          state.panes.set(key, record);
+        }
+
+        // Toggle active pane smoothly
+        for (const [k, rec] of state.panes.entries()) {
+          if (k !== key) rec.el.classList.remove('active');
+        }
+        // Trigger reflow on newly created pane so entrance animation always plays smoothly
+        void record.el.offsetWidth;
+        record.el.classList.add('active');
+        state.activeKey = key;
+        setTopProgress(!record.loaded);
+      }
+
+      function createIframePane(el, record, srcUrl, title, extraClass) {
+        const L = t();
+        el.innerHTML = `
+          <div class="pane-loader">
+            <div class="spinner"></div>
+            <span>${esc(L.loadingDoc)}</span>
+            <a class="tool-btn" href="${esc(srcUrl)}" target="_blank" rel="noopener" style="margin-top:4px;">${esc(L.slowHint)}</a>
+          </div>
+          <iframe class="doc-frame ${extraClass || ''}" src="${esc(srcUrl)}" title="${esc(title)}"></iframe>
+        `;
+        const frame = el.querySelector('iframe');
+        const loader = el.querySelector('.pane-loader');
+        const markDone = () => {
+          if (record.loaded) return;
+          record.loaded = true;
+          loader?.classList.add('done');
+          if (state.activeKey === el.dataset.key) setTopProgress(false);
+        };
+        frame.addEventListener('load', markDone);
+        setTimeout(markDone, 8000);
+      }
+
+      function updateStage() {
+        const L = t();
+        const m = state.manifest;
+        const openBtn = $('#btn-open-new');
+        if (!m) return;
+
+        if (state.section === 'models') {
+          const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1&v=${m.buildVer || ''}`;
+          openBtn.classList.remove('is-ghost');
+          openBtn.href = `model-store/?lang=${state.lang}`;
+          showPane(`models:${state.lang}:${state.theme}`, (el, rec) =>
+            createIframePane(el, rec, url, 'AI Model Store', 'models-frame'),
+          );
+          return;
+        }
+
+        if (state.section === 'official') {
+          openBtn.classList.remove('is-ghost');
+          openBtn.href = L.siteShortcutUrl;
+          showPane(`official:${state.lang}`, (el, rec) => {
+            rec.loaded = true;
+            el.innerHTML = `
+              <div class="official-panel">
+                <div class="official-card">
+                  <div class="official-eyebrow">${esc(L.officialEyebrow)}</div>
+                  <h2>${esc(L.officialTitle)}</h2>
+                  <p>${esc(L.officialSub)}</p>
+                  <div class="official-grid">
+                    ${L.officialLinks
+                      .map(
+                        (lk) => `
+                          <a class="official-link ${lk.wide ? 'wide' : ''}" href="${esc(lk.url)}" target="_blank" rel="noopener">
+                            <div>
+                              <strong>${esc(lk.title)}</strong>
+                              <span>${esc(lk.desc)}</span>
+                            </div>
+                            <span>↗</span>
+                          </a>
+                        `,
+                      )
+                      .join('')}
+                  </div>
+                </div>
+              </div>
+            `;
+          });
+          return;
+        }
+
+        const docs = getProductDocs(state.section);
+        const activeDoc = docs.find((d) => d.slot === state.slot) || docs[0];
         if (!activeDoc) return;
         const docUrl = withVer(activeDoc.url);
-        openBtn.style.display = 'inline-flex';
+        openBtn.classList.remove('is-ghost');
         openBtn.href = docUrl;
-        mountIframe(docUrl, isEn() ? activeDoc.titleEn : activeDoc.titleZh, '');
+        showPane(`doc:${state.lang}:${state.section}:${activeDoc.slot}`, (el, rec) =>
+          createIframePane(el, rec, docUrl, isEn() ? activeDoc.titleEn : activeDoc.titleZh, ''),
+        );
       }
 
       function render() {
-        renderTopbar();
-        renderStage();
+        updateTopbar();
+        updateSubbar();
+        updateStage();
       }
 
       async function init() {
@@ -746,12 +1013,22 @@
           syncHash();
           render();
         } catch (err) {
-          $('#stage').innerHTML = `<div class="frame-loader"><span>Failed to load: ${esc(err.message)}</span></div>`;
+          $('#stage').innerHTML = `<div class="pane-loader"><span>Failed to load: ${esc(err.message)}</span></div>`;
         }
       }
 
+      $('#sub-tabs').addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-slot]');
+        if (!btn) return;
+        if (btn.dataset.slot === state.slot) return;
+        state.slot = btn.dataset.slot;
+        syncHash();
+        render();
+      });
+
       $$('[data-lang]').forEach((b) =>
         b.addEventListener('click', () => {
+          if (state.lang === b.dataset.lang) return;
           state.lang = b.dataset.lang;
           localStorage.setItem('lcmd-lang', state.lang);
           syncHash();
@@ -763,6 +1040,13 @@
         state.theme = state.theme === 'dark' ? 'light' : 'dark';
         localStorage.setItem('lcmd-theme', state.theme);
         render();
+      });
+
+      window.addEventListener('resize', () => {
+        const actTop = $('#top-tabs .top-tab.active');
+        const actSub = $('#sub-tabs .sub-tab.active');
+        moveIndicator($('#top-tabs'), $('#top-indicator'), actTop);
+        if (actSub) moveIndicator($('#sub-tabs'), $('#sub-indicator'), actSub);
       });
 
       window.addEventListener('hashchange', () => {
