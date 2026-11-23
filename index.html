@@ -89,7 +89,6 @@
       letter-spacing: -0.02em;
     }
 
-    /* Primary Top Tabs */
     .top-tabs {
       display: flex;
       align-items: center;
@@ -188,14 +187,14 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Workspace Layout */
+    /* Workspace */
     .workspace {
       display: flex;
       height: calc(100vh - var(--header-h));
       width: 100%;
     }
 
-    /* Left Sidebar (for product sections) */
+    /* Left Sidebar */
     .sidebar {
       width: var(--sidebar-w);
       flex-shrink: 0;
@@ -258,7 +257,7 @@
       color: var(--primary);
     }
     .side-ext {
-      font-size: 10.5px;
+      font-size: 11px;
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       opacity: 0.72;
     }
@@ -290,7 +289,7 @@
       color: var(--primary);
     }
 
-    /* Main Content Stage */
+    /* Main Stage */
     .stage {
       flex: 1;
       min-width: 0;
@@ -308,11 +307,38 @@
       background: #ffffff;
       display: block;
     }
-    html.dark .doc-frame.models-frame {
-      background: #0b0f17;
-    }
+    html.dark .doc-frame.models-frame { background: #0b0f17; }
 
-    /* Image Viewer inside Stage (for PNG-only items like LC03 overview / X5 ZH specs) */
+    /* Loading Overlay (prevents blank white screen while multi-MB HTML loads) */
+    .frame-loader {
+      position: absolute;
+      inset: 0;
+      z-index: 15;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      color: var(--text-secondary);
+      font-size: 14px;
+      transition: opacity 0.2s ease;
+    }
+    .frame-loader.done {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .spinner {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      border-top-color: var(--primary);
+      animation: spin 0.75s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* Single Image Viewer */
     .img-stage {
       width: 100%;
       height: 100%;
@@ -342,13 +368,92 @@
       background: #ffffff;
       max-width: 100%;
       height: auto;
-      transition: max-width 0.18s ease;
     }
-    .img-stage.zoom-full img {
-      max-width: none;
+    .img-stage.zoom-full img { max-width: none; }
+
+    /* Product Preview Gallery View */
+    .gallery-stage {
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      padding: 26px 28px 48px;
+    }
+    .gallery-inner {
+      max-width: 1260px;
+      margin: 0 auto;
+    }
+    .gallery-head {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .gallery-head h2 {
+      margin: 0;
+      font-size: 20px;
+      font-weight: 800;
+    }
+    .gallery-head span {
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+    .gallery-wide {
+      margin-bottom: 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      cursor: zoom-in;
+      box-shadow: var(--shadow-sm);
+    }
+    .gallery-wide img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .gallery-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      cursor: zoom-in;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.15s ease, border-color 0.15s ease;
+    }
+    .gallery-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+    .gallery-thumb {
+      aspect-ratio: 4 / 3;
+      background: var(--surface-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .gallery-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .gallery-cap {
+      padding: 10px 13px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      border-top: 1px solid var(--border);
     }
 
-    /* Official Site Tab Panel (clean quick-entry if clicked, or direct link) */
+    /* Official Site Panel */
     .official-panel {
       width: 100%;
       height: 100%;
@@ -360,28 +465,16 @@
     }
     .official-card {
       width: 100%;
-      max-width: 680px;
+      max-width: 660px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 28px 30px;
       box-shadow: var(--shadow-sm);
     }
-    .official-card h2 {
-      margin: 0 0 6px;
-      font-size: 22px;
-      font-weight: 800;
-    }
-    .official-card p {
-      margin: 0 0 20px;
-      font-size: 14.5px;
-      color: var(--text-secondary);
-    }
-    .official-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
+    .official-card h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; }
+    .official-card p { margin: 0 0 20px; font-size: 14.5px; color: var(--text-secondary); }
+    .official-links { display: flex; flex-direction: column; gap: 10px; }
     .official-link {
       display: flex;
       align-items: center;
@@ -403,18 +496,51 @@
     .official-link strong { display: block; font-size: 15px; }
     .official-link span { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
 
-    .loading-state {
-      position: absolute;
+    /* Lightbox */
+    .lightbox {
+      position: fixed;
       inset: 0;
-      display: flex;
+      z-index: 100;
+      background: rgba(15, 23, 42, 0.9);
+      backdrop-filter: blur(6px);
+      display: none;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: var(--text-muted);
-      font-size: 14px;
-      pointer-events: none;
+      padding: 20px;
+      gap: 12px;
     }
+    .lightbox.open { display: flex; }
+    .lightbox-bar {
+      width: 100%;
+      max-width: 1180px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: #ffffff;
+      gap: 10px;
+    }
+    .lb-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .lb-btn:hover { background: rgba(255, 255, 255, 0.24); }
+    .lightbox-img-wrap {
+      max-width: 94vw;
+      max-height: 82vh;
+      overflow: auto;
+      border-radius: 12px;
+      background: #0f172a;
+    }
+    .lightbox-img-wrap img { display: block; max-width: 100%; max-height: 80vh; width: auto; height: auto; }
 
-    /* Responsive Mobile Layout: Sidebar becomes clean horizontal sub-tab bar under topbar */
     @media (max-width: 860px) {
       .topbar {
         height: auto;
@@ -422,14 +548,8 @@
         flex-wrap: wrap;
         gap: 8px;
       }
-      .top-tabs {
-        order: 3;
-        width: 100%;
-      }
-      .workspace {
-        flex-direction: column;
-        height: calc(100vh - 98px);
-      }
+      .top-tabs { order: 3; width: 100%; }
+      .workspace { flex-direction: column; height: calc(100vh - 98px); }
       .sidebar {
         width: 100%;
         height: auto;
@@ -441,16 +561,10 @@
         overflow-x: auto;
       }
       .side-product, .side-footer { display: none; }
-      .side-nav {
-        flex-direction: row;
-        gap: 6px;
-      }
-      .side-item {
-        padding: 7px 12px;
-        white-space: nowrap;
-        font-size: 13px;
-      }
+      .side-nav { flex-direction: row; gap: 6px; }
+      .side-item { padding: 7px 12px; white-space: nowrap; font-size: 13px; }
       .btn-open-text { display: none; }
+      .gallery-stage { padding: 16px 14px 36px; }
     }
   </style>
 </head>
@@ -487,8 +601,24 @@
     </aside>
 
     <main class="stage" id="stage">
-      <div class="loading-state">Loading…</div>
+      <div class="frame-loader"><div class="spinner"></div><span>Loading…</span></div>
     </main>
+  </div>
+
+  <!-- Lightbox for Gallery -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-bar">
+      <strong id="lb-title" style="font-size:14.5px;"></strong>
+      <div style="display:flex;gap:8px;align-items:center;">
+        <button type="button" class="lb-btn" id="lb-prev">←</button>
+        <button type="button" class="lb-btn" id="lb-next">→</button>
+        <a class="lb-btn" id="lb-open" href="#" target="_blank" rel="noopener">原图 ↗</a>
+        <button type="button" class="lb-btn" id="lb-close">关闭</button>
+      </div>
+    </div>
+    <div class="lightbox-img-wrap">
+      <img id="lb-img" src="" alt="" />
+    </div>
   </div>
 
   <script>
@@ -500,7 +630,11 @@
           tabX5: '算力舱介绍资料',
           tabModels: 'AI 模型广场',
           tabOfficial: '官网',
+          galleryLabel: '产品预览图集',
+          gallerySub: (n) => `共 ${n} 张高清实拍与功能预览图 · 点击任意图片放大查看`,
           openNew: '新窗口打开',
+          loadingDoc: '正在加载页面内容…',
+          slowHint: '加载较慢？新窗口打开 ↗',
           fitWidth: '适应宽度',
           origSize: '原始尺寸',
           officialPage: '官网产品页',
@@ -511,6 +645,8 @@
           officialTitle: '懒猫官方入口',
           officialSub: '访问懒猫微服与算力舱官方网站，获取最新产品发布与购买信息。',
           syncedPrefix: '同步于 ',
+          openOrig: '原图 ↗',
+          closeText: '关闭',
         },
         en: {
           docTitle: 'LCMD Cloud · Micro Server / AI Pod / Model Store',
@@ -518,7 +654,11 @@
           tabX5: 'AI Pod (X5-T5000)',
           tabModels: 'AI Model Store',
           tabOfficial: 'Official Site',
+          galleryLabel: 'Product Previews',
+          gallerySub: (n) => `${n} HD hardware & feature previews · click any image to enlarge`,
           openNew: 'Open in New Tab',
+          loadingDoc: 'Loading document…',
+          slowHint: 'Taking a while? Open in new tab ↗',
           fitWidth: 'Fit Width',
           origSize: 'Actual Size',
           officialPage: 'Official Product Page',
@@ -529,6 +669,8 @@
           officialTitle: 'Official Website Links',
           officialSub: 'Visit the official LazyCat Cloud websites for product announcements and ordering.',
           syncedPrefix: 'Synced ',
+          openOrig: 'Original ↗',
+          closeText: 'Close',
         },
       };
 
@@ -544,9 +686,11 @@
         lang: detectLang(),
         theme: localStorage.getItem('lcmd-theme') || 'light',
         manifest: null,
-        section: 'LC03', // productId | 'models' | 'official'
+        section: 'LC03',
         slot: 'brochure',
         imgZoomFull: false,
+        lbList: [],
+        lbIndex: 0,
       };
 
       const $ = (s) => document.querySelector(s);
@@ -561,6 +705,12 @@
           .replace(/</g, '&lt;')
           .replace(/>/g, '&gt;')
           .replace(/"/g, '&quot;');
+      }
+
+      function withVer(url) {
+        const v = state.manifest?.buildVer || '';
+        if (!v || !url) return url;
+        return url + (url.includes('?') ? '&' : '?') + 'v=' + v;
       }
 
       function sectionTabLabel(pid) {
@@ -584,7 +734,7 @@
         if (s === 'aipod' || s === 'ai-pod-x5' || s === 'x5') return 'AI-Pod-X5';
         if (s === 'models' || s === 'model-store') return 'models';
         if (s === 'official') return 'official';
-        const match = state.manifest?.products?.find((p) => p.id.toLowerCase() === s);
+        const match = state.manifest?.products?.find((p) => p.id.toLowerCase() === s || p.slug === s);
         return match ? match.id : 'LC03';
       }
 
@@ -614,6 +764,53 @@
         return docs;
       }
 
+      function getProductGallery(product) {
+        if (!product?.gallery) return [];
+        const g = product.gallery[state.lang];
+        return g && g.length ? g : (product.gallery.zh || product.gallery.en || []);
+      }
+
+      function openLightbox(list, idx) {
+        state.lbList = list;
+        state.lbIndex = idx;
+        renderLightbox();
+        $('#lightbox').classList.add('open');
+      }
+
+      function renderLightbox() {
+        const item = state.lbList[state.lbIndex];
+        if (!item) return;
+        const title = isEn() ? item.titleEn : item.titleZh;
+        const u = withVer(item.url);
+        $('#lb-title').textContent = `${title} (${state.lbIndex + 1}/${state.lbList.length})`;
+        $('#lb-img').src = u;
+        $('#lb-open').href = u;
+        $('#lb-prev').style.display = state.lbList.length > 1 ? 'inline-block' : 'none';
+        $('#lb-next').style.display = state.lbList.length > 1 ? 'inline-block' : 'none';
+      }
+
+      function closeLightbox() {
+        $('#lightbox').classList.remove('open');
+      }
+
+      function mountIframe(srcUrl, title, extraClass) {
+        const L = t();
+        const stage = $('#stage');
+        stage.innerHTML = `
+          <div class="frame-loader" id="frame-loader">
+            <div class="spinner"></div>
+            <span>${esc(L.loadingDoc)}</span>
+            <a class="tool-btn" href="${esc(srcUrl)}" target="_blank" rel="noopener" style="margin-top:4px;">${esc(L.slowHint)}</a>
+          </div>
+          <iframe class="doc-frame ${extraClass || ''}" id="doc-frame" src="${esc(srcUrl)}" title="${esc(title)}"></iframe>
+        `;
+        const frame = $('#doc-frame');
+        const loader = $('#frame-loader');
+        frame.addEventListener('load', () => loader?.classList.add('done'));
+        // Safety fade-out in case load event already fired
+        setTimeout(() => loader?.classList.add('done'), 8000);
+      }
+
       function renderTopbar() {
         const L = t();
         document.documentElement.lang = isEn() ? 'en' : 'zh-CN';
@@ -621,6 +818,8 @@
         document.title = L.docTitle;
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
         $('#btn-open-label').textContent = L.openNew;
+        $('#lb-open').textContent = L.openOrig;
+        $('#lb-close').textContent = L.closeText;
 
         const m = state.manifest;
         const products = m?.products || [];
@@ -649,10 +848,11 @@
             const sec = btn.dataset.sec;
             state.section = sec;
             if (sec !== 'models' && sec !== 'official') {
+              const prod = m.products.find((p) => p.id === sec);
               const docs = getProductDocs(sec);
-              if (docs.length && !docs.some((d) => d.slot === state.slot)) {
-                state.slot = docs[0].slot;
-              }
+              const hasGallery = getProductGallery(prod).length > 0;
+              const validSlot = (state.slot === 'gallery' && hasGallery) || docs.some((d) => d.slot === state.slot);
+              if (!validSlot && docs.length) state.slot = docs[0].slot;
             }
             state.imgZoomFull = false;
             syncHash();
@@ -667,16 +867,15 @@
         const sidebar = $('#sidebar');
         const stage = $('#stage');
         const openBtn = $('#btn-open-new');
-
         if (!m) return;
 
-        // 1. AI Model Store (full width, no left sidebar)
+        // 1. Model Store
         if (state.section === 'models') {
           sidebar.classList.add('hidden');
-          const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1`;
+          const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1&v=${m.buildVer || ''}`;
           openBtn.style.display = 'inline-flex';
           openBtn.href = `model-store/?lang=${state.lang}`;
-          stage.innerHTML = `<iframe class="doc-frame models-frame" src="${esc(url)}" title="AI Model Store"></iframe>`;
+          mountIframe(url, 'AI Model Store', 'models-frame');
           return;
         }
 
@@ -712,30 +911,35 @@
           return;
         }
 
-        // 3. Product Documentation Section (LC03 / AI-Pod-X5 / future products)
+        // 3. Product Documentation Section
         const product = m.products.find((p) => p.id === state.section) || m.products[0];
         if (!product) return;
         state.section = product.id;
 
         const docs = getProductDocs(product.id);
-        let activeDoc = docs.find((d) => d.slot === state.slot) || docs[0];
-        if (activeDoc) state.slot = activeDoc.slot;
+        const gallery = getProductGallery(product);
+
+        const navItems = [
+          ...docs.map((d) => ({ slot: d.slot, label: isEn() ? d.titleEn : d.titleZh, badge: d.ext, doc: d })),
+          ...(gallery.length ? [{ slot: 'gallery', label: L.galleryLabel, badge: String(gallery.length), gallery }] : []),
+        ];
+
+        let active = navItems.find((x) => x.slot === state.slot) || navItems[0];
+        if (active) state.slot = active.slot;
 
         sidebar.classList.remove('hidden');
         $('#side-title').textContent = isEn() ? product.nameEn : product.nameZh;
         $('#side-sub').textContent = isEn() ? product.taglineEn : product.taglineZh;
 
-        $('#side-nav').innerHTML = docs
-          .map((d) => {
-            const label = isEn() ? d.titleEn : d.titleZh;
-            const active = activeDoc && d.slot === activeDoc.slot;
-            return `
-              <button type="button" class="side-item ${active ? 'active' : ''}" data-slot="${esc(d.slot)}">
-                <span>${esc(label)}</span>
-                <span class="side-ext">${esc(d.ext)}</span>
+        $('#side-nav').innerHTML = navItems
+          .map(
+            (item) => `
+              <button type="button" class="side-item ${active && item.slot === active.slot ? 'active' : ''}" data-slot="${esc(item.slot)}">
+                <span>${esc(item.label)}</span>
+                <span class="side-ext">${esc(item.badge)}</span>
               </button>
-            `;
-          })
+            `,
+          )
           .join('');
 
         $$('#side-nav [data-slot]').forEach((btn) =>
@@ -756,34 +960,80 @@
           <div>${esc(L.syncedPrefix)}${(m.updatedAt || '').slice(0, 10)}</div>
         `;
 
-        if (!activeDoc) {
+        if (!active) return;
+
+        // 3a. Visual Preview Gallery
+        if (active.slot === 'gallery') {
           openBtn.style.display = 'none';
-          stage.innerHTML = `<div class="loading-state">No document found</div>`;
+          const wideItem = gallery.find((g) => g.wide);
+          const gridItems = gallery.filter((g) => !g.wide);
+          const allForLb = gallery;
+
+          stage.innerHTML = `
+            <div class="gallery-stage">
+              <div class="gallery-inner">
+                <div class="gallery-head">
+                  <h2>${esc(isEn() ? product.nameEn : product.nameZh)} · ${esc(L.galleryLabel)}</h2>
+                  <span>${esc(L.gallerySub(gallery.length))}</span>
+                </div>
+                ${
+                  wideItem
+                    ? `<div class="gallery-wide js-gal" data-idx="0">
+                        <img src="${esc(withVer(wideItem.url))}" alt="${esc(isEn() ? wideItem.titleEn : wideItem.titleZh)}" loading="lazy" />
+                      </div>`
+                    : ''
+                }
+                <div class="gallery-grid">
+                  ${gridItems
+                    .map((g) => {
+                      const idx = allForLb.indexOf(g);
+                      const cap = isEn() ? g.titleEn : g.titleZh;
+                      return `
+                        <article class="gallery-card js-gal" data-idx="${idx}">
+                          <div class="gallery-thumb">
+                            <img src="${esc(withVer(g.url))}" alt="${esc(cap)}" loading="lazy" />
+                          </div>
+                          <div class="gallery-cap">${esc(cap)}</div>
+                        </article>
+                      `;
+                    })
+                    .join('')}
+                </div>
+              </div>
+            </div>
+          `;
+          $$('.js-gal').forEach((el) =>
+            el.addEventListener('click', () => openLightbox(allForLb, Number(el.dataset.idx))),
+          );
           return;
         }
 
+        // 3b. Single Image Document (e.g. LC03 Overview / X5 ZH Hardware Specs)
+        const doc = active.doc;
+        const docUrl = withVer(doc.url);
         openBtn.style.display = 'inline-flex';
-        openBtn.href = activeDoc.url;
+        openBtn.href = docUrl;
 
-        if (isImg(activeDoc.ext)) {
+        if (isImg(doc.ext)) {
           stage.innerHTML = `
             <div class="img-stage ${state.imgZoomFull ? 'zoom-full' : ''}" id="img-stage">
               <div class="img-toolbar">
                 <button type="button" class="tool-btn" id="btn-img-zoom">${esc(state.imgZoomFull ? L.fitWidth : L.origSize)}</button>
-                <a class="tool-btn" href="${esc(activeDoc.url)}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
+                <a class="tool-btn" href="${esc(docUrl)}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
               </div>
-              <img src="${esc(activeDoc.url)}" alt="${esc(isEn() ? activeDoc.titleEn : activeDoc.titleZh)}" />
+              <img src="${esc(docUrl)}" alt="${esc(active.label)}" />
             </div>
           `;
           $('#btn-img-zoom')?.addEventListener('click', () => {
             state.imgZoomFull = !state.imgZoomFull;
-            const wrap = $('#img-stage');
-            wrap.classList.toggle('zoom-full', state.imgZoomFull);
+            $('#img-stage').classList.toggle('zoom-full', state.imgZoomFull);
             $('#btn-img-zoom').textContent = state.imgZoomFull ? L.fitWidth : L.origSize;
           });
-        } else {
-          stage.innerHTML = `<iframe class="doc-frame" src="${esc(activeDoc.url)}" title="${esc(isEn() ? activeDoc.titleEn : activeDoc.titleZh)}"></iframe>`;
+          return;
         }
+
+        // 3c. HTML Document inside seamless iframe with loading indicator
+        mountIframe(docUrl, active.label, '');
       }
 
       function render() {
@@ -800,7 +1050,7 @@
           syncHash();
           render();
         } catch (err) {
-          $('#stage').innerHTML = `<div class="loading-state">Failed to load: ${esc(err.message)}</div>`;
+          $('#stage').innerHTML = `<div class="frame-loader"><span>Failed to load: ${esc(err.message)}</span></div>`;
         }
       }
 
@@ -817,6 +1067,25 @@
         state.theme = state.theme === 'dark' ? 'light' : 'dark';
         localStorage.setItem('lcmd-theme', state.theme);
         render();
+      });
+
+      $('#lb-close').addEventListener('click', closeLightbox);
+      $('#lb-prev').addEventListener('click', () => {
+        state.lbIndex = (state.lbIndex - 1 + state.lbList.length) % state.lbList.length;
+        renderLightbox();
+      });
+      $('#lb-next').addEventListener('click', () => {
+        state.lbIndex = (state.lbIndex + 1) % state.lbList.length;
+        renderLightbox();
+      });
+      $('#lightbox').addEventListener('click', (e) => {
+        if (e.target === $('#lightbox')) closeLightbox();
+      });
+      document.addEventListener('keydown', (e) => {
+        if (!$('#lightbox').classList.contains('open')) return;
+        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'ArrowLeft') $('#lb-prev').click();
+        if (e.key === 'ArrowRight') $('#lb-next').click();
       });
 
       window.addEventListener('hashchange', () => {

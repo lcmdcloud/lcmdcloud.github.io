@@ -1,6 +1,7 @@
 {
-  "schemaVersion": 2,
-  "updatedAt": "2026-11-23 19:12:33",
+  "schemaVersion": 3,
+  "buildVer": "5d3675cb",
+  "updatedAt": "2026-11-23 19:17:03",
   "presaleRepo": {
     "commitSha": "4b9ccc2434ae14a11cf766db3ce012ec5f0b02d5",
     "commitShort": "4b9ccc2",
@@ -24,6 +25,7 @@
   "products": [
     {
       "id": "LC03",
+      "slug": "lc03",
       "order": 1,
       "nameZh": "懒猫微服 LC03",
       "nameEn": "LCMD LC03 Micro Server",
@@ -31,10 +33,137 @@
       "taglineEn": "115mm Cube · 7-Bay · 4,500+ Apps · Totoro AI",
       "badgeZh": "微服",
       "badgeEn": "Micro Server",
-      "cover": "assets/product-lc03.jpg"
+      "cover": "assets/product-lc03.jpg",
+      "gallery": {
+        "zh": [
+          {
+            "url": "materials/gallery/lc03/01-product.jpg",
+            "titleZh": "机身外观实拍",
+            "titleEn": "LC03 Hardware Appearance"
+          },
+          {
+            "url": "materials/gallery/lc03/02-space-white.jpg",
+            "titleZh": "太空白配色",
+            "titleEn": "Space White Edition"
+          },
+          {
+            "url": "materials/gallery/lc03/03-stardust-grey.jpg",
+            "titleZh": "星辰灰配色",
+            "titleEn": "Stardust Grey Edition"
+          },
+          {
+            "url": "materials/gallery/lc03/04-craft.jpg",
+            "titleZh": "工艺与机身细节",
+            "titleEn": "Craftsmanship & Chassis"
+          },
+          {
+            "url": "materials/gallery/lc03/05-desk.jpg",
+            "titleZh": "桌面场景实拍",
+            "titleEn": "Desktop Setup"
+          },
+          {
+            "url": "materials/gallery/lc03/06-box.jpg",
+            "titleZh": "包装清单",
+            "titleEn": "Packaging & Box"
+          },
+          {
+            "url": "materials/gallery/lc03/07-totoro-ai.jpg",
+            "titleZh": "小龙猫 AI 助手",
+            "titleEn": "Totoro AI Assistant"
+          },
+          {
+            "url": "materials/gallery/lc03/08-lightos.jpg",
+            "titleZh": "LightOS 移动开发",
+            "titleEn": "LightOS Mobile Dev"
+          },
+          {
+            "url": "materials/gallery/lc03/09-wechat.jpg",
+            "titleZh": "远程微信与办公",
+            "titleEn": "Remote WeChat & Work"
+          },
+          {
+            "url": "materials/gallery/lc03/10-photo.jpg",
+            "titleZh": "懒猫相册",
+            "titleEn": "Private Photo Library"
+          },
+          {
+            "url": "materials/gallery/lc03/11-video.jpg",
+            "titleZh": "私有影音中心",
+            "titleEn": "Home Media Center"
+          },
+          {
+            "url": "materials/gallery/lc03/12-pan.jpg",
+            "titleZh": "高速私有网盘",
+            "titleEn": "Private Cloud Drive"
+          }
+        ],
+        "en": [
+          {
+            "url": "materials/gallery/lc03/01-product.jpg",
+            "titleZh": "机身外观实拍",
+            "titleEn": "LC03 Hardware Appearance"
+          },
+          {
+            "url": "materials/gallery/lc03/02-space-white.jpg",
+            "titleZh": "太空白配色",
+            "titleEn": "Space White Edition"
+          },
+          {
+            "url": "materials/gallery/lc03/03-stardust-grey.jpg",
+            "titleZh": "星辰灰配色",
+            "titleEn": "Stardust Grey Edition"
+          },
+          {
+            "url": "materials/gallery/lc03/04-craft.jpg",
+            "titleZh": "工艺与机身细节",
+            "titleEn": "Craftsmanship & Chassis"
+          },
+          {
+            "url": "materials/gallery/lc03/05-desk.jpg",
+            "titleZh": "桌面场景实拍",
+            "titleEn": "Desktop Setup"
+          },
+          {
+            "url": "materials/gallery/lc03/06-box.jpg",
+            "titleZh": "包装清单",
+            "titleEn": "Packaging & Box"
+          },
+          {
+            "url": "materials/gallery/lc03/07-totoro-ai.jpg",
+            "titleZh": "小龙猫 AI 助手",
+            "titleEn": "Totoro AI Assistant"
+          },
+          {
+            "url": "materials/gallery/lc03/08-lightos.jpg",
+            "titleZh": "LightOS 移动开发",
+            "titleEn": "LightOS Mobile Dev"
+          },
+          {
+            "url": "materials/gallery/lc03/09-wechat.jpg",
+            "titleZh": "远程微信与办公",
+            "titleEn": "Remote WeChat & Work"
+          },
+          {
+            "url": "materials/gallery/lc03/10-photo.jpg",
+            "titleZh": "懒猫相册",
+            "titleEn": "Private Photo Library"
+          },
+          {
+            "url": "materials/gallery/lc03/11-video.jpg",
+            "titleZh": "私有影音中心",
+            "titleEn": "Home Media Center"
+          },
+          {
+            "url": "materials/gallery/lc03/12-pan.jpg",
+            "titleZh": "高速私有网盘",
+            "titleEn": "Private Cloud Drive"
+          }
+        ]
+      }
     },
     {
       "id": "AI-Pod-X5",
+      "slug": "x5",
       "order": 2,
       "nameZh": "懒猫算力舱 X5-T5000",
       "nameEn": "LCMD AI Pod X5-T5000",
@@ -42,213 +171,313 @@
       "taglineEn": "AGX Thor T5000 · 2070 TOPS · 128GB Unified Memory",
       "badgeZh": "算力舱",
       "badgeEn": "AI Pod",
-      "cover": "assets/product-x5.webp"
+      "cover": "assets/product-x5.webp",
+      "gallery": {
+        "zh": [
+          {
+            "url": "materials/gallery/x5-zh/00-overview.jpg",
+            "titleZh": "十二张宣传图预览总览",
+            "titleEn": "12 Posters Overview Sheet",
+            "wide": true
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-01.png",
+            "titleZh": "01-产品总览",
+            "titleEn": "Poster 01"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-02.png",
+            "titleZh": "02-黑白实拍与机身",
+            "titleEn": "Poster 02"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-03.png",
+            "titleZh": "03-CPU与GPU算力",
+            "titleEn": "Poster 03"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-04.png",
+            "titleZh": "04-内存存储与模型",
+            "titleEn": "Poster 04"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-05.png",
+            "titleZh": "05-高速组网与堆叠",
+            "titleEn": "Poster 05"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-06.png",
+            "titleZh": "06-接口与无线连接",
+            "titleEn": "Poster 06"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-07.png",
+            "titleZh": "07-供电与散热",
+            "titleEn": "Poster 07"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-08.png",
+            "titleZh": "08-Ubuntu与CUDA生态",
+            "titleEn": "Poster 08"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-09.png",
+            "titleZh": "09-AI应用场景",
+            "titleEn": "Poster 09"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-10.png",
+            "titleZh": "10-与懒猫微服协同",
+            "titleEn": "Poster 10"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-11.png",
+            "titleZh": "11-完整参数核心配置",
+            "titleEn": "Poster 11"
+          },
+          {
+            "url": "materials/gallery/x5-zh/poster-12.png",
+            "titleZh": "12-完整参数连接供电",
+            "titleEn": "Poster 12"
+          }
+        ],
+        "en": [
+          {
+            "url": "materials/gallery/x5-en/01-stardust-grey.webp",
+            "titleZh": "星辰灰机身实拍",
+            "titleEn": "Stardust Grey Chassis"
+          },
+          {
+            "url": "materials/gallery/x5-en/02-space-white.webp",
+            "titleZh": "太空白机身实拍",
+            "titleEn": "Space White Chassis"
+          },
+          {
+            "url": "materials/gallery/x5-en/03-dimensions.png",
+            "titleZh": "机身尺寸与接口",
+            "titleEn": "Dimensions & Ports"
+          },
+          {
+            "url": "materials/gallery/x5-en/04-jetson-module.png",
+            "titleZh": "NVIDIA Jetson 模块",
+            "titleEn": "NVIDIA Jetson AGX Thor Module"
+          },
+          {
+            "url": "materials/gallery/x5-en/05-dashboard.png",
+            "titleZh": "算力舱控制台",
+            "titleEn": "AI Pod Dashboard"
+          },
+          {
+            "url": "materials/gallery/x5-en/06-model-gallery.png",
+            "titleZh": "本地模型广场界面",
+            "titleEn": "Local Model Gallery UI"
+          },
+          {
+            "url": "materials/gallery/x5-en/07-api.png",
+            "titleZh": "统一 OpenAI 兼容 API",
+            "titleEn": "Unified OpenAI-Compatible API"
+          },
+          {
+            "url": "materials/gallery/x5-en/08-ubuntu-desktop.png",
+            "titleZh": "原生 Ubuntu 与 CUDA 桌面",
+            "titleEn": "Native Ubuntu & CUDA Desktop"
+          }
+        ]
+      }
     }
   ],
   "items": [
     {
-      "id": "e2dc58b3f5",
+      "id": "9ade612dae",
       "lang": "zh",
       "productId": "AI-Pod-X5",
       "slot": "brochure",
       "order": 1,
       "titleZh": "产品介绍",
       "titleEn": "Product Brochure",
-      "fileName": "电脑观看.html",
+      "fileName": "brochure.html",
       "ext": "HTML",
       "sizeBytes": 4546676,
       "sizeMB": 4.34,
-      "path": "materials/zh/AI-Pod-X5/电脑观看.html",
-      "url": "materials/zh/AI-Pod-X5/%E7%94%B5%E8%84%91%E8%A7%82%E7%9C%8B.html",
-      "sourceRel": "Chinese/AI-Pod-X5/电脑观看.html",
-      "isNew": false
+      "path": "materials/zh/x5/brochure.html",
+      "url": "materials/zh/x5/brochure.html",
+      "sourceRel": "Chinese/AI-Pod-X5/电脑观看.html"
     },
     {
-      "id": "109853b598",
+      "id": "fe73e200d2",
       "lang": "zh",
       "productId": "LC03",
       "slot": "brochure",
       "order": 1,
       "titleZh": "产品介绍",
       "titleEn": "Product Brochure",
-      "fileName": "电脑观看.html",
+      "fileName": "brochure.html",
       "ext": "HTML",
       "sizeBytes": 5569249,
       "sizeMB": 5.31,
-      "path": "materials/zh/LC03/懒猫微服LC03-浅色产品版-手机与电脑HTML/电脑观看.html",
-      "url": "materials/zh/LC03/%E6%87%92%E7%8C%AB%E5%BE%AE%E6%9C%8DLC03-%E6%B5%85%E8%89%B2%E4%BA%A7%E5%93%81%E7%89%88-%E6%89%8B%E6%9C%BA%E4%B8%8E%E7%94%B5%E8%84%91HTML/%E7%94%B5%E8%84%91%E8%A7%82%E7%9C%8B.html",
-      "sourceRel": "Chinese/LC03/懒猫微服LC03-浅色产品版-手机与电脑HTML/电脑观看.html",
-      "isNew": false
+      "path": "materials/zh/lc03/brochure.html",
+      "url": "materials/zh/lc03/brochure.html",
+      "sourceRel": "Chinese/LC03/懒猫微服LC03-浅色产品版-手机与电脑HTML/电脑观看.html"
     },
     {
-      "id": "ec1e5d9f83",
+      "id": "240c979c2d",
       "lang": "en",
       "productId": "AI-Pod-X5",
       "slot": "brochure",
       "order": 1,
       "titleZh": "产品介绍",
       "titleEn": "Product Brochure",
-      "fileName": "LCMD-AI-Pod-X5-T5000-English-desktop.html",
+      "fileName": "brochure.html",
       "ext": "HTML",
       "sizeBytes": 6859807,
       "sizeMB": 6.54,
-      "path": "materials/en/AI-Pod-X5/LCMD-AI-Pod-X5-T5000-English-desktop.html",
-      "url": "materials/en/AI-Pod-X5/LCMD-AI-Pod-X5-T5000-English-desktop.html",
-      "sourceRel": "English/AI-Pod-X5/LCMD-AI-Pod-X5-T5000-English-desktop.html",
-      "isNew": true
+      "path": "materials/en/x5/brochure.html",
+      "url": "materials/en/x5/brochure.html",
+      "sourceRel": "English/AI-Pod-X5/LCMD-AI-Pod-X5-T5000-English-desktop.html"
     },
     {
-      "id": "b017cb673c",
+      "id": "fdf5fde9ec",
       "lang": "en",
       "productId": "LC03",
       "slot": "brochure",
       "order": 1,
       "titleZh": "产品介绍",
       "titleEn": "Product Brochure",
-      "fileName": "LCMD-LC03-English-desktop.html",
+      "fileName": "brochure.html",
       "ext": "HTML",
       "sizeBytes": 5571780,
       "sizeMB": 5.31,
-      "path": "materials/en/LC03/LCMD-LC03-English-desktop.html",
-      "url": "materials/en/LC03/LCMD-LC03-English-desktop.html",
-      "sourceRel": "English/LC03/LCMD-LC03-English-desktop.html",
-      "isNew": true
+      "path": "materials/en/lc03/brochure.html",
+      "url": "materials/en/lc03/brochure.html",
+      "sourceRel": "English/LC03/LCMD-LC03-English-desktop.html"
     },
     {
-      "id": "4e8df35129",
+      "id": "c6817e3a2a",
       "lang": "zh",
       "productId": "AI-Pod-X5",
       "slot": "overview",
       "order": 2,
       "titleZh": "一图概览",
       "titleEn": "At a Glance",
-      "fileName": "X5-T5000-算力舱一图概览.html",
+      "fileName": "overview.html",
       "ext": "HTML",
       "sizeBytes": 1386938,
       "sizeMB": 1.32,
-      "path": "materials/zh/AI-Pod-X5/算力舱概览/X5-T5000-算力舱一图概览.html",
-      "url": "materials/zh/AI-Pod-X5/%E7%AE%97%E5%8A%9B%E8%88%B1%E6%A6%82%E8%A7%88/X5-T5000-%E7%AE%97%E5%8A%9B%E8%88%B1%E4%B8%80%E5%9B%BE%E6%A6%82%E8%A7%88.html",
-      "sourceRel": "Chinese/AI-Pod-X5/算力舱概览/X5-T5000-算力舱一图概览.html",
-      "isNew": false
+      "path": "materials/zh/x5/overview.html",
+      "url": "materials/zh/x5/overview.html",
+      "sourceRel": "Chinese/AI-Pod-X5/算力舱概览/X5-T5000-算力舱一图概览.html"
     },
     {
-      "id": "df27b57b8e",
+      "id": "0a98bb7c47",
       "lang": "zh",
       "productId": "LC03",
       "slot": "overview",
       "order": 2,
       "titleZh": "一图概览",
       "titleEn": "At a Glance",
-      "fileName": "介绍图片.png",
+      "fileName": "overview.png",
       "ext": "PNG",
       "sizeBytes": 1399778,
       "sizeMB": 1.33,
-      "path": "materials/zh/LC03/介绍图片.png",
-      "url": "materials/zh/LC03/%E4%BB%8B%E7%BB%8D%E5%9B%BE%E7%89%87.png",
-      "sourceRel": "Chinese/LC03/介绍图片.png",
-      "isNew": false
+      "path": "materials/zh/lc03/overview.png",
+      "url": "materials/zh/lc03/overview.png",
+      "sourceRel": "Chinese/LC03/介绍图片.png"
     },
     {
-      "id": "4e8e7ac75b",
+      "id": "536d644216",
       "lang": "en",
       "productId": "AI-Pod-X5",
       "slot": "overview",
       "order": 2,
       "titleZh": "一图概览",
       "titleEn": "At a Glance",
-      "fileName": "LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html",
+      "fileName": "overview.html",
       "ext": "HTML",
       "sizeBytes": 1387154,
       "sizeMB": 1.32,
-      "path": "materials/en/AI-Pod-X5/overview/LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html",
-      "url": "materials/en/AI-Pod-X5/overview/LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html",
-      "sourceRel": "English/AI-Pod-X5/overview/LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html",
-      "isNew": true
+      "path": "materials/en/x5/overview.html",
+      "url": "materials/en/x5/overview.html",
+      "sourceRel": "English/AI-Pod-X5/overview/LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html"
     },
     {
-      "id": "6555c7c3c0",
+      "id": "134fdd3678",
       "lang": "en",
       "productId": "LC03",
       "slot": "overview",
       "order": 2,
       "titleZh": "一图概览",
       "titleEn": "At a Glance",
-      "fileName": "LC03-overview-EN.png",
+      "fileName": "overview.png",
       "ext": "PNG",
       "sizeBytes": 1619042,
       "sizeMB": 1.54,
-      "path": "materials/en/LC03/LC03-overview-EN.png",
-      "url": "materials/en/LC03/LC03-overview-EN.png",
-      "sourceRel": "English/LC03/LC03-overview-EN.png",
-      "isNew": true
+      "path": "materials/en/lc03/overview.png",
+      "url": "materials/en/lc03/overview.png",
+      "sourceRel": "English/LC03/LC03-overview-EN.png"
     },
     {
-      "id": "9b80aebc3a",
+      "id": "bdf6dd71a7",
       "lang": "zh",
       "productId": "AI-Pod-X5",
       "slot": "specs",
       "order": 3,
       "titleZh": "硬件参数",
       "titleEn": "Hardware Specs",
-      "fileName": "X5-T5000-硬件参数长图.png",
+      "fileName": "specs.png",
       "ext": "PNG",
       "sizeBytes": 2119762,
       "sizeMB": 2.02,
-      "path": "materials/zh/AI-Pod-X5/硬件参数长图/X5-T5000-硬件参数长图.png",
-      "url": "materials/zh/AI-Pod-X5/%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0%E9%95%BF%E5%9B%BE/X5-T5000-%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0%E9%95%BF%E5%9B%BE.png",
-      "sourceRel": "Chinese/AI-Pod-X5/硬件参数长图/X5-T5000-硬件参数长图.png",
-      "isNew": false
+      "path": "materials/zh/x5/specs.png",
+      "url": "materials/zh/x5/specs.png",
+      "sourceRel": "Chinese/AI-Pod-X5/硬件参数长图/X5-T5000-硬件参数长图.png"
     },
     {
-      "id": "77503c439d",
+      "id": "8ea5b381c1",
       "lang": "zh",
       "productId": "LC03",
       "slot": "specs",
       "order": 3,
       "titleZh": "硬件参数",
       "titleEn": "Hardware Specs",
-      "fileName": "LC03-硬件参数长图.html",
+      "fileName": "specs.html",
       "ext": "HTML",
       "sizeBytes": 67264,
       "sizeMB": 0.06,
-      "path": "materials/zh/LC03/硬件参数长图/LC03-硬件参数长图.html",
-      "url": "materials/zh/LC03/%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0%E9%95%BF%E5%9B%BE/LC03-%E7%A1%AC%E4%BB%B6%E5%8F%82%E6%95%B0%E9%95%BF%E5%9B%BE.html",
-      "sourceRel": "Chinese/LC03/硬件参数长图/LC03-硬件参数长图.html",
-      "isNew": false
+      "path": "materials/zh/lc03/specs.html",
+      "url": "materials/zh/lc03/specs.html",
+      "sourceRel": "Chinese/LC03/硬件参数长图/LC03-硬件参数长图.html"
     },
     {
-      "id": "ef8cd4d4d1",
+      "id": "02f4e24e94",
       "lang": "en",
       "productId": "AI-Pod-X5",
       "slot": "specs",
       "order": 3,
       "titleZh": "硬件参数",
       "titleEn": "Hardware Specs",
-      "fileName": "X5-T5000-Hardware-Specifications-EN.html",
+      "fileName": "specs.html",
       "ext": "HTML",
       "sizeBytes": 344542,
       "sizeMB": 0.33,
-      "path": "materials/en/AI-Pod-X5/hardware-specifications/X5-T5000-Hardware-Specifications-EN.html",
-      "url": "materials/en/AI-Pod-X5/hardware-specifications/X5-T5000-Hardware-Specifications-EN.html",
-      "sourceRel": "English/AI-Pod-X5/hardware-specifications/X5-T5000-Hardware-Specifications-EN.html",
-      "isNew": true
+      "path": "materials/en/x5/specs.html",
+      "url": "materials/en/x5/specs.html",
+      "sourceRel": "English/AI-Pod-X5/hardware-specifications/X5-T5000-Hardware-Specifications-EN.html"
     },
     {
-      "id": "f91c9aec49",
+      "id": "fee2e37ea3",
       "lang": "en",
       "productId": "LC03",
       "slot": "specs",
       "order": 3,
       "titleZh": "硬件参数",
       "titleEn": "Hardware Specs",
-      "fileName": "LC03-Micro-Server-Hardware-Specifications-EN.html",
+      "fileName": "specs.html",
       "ext": "HTML",
       "sizeBytes": 67511,
       "sizeMB": 0.06,
-      "path": "materials/en/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html",
-      "url": "materials/en/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html",
-      "sourceRel": "English/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html",
-      "isNew": true
+      "path": "materials/en/lc03/specs.html",
+      "url": "materials/en/lc03/specs.html",
+      "sourceRel": "English/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html"
     }
   ]
 }
