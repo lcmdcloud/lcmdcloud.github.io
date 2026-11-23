@@ -3,161 +3,382 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LCMD AI Pod 模型广场 · Model Store</title>
+  <title>懒猫 AI Pod 模型广场 · 支持模型一览</title>
   <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
   <link rel="shortcut icon" href="../favicon.ico" />
   <link rel="apple-touch-icon" sizes="180x180" href="../assets/apple-touch-icon.png" />
   <style>
     :root {
-      --bg: #f3f5f9;
+      --bg: #f5f7fb;
       --surface: #ffffff;
-      --surface-soft: #f8fafc;
-      --surface-muted: #eef2f7;
-      --border: #dfe5ef;
-      --border-strong: #cbd5e1;
-      --text: #0f172a;
-      --text-secondary: #334155;
-      --text-muted: #64748b;
-      --primary: #2563eb;
-      --primary-soft: #eff6ff;
-      --primary-border: #bfdbfe;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 8px 24px -8px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
+      --surface-2: #f8fafc;
+      --surface-3: #f1f5f9;
+      --ink: #0f172a;
+      --ink-2: #475569;
+      --ink-3: #64748b;
+      --line: #e2e8f0;
+      --line-strong: #cbd5e1;
+      --blue: #2563eb;
+      --blue-soft: #eff6ff;
+      --blue-line: #bfdbfe;
+      --cyan: #0284c7;
+      --cyan-soft: #f0f9ff;
+      --cyan-line: #bae6fd;
+      --green: #059669;
+      --green-soft: #ecfdf5;
+      --green-line: #a7f3d0;
+      --amber: #d97706;
+      --amber-soft: #fffbeb;
+      --amber-line: #fde68a;
+      --rose: #e11d48;
+      --rose-soft: #fff1f2;
+      --rose-line: #fecdd3;
+      --violet: #7c3aed;
+      --violet-soft: #f5f3ff;
+      --violet-line: #ddd6fe;
+      --radius: 10px;
+      --radius-sm: 6px;
+      --shadow-xs: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-sm: 0 2px 8px -2px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 12px 28px -10px rgba(15, 23, 42, 0.12), 0 4px 10px -4px rgba(15, 23, 42, 0.05);
 
-      /* Typography Scale (default = large for customer screenshots) */
-      --fs-hero: 36px;
-      --fs-sub: 17px;
-      --fs-stat: 32px;
-      --fs-stat-label: 14.5px;
-      --fs-sec: 25px;
-      --fs-title: 21px;
-      --fs-desc: 16.5px;
-      --fs-meta: 14.5px;
-      --fs-pill: 14px;
-      --card-min: 400px;
-      --card-pad: 22px;
-      --grid-gap: 20px;
-      --cover-ratio: 16 / 8.2;
+      /* Font scale (default = normal for sharp benchmark density) */
+      --fs-h1: clamp(24px, 2.8vw, 34px);
+      --fs-sub: 14.5px;
+      --fs-sec: 19px;
+      --fs-title: 17px;
+      --fs-desc: 13.5px;
+      --fs-metric: 17px;
+      --fs-metric-lbl: 11px;
+      --card-pad: 20px;
     }
 
-    html[data-scale="normal"] {
-      --fs-hero: 30px;
-      --fs-sub: 15px;
-      --fs-stat: 26px;
-      --fs-stat-label: 13px;
+    html[data-scale="large"] {
+      --fs-h1: clamp(26px, 3vw, 38px);
+      --fs-sub: 15.5px;
       --fs-sec: 21px;
-      --fs-title: 18px;
-      --fs-desc: 14.5px;
-      --fs-meta: 13px;
-      --fs-pill: 12.5px;
-      --card-min: 340px;
-      --card-pad: 18px;
-      --grid-gap: 16px;
-      --cover-ratio: 16 / 8.5;
+      --fs-title: 19px;
+      --fs-desc: 15px;
+      --fs-metric: 19px;
+      --fs-metric-lbl: 12px;
+      --card-pad: 22px;
     }
 
     html[data-scale="xlarge"] {
-      --fs-hero: 42px;
-      --fs-sub: 19px;
-      --fs-stat: 38px;
-      --fs-stat-label: 16px;
-      --fs-sec: 29px;
-      --fs-title: 24px;
-      --fs-desc: 18.5px;
-      --fs-meta: 16px;
-      --fs-pill: 15.5px;
-      --card-min: 480px;
-      --card-pad: 26px;
-      --grid-gap: 24px;
-      --cover-ratio: 16 / 7.8;
+      --fs-h1: clamp(30px, 3.3vw, 42px);
+      --fs-sub: 17px;
+      --fs-sec: 24px;
+      --fs-title: 21px;
+      --fs-desc: 16.5px;
+      --fs-metric: 21px;
+      --fs-metric-lbl: 13px;
+      --card-pad: 24px;
     }
 
     html.dark {
-      --bg: #0b0f17;
-      --surface: #131a26;
-      --surface-soft: #182131;
-      --surface-muted: #1e293b;
-      --border: #263348;
-      --border-strong: #364762;
-      --text: #f8fafc;
-      --text-secondary: #cbd5e1;
-      --text-muted: #94a3b8;
-      --primary: #60a5fa;
-      --primary-soft: rgba(59, 130, 246, 0.16);
-      --primary-border: rgba(96, 165, 250, 0.35);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 10px 28px -8px rgba(0, 0, 0, 0.45);
+      --bg: #0b101b;
+      --surface: #121927;
+      --surface-2: #172032;
+      --surface-3: #1e293b;
+      --ink: #f8fafc;
+      --ink-2: #cbd5e1;
+      --ink-3: #94a3b8;
+      --line: #233046;
+      --line-strong: #334563;
+      --blue: #60a5fa;
+      --blue-soft: rgba(59, 130, 246, 0.14);
+      --blue-line: rgba(96, 165, 250, 0.34);
+      --cyan: #38bdf8;
+      --cyan-soft: rgba(14, 165, 233, 0.14);
+      --cyan-line: rgba(56, 189, 248, 0.34);
+      --green: #34d399;
+      --green-soft: rgba(16, 185, 129, 0.14);
+      --green-line: rgba(52, 211, 153, 0.34);
+      --amber: #fbbf24;
+      --amber-soft: rgba(245, 158, 11, 0.14);
+      --amber-line: rgba(251, 191, 36, 0.34);
+      --rose: #fb7185;
+      --rose-soft: rgba(244, 63, 94, 0.14);
+      --rose-line: rgba(251, 113, 133, 0.34);
+      --violet: #a78bfa;
+      --violet-soft: rgba(139, 92, 246, 0.16);
+      --violet-line: rgba(167, 139, 250, 0.34);
+      --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.25);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 16px 36px -12px rgba(0, 0, 0, 0.55);
     }
 
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
 
     html {
       scrollbar-gutter: stable;
+      background: var(--bg);
+      color: var(--ink);
     }
 
     body {
       margin: 0;
+      min-height: 100vh;
       background: var(--bg);
-      color: var(--text);
-      font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background-image: radial-gradient(ellipse 75% 28% at 50% -6%, rgba(37, 99, 235, 0.065), transparent 72%);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", sans-serif;
       -webkit-font-smoothing: antialiased;
       line-height: 1.5;
     }
 
-    @keyframes msFadeIn {
+    html.dark body {
+      background-image: radial-gradient(ellipse 75% 30% at 50% -8%, rgba(59, 130, 246, 0.12), transparent 72%);
+    }
+
+    .num {
+      font-variant-numeric: tabular-nums;
+      font-feature-settings: "tnum";
+      font-family: "SF Mono", "JetBrains Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+    }
+
+    @keyframes fadeUp {
       from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
+
     #content {
-      animation: msFadeIn 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+      animation: fadeUp 0.22s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
+    /* ==================== Standalone Topbar (Hidden in Embed Mode) ==================== */
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 40;
+      z-index: 45;
       background: color-mix(in srgb, var(--surface) 88%, transparent);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border-bottom: 1px solid var(--border);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border-bottom: 1px solid var(--line);
     }
+
+    body.embed-mode .topbar { display: none !important; }
 
     .topbar-inner {
-      max-width: 1560px;
+      max-width: 1320px;
       margin: 0 auto;
-      padding: 12px 24px;
+      height: 54px;
+      padding: 0 24px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 10px;
       justify-content: space-between;
+      gap: 12px;
     }
 
-    .nav-back {
+    .top-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 14.5px;
+      font-weight: 700;
+    }
+
+    .top-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 5px;
+      object-fit: contain;
+    }
+
+    .top-brand small {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-soft);
+      border: 1px solid var(--blue-line);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.05em;
+    }
+
+    .top-right {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 14px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 14px;
+    }
+
+    /* ==================== Main Wrapper ==================== */
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 26px 24px 64px;
+    }
+
+    body.embed-mode .wrap {
+      padding-top: 22px;
+    }
+
+    /* ==================== Editorial Page Header (Benchmark Style, Light) ==================== */
+    .page-head {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) auto;
+      gap: 20px 28px;
+      align-items: end;
+      padding-bottom: 22px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .kicker-row {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .kicker {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11.5px;
       font-weight: 700;
-      transition: all 0.15s ease;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
     }
 
-    .nav-back:hover {
-      border-color: var(--primary);
-      color: var(--primary);
-      background: var(--primary-soft);
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+      flex-shrink: 0;
     }
 
-    .topbar-actions {
+    .ver-pill {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-2);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 8px;
+    }
+
+    .filter-tag {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--cyan);
+      background: var(--cyan-soft);
+      border: 1px solid var(--cyan-line);
+      border-radius: 4px;
+      padding: 2px 8px;
+      display: none;
+    }
+    .filter-tag.show { display: inline-flex; }
+
+    .page-head h1 {
+      margin: 0;
+      font-size: var(--fs-h1);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--ink);
+    }
+
+    .page-sub {
+      margin: 8px 0 0;
+      font-size: var(--fs-sub);
+      color: var(--ink-2);
+      max-width: 700px;
+      line-height: 1.6;
+    }
+
+    /* Hairline KPI Strip */
+    .kpi-strip {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(76px, auto));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
+    }
+
+    .kpi-cell {
+      background: var(--surface);
+      padding: 11px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 82px;
+    }
+
+    .kpi-val {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+    }
+
+    .kpi-val.blue { color: var(--blue); }
+    .kpi-val.cyan { color: var(--cyan); }
+    .kpi-val.green { color: var(--green); }
+    .kpi-val.amber { color: var(--amber); }
+
+    .kpi-lbl {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }
+
+    .head-stamp {
+      margin-top: 7px;
+      text-align: right;
+      font-size: 11.5px;
+      color: var(--ink-3);
+    }
+
+    /* ==================== Update Banner ==================== */
+    .update-banner {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 14px;
+      margin-bottom: 16px;
+      background: var(--blue-soft);
+      border: 1px solid var(--blue-line);
+      border-left: 3px solid var(--blue);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--ink);
+    }
+
+    /* ==================== Control & Filter Bar ==================== */
+    .controls-shell {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .toolbar-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .toolbar-left,
+    .toolbar-right {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
@@ -166,364 +387,189 @@
 
     .seg {
       display: inline-flex;
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 3px;
-      gap: 2px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
     }
 
     .seg button {
       border: 0;
+      border-right: 1px solid var(--line);
       background: transparent;
-      color: var(--text-secondary);
-      padding: 6px 12px;
-      border-radius: 7px;
-      font-size: 13.5px;
+      color: var(--ink-2);
+      padding: 7px 12px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: background 0.15s, color 0.15s;
       white-space: nowrap;
     }
 
+    .seg button:last-child { border-right: 0; }
+    .seg button:hover { background: var(--surface-2); color: var(--ink); }
     .seg button.active {
-      background: var(--surface);
-      color: var(--primary);
-      box-shadow: var(--shadow-sm);
+      background: var(--ink);
+      color: var(--surface);
     }
+
+    html.dark .seg button.active {
+      background: var(--blue);
+      color: #0b101b;
+    }
+
+    .search-box {
+      position: relative;
+      width: 250px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 7px 28px 7px 11px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 500;
+      outline: none;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.15s, box-shadow 0.15s;
+    }
+
+    .search-input::placeholder { color: var(--ink-3); }
+    .search-input:focus {
+      border-color: var(--blue);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+    }
+
+    .search-clear {
+      position: absolute;
+      right: 6px;
+      top: 50%;
+      transform: translateY(-50%);
+      border: 0;
+      background: var(--surface-3);
+      color: var(--ink-2);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      font-size: 12px;
+      cursor: pointer;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .search-clear.show { display: inline-flex; }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      border: 1px solid var(--border);
+      gap: 5px;
+      border: 1px solid var(--line);
       background: var(--surface);
-      color: var(--text);
-      padding: 8px 13px;
-      border-radius: 10px;
-      font-size: 13.5px;
+      color: var(--ink-2);
+      padding: 7px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.15s ease;
+      text-decoration: none;
       white-space: nowrap;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
 
     .btn:hover {
-      border-color: var(--border-strong);
-      background: var(--surface-soft);
+      border-color: var(--line-strong);
+      color: var(--ink);
+      background: var(--surface-2);
     }
 
-    .btn-primary {
-      background: var(--primary);
-      border-color: var(--primary);
+    .btn-accent {
+      background: var(--blue);
+      border-color: var(--blue);
       color: #ffffff;
     }
-
-    .btn-primary:hover {
+    .btn-accent:hover {
       background: #1d4ed8;
       border-color: #1d4ed8;
       color: #ffffff;
     }
 
-    .container {
-      max-width: 1560px;
-      margin: 0 auto;
-      padding: 28px 24px 64px;
-    }
-
-    .hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 28px 32px;
-      box-shadow: var(--shadow-md);
-      margin-bottom: 22px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, #2563eb 0%, #7c3aed 50%, #059669 100%);
-    }
-
-    .hero-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .hero-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      max-width: 920px;
-    }
-
-    .hero-eyebrow {
-      display: inline-flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--primary);
-    }
-
-    .hero-badge {
+    .hidden-toggle {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      border: 1px solid var(--primary-border);
-      color: var(--primary);
-      font-size: 13.5px;
-      font-weight: 700;
-    }
-
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
-    }
-
-    .hero h1 {
-      margin: 0;
-      font-size: var(--fs-hero);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      color: var(--text);
-    }
-
-    .hero-sub {
-      margin: 0;
-      font-size: var(--fs-sub);
-      color: var(--text-secondary);
-      font-weight: 500;
-    }
-
-    .hero-meta-box {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      text-align: right;
-      font-size: 14.5px;
-      color: var(--text-secondary);
-      font-variant-numeric: tabular-nums;
-    }
-
-    .hero-version {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 10px;
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-    }
-
-    .stats-row {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 14px;
-      margin-top: 22px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-    }
-
-    .stat-card {
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 18px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-
-    .stat-num {
-      font-size: var(--fs-stat);
-      font-weight: 800;
-      line-height: 1.15;
-      font-variant-numeric: tabular-nums;
-      color: var(--text);
-    }
-
-    .stat-num.blue { color: #2563eb; }
-    .stat-num.violet { color: #7c3aed; }
-    .stat-num.emerald { color: #059669; }
-    .stat-num.amber { color: #d97706; }
-
-    html.dark .stat-num.blue { color: #60a5fa; }
-    html.dark .stat-num.violet { color: #a78bfa; }
-    html.dark .stat-num.emerald { color: #34d399; }
-    html.dark .stat-num.amber { color: #fbbf24; }
-
-    .stat-label {
-      font-size: var(--fs-stat-label);
-      color: var(--text-secondary);
-      font-weight: 600;
-    }
-
-    .filters-panel {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 18px 22px;
-      margin-bottom: 24px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .filters-row {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .search-wrap {
-      position: relative;
-      flex: 1 1 280px;
-      max-width: 440px;
-    }
-
-    .search-input {
-      width: 100%;
-      padding: 10px 38px 10px 16px;
-      border-radius: 11px;
-      border: 1.5px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--text);
-      font-size: 15.5px;
-      font-weight: 500;
-      outline: none;
-      transition: border-color 0.15s ease;
-    }
-
-    .search-input:focus {
-      border-color: var(--primary);
-      background: var(--surface);
-    }
-
-    .search-clear {
-      position: absolute;
-      right: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      border: 0;
-      background: var(--surface-muted);
-      color: var(--text-secondary);
-      width: 24px;
-      height: 24px;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-
-    .search-clear.show { display: inline-flex; }
-
-    .chip-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .chip {
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--text-secondary);
-      padding: 7px 14px;
-      border-radius: 999px;
-      font-size: 14.5px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .chip:hover {
-      border-color: var(--border-strong);
-      color: var(--text);
-    }
-
-    .chip.active {
-      background: var(--text);
-      color: var(--surface);
-      border-color: var(--text);
-    }
-
-    .chip-count {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
       font-size: 12.5px;
-      opacity: 0.78;
-    }
-
-    .toggle-label {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      font-size: 14px;
       font-weight: 600;
-      color: var(--text-secondary);
+      color: var(--ink-3);
       cursor: pointer;
       user-select: none;
-      margin-left: auto;
+      padding: 4px 6px;
     }
+    .hidden-toggle input { accent-color: var(--blue); cursor: pointer; }
 
-    .update-banner {
-      background: var(--primary-soft);
-      border: 1px solid var(--primary-border);
-      border-radius: 14px;
-      padding: 12px 18px;
-      margin-bottom: 20px;
+    /* Category Pills Strip */
+    .pills-bar {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 15px;
-      color: var(--text);
+      gap: 6px;
+      padding-top: 2px;
     }
 
-    .cat-section { margin-bottom: 34px; }
+    .pill {
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink-2);
+      padding: 6px 11px;
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
 
-    .cat-header {
+    .pill:hover {
+      border-color: var(--line-strong);
+      color: var(--ink);
+      background: var(--surface-2);
+    }
+
+    .pill.active {
+      background: var(--blue-soft);
+      border-color: var(--blue);
+      color: var(--blue);
+    }
+
+    .pill .cnt {
+      font-size: 11px;
+      opacity: 0.72;
+    }
+
+    /* ==================== Section Divider ==================== */
+    .cat-section {
+      margin-bottom: 30px;
+    }
+
+    .cat-head {
       display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 16px;
+      align-items: baseline;
+      gap: 10px;
       padding-bottom: 10px;
-      border-bottom: 2px solid var(--border);
+      margin-bottom: 14px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .cat-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 4px;
+    .cat-bar {
+      width: 4px;
+      height: 17px;
+      border-radius: 2px;
+      align-self: center;
       flex-shrink: 0;
     }
 
@@ -531,325 +577,684 @@
       margin: 0;
       font-size: var(--fs-sec);
       font-weight: 800;
-      letter-spacing: -0.015em;
-      color: var(--text);
+      letter-spacing: -0.02em;
+      color: var(--ink);
     }
 
-    .cat-en {
-      font-size: 15px;
+    .cat-sub {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 12px;
       font-weight: 600;
-      color: var(--text-muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--ink-3);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
     }
 
     .cat-count {
       margin-left: auto;
-      padding: 4px 13px;
-      border-radius: 999px;
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      font-size: 15px;
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 12px;
       font-weight: 700;
-      color: var(--text-secondary);
-      font-variant-numeric: tabular-nums;
+      color: var(--ink-3);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 8px;
     }
 
+    /* ==================== Benchmark-Grade Light Cards (2-Col Wide Grid) ==================== */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(var(--card-min), 1fr));
-      gap: var(--grid-gap);
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
     }
 
-    .model-card {
+    .card {
       background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: var(--card-pad);
       display: flex;
       flex-direction: column;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+      gap: 14px;
+      cursor: pointer;
+      position: relative;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
     }
 
-    .model-card:hover {
+    .card:hover {
+      border-color: var(--blue);
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
-      border-color: var(--border-strong);
     }
 
-    .model-card.is-hidden-card {
+    .card.is-hidden {
       border-style: dashed;
-      opacity: 0.86;
+      opacity: 0.88;
     }
 
-    .cover {
-      position: relative;
-      width: 100%;
-      aspect-ratio: var(--cover-ratio);
-      background: #0f172a;
+    .card-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .card-id {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .card-thumb {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
       overflow: hidden;
       flex-shrink: 0;
+      border: 1px solid var(--line);
+      background: var(--surface-3);
+      display: grid;
+      place-items: center;
     }
 
-    .cover img {
+    .card-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .cover.cover-contain {
-      background: #f8fafc;
-      padding: 14px;
+    .card-thumb.contain {
+      background: var(--surface-2);
+      padding: 4px;
     }
+    .card-thumb.contain img { object-fit: contain; }
 
-    html.dark .cover.cover-contain { background: #0f172a; }
-    .cover.cover-contain img { object-fit: contain; }
-
-    .cover-overlay {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: 20px 24px;
-      color: #ffffff;
-      background: linear-gradient(90deg, rgba(15, 23, 42, 0.55) 0%, rgba(15, 23, 42, 0.12) 100%);
-      pointer-events: none;
-    }
-
-    .cover-overlay strong {
-      font-size: 28px;
-      font-weight: 800;
-      line-height: 1.15;
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
-    }
-
-    .cover-overlay strong.compact { font-size: 22px; }
-
-    .cover-overlay span {
-      margin-top: 4px;
-      font-size: 14px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      opacity: 0.92;
-      text-shadow: 0 1px 6px rgba(0, 0, 0, 0.45);
-    }
-
-    .cover-badges {
-      position: absolute;
-      top: 12px;
-      left: 12px;
-      right: 12px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 8px;
-      pointer-events: none;
-    }
-
-    .pill-float {
-      padding: 4px 11px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 700;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-    }
-
-    .pill-new {
-      background: #ef4444;
-      color: #ffffff;
-      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.4);
-    }
-
-    .pill-tag {
-      background: rgba(15, 23, 42, 0.78);
-      color: #f8fafc;
-      border: 1px solid rgba(255, 255, 255, 0.22);
-    }
-
-    .card-body {
-      padding: var(--card-pad);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      flex: 1;
-    }
-
-    .card-head {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 10px;
-    }
+    .card-titles { min-width: 0; }
 
     .card-title {
       margin: 0;
       font-size: var(--fs-title);
       font-weight: 800;
-      line-height: 1.3;
-      color: var(--text);
+      letter-spacing: -0.02em;
+      line-height: 1.25;
+      color: var(--ink);
       word-break: break-word;
     }
 
-    .cat-pill {
+    .card-sub {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--ink-3);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 5px;
       flex-shrink: 0;
-      padding: 4px 11px;
-      border-radius: 8px;
-      font-size: var(--fs-pill);
+    }
+
+    .badge {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11px;
       font-weight: 700;
+      padding: 3px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.03em;
+      white-space: nowrap;
+      line-height: 1.2;
+    }
+
+    .badge.thor  { background: var(--blue-soft);  color: var(--blue);  border: 1px solid var(--blue-line); }
+    .badge.thor2 { background: var(--cyan-soft);  color: var(--cyan);  border: 1px solid var(--cyan-line); }
+    .badge.thor4 { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); }
+    .badge.orin  { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); }
+    .badge.ctx   { background: var(--surface-2);  color: var(--ink-2); border: 1px solid var(--line); }
+    .badge.new   { background: var(--rose-soft);  color: var(--rose);  border: 1px solid var(--rose-line); }
+    .badge.beta  { background: var(--violet-soft);color: var(--violet);border: 1px solid var(--violet-line); }
+
+    /* Highlight Summary Bar (Light Benchmark Quant Pill) */
+    .perf-strip {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-left: 3px solid var(--blue);
+      border-radius: 4px;
+      padding: 9px 12px;
+      font-size: var(--fs-desc);
+      color: var(--ink-2);
+      line-height: 1.55;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .perf-line {
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+
+    .perf-tag {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 10.5px;
+      font-weight: 800;
+      padding: 1px 5px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      letter-spacing: 0.04em;
+    }
+    .perf-tag.thor { background: var(--blue-soft); color: var(--blue); }
+    .perf-tag.orin { background: var(--amber-soft); color: var(--amber); }
+
+    .perf-text {
+      color: var(--ink);
+      font-weight: 500;
+      word-break: break-word;
+    }
+
+    .perf-text.muted {
+      color: var(--ink-2);
+      font-weight: 400;
+    }
+
+    /* 3-Column Hardcore Metrics Grid */
+    .tri-metrics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+
+    .tri-box {
+      background: var(--surface);
+      padding: 11px 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      gap: 3px;
+    }
+
+    .tri-box.primary {
+      background: color-mix(in srgb, var(--blue-soft) 45%, var(--surface));
+    }
+
+    .tri-val {
+      font-size: var(--fs-metric);
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    .tri-box.primary .tri-val { color: var(--blue); }
+    .tri-box.accent-green .tri-val { color: var(--green); }
+
+    .tri-lbl {
+      font-size: var(--fs-metric-lbl);
+      font-weight: 600;
+      color: var(--ink-3);
+      line-height: 1.25;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 100%;
+    }
+
+    /* Card Footer */
+    .card-foot {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 11.5px;
+      color: var(--ink-3);
+    }
+
+    .foot-hw {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .foot-action {
+      color: var(--blue);
+      font-weight: 700;
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .speedup-tag {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 10.5px;
+      font-weight: 700;
+      background: var(--green-soft);
+      color: var(--green);
+      border: 1px solid var(--green-line);
+      padding: 1px 6px;
+      border-radius: 3px;
       white-space: nowrap;
     }
 
-    .hw-list {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
+    /* ==================== Spec Board View (Table List) ==================== */
+    .spec-board {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-xs);
     }
 
-    .hw-row {
+    .spec-board-head {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.2fr) minmax(200px, 0.95fr) minmax(280px, 1.85fr) 74px;
+      gap: 14px;
+      padding: 11px 18px;
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--line-strong);
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+    }
+
+    .spec-row {
+      display: grid;
+      grid-template-columns: minmax(220px, 1.2fr) minmax(200px, 0.95fr) minmax(280px, 1.85fr) 74px;
+      gap: 14px;
+      align-items: center;
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      cursor: pointer;
+      transition: background 0.14s;
+    }
+
+    .spec-row:last-child { border-bottom: 0; }
+    .spec-row:hover { background: var(--surface-2); }
+
+    .spec-name-cell {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      min-width: 0;
+    }
+
+    .spec-mini-thumb {
+      width: 36px;
+      height: 36px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface-3);
+      flex-shrink: 0;
+    }
+    .spec-mini-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    .spec-title {
+      font-size: calc(var(--fs-title) - 1.5px);
+      font-weight: 700;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .spec-meta-tags {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      border-radius: 10px;
-      font-size: var(--fs-meta);
-      font-weight: 600;
-      font-variant-numeric: tabular-nums;
-      line-height: 1.35;
+      gap: 4px;
+      margin-top: 4px;
     }
 
-    .hw-thor { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; }
-    .hw-thor-multi { background: #f5f3ff; color: #5b21b6; border: 1px solid #ddd6fe; }
-    .hw-orin { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+    .spec-hw-lines {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--ink-2);
+    }
 
-    html.dark .hw-thor { background: rgba(99, 102, 241, 0.16); color: #c7d2fe; border-color: rgba(129, 140, 248, 0.35); }
-    html.dark .hw-thor-multi { background: rgba(139, 92, 246, 0.18); color: #ddd6fe; border-color: rgba(167, 139, 250, 0.38); }
-    html.dark .hw-orin { background: rgba(16, 185, 129, 0.15); color: #a7f3d0; border-color: rgba(52, 211, 153, 0.35); }
+    .spec-hw-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
 
-    .hw-dev { font-weight: 800; }
-    .hw-sep { opacity: 0.45; }
-
-    .card-desc {
+    .spec-desc {
       margin: 0;
       font-size: var(--fs-desc);
-      line-height: 1.65;
-      color: var(--text-secondary);
+      color: var(--ink-2);
+      line-height: 1.55;
       white-space: pre-line;
-      word-break: break-word;
     }
 
-    .list-table {
-      background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 18px;
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
+    .spec-go {
+      text-align: right;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      white-space: nowrap;
     }
 
-    .list-row {
-      display: grid;
-      grid-template-columns: minmax(240px, 1.3fr) minmax(240px, 1.15fr) minmax(300px, 2fr);
-      gap: 18px;
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      align-items: start;
-    }
-    .list-row:last-child { border-bottom: 0; }
-    .list-row:nth-child(even) { background: var(--surface-soft); }
-
-    .list-title-wrap { display: flex; flex-direction: column; gap: 6px; }
-    .list-title { font-size: var(--fs-title); font-weight: 800; color: var(--text); line-height: 1.3; }
-    .list-tags { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
-
+    /* ==================== Overview Wall View (3-Col Compact) ==================== */
     .wall-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .wall-card {
       background: var(--surface);
-      border: 1.5px solid var(--border);
-      border-radius: 18px;
-      padding: 20px 22px;
-      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px 18px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 10px;
+      box-shadow: var(--shadow-xs);
     }
 
     .wall-head {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
       padding-bottom: 10px;
-      border-bottom: 1.5px solid var(--border);
+      border-bottom: 1px solid var(--line);
     }
 
-    .wall-head-left { display: flex; align-items: center; gap: 10px; }
-    .wall-title { font-size: calc(var(--fs-title) + 1px); font-weight: 800; color: var(--text); }
-    .wall-count { padding: 3px 11px; border-radius: 999px; font-size: 14px; font-weight: 800; white-space: nowrap; }
-    .wall-items { display: flex; flex-direction: column; gap: 10px; }
+    .wall-head-l {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .wall-title {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .wall-cnt {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      color: var(--ink-2);
+    }
+
+    .wall-items {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
 
     .wall-item {
       display: flex;
-      align-items: baseline;
+      align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      padding: 8px 12px;
-      border-radius: 10px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
+      gap: 8px;
+      padding: 7px 10px;
+      border-radius: var(--radius-sm);
+      background: var(--surface-2);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: border-color 0.14s, background 0.14s;
     }
 
-    .wall-item-name { font-size: calc(var(--fs-desc) + 0.5px); font-weight: 700; color: var(--text); line-height: 1.35; }
-    .wall-item-hw {
-      flex-shrink: 0;
+    .wall-item:hover {
+      border-color: var(--blue-line);
+      background: var(--blue-soft);
+    }
+
+    .wall-item-name {
       font-size: 13.5px;
-      font-weight: 700;
-      color: var(--text-secondary);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      white-space: nowrap;
+      font-weight: 600;
+      color: var(--ink);
+      line-height: 1.3;
     }
 
-    .footer {
-      margin-top: 40px;
-      padding-top: 18px;
-      border-top: 1px solid var(--border);
+    .wall-item-hw {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-3);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ==================== Category Accent Colors ==================== */
+    .bar-blue    { background: #2563eb; }
+    .bar-violet  { background: #7c3aed; }
+    .bar-rose    { background: #e11d48; }
+    .bar-emerald { background: #059669; }
+    .bar-amber   { background: #d97706; }
+    .bar-cyan    { background: #0284c7; }
+    .bar-slate   { background: #475569; }
+
+    /* ==================== Footnote ==================== */
+    .footnote {
+      margin-top: 32px;
+      padding: 13px 16px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      color: var(--ink-3);
       display: flex;
       flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px 18px;
+    }
+
+    /* ==================== Detail & Changelog Modals ==================== */
+    .modal-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(15, 23, 42, 0.5);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-bg.open { display: flex; }
+
+    .modal-card {
+      width: 100%;
+      max-width: 720px;
+      max-height: 86vh;
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      box-shadow: 0 24px 60px -12px rgba(15, 23, 42, 0.35);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      animation: fadeUp 0.18s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .modal-head {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 14px;
-      color: var(--text-muted);
     }
 
+    .modal-head h3 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 800;
+      color: var(--ink);
+    }
+
+    .modal-body {
+      padding: 20px 22px 24px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .detail-cover {
+      width: 100%;
+      aspect-ratio: 16 / 7.5;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surface-3);
+      position: relative;
+    }
+    .detail-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .detail-cover.contain { background: var(--surface-2); padding: 14px; }
+    .detail-cover.contain img { object-fit: contain; }
+
+    .detail-section-label {
+      font-family: "SF Mono", ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 6px;
+    }
+
+    .detail-hw-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 10px;
+    }
+
+    .detail-hw-card {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .detail-hw-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-weight: 800;
+      font-size: 13.5px;
+      color: var(--ink);
+    }
+
+    .detail-hw-nums {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: var(--ink-2);
+    }
+
+    .detail-hw-profile {
+      font-size: 11.5px;
+      color: var(--ink-3);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 5px 8px;
+      word-break: break-word;
+    }
+
+    .detail-note {
+      font-size: 12.5px;
+      color: var(--ink-2);
+      line-height: 1.65;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+
+    .detail-pkg {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 8px 12px;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      font-size: 12px;
+      color: var(--ink-3);
+    }
+
+    .log-entry {
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      border-radius: 8px;
+      padding: 12px 14px;
+    }
+    .log-top {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 6px;
+      font-size: 13.5px;
+      font-weight: 700;
+    }
+    .log-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 6px; }
+    .log-chip { padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 600; }
+    .log-add { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); }
+    .log-upd { background: var(--blue-soft); color: var(--blue); border: 1px solid var(--blue-line); }
+    .log-rem { background: var(--rose-soft); color: var(--rose); border: 1px solid var(--rose-line); }
+
+    /* ==================== Screenshot Mode ==================== */
     body.screenshot-mode .topbar,
-    body.screenshot-mode .filters-panel,
+    body.screenshot-mode .controls-shell,
     body.screenshot-mode .update-banner { display: none !important; }
-    body.screenshot-mode .container { padding-top: 24px; padding-bottom: 36px; }
-    body.embed-mode #nav-back,
-    body.embed-mode #lang-seg-wrap,
-    body.embed-mode #btn-theme { display: none !important; }
+    body.screenshot-mode .wrap { padding-top: 20px; padding-bottom: 36px; }
 
     .shot-float {
       position: fixed;
-      right: 22px;
-      bottom: 22px;
+      right: 20px;
+      bottom: 20px;
       z-index: 60;
       display: none;
       align-items: center;
-      gap: 8px;
-      padding: 8px 12px;
+      gap: 6px;
+      padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.92);
       color: #ffffff;
-      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
       backdrop-filter: blur(10px);
     }
     body.screenshot-mode .shot-float { display: inline-flex; }
@@ -857,263 +1262,206 @@
       border: 0;
       background: rgba(255, 255, 255, 0.14);
       color: #ffffff;
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
     }
-    .shot-float button:hover { background: rgba(255, 255, 255, 0.26); }
+    .shot-float button:hover { background: rgba(255, 255, 255, 0.25); }
     .shot-float button.exit { background: #2563eb; }
-
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      background: rgba(15, 23, 42, 0.55);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-backdrop.open { display: flex; }
-    .modal {
-      width: 100%;
-      max-width: 720px;
-      max-height: 82vh;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .modal-head {
-      padding: 18px 24px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .modal-head h3 { margin: 0; font-size: 20px; font-weight: 800; }
-    .modal-body {
-      padding: 18px 24px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .log-entry {
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      border-radius: 14px;
-      padding: 14px 16px;
-    }
-    .log-top {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-bottom: 8px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-    .log-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-    .log-chip { padding: 3px 10px; border-radius: 999px; font-size: 13px; font-weight: 600; }
-    .log-add { background: #dcfce7; color: #166534; }
-    .log-upd { background: #dbeafe; color: #1e40af; }
-    .log-rem { background: #fee2e2; color: #991b1b; }
-    html.dark .log-add { background: rgba(34, 197, 94, 0.2); color: #86efac; }
-    html.dark .log-upd { background: rgba(59, 130, 246, 0.2); color: #93c5fd; }
-    html.dark .log-rem { background: rgba(239, 68, 68, 0.2); color: #fca5a5; }
 
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 28px;
-      transform: translateX(-50%) translateY(16px);
+      bottom: 26px;
+      transform: translateX(-50%) translateY(14px);
       background: #0f172a;
       color: #ffffff;
-      padding: 11px 20px;
+      padding: 9px 18px;
       border-radius: 999px;
-      font-size: 15px;
+      font-size: 13.5px;
       font-weight: 600;
-      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.28);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
       opacity: 0;
       pointer-events: none;
       transition: all 0.2s ease;
-      z-index: 90;
+      z-index: 95;
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
     .empty-state {
       background: var(--surface);
-      border: 1.5px dashed var(--border-strong);
-      border-radius: 18px;
-      padding: 54px 24px;
+      border: 1px dashed var(--line-strong);
+      border-radius: var(--radius);
+      padding: 48px 20px;
       text-align: center;
-      color: var(--text-secondary);
-      font-size: 18px;
+      color: var(--ink-3);
+      font-size: 15px;
     }
 
-    .tone-blue   { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-    .tone-violet { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
-    .tone-rose   { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
-    .tone-emerald{ background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
-    .tone-amber  { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-    .tone-cyan   { background: #ecfeff; color: #0e7490; border: 1px solid #a5f3fc; }
-    .tone-slate  { background: #f1f5f9; color: #334155; border: 1px solid #cbd5e1; }
+    /* ==================== Responsive Adaptation ==================== */
+    @media (max-width: 1080px) {
+      .page-head { grid-template-columns: 1fr; gap: 16px; }
+      .head-stamp { text-align: left; }
+      .wall-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
 
-    html.dark .tone-blue   { background: rgba(59,130,246,.16); color:#93c5fd; border-color:rgba(96,165,250,.35); }
-    html.dark .tone-violet { background: rgba(139,92,246,.18); color:#c4b5fd; border-color:rgba(167,139,250,.35); }
-    html.dark .tone-rose   { background: rgba(244,63,94,.16);  color:#fda4af; border-color:rgba(251,113,133,.35); }
-    html.dark .tone-emerald{ background: rgba(16,185,129,.16); color:#6ee7b7; border-color:rgba(52,211,153,.35); }
-    html.dark .tone-amber  { background: rgba(245,158,11,.16); color:#fcd34d; border-color:rgba(251,191,36,.35); }
-    html.dark .tone-cyan   { background: rgba(6,182,212,.16);  color:#67e8f9; border-color:rgba(34,211,238,.35); }
-    html.dark .tone-slate  { background: rgba(148,163,184,.16);color:#cbd5e1; border-color:rgba(148,163,184,.3); }
+    @media (max-width: 860px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .spec-board-head { display: none; }
+      .spec-row { grid-template-columns: 1fr; gap: 8px; padding: 14px; }
+      .spec-go { text-align: left; }
+      .wall-grid { grid-template-columns: 1fr; }
+    }
 
-    .dot-blue    { background: #2563eb; }
-    .dot-violet  { background: #7c3aed; }
-    .dot-rose    { background: #e11d48; }
-    .dot-emerald { background: #059669; }
-    .dot-amber   { background: #d97706; }
-    .dot-cyan    { background: #0891b2; }
-    .dot-slate   { background: #475569; }
-
-    @media (max-width: 960px) {
-      .list-row { grid-template-columns: 1fr; gap: 10px; }
-      .hero { padding: 22px 20px; }
-      .hero-meta-box { align-items: flex-start; text-align: left; }
-      .container { padding: 18px 14px 48px; }
-      :root { --card-min: 300px; }
-      html[data-scale="xlarge"] { --card-min: 320px; }
+    @media (max-width: 640px) {
+      .wrap { padding: 16px 14px 48px; }
+      .topbar-inner { padding: 0 14px; }
+      .kpi-strip { grid-template-columns: repeat(3, 1fr); }
+      .kpi-cell { padding: 9px 10px; min-width: 0; }
+      .kpi-val { font-size: 18px; }
+      .search-box { width: 100%; }
+      .toolbar-left, .toolbar-right { width: 100%; }
+      .pills-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
+      .pills-bar::-webkit-scrollbar { display: none; }
+      .pill { flex-shrink: 0; }
+      .card { padding: 16px; gap: 12px; }
+      .card-thumb { width: 42px; height: 42px; }
+      .tri-val { font-size: 15px; }
+      .tri-lbl { font-size: 10.5px; }
     }
 
     @media print {
-      .topbar, .filters-panel, .update-banner, .shot-float, .toast { display: none !important; }
-      body { background: #ffffff; }
-      .model-card, .wall-card, .hero { break-inside: avoid; box-shadow: none; }
+      .topbar, .controls-shell, .update-banner, .shot-float, .toast { display: none !important; }
+      body { background: #ffffff; background-image: none; }
+      .card, .wall-card, .spec-board { break-inside: avoid; box-shadow: none; }
     }
   </style>
 </head>
 <body>
   <header class="topbar">
     <div class="topbar-inner">
-      <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;">
-        <a class="nav-back" id="nav-back" href="../">← 售前资料中心</a>
-        <div class="seg" role="group" aria-label="View">
-          <button type="button" data-view="cards" class="active" id="btn-v-cards">🃏 大字卡片</button>
-          <button type="button" data-view="list" id="btn-v-list">📋 客户清单</button>
-          <button type="button" data-view="wall" id="btn-v-wall">🧱 一图总览墙</button>
-        </div>
-        <div class="seg" role="group" aria-label="Scale">
-          <button type="button" data-scale="normal" id="btn-s-normal">标准字</button>
-          <button type="button" data-scale="large" class="active" id="btn-s-large">大字</button>
-          <button type="button" data-scale="xlarge" id="btn-s-xlarge">超大字</button>
-        </div>
-      </div>
-
-      <div class="topbar-actions">
+      <a class="top-brand" id="nav-back" href="../">
+        <img src="../assets/favicon.png" alt="LazyCat" />
+        <span id="top-brand-name">懒猫微服 · 模型广场</span>
+        <small>AI POD</small>
+      </a>
+      <div class="top-right">
         <div class="seg" id="lang-seg-wrap" role="group" aria-label="Language">
           <button type="button" data-lang="zh" class="active">中文</button>
           <button type="button" data-lang="en">EN</button>
         </div>
-        <button type="button" class="btn" id="btn-changelog">🕒 更新记录</button>
-        <button type="button" class="btn" id="btn-copy-list">📄 复制文本清单</button>
-        <button type="button" class="btn" id="btn-theme">🌓</button>
-        <button type="button" class="btn btn-primary" id="btn-screenshot">📷 客户截图模式</button>
+        <button type="button" class="btn" id="btn-theme" title="Theme">🌓</button>
       </div>
     </div>
   </header>
 
-  <main class="container">
-    <section class="hero" id="hero">
-      <div class="hero-top">
-        <div class="hero-brand">
-          <div class="hero-eyebrow">
-            <span class="hero-badge"><span class="live-dot"></span><span id="hero-badge-text">每日自动同步 · 官方模型广场</span></span>
-            <span id="hero-filter-label" style="color:var(--text-muted);font-weight:700;"></span>
-          </div>
-          <h1 id="hero-title">LCMD AI Pod 模型广场 · 支持模型一览</h1>
-          <p class="hero-sub" id="hero-sub">覆盖大语言模型、视频/图像生成、语音识别与合成、翻译、文档 OCR 及多模态向量检索，支持本地一键部署。</p>
+  <main class="wrap">
+    <!-- Editorial Page Header -->
+    <section class="page-head" id="hero">
+      <div>
+        <div class="kicker-row">
+          <span class="kicker"><span class="live-dot"></span><span id="hero-badge-text">AI POD MODEL STORE · OFFICIAL CATALOG</span></span>
+          <span class="ver-pill num" id="meta-version">v--</span>
+          <span class="filter-tag" id="hero-filter-label"></span>
         </div>
-        <div class="hero-meta-box">
-          <div class="hero-version" id="meta-version">AI Pod --</div>
-          <div id="meta-app-updated">--</div>
-          <div id="meta-synced">--</div>
-        </div>
+        <h1 id="hero-title">懒猫 AI Pod 模型广场 · 实测支持一览</h1>
+        <p class="page-sub" id="hero-sub">涵盖大语言模型、视频/图像生成、实时语音、文档 OCR 与多模态检索，本地一键部署，点击任意卡片查看完整硬件与实测参数。</p>
       </div>
 
-      <div class="stats-row" id="stats-row">
-        <div class="stat-card">
-          <div class="stat-num blue" id="stat-visible">--</div>
-          <div class="stat-label" id="lbl-stat-visible">当前展示模型数</div>
+      <div>
+        <div class="kpi-strip">
+          <div class="kpi-cell">
+            <span class="kpi-val blue num" id="stat-visible">--</span>
+            <span class="kpi-lbl" id="lbl-stat-visible">展示模型</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-val num" id="stat-cats">--</span>
+            <span class="kpi-lbl" id="lbl-stat-cats">能力分类</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-val cyan num" id="stat-thor">--</span>
+            <span class="kpi-lbl" id="lbl-stat-thor">AGX Thor</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-val amber num" id="stat-orin">--</span>
+            <span class="kpi-lbl" id="lbl-stat-orin">AGX Orin</span>
+          </div>
+          <div class="kpi-cell">
+            <span class="kpi-val green num" id="stat-multi">--</span>
+            <span class="kpi-lbl" id="lbl-stat-multi">多机集群</span>
+          </div>
         </div>
-        <div class="stat-card">
-          <div class="stat-num violet" id="stat-cats">--</div>
-          <div class="stat-label" id="lbl-stat-cats">模型能力分类</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num emerald" id="stat-thor">--</div>
-          <div class="stat-label" id="lbl-stat-thor">支持 AGX Thor</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num amber" id="stat-orin">--</div>
-          <div class="stat-label" id="lbl-stat-orin">支持 AGX Orin</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num" id="stat-multi">--</div>
-          <div class="stat-label" id="lbl-stat-multi">多机集群 (TP2/TP4)</div>
-        </div>
+        <div class="head-stamp num" id="meta-stamp">--</div>
       </div>
     </section>
 
-    <section class="update-banner" id="update-banner" style="display:none;"></section>
+    <section class="update-banner" id="update-banner"></section>
 
-    <section class="filters-panel">
-      <div class="filters-row">
-        <div class="search-wrap">
-          <input
-            type="text"
-            id="search-input"
-            class="search-input"
-            placeholder="搜索模型名称、能力、硬件（如 DeepSeek / Qwen / 视频 / Orin / TP4）…"
-            autocomplete="off"
-          />
-          <button type="button" class="search-clear" id="search-clear" aria-label="Clear">×</button>
+    <!-- Controls & Filter Bar -->
+    <section class="controls-shell">
+      <div class="toolbar-row">
+        <div class="toolbar-left">
+          <div class="seg" role="group" aria-label="Hardware" id="hw-chips">
+            <button type="button" data-hw="all" class="active" id="hw-all">全部硬件</button>
+            <button type="button" data-hw="thor-single" id="hw-thor-single">Thor 单机</button>
+            <button type="button" data-hw="thor-multi" id="hw-thor-multi">Thor 多机</button>
+            <button type="button" data-hw="orin" id="hw-orin">Orin</button>
+          </div>
+
+          <div class="search-box">
+            <input
+              type="text"
+              id="search-input"
+              class="search-input"
+              placeholder="搜索模型：DeepSeek / Qwen / 视频 / TP4…"
+              autocomplete="off"
+            />
+            <button type="button" class="search-clear" id="search-clear" aria-label="Clear">×</button>
+          </div>
+
+          <label class="hidden-toggle">
+            <input type="checkbox" id="chk-hidden" />
+            <span id="lbl-hidden">含内测</span>
+          </label>
         </div>
 
-        <div class="chip-group" id="hw-chips">
-          <button type="button" class="chip active" data-hw="all" id="hw-all">全部硬件</button>
-          <button type="button" class="chip" data-hw="thor-single" id="hw-thor-single">AGX Thor 单机</button>
-          <button type="button" class="chip" data-hw="thor-multi" id="hw-thor-multi">AGX Thor 多机集群</button>
-          <button type="button" class="chip" data-hw="orin" id="hw-orin">AGX Orin</button>
-        </div>
+        <div class="toolbar-right">
+          <div class="seg" role="group" aria-label="View">
+            <button type="button" data-view="cards" class="active" id="btn-v-cards">评测卡片</button>
+            <button type="button" data-view="list" id="btn-v-list">规格表</button>
+            <button type="button" data-view="wall" id="btn-v-wall">总览墙</button>
+          </div>
 
-        <label class="toggle-label">
-          <input type="checkbox" id="chk-hidden" />
-          <span id="lbl-hidden">含内测/隐藏模型</span>
-        </label>
+          <div class="seg" role="group" aria-label="Scale">
+            <button type="button" data-scale="normal" class="active" id="btn-s-normal">标准</button>
+            <button type="button" data-scale="large" id="btn-s-large">大字</button>
+            <button type="button" data-scale="xlarge" id="btn-s-xlarge">特大</button>
+          </div>
+
+          <button type="button" class="btn" id="btn-changelog">更新记录</button>
+          <button type="button" class="btn" id="btn-copy-list">复制清单</button>
+          <button type="button" class="btn btn-accent" id="btn-screenshot">截图模式</button>
+        </div>
       </div>
 
-      <div class="chip-group" id="cat-chips"></div>
+      <div class="pills-bar" id="cat-chips"></div>
     </section>
 
     <div id="content">
       <div class="empty-state" id="loading-msg">正在加载模型广场数据…</div>
     </div>
 
-    <footer class="footer">
-      <div id="footer-source">LCMD Cloud · AI Pod 模型广场（每日本地自动同步）</div>
-      <div id="footer-stamp">--</div>
+    <footer class="footnote">
+      <div id="footer-source">懒猫微服 · AI Pod 模型广场 · 每 30 分钟自动检测同步</div>
+      <div class="num" id="footer-stamp">--</div>
     </footer>
   </main>
 
+  <!-- Screenshot Mode Floating Bar -->
   <div class="shot-float" id="shot-float">
-    <span style="font-size:13px;opacity:.85;padding:0 6px;" id="shot-label">客户截图模式</span>
+    <span style="font-size:12.5px;opacity:.85;padding:0 6px;" id="shot-label">客户截图模式</span>
     <button type="button" id="shot-view">切换视图</button>
     <button type="button" id="shot-scale">切换字号</button>
     <button type="button" id="shot-lang">中文 / EN</button>
@@ -1121,10 +1469,22 @@
     <button type="button" class="exit" id="shot-exit">退出 (Esc)</button>
   </div>
 
-  <div class="modal-backdrop" id="changelog-modal">
-    <div class="modal">
+  <!-- Model Detail Modal -->
+  <div class="modal-bg" id="detail-modal">
+    <div class="modal-card">
       <div class="modal-head">
-        <h3 id="modal-title">🕒 模型广场更新记录</h3>
+        <h3 id="detail-title">模型详情</h3>
+        <button type="button" class="btn" id="btn-close-detail">关闭</button>
+      </div>
+      <div class="modal-body" id="detail-body"></div>
+    </div>
+  </div>
+
+  <!-- Changelog Modal -->
+  <div class="modal-bg" id="changelog-modal">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modal-title">模型广场更新记录</h3>
         <button type="button" class="btn" id="btn-close-modal">关闭</button>
       </div>
       <div class="modal-body" id="changelog-body"></div>
@@ -1160,111 +1520,159 @@
       const I18N = {
         zh: {
           docTitle: '懒猫 AI Pod 模型广场 · 支持模型一览',
-          navBack: '← 返回懒猫微服资料',
-          vCards: '🃏 大字卡片',
-          vList: '📋 客户清单',
-          vWall: '🧱 一图总览墙',
-          sNormal: '标准字',
+          topBrand: '懒猫微服 · 返回资料中心',
+          vCards: '评测卡片',
+          vList: '规格表',
+          vWall: '总览墙',
+          sNormal: '标准',
           sLarge: '大字',
-          sXlarge: '超大字',
-          btnChangelog: '🕒 更新记录',
-          btnCopy: '📄 复制文本清单',
-          btnShot: '📷 客户截图模式',
-          heroBadge: '每 30 分钟自动检测同步 · 官方模型广场',
-          heroTitle: '懒猫 AI Pod 模型广场 · 支持模型一览',
-          heroSub: '覆盖大语言模型、视频/图像生成、语音识别与合成、翻译、文档 OCR 及多模态向量检索，支持本地一键部署。',
-          metaAppUpdated: '源端版本时间：',
-          metaSynced: '门户最近同步：',
-          statVisible: '当前展示模型数',
-          statCats: '模型能力分类',
-          statThor: '支持 AGX Thor',
-          statOrin: '支持 AGX Orin',
-          statMulti: '多机集群 (TP2/TP4)',
-          searchPh: '搜索模型名称、能力、硬件（如 DeepSeek / Qwen / 视频 / Orin / TP4）…',
+          sXlarge: '特大',
+          btnChangelog: '更新记录',
+          btnCopy: '复制清单',
+          btnShot: '截图模式',
+          heroBadge: 'AI POD MODEL STORE · 每 30 分钟自动同步',
+          heroTitle: '懒猫 AI Pod 模型广场 · 实测支持一览',
+          heroSub: '涵盖大语言模型、视频/图像生成、实时语音、文档 OCR 与多模态检索，本地一键部署，点击任意卡片查看完整硬件与实测参数。',
+          statVisible: '展示模型',
+          statCats: '能力分类',
+          statThor: 'AGX Thor',
+          statOrin: 'AGX Orin',
+          statMulti: '多机集群',
+          stampText: (appUpd, syncAt) => `源端发布 ${appUpd.slice(0, 16)} · 同步 ${syncAt.slice(0, 16)}`,
+          searchPh: '搜索模型：DeepSeek / Qwen / 视频 / Orin / TP4…',
           hwAll: '全部硬件',
-          hwThorSingle: 'AGX Thor 单机',
-          hwThorMulti: 'AGX Thor 多机集群',
-          hwOrin: 'AGX Orin',
-          lblHidden: '含内测/隐藏模型',
-          allModels: '全部模型',
+          hwThorSingle: 'Thor 单机',
+          hwThorMulti: 'Thor 多机',
+          hwOrin: 'Orin',
+          lblHidden: '含内测',
+          allModels: '全部',
           unitCount: (n) => `${n} 款`,
           memRam: '内存',
           memVram: '显存',
           disk: '磁盘',
-          perNode: ' /台',
-          newBadge: 'NEW 新增',
-          hiddenBadge: '内测/隐藏',
-          hiddenShort: '内测',
-          emptyMsg: '没有找到匹配的模型，请调整筛选条件。',
-          footerSource: '懒猫微服 · AI Pod 模型广场 · 每 30 分钟自动检测同步',
+          perNode: '/台',
+          newBadge: 'NEW',
+          hiddenBadge: '内测',
+          detailBtn: '规格详情 →',
+          specColModel: '模型与分类',
+          specColHw: '硬件与资源需求',
+          specColPerf: '实测表现与能力说明',
+          specColAct: '详情',
+          lblDecode: '单流解码',
+          lblPrefill: 'Prefill 预填充',
+          lblConc: '多并发吞吐',
+          lblTtft: 'TTFT 首字延迟',
+          lblSpeed: 'Thor 实测速度',
+          lblPerf: '核心性能',
+          lblVram: 'Thor 显存需求',
+          lblRam: '内存需求',
+          lblVramPerNode: '单台显存门槛',
+          lblDisk: '磁盘空间',
+          lblDiskPerNode: '单台磁盘空间',
+          lblOrinSpeed: 'Orin 实测',
+          lblDeploy: '部署方式',
+          valOneClick: '本地一键部署',
+          speedupTag: (x) => `Thor 快 ${x}×`,
+          detailHwSec: '支持硬件与资源门槛',
+          detailPerfSec: '官方实测数据',
+          detailNoteSec: '内存与部署说明',
+          detailPkgSec: '应用包信息',
+          copyPkg: '复制包名',
+          pkgCopied: '已复制应用包 ID',
+          emptyMsg: '没有找到匹配的模型，请调整关键词或筛选条件。',
+          footerSource: '懒猫微服 · AI Pod 模型广场（本机每 30 分钟自动检测同步，实际性能以设备部署后实测为准）',
           shotLabel: '客户截图模式',
           shotView: '切换视图',
           shotScale: '切换字号',
           shotPrint: '打印 / PDF',
           shotExit: '退出 (Esc)',
-          modalTitle: '🕒 模型广场更新记录',
+          modalTitle: '模型广场更新记录',
           modalClose: '关闭',
           viewChangelog: '查看完整记录',
-          latestChange: '最近变动',
-          verUpgrade: (a, b) => `版本升级 v${a} → v${b}`,
+          latestChange: '最近更新',
+          verUpgrade: (a, b) => `版本 v${a} → v${b}`,
           addedPrefix: (n) => `新增 ${n} 款：`,
           updatedPrefix: (n) => `更新 ${n} 款：`,
           removedPrefix: (n) => `下线 ${n} 款：`,
-          baselineNote: (n) => `首次基线同步，收录 ${n} 款展示模型。`,
+          baselineNote: (n) => `基线快照，共收录 ${n} 款展示模型。`,
           toastCopied: (n) => `已复制 ${n} 款模型的中文清单到剪贴板`,
-          toastShot: '已进入客户截图模式，按 Esc 可退出',
+          toastShot: '已进入截图模式，按 Esc 可退出',
           filterPrefix: '筛选：',
           copyHeader: (v, d, n) => `【懒猫 AI Pod 模型广场支持清单】\n版本：AI Pod v${v} · 更新日期：${d}\n共 ${n} 款模型：\n`,
         },
         en: {
           docTitle: 'LCMD AI Pod Model Store · Supported Models',
-          navBack: '← Pre-sale Materials',
-          vCards: '🃏 Large Cards',
-          vList: '📋 Client List',
-          vWall: '🧱 Overview Wall',
-          sNormal: 'Standard',
-          sLarge: 'Large',
-          sXlarge: 'X-Large',
-          btnChangelog: '🕒 Changelog',
-          btnCopy: '📄 Copy Text List',
-          btnShot: '📷 Screenshot Mode',
-          heroBadge: 'Auto-Checked Every 30m · Official Model Store',
-          heroTitle: 'LCMD AI Pod Model Store · Supported Models',
-          heroSub: 'Covering LLMs, video & image generation, ASR, TTS, translation, OCR and multimodal embeddings — all one-click locally deployable.',
-          metaAppUpdated: 'AI Pod Release: ',
-          metaSynced: 'Portal Synced: ',
-          statVisible: 'Displayed Models',
-          statCats: 'Capability Categories',
-          statThor: 'AGX Thor Ready',
-          statOrin: 'AGX Orin Ready',
-          statMulti: 'Multi-Node (TP2/TP4)',
-          searchPh: 'Search models, capabilities, hardware (e.g., DeepSeek / Qwen / Video / Orin / TP4)…',
-          hwAll: 'All Hardware',
-          hwThorSingle: 'AGX Thor Single',
-          hwThorMulti: 'AGX Thor Multi-Node',
-          hwOrin: 'AGX Orin',
-          lblHidden: 'Include Beta / Hidden',
-          allModels: 'All Models',
+          topBrand: 'LCMD · Back to Portal',
+          vCards: 'Cards',
+          vList: 'Spec Table',
+          vWall: 'Overview',
+          sNormal: 'Std',
+          sLarge: 'Lg',
+          sXlarge: 'XL',
+          btnChangelog: 'Changelog',
+          btnCopy: 'Copy List',
+          btnShot: 'Screenshot',
+          heroBadge: 'AI POD MODEL STORE · AUTO-SYNCED EVERY 30M',
+          heroTitle: 'LCMD AI Pod Model Store · Benchmark Catalog',
+          heroSub: 'LLMs, video & image generation, real-time speech, OCR, and multimodal retrieval — locally deployable in one click. Click any card for full specs.',
+          statVisible: 'Models',
+          statCats: 'Categories',
+          statThor: 'AGX Thor',
+          statOrin: 'AGX Orin',
+          statMulti: 'Multi-Node',
+          stampText: (appUpd, syncAt) => `Release ${appUpd.slice(0, 16)} · Synced ${syncAt.slice(0, 16)}`,
+          searchPh: 'Search: DeepSeek / Qwen / Video / Orin / TP4…',
+          hwAll: 'All HW',
+          hwThorSingle: 'Thor 1×',
+          hwThorMulti: 'Thor Multi',
+          hwOrin: 'Orin',
+          lblHidden: 'Beta',
+          allModels: 'All',
           unitCount: (n) => `${n}`,
           memRam: 'RAM',
           memVram: 'VRAM',
           disk: 'Disk',
-          perNode: ' /node',
+          perNode: '/node',
           newBadge: 'NEW',
-          hiddenBadge: 'Beta / Hidden',
-          hiddenShort: 'Beta',
-          emptyMsg: 'No models match your filters. Try adjusting search or hardware selection.',
-          footerSource: 'LCMD · AI Pod Model Store · Synced Every 30m',
+          hiddenBadge: 'Beta',
+          detailBtn: 'Specs →',
+          specColModel: 'Model & Category',
+          specColHw: 'Hardware & Footprint',
+          specColPerf: 'Measured Performance & Capabilities',
+          specColAct: 'Specs',
+          lblDecode: 'Single-Stream',
+          lblPrefill: 'Prefill Speed',
+          lblConc: 'Multi-Concurrency',
+          lblTtft: 'TTFT Latency',
+          lblSpeed: 'Thor Measured',
+          lblPerf: 'Throughput',
+          lblVram: 'Thor VRAM',
+          lblRam: 'RAM Needed',
+          lblVramPerNode: 'VRAM / Node',
+          lblDisk: 'Disk Space',
+          lblDiskPerNode: 'Disk / Node',
+          lblOrinSpeed: 'Orin Measured',
+          lblDeploy: 'Deployment',
+          valOneClick: 'One-Click Local',
+          speedupTag: (x) => `Thor ${x}× Faster`,
+          detailHwSec: 'Supported Hardware & Requirements',
+          detailPerfSec: 'Measured Performance',
+          detailNoteSec: 'Memory & Deployment Notes',
+          detailPkgSec: 'Package Information',
+          copyPkg: 'Copy ID',
+          pkgCopied: 'Package ID copied',
+          emptyMsg: 'No models match your current filter. Try adjusting keywords or hardware.',
+          footerSource: 'LCMD · AI Pod Model Store (Auto-synced every 30 min; actual throughput subject to on-device test)',
           shotLabel: 'Screenshot Mode',
-          shotView: 'Switch View',
-          shotScale: 'Font Size',
+          shotView: 'View',
+          shotScale: 'Scale',
           shotPrint: 'Print / PDF',
           shotExit: 'Exit (Esc)',
-          modalTitle: '🕒 Model Store Changelog',
+          modalTitle: 'Model Store Changelog',
           modalClose: 'Close',
           viewChangelog: 'View Full Log',
           latestChange: 'Latest Update',
-          verUpgrade: (a, b) => `Upgraded v${a} → v${b}`,
+          verUpgrade: (a, b) => `v${a} → v${b}`,
           addedPrefix: (n) => `Added (${n}): `,
           updatedPrefix: (n) => `Updated (${n}): `,
           removedPrefix: (n) => `Removed (${n}): `,
@@ -1293,7 +1701,7 @@
         data: null,
         lang: detectInitialLang(),
         view: localStorage.getItem('ms-view') || 'cards',
-        scale: localStorage.getItem('ms-scale') || 'large',
+        scale: localStorage.getItem('ms-scale') || 'normal',
         theme: urlParams.get('theme') || localStorage.getItem('lcmd-theme') || 'light',
         category: 'all',
         hw: 'all',
@@ -1325,24 +1733,297 @@
 
       function formatGiB(v) {
         if (typeof v !== 'number' || Number.isNaN(v)) return '--';
-        if (v < 0.1) return Math.floor(v * 1024) + 'M';
-        return (Math.floor(v * 10) / 10) + 'G';
+        if (v < 0.1) return Math.round(v * 1024) + 'M';
+        const rounded = Math.round(v * 10) / 10;
+        return (Number.isInteger(rounded) ? rounded : rounded.toFixed(1)) + 'G';
       }
 
-      function modelTitle(m) {
-        return isEn() ? (m.titleEn || m.title) : m.title;
+      function fmtCompactNum(n) {
+        if (!Number.isFinite(n)) return '--';
+        if (n >= 10000) return Math.round(n).toLocaleString('en-US');
+        if (n >= 1000) return Math.round(n).toLocaleString('en-US');
+        if (n >= 100) return n.toFixed(1).replace(/\.0$/, '');
+        if (n >= 10) return n.toFixed(1).replace(/\.0$/, '');
+        return n.toFixed(2).replace(/0$/, '').replace(/\.$/, '');
       }
-      function modelDesc(m) {
-        return isEn() ? (m.descriptionEn || m.description) : m.description;
+
+      function modelTitle(m) { return isEn() ? (m.titleEn || m.title) : m.title; }
+      function modelDesc(m) { return isEn() ? (m.descriptionEn || m.description) : m.description; }
+      function catName(cat) { return isEn() ? (cat.en || cat.zh) : cat.zh; }
+      function catSub(cat) { return isEn() ? cat.zh : cat.en; }
+      function modelCatLabel(m) { return isEn() ? (m.categoryShortEn || m.categoryEn || m.categoryZh) : m.categoryZh; }
+
+      // ==================== Intelligent Metric & Benchmark Parser ====================
+      function splitHwDesc(rawText) {
+        const clean = String(rawText || '').trim();
+        const lines = clean.split(/\n+/).map((s) => s.trim()).filter(Boolean);
+        let thorLine = '';
+        let orinLine = '';
+        const otherLines = [];
+
+        for (const ln of lines) {
+          if (/^(?:AGX\s+)?Thor(?:\s+T\d+)?[：:]/i.test(ln)) {
+            thorLine = ln.replace(/^(?:AGX\s+)?Thor(?:\s+T\d+)?[：:]\s*/i, '').trim();
+          } else if (/^(?:AGX\s+)?Orin[：:]/i.test(ln)) {
+            orinLine = ln.replace(/^(?:AGX\s+)?Orin[：:]\s*/i, '').trim();
+          } else {
+            otherLines.push(ln);
+          }
+        }
+        return { thorLine, orinLine, otherText: otherLines.join(' · ') };
       }
-      function catName(cat) {
-        return isEn() ? (cat.en || cat.zh) : cat.zh;
+
+      function extractContextBadge(m) {
+        const text = `${m.description || ''} ${m.hardware?.[0]?.profile || ''}`;
+        const hit = text.match(/(\d+(?:\.\d+)?[KM])\s*(?:上下文|context)/i);
+        if (hit) return `${hit[1].toUpperCase()} CTX`;
+        const tok = text.match(/\b(1048576|900000|262144|131072|32768|8192)\s*tokens\b/i);
+        if (tok) {
+          const v = Number(tok[1]);
+          if (v >= 1000000) return '1M CTX';
+          return `${Math.round(v / 1024)}K CTX`;
+        }
+        return '';
       }
-      function catSub(cat) {
-        return isEn() ? cat.zh : cat.en;
+
+      function extractNumber(str) {
+        if (!str) return null;
+        const n = parseFloat(String(str).replace(/,/g, ''));
+        return Number.isFinite(n) ? n : null;
       }
-      function modelCatLabel(m) {
-        return isEn() ? (m.categoryShortEn || m.categoryEn || m.categoryZh) : m.categoryZh;
+
+      function parseSpeedValMs(text) {
+        const mMs = text.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*ms\b/i);
+        if (mMs) return parseFloat(mMs[1]);
+        const mDur = text.match(/(?:耗时|完整生成|生图|转写|分离|译中文|短句|整句|短文|长文|首音|编辑|两页)[^\d]{0,14}(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*s\b/i);
+        if (mDur) return parseFloat(mDur[1]) * 1000;
+        const mSlashS = text.match(/(\d+(?:\.\d+)?)s\/\d+(?:\.\d+)?s/i);
+        if (mSlashS) return parseFloat(mSlashS[1]) * 1000;
+        const mPerImg = text.match(/(\d+(?:\.\d+)?)\s*s\/张/i);
+        if (mPerImg) return parseFloat(mPerImg[1]) * 1000;
+        return null;
+      }
+
+      function extractTriMetrics(m) {
+        const L = t();
+        const zhDesc = m.description || '';
+        const { thorLine, orinLine, otherText } = splitHwDesc(zhDesc);
+        const primaryText = thorLine || otherText || zhDesc;
+
+        const thorHw = (m.hardware || []).find((h) => h.device === 'thor') || m.hardware?.[0] || null;
+        const orinHw = (m.hardware || []).find((h) => h.device === 'orin') || null;
+        const activeHw = state.hw === 'orin' && orinHw ? orinHw : thorHw || orinHw;
+
+        const vramVal = activeHw ? `${formatGiB(activeHw.memoryGiB)}` : renderShortHw(m);
+        const vramLbl = activeHw
+          ? activeHw.cpuOnly
+            ? L.lblRam
+            : activeHw.perDevice && m.deviceCount > 1
+              ? L.lblVramPerNode
+              : L.lblVram
+          : isEn() ? 'Supported HW' : '支持硬件';
+        const diskOp = activeHw?.diskLowerBound ? '≥' : '';
+        const diskVal = activeHw ? `${diskOp}${formatGiB(activeHw.diskGiB)}` : isEn() ? 'Modular' : '按需加载';
+        const diskLbl = activeHw
+          ? activeHw.perDevice && m.deviceCount > 1 ? L.lblDiskPerNode : L.lblDisk
+          : isEn() ? 'Model Assets' : '权重模式';
+
+        let speedup = '';
+
+        // 1. LLM Metrics Extraction
+        if (m.category === 'llm') {
+          const focusText = state.hw === 'orin' && orinLine ? orinLine : primaryText;
+
+          let decodeVal = '';
+          let decodeNum = null;
+          const mDec =
+            focusText.match(/(?:代码单流|单流)[^\d]{0,12}(?:\d+(?:\.\d+)?[–-])?(\d+(?:\.\d+)?)\s*TPS/i) ||
+            focusText.match(/(\d+(?:\.\d+)?)\s*TPS/i);
+          if (mDec) {
+            decodeNum = extractNumber(mDec[1]);
+            decodeVal = `${fmtCompactNum(decodeNum)} TPS`;
+          }
+
+          let prefillVal = '';
+          let prefillLbl = L.lblPrefill;
+          const mPre = focusText.match(/(\d+K(?:\/\d+K)?)?\s*Prefill[^\d]{0,10}(?:\d+(?:\.\d+)?\/)?(\d+(?:\.\d+)?)\s*TPS/i);
+          if (mPre) {
+            const pNum = extractNumber(mPre[2]);
+            prefillVal = `${fmtCompactNum(pNum)} TPS`;
+            if (mPre[1]) prefillLbl = `${mPre[1].split('/').pop()} Prefill`;
+          } else {
+            const mConc = focusText.match(/(\d+)\s*并发[^\d]{0,10}(?:\d+(?:\.\d+)?[–\/-])?(\d+(?:\.\d+)?)\s*TPS/i);
+            const mTtft = focusText.match(/TTFT[^\d]{0,8}(\d+(?:\.\d+)?)\s*(ms|s)/i);
+            if (mConc) {
+              prefillVal = `${fmtCompactNum(extractNumber(mConc[2]))} TPS`;
+              prefillLbl = isEn() ? `${mConc[1]}-Way TPS` : `${mConc[1]} 并发吞吐`;
+            } else if (mTtft) {
+              prefillVal = `${mTtft[1]}${mTtft[2]}`;
+              prefillLbl = L.lblTtft;
+            }
+          }
+
+          if (thorLine && orinLine && state.hw !== 'orin') {
+            const tDec = thorLine.match(/(?:代码单流|单流)[^\d]{0,12}(?:\d+(?:\.\d+)?[–-])?(\d+(?:\.\d+)?)\s*TPS/i);
+            const oDec = orinLine.match(/(?:代码单流|单流)[^\d]{0,12}(?:\d+(?:\.\d+)?[–-])?(\d+(?:\.\d+)?)\s*TPS/i);
+            if (tDec && oDec) {
+              const r = parseFloat(tDec[1]) / parseFloat(oDec[1]);
+              if (r >= 1.35) speedup = L.speedupTag(r.toFixed(1));
+            }
+          }
+
+          if (decodeVal && prefillVal) {
+            return {
+              speedup,
+              boxes: [
+                { val: decodeVal, lbl: L.lblDecode, cls: 'primary' },
+                { val: prefillVal, lbl: prefillLbl, cls: '' },
+                { val: vramVal, lbl: vramLbl, cls: '' },
+              ],
+            };
+          }
+          if (decodeVal) {
+            return {
+              speedup,
+              boxes: [
+                { val: decodeVal, lbl: L.lblDecode, cls: 'primary' },
+                { val: vramVal, lbl: vramLbl, cls: '' },
+                { val: diskVal, lbl: diskLbl, cls: '' },
+              ],
+            };
+          }
+        }
+
+        // 2. Non-LLM Metrics Extraction
+        const focusText = state.hw === 'orin' && orinLine ? orinLine : primaryText;
+        let metric1Val = '';
+        let metric1Lbl = state.hw === 'orin' && orinLine ? L.lblOrinSpeed : L.lblSpeed;
+
+        const mRtf = focusText.match(/(\d+(?:\.\d+)?)\s*倍实时/);
+        const mRate = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(张\/s|条\/s)/);
+        const mImg = focusText.match(/(\d+(?:\.\d+)?)\s*s\/张/);
+        const mTps = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*TPS/i);
+        const mVidDur = m.category === 'video' && focusText.match(/(?:耗时|完整生成)\s*(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*s?/);
+        const mDual = focusText.match(/双路吞吐\s*(\d+(?:\.\d+)?)x/i);
+        const mMs = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*ms\b/i);
+        const mSlashSec = focusText.match(/(\d+(?:\.\d+)?)s\/\d+(?:\.\d+)?s/i);
+        const mTimeS = focusText.match(/(?:耗时|完整生成|生图|转写|分离|译中文|短句|整句|短文|长文|首音)[^\d]{0,14}(\d+(?:\.\d+)?)\s*s\b/);
+
+        if (mRtf) {
+          metric1Val = `${mRtf[1]}× RT`;
+          metric1Lbl = isEn() ? 'Realtime Factor' : '实时倍率';
+        } else if (mRate) {
+          const unit = mRate[2] === '张/s' ? (isEn() ? ' img/s' : ' 张/s') : (isEn() ? ' req/s' : ' 条/s');
+          metric1Val = `${mRate[1]}${unit}`;
+          metric1Lbl = L.lblPerf;
+        } else if (mImg) {
+          metric1Val = `${mImg[1]}s`;
+          metric1Lbl = isEn() ? 'Per Image' : '单张耗时';
+        } else if (mVidDur) {
+          metric1Val = `${mVidDur[1]}s`;
+          metric1Lbl = isEn() ? 'Video Gen' : '视频生成耗时';
+        } else if (mDual) {
+          metric1Val = `${mDual[1]}×`;
+          metric1Lbl = isEn() ? 'Dual Throughput' : '双路实时吞吐';
+        } else if (mTps) {
+          metric1Val = `${mTps[1]} TPS`;
+          metric1Lbl = L.lblPerf;
+        } else if (mMs) {
+          metric1Val = `${mMs[1]}ms`;
+          metric1Lbl = isEn() ? 'Latency' : '单次耗时';
+        } else if (mSlashSec) {
+          metric1Val = `${mSlashSec[1]}s`;
+          metric1Lbl = isEn() ? 'Elapsed Time' : '单次耗时';
+        } else if (mTimeS) {
+          metric1Val = `${mTimeS[1]}s`;
+          metric1Lbl = isEn() ? 'Elapsed Time' : '实测耗时';
+        } else {
+          metric1Val = L.valOneClick;
+          metric1Lbl = L.lblDeploy;
+        }
+
+        if (thorLine && orinLine && state.hw !== 'orin') {
+          const tMs = parseSpeedValMs(thorLine);
+          const oMs = parseSpeedValMs(orinLine);
+          if (tMs && oMs && oMs / tMs >= 1.35) {
+            speedup = L.speedupTag((oMs / tMs).toFixed(1));
+          } else {
+            const tR = thorLine.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(?:倍实时|张\/s|条\/s|TPS)/i);
+            const oR = orinLine.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(?:倍实时|张\/s|条\/s|TPS)/i);
+            if (tR && oR && parseFloat(tR[1]) / parseFloat(oR[1]) >= 1.35) {
+              speedup = L.speedupTag((parseFloat(tR[1]) / parseFloat(oR[1])).toFixed(1));
+            }
+          }
+        }
+
+        return {
+          speedup,
+          boxes: [
+            { val: metric1Val, lbl: metric1Lbl, cls: 'primary' },
+            { val: vramVal, lbl: vramLbl, cls: '' },
+            { val: diskVal, lbl: diskLbl, cls: '' },
+          ],
+        };
+      }
+
+      function renderHwBadges(m) {
+        const L = t();
+        const out = [];
+        if (m.devices.includes('thor')) {
+          if (m.deviceCount >= 4) out.push(`<span class="badge thor4">Thor ×${m.deviceCount}</span>`);
+          else if (m.deviceCount >= 2) out.push(`<span class="badge thor2">Thor ×${m.deviceCount}</span>`);
+          else out.push(`<span class="badge thor">Thor</span>`);
+        }
+        if (m.devices.includes('orin')) {
+          out.push(`<span class="badge orin">Orin</span>`);
+        }
+        const ctx = extractContextBadge(m);
+        if (ctx) out.push(`<span class="badge ctx">${esc(ctx)}</span>`);
+        if (m.isNew) out.push(`<span class="badge new">${esc(L.newBadge)}</span>`);
+        if (m.hidden) out.push(`<span class="badge beta">${esc(L.hiddenBadge)}</span>`);
+        return out.join('');
+      }
+
+      function renderPerfStrip(m) {
+        const text = modelDesc(m);
+        const { thorLine, orinLine, otherText } = splitHwDesc(text);
+        if (thorLine || orinLine) {
+          const rows = [];
+          if (thorLine && state.hw !== 'orin') {
+            rows.push(`<div class="perf-line"><span class="perf-tag thor">THOR</span><span class="perf-text">${esc(thorLine)}</span></div>`);
+          }
+          if (orinLine) {
+            rows.push(`<div class="perf-line"><span class="perf-tag orin">ORIN</span><span class="perf-text ${state.hw === 'orin' ? '' : 'muted'}">${esc(orinLine)}</span></div>`);
+          }
+          if (otherText) {
+            rows.push(`<div class="perf-line"><span class="perf-text muted">${esc(otherText)}</span></div>`);
+          }
+          return `<div class="perf-strip">${rows.join('')}</div>`;
+        }
+        return `<div class="perf-strip"><div class="perf-line"><span class="perf-text">${esc(text)}</span></div></div>`;
+      }
+
+      function renderCompactFootHw(m) {
+        const L = t();
+        const list = m.hardware || [];
+        if (!list.length) return esc(m.meta || 'AGX');
+        return list
+          .map((h) => {
+            const dev = h.device === 'thor'
+              ? (h.perDevice && m.deviceCount > 1 ? `Thor×${m.deviceCount}` : 'Thor')
+              : 'Orin';
+            const per = h.perDevice && m.deviceCount > 1 ? L.perNode : '';
+            const diskOp = h.diskLowerBound ? '≥' : '';
+            return `${dev} ${formatGiB(h.memoryGiB)} / ${diskOp}${formatGiB(h.diskGiB)}${per}`;
+          })
+          .join('  ·  ');
+      }
+
+      function renderShortHw(m) {
+        const parts = [];
+        if (m.devices.includes('thor')) parts.push(m.deviceCount > 1 ? `Thor ×${m.deviceCount}` : 'Thor');
+        if (m.devices.includes('orin')) parts.push('Orin');
+        return parts.join(' / ') || m.meta || '';
       }
 
       function applyPreferences() {
@@ -1358,8 +2039,8 @@
         $$('[data-hw]').forEach((b) => b.classList.toggle('active', b.dataset.hw === state.hw));
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
 
-        $('#nav-back').textContent = L.navBack;
         $('#nav-back').href = `../?lang=${state.lang}`;
+        $('#top-brand-name').textContent = L.topBrand;
         $('#btn-v-cards').textContent = L.vCards;
         $('#btn-v-list').textContent = L.vList;
         $('#btn-v-wall').textContent = L.vWall;
@@ -1394,6 +2075,7 @@
         $('#shot-exit').textContent = L.shotExit;
         $('#modal-title').textContent = L.modalTitle;
         $('#btn-close-modal').textContent = L.modalClose;
+        $('#btn-close-detail').textContent = L.modalClose;
       }
 
       function matchesHw(m, hw) {
@@ -1435,42 +2117,6 @@
         });
       }
 
-      function renderHardwareLines(m) {
-        const L = t();
-        const list = m.hardware || [];
-        if (!list.length) {
-          return `<div class="hw-row hw-thor"><span class="hw-dev">${esc(m.meta || 'AGX')}</span></div>`;
-        }
-        return list
-          .map((h) => {
-            const isThor = h.device === 'thor';
-            const cls = isThor ? (h.perDevice || m.deviceCount > 1 ? 'hw-thor-multi' : 'hw-thor') : 'hw-orin';
-            const devName = isThor
-              ? (h.perDevice && m.deviceCount > 1 ? `AGX Thor ×${m.deviceCount}` : 'AGX Thor')
-              : 'AGX Orin';
-            const memLabel = h.cpuOnly ? L.memRam : L.memVram;
-            const diskOp = h.diskLowerBound ? '≥' : '≈';
-            const perUnit = h.perDevice ? L.perNode : '';
-            return `
-              <div class="hw-row ${cls}">
-                <span class="hw-dev">${esc(devName)}</span>
-                <span class="hw-sep">·</span>
-                <span>${memLabel} ≈ ${formatGiB(h.memoryGiB)}</span>
-                <span class="hw-sep">·</span>
-                <span>${L.disk} ${diskOp} ${formatGiB(h.diskGiB)}${perUnit}</span>
-              </div>
-            `;
-          })
-          .join('');
-      }
-
-      function renderShortHw(m) {
-        const parts = [];
-        if (m.devices.includes('thor')) parts.push(m.deviceCount > 1 ? `Thor ×${m.deviceCount}` : 'Thor');
-        if (m.devices.includes('orin')) parts.push('Orin');
-        return parts.join(' / ') || m.meta || '';
-      }
-
       function renderCategoryChips() {
         const L = t();
         const base = getBaseModels().filter((m) => matchesHw(m, state.hw));
@@ -1478,17 +2124,17 @@
         for (const m of base) counts[m.category] = (counts[m.category] || 0) + 1;
 
         const chips = [
-          `<button type="button" class="chip ${state.category === 'all' ? 'active' : ''}" data-cat="all">${esc(L.allModels)} <span class="chip-count">${base.length}</span></button>`,
+          `<button type="button" class="pill ${state.category === 'all' ? 'active' : ''}" data-cat="all">${esc(L.allModels)} <span class="cnt num">${base.length}</span></button>`,
         ];
         for (const cat of state.data.categories) {
           const c = counts[cat.key] || 0;
           if (!c) continue;
           chips.push(
-            `<button type="button" class="chip ${state.category === cat.key ? 'active' : ''}" data-cat="${esc(cat.key)}">${esc(catName(cat))} <span class="chip-count">${c}</span></button>`,
+            `<button type="button" class="pill ${state.category === cat.key ? 'active' : ''}" data-cat="${esc(cat.key)}">${esc(catName(cat))} <span class="cnt num">${c}</span></button>`,
           );
         }
         $('#cat-chips').innerHTML = chips.join('');
-        $$('#cat-chips .chip').forEach((btn) => {
+        $$('#cat-chips .pill').forEach((btn) => {
           btn.addEventListener('click', () => {
             state.category = btn.dataset.cat;
             render();
@@ -1503,37 +2149,46 @@
             const tone = CATEGORY_TONES[cat.key] || 'slate';
             const cardsHtml = items
               .map((m) => {
-                const coverFit = m.imageFit === 'contain' ? 'cover-contain' : '';
-                const overlayHtml = m.coverTitle
-                  ? `<div class="cover-overlay">
-                      <strong class="${m.coverTitleCompact ? 'compact' : ''}">${esc(m.coverTitle)}</strong>
-                      ${m.coverSubtitle ? `<span>${esc(m.coverSubtitle)}</span>` : ''}
-                    </div>`
-                  : '';
-                const leftBadges = [
-                  m.isNew ? `<span class="pill-float pill-new">${esc(L.newBadge)}</span>` : '',
-                  m.hidden ? `<span class="pill-float pill-tag">${esc(L.hiddenBadge)}</span>` : '',
-                ].filter(Boolean).join('');
-                const rightBadge = m.badge ? `<span class="pill-float pill-tag">${esc(m.badge)}</span>` : '';
+                const { boxes, speedup } = extractTriMetrics(m);
+                const prof = m.hardware?.[0]?.profile && m.hardware[0].profile !== 'default'
+                  ? m.hardware[0].profile
+                  : modelCatLabel(m);
+                const fitCls = m.imageFit === 'contain' ? 'contain' : '';
 
                 return `
-                  <article class="model-card ${m.hidden ? 'is-hidden-card' : ''}">
-                    ${
-                      m.image
-                        ? `<div class="cover ${coverFit}">
-                            <img src="${esc(m.image)}" alt="${esc(modelTitle(m))}" loading="lazy" />
-                            ${overlayHtml}
-                            ${leftBadges || rightBadge ? `<div class="cover-badges"><div>${leftBadges}</div><div>${rightBadge}</div></div>` : ''}
-                          </div>`
-                        : ''
-                    }
-                    <div class="card-body">
-                      <div class="card-head">
-                        <h3 class="card-title">${esc(modelTitle(m))}</h3>
-                        <span class="cat-pill tone-${tone}">${esc(modelCatLabel(m))}</span>
+                  <article class="card ${m.hidden ? 'is-hidden' : ''}" data-pkg="${esc(m.packageId)}">
+                    <div class="card-top">
+                      <div class="card-id">
+                        ${m.image ? `<div class="card-thumb ${fitCls}"><img src="${esc(m.image)}" alt="${esc(modelTitle(m))}" loading="lazy" /></div>` : ''}
+                        <div class="card-titles">
+                          <h3 class="card-title">${esc(modelTitle(m))}</h3>
+                          <div class="card-sub num" title="${esc(prof)}">${esc(prof)}</div>
+                        </div>
                       </div>
-                      <div class="hw-list">${renderHardwareLines(m)}</div>
-                      <p class="card-desc">${esc(modelDesc(m))}</p>
+                      <div class="badges">${renderHwBadges(m)}</div>
+                    </div>
+
+                    ${renderPerfStrip(m)}
+
+                    <div class="tri-metrics">
+                      ${boxes
+                        .map(
+                          (b) => `
+                        <div class="tri-box ${b.cls}">
+                          <div class="tri-val num" title="${esc(b.val)}">${esc(b.val)}</div>
+                          <div class="tri-lbl">${esc(b.lbl)}</div>
+                        </div>
+                      `,
+                        )
+                        .join('')}
+                    </div>
+
+                    <div class="card-foot">
+                      <span class="foot-hw num" title="${renderCompactFootHw(m)}">${renderCompactFootHw(m)}</span>
+                      <span class="foot-action">
+                        ${speedup ? `<span class="speedup-tag">${esc(speedup)}</span>` : ''}
+                        <span>${esc(L.detailBtn)}</span>
+                      </span>
                     </div>
                   </article>
                 `;
@@ -1542,10 +2197,10 @@
 
             return `
               <section class="cat-section">
-                <div class="cat-header">
-                  <span class="cat-dot dot-${tone}"></span>
+                <div class="cat-head">
+                  <span class="cat-bar bar-${tone}"></span>
                   <h2 class="cat-title">${esc(catName(cat))}</h2>
-                  <span class="cat-en">${esc(catSub(cat))}</span>
+                  <span class="cat-sub">${esc(catSub(cat))}</span>
                   <span class="cat-count">${esc(L.unitCount(items.length))}</span>
                 </div>
                 <div class="cards-grid">${cardsHtml}</div>
@@ -1561,34 +2216,56 @@
           .map(({ cat, items }) => {
             const tone = CATEGORY_TONES[cat.key] || 'slate';
             const rowsHtml = items
-              .map(
-                (m) => `
-                  <div class="list-row">
-                    <div class="list-title-wrap">
-                      <div class="list-title">${esc(modelTitle(m))}</div>
-                      <div class="list-tags">
-                        <span class="cat-pill tone-${tone}">${esc(modelCatLabel(m))}</span>
-                        ${m.isNew ? `<span class="cat-pill" style="background:#fee2e2;color:#b91c1c;border:1px solid #fecaca;">${esc(L.newBadge)}</span>` : ''}
-                        ${m.badge ? `<span class="cat-pill tone-slate">${esc(m.badge)}</span>` : ''}
-                        ${m.hidden ? `<span class="cat-pill tone-slate">${esc(L.hiddenShort)}</span>` : ''}
+              .map((m) => {
+                const hwHtml = (m.hardware || [])
+                  .map((h) => {
+                    const isThor = h.device === 'thor';
+                    const cls = isThor ? (m.deviceCount >= 4 ? 'thor4' : m.deviceCount >= 2 ? 'thor2' : 'thor') : 'orin';
+                    const dev = isThor ? (h.perDevice && m.deviceCount > 1 ? `Thor ×${m.deviceCount}` : 'Thor') : 'Orin';
+                    const diskOp = h.diskLowerBound ? '≥' : '';
+                    const per = h.perDevice && m.deviceCount > 1 ? L.perNode : '';
+                    return `<div class="spec-hw-item num"><span class="badge ${cls}">${dev}</span><span>${formatGiB(h.memoryGiB)} · ${L.disk} ${diskOp}${formatGiB(h.diskGiB)}${per}</span></div>`;
+                  })
+                  .join('');
+
+                return `
+                  <div class="spec-row" data-pkg="${esc(m.packageId)}">
+                    <div class="spec-name-cell">
+                      ${m.image ? `<div class="spec-mini-thumb"><img src="${esc(m.image)}" alt="" loading="lazy" /></div>` : ''}
+                      <div style="min-width:0">
+                        <div class="spec-title">${esc(modelTitle(m))}</div>
+                        <div class="spec-meta-tags">
+                          ${extractContextBadge(m) ? `<span class="badge ctx">${esc(extractContextBadge(m))}</span>` : ''}
+                          ${m.isNew ? `<span class="badge new">${esc(L.newBadge)}</span>` : ''}
+                          ${m.hidden ? `<span class="badge beta">${esc(L.hiddenBadge)}</span>` : ''}
+                        </div>
                       </div>
                     </div>
-                    <div class="hw-list">${renderHardwareLines(m)}</div>
-                    <p class="card-desc">${esc(modelDesc(m))}</p>
+                    <div class="spec-hw-lines">${hwHtml || esc(m.meta)}</div>
+                    <p class="spec-desc">${esc(modelDesc(m))}</p>
+                    <div class="spec-go">${esc(L.detailBtn)}</div>
                   </div>
-                `,
-              )
+                `;
+              })
               .join('');
 
             return `
               <section class="cat-section">
-                <div class="cat-header">
-                  <span class="cat-dot dot-${tone}"></span>
+                <div class="cat-head">
+                  <span class="cat-bar bar-${tone}"></span>
                   <h2 class="cat-title">${esc(catName(cat))}</h2>
-                  <span class="cat-en">${esc(catSub(cat))}</span>
+                  <span class="cat-sub">${esc(catSub(cat))}</span>
                   <span class="cat-count">${esc(L.unitCount(items.length))}</span>
                 </div>
-                <div class="list-table">${rowsHtml}</div>
+                <div class="spec-board">
+                  <div class="spec-board-head">
+                    <div>${esc(L.specColModel)}</div>
+                    <div>${esc(L.specColHw)}</div>
+                    <div>${esc(L.specColPerf)}</div>
+                    <div style="text-align:right">${esc(L.specColAct)}</div>
+                  </div>
+                  ${rowsHtml}
+                </div>
               </section>
             `;
           })
@@ -1603,9 +2280,9 @@
             const itemsHtml = items
               .map(
                 (m) => `
-                  <div class="wall-item">
-                    <span class="wall-item-name">${esc(modelTitle(m))}${m.isNew ? ' <span style="color:#ef4444;font-size:12px;">NEW</span>' : ''}</span>
-                    <span class="wall-item-hw">${esc(renderShortHw(m))}</span>
+                  <div class="wall-item" data-pkg="${esc(m.packageId)}">
+                    <span class="wall-item-name">${esc(modelTitle(m))}${m.isNew ? ' <span class="badge new" style="font-size:9.5px;padding:1px 4px;margin-left:4px;">NEW</span>' : ''}</span>
+                    <span class="wall-item-hw num">${esc(renderShortHw(m))}</span>
                   </div>
                 `,
               )
@@ -1614,11 +2291,11 @@
             return `
               <article class="wall-card">
                 <div class="wall-head">
-                  <div class="wall-head-left">
-                    <span class="cat-dot dot-${tone}"></span>
+                  <div class="wall-head-l">
+                    <span class="cat-bar bar-${tone}"></span>
                     <span class="wall-title">${esc(catName(cat))}</span>
                   </div>
-                  <span class="wall-count tone-${tone}">${esc(L.unitCount(items.length))}</span>
+                  <span class="wall-cnt">${esc(L.unitCount(items.length))}</span>
                 </div>
                 <div class="wall-items">${itemsHtml}</div>
               </article>
@@ -1626,6 +2303,82 @@
           })
           .join('');
         return `<div class="wall-grid">${cards}</div>`;
+      }
+
+      function openDetailModal(pkgId) {
+        const m = state.data?.models?.find((x) => x.packageId === pkgId);
+        if (!m) return;
+        const L = t();
+        $('#detail-title').textContent = modelTitle(m);
+
+        const hwCards = (m.hardware || [])
+          .map((h) => {
+            const isThor = h.device === 'thor';
+            const devName = isThor
+              ? (h.perDevice && m.deviceCount > 1 ? `AGX Thor ×${m.deviceCount}` : 'AGX Thor')
+              : 'AGX Orin';
+            const cls = isThor ? (m.deviceCount >= 4 ? 'thor4' : m.deviceCount >= 2 ? 'thor2' : 'thor') : 'orin';
+            const memLbl = h.cpuOnly ? L.memRam : L.memVram;
+            const per = h.perDevice && m.deviceCount > 1 ? L.perNode : '';
+            const diskOp = h.diskLowerBound ? '≥' : '≈';
+            return `
+              <div class="detail-hw-card">
+                <div class="detail-hw-head">
+                  <span>${esc(devName)}</span>
+                  <span class="badge ${cls}">${isThor ? 'NVIDIA THOR' : 'NVIDIA ORIN'}</span>
+                </div>
+                <div class="detail-hw-nums num">
+                  <span><b>${memLbl}:</b> ${formatGiB(h.memoryGiB)}${per}</span>
+                  <span><b>${L.disk}:</b> ${diskOp} ${formatGiB(h.diskGiB)}${per}</span>
+                </div>
+                ${h.profile && h.profile !== 'default' ? `<div class="detail-hw-profile num">${esc(h.profile)}</div>` : ''}
+              </div>
+            `;
+          })
+          .join('');
+
+        const notes = (m.hardware || [])
+          .map((h) => h.memoryNoteZh)
+          .filter(Boolean);
+        const uniqueNotes = Array.from(new Set(notes));
+
+        const fitCls = m.imageFit === 'contain' ? 'contain' : '';
+        $('#detail-body').innerHTML = `
+          ${m.image ? `<div class="detail-cover ${fitCls}"><img src="${esc(m.image)}" alt="${esc(modelTitle(m))}" /></div>` : ''}
+          <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
+            <span class="badge ctx">${esc(modelCatLabel(m))}</span>
+            ${renderHwBadges(m)}
+            ${m.release?.version ? `<span class="badge ctx num">v${esc(m.release.version)}</span>` : ''}
+          </div>
+          <div>
+            <div class="detail-section-label">${esc(L.detailPerfSec)}</div>
+            ${renderPerfStrip(m)}
+          </div>
+          <div>
+            <div class="detail-section-label">${esc(L.detailHwSec)}</div>
+            <div class="detail-hw-grid">${hwCards}</div>
+          </div>
+          ${
+            uniqueNotes.length
+              ? `<div>
+                  <div class="detail-section-label">${esc(L.detailNoteSec)}</div>
+                  <div class="detail-note">${uniqueNotes.map((n) => esc(n)).join('<br/><br/>')}</div>
+                </div>`
+              : ''
+          }
+          <div>
+            <div class="detail-section-label">${esc(L.detailPkgSec)}</div>
+            <div class="detail-pkg num">
+              <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(m.packageId)}</span>
+              <button type="button" class="btn" id="btn-copy-pkg" style="padding:4px 9px;font-size:11.5px;">${esc(L.copyPkg)}</button>
+            </div>
+          </div>
+        `;
+
+        $('#btn-copy-pkg')?.addEventListener('click', () => {
+          navigator.clipboard?.writeText(m.packageId).then(() => showToast(L.pkgCopied));
+        });
+        $('#detail-modal').classList.add('open');
       }
 
       function renderUpdateBanner() {
@@ -1641,18 +2394,13 @@
         if (latest.prevAppVersion && latest.prevAppVersion !== latest.appVersion) {
           parts.push(L.verUpgrade(latest.prevAppVersion, latest.appVersion));
         }
-        if (latest.added?.length) {
-          parts.push(`${L.addedPrefix(latest.added.length)}${latest.added.map((x) => x.title).join(', ')}`);
-        }
-        if (latest.updated?.length) {
-          parts.push(`${L.updatedPrefix(latest.updated.length)}${latest.updated.map((x) => x.title).join(', ')}`);
-        }
-        if (latest.removed?.length) {
-          parts.push(`${L.removedPrefix(latest.removed.length)}${latest.removed.map((x) => x.title).join(', ')}`);
-        }
+        if (latest.added?.length) parts.push(`${L.addedPrefix(latest.added.length)}${latest.added.map((x) => x.title).join(', ')}`);
+        if (latest.updated?.length) parts.push(`${L.updatedPrefix(latest.updated.length)}${latest.updated.map((x) => x.title).join(', ')}`);
+        if (latest.removed?.length) parts.push(`${L.removedPrefix(latest.removed.length)}${latest.removed.map((x) => x.title).join(', ')}`);
+
         banner.style.display = 'flex';
         banner.innerHTML = `
-          <div><strong>✨ ${esc(L.latestChange)} (${esc(latest.ts)}):</strong> ${esc(parts.join(' · '))}</div>
+          <div><strong>${esc(L.latestChange)} (${esc(latest.ts)}):</strong> ${esc(parts.join(' · '))}</div>
           <button type="button" class="btn" id="banner-open-log">${esc(L.viewChangelog)}</button>
         `;
         $('#banner-open-log')?.addEventListener('click', openChangelog);
@@ -1670,13 +2418,13 @@
             return `
               <div class="log-entry">
                 <div class="log-top">
-                  <span>AI Pod v${esc(entry.appVersion)}${entry.prevAppVersion && entry.prevAppVersion !== entry.appVersion ? ` (← v${esc(entry.prevAppVersion)})` : ''}</span>
-                  <span style="color:var(--text-muted);font-weight:600;">${esc(entry.ts)}</span>
+                  <span class="num">AI Pod v${esc(entry.appVersion)}${entry.prevAppVersion && entry.prevAppVersion !== entry.appVersion ? ` (← v${esc(entry.prevAppVersion)})` : ''}</span>
+                  <span class="num" style="color:var(--ink-3);font-weight:600;">${esc(entry.ts)}</span>
                 </div>
                 ${
                   entry.initial
-                    ? `<div style="font-size:14px;color:var(--text-secondary);">${esc(L.baselineNote(entry.totalVisible))}</div>`
-                    : `<div class="log-tags">${tags.join('') || '<span style="color:var(--text-muted)">Version update</span>'}</div>`
+                    ? `<div style="font-size:13px;color:var(--ink-2);">${esc(L.baselineNote(entry.totalVisible))}</div>`
+                    : `<div class="log-tags">${tags.join('') || '<span style="color:var(--ink-3)">Version update</span>'}</div>`
                 }
               </div>
             `;
@@ -1690,6 +2438,12 @@
         $('#changelog-modal').classList.add('open');
       }
 
+      function bindDetailClicks() {
+        $$('#content [data-pkg]').forEach((el) => {
+          el.addEventListener('click', () => openDetailModal(el.dataset.pkg));
+        });
+      }
+
       function render() {
         if (!state.data) return;
         const L = t();
@@ -1697,8 +2451,7 @@
 
         const d = state.data;
         $('#meta-version').textContent = `AI Pod v${d.appVersion}`;
-        $('#meta-app-updated').textContent = `${L.metaAppUpdated}${d.appUpdatedAt}`;
-        $('#meta-synced').textContent = `${L.metaSynced}${d.syncedAt}`;
+        $('#meta-stamp').textContent = L.stampText(d.appUpdatedAt || '', d.syncedAt || '');
         $('#footer-stamp').textContent = `AI Pod v${d.appVersion} · ${d.syncedAt}`;
 
         renderCategoryChips();
@@ -1721,7 +2474,10 @@
           if (cObj) filterNotes.push(catName(cObj));
         }
         if (state.query.trim()) filterNotes.push(`"${state.query.trim()}"`);
-        $('#hero-filter-label').textContent = filterNotes.length ? `${L.filterPrefix}${filterNotes.join(' · ')}` : '';
+
+        const filterEl = $('#hero-filter-label');
+        filterEl.textContent = filterNotes.length ? `${L.filterPrefix}${filterNotes.join(' · ')}` : '';
+        filterEl.classList.toggle('show', filterNotes.length > 0);
 
         if (!filtered.length) {
           $('#content').innerHTML = `<div class="empty-state">${esc(L.emptyMsg)}</div>`;
@@ -1735,6 +2491,8 @@
         if (state.view === 'list') $('#content').innerHTML = renderListView(groups);
         else if (state.view === 'wall') $('#content').innerHTML = renderWallView(groups);
         else $('#content').innerHTML = renderCardsView(groups);
+
+        bindDetailClicks();
       }
 
       function copyPlainList() {
@@ -1846,6 +2604,10 @@
       $('#changelog-modal').addEventListener('click', (e) => {
         if (e.target === $('#changelog-modal')) $('#changelog-modal').classList.remove('open');
       });
+      $('#btn-close-detail').addEventListener('click', () => $('#detail-modal').classList.remove('open'));
+      $('#detail-modal').addEventListener('click', (e) => {
+        if (e.target === $('#detail-modal')) $('#detail-modal').classList.remove('open');
+      });
 
       $('#btn-screenshot').addEventListener('click', () => {
         state.screenshotMode = true;
@@ -1877,7 +2639,9 @@
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          if ($('#changelog-modal').classList.contains('open')) {
+          if ($('#detail-modal').classList.contains('open')) {
+            $('#detail-modal').classList.remove('open');
+          } else if ($('#changelog-modal').classList.contains('open')) {
             $('#changelog-modal').classList.remove('open');
           } else if (state.screenshotMode) {
             state.screenshotMode = false;
