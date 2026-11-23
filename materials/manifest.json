@@ -1,7 +1,7 @@
 {
   "schemaVersion": 5,
-  "buildVer": "edd2c629",
-  "updatedAt": "2026-11-23 19:28:01",
+  "buildVer": "080ede2b",
+  "updatedAt": "2026-11-23 19:46:05",
   "presaleRepo": {
     "commitSha": "4b9ccc2434ae14a11cf766db3ce012ec5f0b02d5",
     "commitShort": "4b9ccc2",
@@ -57,11 +57,11 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 4548045,
-      "sizeMB": 4.34,
+      "sizeBytes": 3475287,
+      "sizeMB": 3.31,
       "path": "materials/zh/x5/brochure.html",
       "url": "materials/zh/x5/brochure.html",
-      "sourceRel": "Chinese/AI-Pod-X5/电脑观看.html"
+      "sourceRel": "generated-html"
     },
     {
       "id": "fe73e200d2",
@@ -89,7 +89,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 6860406,
+      "sizeBytes": 6860641,
       "sizeMB": 6.54,
       "path": "materials/en/x5/brochure.html",
       "url": "materials/en/x5/brochure.html",
@@ -105,7 +105,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 5572594,
+      "sizeBytes": 5572582,
       "sizeMB": 5.31,
       "path": "materials/en/lc03/brochure.html",
       "url": "materials/en/lc03/brochure.html",
@@ -121,8 +121,8 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1387469,
-      "sizeMB": 1.32,
+      "sizeBytes": 1394036,
+      "sizeMB": 1.33,
       "path": "materials/zh/x5/overview.html",
       "url": "materials/zh/x5/overview.html",
       "sourceRel": "Chinese/AI-Pod-X5/算力舱概览/X5-T5000-算力舱一图概览.html"
@@ -153,8 +153,8 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1387685,
-      "sizeMB": 1.32,
+      "sizeBytes": 1394252,
+      "sizeMB": 1.33,
       "path": "materials/en/x5/overview.html",
       "url": "materials/en/x5/overview.html",
       "sourceRel": "English/AI-Pod-X5/overview/LCMD-AI-Pod-X5-T5000-At-a-Glance-EN.html"
