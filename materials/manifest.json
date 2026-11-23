@@ -1,7 +1,7 @@
 {
-  "schemaVersion": 4,
-  "buildVer": "af6b38ae",
-  "updatedAt": "2026-11-23 19:23:08",
+  "schemaVersion": 5,
+  "buildVer": "edd2c629",
+  "updatedAt": "2026-11-23 19:28:01",
   "presaleRepo": {
     "commitSha": "4b9ccc2434ae14a11cf766db3ce012ec5f0b02d5",
     "commitShort": "4b9ccc2",
@@ -32,133 +32,7 @@
       "taglineZh": "115mm 立方机身 · 7 盘位 · 4500+ 应用 · 小龙猫 AI",
       "taglineEn": "115mm Cube · 7-Bay · 4,500+ Apps · Totoro AI",
       "officialZh": "https://lazycat.cloud/lcmd",
-      "officialEn": "https://lcmd.cloud/lcmd",
-      "gallery": {
-        "zh": [
-          {
-            "url": "materials/gallery/lc03/01-product.jpg",
-            "titleZh": "机身外观实拍",
-            "titleEn": "LC03 Hardware Appearance"
-          },
-          {
-            "url": "materials/gallery/lc03/02-space-white.jpg",
-            "titleZh": "太空白配色",
-            "titleEn": "Space White Edition"
-          },
-          {
-            "url": "materials/gallery/lc03/03-stardust-grey.jpg",
-            "titleZh": "星辰灰配色",
-            "titleEn": "Stardust Grey Edition"
-          },
-          {
-            "url": "materials/gallery/lc03/04-craft.jpg",
-            "titleZh": "工艺与机身细节",
-            "titleEn": "Craftsmanship & Chassis"
-          },
-          {
-            "url": "materials/gallery/lc03/05-desk.jpg",
-            "titleZh": "桌面场景实拍",
-            "titleEn": "Desktop Setup"
-          },
-          {
-            "url": "materials/gallery/lc03/06-box.jpg",
-            "titleZh": "包装清单",
-            "titleEn": "Packaging & Box"
-          },
-          {
-            "url": "materials/gallery/lc03/07-totoro-ai.jpg",
-            "titleZh": "小龙猫 AI 助手",
-            "titleEn": "Totoro AI Assistant"
-          },
-          {
-            "url": "materials/gallery/lc03/08-lightos.jpg",
-            "titleZh": "LightOS 移动开发",
-            "titleEn": "LightOS Mobile Dev"
-          },
-          {
-            "url": "materials/gallery/lc03/09-wechat.jpg",
-            "titleZh": "远程微信与办公",
-            "titleEn": "Remote WeChat & Work"
-          },
-          {
-            "url": "materials/gallery/lc03/10-photo.jpg",
-            "titleZh": "懒猫相册",
-            "titleEn": "Private Photo Library"
-          },
-          {
-            "url": "materials/gallery/lc03/11-video.jpg",
-            "titleZh": "私有影音中心",
-            "titleEn": "Home Media Center"
-          },
-          {
-            "url": "materials/gallery/lc03/12-pan.jpg",
-            "titleZh": "高速私有网盘",
-            "titleEn": "Private Cloud Drive"
-          }
-        ],
-        "en": [
-          {
-            "url": "materials/gallery/lc03/01-product.jpg",
-            "titleZh": "机身外观实拍",
-            "titleEn": "LC03 Hardware Appearance"
-          },
-          {
-            "url": "materials/gallery/lc03/02-space-white.jpg",
-            "titleZh": "太空白配色",
-            "titleEn": "Space White Edition"
-          },
-          {
-            "url": "materials/gallery/lc03/03-stardust-grey.jpg",
-            "titleZh": "星辰灰配色",
-            "titleEn": "Stardust Grey Edition"
-          },
-          {
-            "url": "materials/gallery/lc03/04-craft.jpg",
-            "titleZh": "工艺与机身细节",
-            "titleEn": "Craftsmanship & Chassis"
-          },
-          {
-            "url": "materials/gallery/lc03/05-desk.jpg",
-            "titleZh": "桌面场景实拍",
-            "titleEn": "Desktop Setup"
-          },
-          {
-            "url": "materials/gallery/lc03/06-box.jpg",
-            "titleZh": "包装清单",
-            "titleEn": "Packaging & Box"
-          },
-          {
-            "url": "materials/gallery/lc03/07-totoro-ai.jpg",
-            "titleZh": "小龙猫 AI 助手",
-            "titleEn": "Totoro AI Assistant"
-          },
-          {
-            "url": "materials/gallery/lc03/08-lightos.jpg",
-            "titleZh": "LightOS 移动开发",
-            "titleEn": "LightOS Mobile Dev"
-          },
-          {
-            "url": "materials/gallery/lc03/09-wechat.jpg",
-            "titleZh": "远程微信与办公",
-            "titleEn": "Remote WeChat & Work"
-          },
-          {
-            "url": "materials/gallery/lc03/10-photo.jpg",
-            "titleZh": "懒猫相册",
-            "titleEn": "Private Photo Library"
-          },
-          {
-            "url": "materials/gallery/lc03/11-video.jpg",
-            "titleZh": "私有影音中心",
-            "titleEn": "Home Media Center"
-          },
-          {
-            "url": "materials/gallery/lc03/12-pan.jpg",
-            "titleZh": "高速私有网盘",
-            "titleEn": "Private Cloud Drive"
-          }
-        ]
-      }
+      "officialEn": "https://lcmd.cloud/lcmd"
     },
     {
       "id": "AI-Pod-X5",
@@ -169,119 +43,7 @@
       "taglineZh": "AGX Thor T5000 · 2070 TOPS · 128GB 统一内存 · 多机堆叠",
       "taglineEn": "AGX Thor T5000 · 2070 TOPS · 128GB Unified Memory · Multi-Node",
       "officialZh": "https://lazycat.cloud/ai-pod",
-      "officialEn": "https://lcmd.cloud/ai-pod",
-      "gallery": {
-        "zh": [
-          {
-            "url": "materials/gallery/x5-zh/00-overview.jpg",
-            "titleZh": "十二张宣传图预览总览",
-            "titleEn": "12 Posters Overview Sheet",
-            "wide": true
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-01.png",
-            "titleZh": "01-产品总览",
-            "titleEn": "Poster 01"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-02.png",
-            "titleZh": "02-黑白实拍与机身",
-            "titleEn": "Poster 02"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-03.png",
-            "titleZh": "03-CPU与GPU算力",
-            "titleEn": "Poster 03"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-04.png",
-            "titleZh": "04-内存存储与模型",
-            "titleEn": "Poster 04"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-05.png",
-            "titleZh": "05-高速组网与堆叠",
-            "titleEn": "Poster 05"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-06.png",
-            "titleZh": "06-接口与无线连接",
-            "titleEn": "Poster 06"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-07.png",
-            "titleZh": "07-供电与散热",
-            "titleEn": "Poster 07"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-08.png",
-            "titleZh": "08-Ubuntu与CUDA生态",
-            "titleEn": "Poster 08"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-09.png",
-            "titleZh": "09-AI应用场景",
-            "titleEn": "Poster 09"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-10.png",
-            "titleZh": "10-与懒猫微服协同",
-            "titleEn": "Poster 10"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-11.png",
-            "titleZh": "11-完整参数核心配置",
-            "titleEn": "Poster 11"
-          },
-          {
-            "url": "materials/gallery/x5-zh/poster-12.png",
-            "titleZh": "12-完整参数连接供电",
-            "titleEn": "Poster 12"
-          }
-        ],
-        "en": [
-          {
-            "url": "materials/gallery/x5-en/01-stardust-grey.webp",
-            "titleZh": "星辰灰机身实拍",
-            "titleEn": "Stardust Grey Chassis"
-          },
-          {
-            "url": "materials/gallery/x5-en/02-space-white.webp",
-            "titleZh": "太空白机身实拍",
-            "titleEn": "Space White Chassis"
-          },
-          {
-            "url": "materials/gallery/x5-en/03-dimensions.png",
-            "titleZh": "机身尺寸与接口",
-            "titleEn": "Dimensions & Ports"
-          },
-          {
-            "url": "materials/gallery/x5-en/04-jetson-module.png",
-            "titleZh": "NVIDIA Jetson 模块",
-            "titleEn": "NVIDIA Jetson AGX Thor Module"
-          },
-          {
-            "url": "materials/gallery/x5-en/05-dashboard.png",
-            "titleZh": "算力舱控制台",
-            "titleEn": "AI Pod Dashboard"
-          },
-          {
-            "url": "materials/gallery/x5-en/06-model-gallery.png",
-            "titleZh": "本地模型广场界面",
-            "titleEn": "Local Model Gallery UI"
-          },
-          {
-            "url": "materials/gallery/x5-en/07-api.png",
-            "titleZh": "统一 OpenAI 兼容 API",
-            "titleEn": "Unified OpenAI-Compatible API"
-          },
-          {
-            "url": "materials/gallery/x5-en/08-ubuntu-desktop.png",
-            "titleZh": "原生 Ubuntu 与 CUDA 桌面",
-            "titleEn": "Native Ubuntu & CUDA Desktop"
-          }
-        ]
-      }
+      "officialEn": "https://lcmd.cloud/ai-pod"
     }
   ],
   "items": [
@@ -295,7 +57,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 4547895,
+      "sizeBytes": 4548045,
       "sizeMB": 4.34,
       "path": "materials/zh/x5/brochure.html",
       "url": "materials/zh/x5/brochure.html",
@@ -311,7 +73,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 5569789,
+      "sizeBytes": 5570063,
       "sizeMB": 5.31,
       "path": "materials/zh/lc03/brochure.html",
       "url": "materials/zh/lc03/brochure.html",
@@ -327,7 +89,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 6860347,
+      "sizeBytes": 6860406,
       "sizeMB": 6.54,
       "path": "materials/en/x5/brochure.html",
       "url": "materials/en/x5/brochure.html",
@@ -343,7 +105,7 @@
       "titleEn": "Product Brochure",
       "fileName": "brochure.html",
       "ext": "HTML",
-      "sizeBytes": 5572320,
+      "sizeBytes": 5572594,
       "sizeMB": 5.31,
       "path": "materials/en/lc03/brochure.html",
       "url": "materials/en/lc03/brochure.html",
@@ -359,7 +121,7 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1387478,
+      "sizeBytes": 1387469,
       "sizeMB": 1.32,
       "path": "materials/zh/x5/overview.html",
       "url": "materials/zh/x5/overview.html",
@@ -375,11 +137,11 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1263712,
+      "sizeBytes": 1265042,
       "sizeMB": 1.21,
       "path": "materials/zh/lc03/overview.html",
       "url": "materials/zh/lc03/overview.html",
-      "sourceRel": "generated-desktop-html"
+      "sourceRel": "generated-html"
     },
     {
       "id": "536d644216",
@@ -391,7 +153,7 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1387694,
+      "sizeBytes": 1387685,
       "sizeMB": 1.32,
       "path": "materials/en/x5/overview.html",
       "url": "materials/en/x5/overview.html",
@@ -407,11 +169,11 @@
       "titleEn": "At a Glance",
       "fileName": "overview.html",
       "ext": "HTML",
-      "sizeBytes": 1263565,
+      "sizeBytes": 1264900,
       "sizeMB": 1.21,
       "path": "materials/en/lc03/overview.html",
       "url": "materials/en/lc03/overview.html",
-      "sourceRel": "generated-desktop-html"
+      "sourceRel": "generated-html"
     },
     {
       "id": "bdf6dd71a7",
@@ -423,11 +185,11 @@
       "titleEn": "Hardware Specs",
       "fileName": "specs.html",
       "ext": "HTML",
-      "sizeBytes": 348137,
+      "sizeBytes": 350481,
       "sizeMB": 0.33,
       "path": "materials/zh/x5/specs.html",
       "url": "materials/zh/x5/specs.html",
-      "sourceRel": "generated-desktop-html"
+      "sourceRel": "generated-html"
     },
     {
       "id": "8ea5b381c1",
@@ -439,8 +201,8 @@
       "titleEn": "Hardware Specs",
       "fileName": "specs.html",
       "ext": "HTML",
-      "sizeBytes": 67804,
-      "sizeMB": 0.06,
+      "sizeBytes": 70177,
+      "sizeMB": 0.07,
       "path": "materials/zh/lc03/specs.html",
       "url": "materials/zh/lc03/specs.html",
       "sourceRel": "Chinese/LC03/硬件参数长图/LC03-硬件参数长图.html"
@@ -455,7 +217,7 @@
       "titleEn": "Hardware Specs",
       "fileName": "specs.html",
       "ext": "HTML",
-      "sizeBytes": 345082,
+      "sizeBytes": 347455,
       "sizeMB": 0.33,
       "path": "materials/en/x5/specs.html",
       "url": "materials/en/x5/specs.html",
@@ -471,8 +233,8 @@
       "titleEn": "Hardware Specs",
       "fileName": "specs.html",
       "ext": "HTML",
-      "sizeBytes": 68051,
-      "sizeMB": 0.06,
+      "sizeBytes": 70424,
+      "sizeMB": 0.07,
       "path": "materials/en/lc03/specs.html",
       "url": "materials/en/lc03/specs.html",
       "sourceRel": "English/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html"
