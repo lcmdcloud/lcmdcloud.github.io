@@ -3,12 +3,12 @@
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appPackage": "cloud.lazycat.app.ai",
   "appName": "AI Pod",
-  "appVersion": "2.3.364",
-  "appUpdatedAt": "2026-11-23 13:47:43",
-  "syncedAt": "2026-11-23 22:53:18",
-  "syncedTs": 1795445598,
+  "appVersion": "2.3.377",
+  "appUpdatedAt": "2026-11-24 03:00:26",
+  "syncedAt": "2026-11-24 03:05:06",
+  "syncedTs": 1795460706,
   "syncIntervalMinutes": 60,
-  "bundleFile": "ModelStore-D3OSmAEn.js",
+  "bundleFile": "ModelStore-BS45bWfb.js",
   "stats": {
     "visibleCount": 58,
     "hiddenCount": 7,
@@ -491,7 +491,7 @@
         "thor"
       ],
       "isMultiNode": true,
-      "description": "代码单流 109.8 TPS，正文单流 63.3 TPS，8/16 并发代码 256.1/371.7 TPS，16K/32K Prefill 4023/4000 TPS，TTFT 0.18s；支持图文多模态与工具调用，256K 上下文",
+      "description": "代码单流 109.8 TPS，正文单流 63.3 TPS，8/16 并发代码 256.1/371.7 TPS，16K/32K Prefill 4023/4000 TPS，TTFT 0.18s；支持图文多模态与工具调用，约 3.85M KV 缓存池，1M 上下文",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -509,8 +509,8 @@
           "diskLowerBound": true,
           "perDevice": true,
           "cpuOnly": false,
-          "profile": "vLLM NVFP4 lossless8 + DFlash2 / TP4 + 4×25GbE 100GbE zero-copy TMR / 16 streams / 256K context / vision & tools",
-          "memoryNoteZh": "108 GiB 为每台 T5000 4 节点 TP=4（默认 256K 上下文 / 16 并发、24 GiB/卡 KV 池与完整 CUDA Graph）的保守统一内存预算，含系统与 4 轨 TMR 驱动开销。磁盘下限按每台 NVFP4 lossless8 权重（170.42 GiB）、未修改 DFlash2（2.18 GiB）与解压运行镜像（10.00 GiB）常驻占用计算，不含归档、本地 DFlash2 FP8 缓存及安装暂存空间。"
+          "profile": "vLLM NVFP4 lossless8 + DFlash2 / TP4 + 4×25GbE 100GbE zero-copy TMR / 16 streams / 1M context (~3.85M KV pool) / vision & tools",
+          "memoryNoteZh": "108 GiB 为每台 T5000 4 节点 TP=4（默认 1M 上下文 / 16 并发、24 GiB/卡约 3.85M token KV 池与完整 CUDA Graph，满 1M 压测后仍保留 27.7–30.2 GiB 可用内存）的保守统一内存预算，含系统与 4 轨 TMR 驱动开销。磁盘下限按每台 NVFP4 lossless8 权重（170.42 GiB）、未修改 DFlash2（2.18 GiB）与解压运行镜像（10.00 GiB）常驻占用计算，不含归档、本地 DFlash2 FP8 缓存及安装暂存空间。"
         }
       ],
       "release": null,
@@ -1722,7 +1722,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：延迟 4.25ms，791 条/s\n\nOrin：延迟 6.25ms，457 条/s；支持多语种离线文本翻译",
+      "description": "Thor：延迟 0.86ms，1983 条/s\n\nOrin：延迟 6.25ms，457 条/s；支持多语种离线文本翻译",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -1776,7 +1776,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 1.26s，4 并发 3.14 条/s\n\nOrin：单流 1.90s，4 并发 2.08 条/s；14B 中英文本同传",
+      "description": "Thor：单流 0.67s，4 并发 5.89 条/s\n\nOrin：单流 1.90s，4 并发 2.08 条/s；14B 中英文本同传",
       "badge": "",
       "coverTitle": "T3PO",
       "coverSubtitle": "CONFUCIUS4 · LIVE TRANSLATION",
@@ -1830,7 +1830,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：1.8B BF16 67.9 TPS（FP8 108.7 TPS），7B 16.7 TPS，TTFT 43/136ms（FP8 30ms）\n\nOrin：1.8B BF16 44.4 TPS，7B 10.3 TPS，TTFT 52/199ms；支持 32/256 并发",
+      "description": "Thor：1.8B 180.6 TPS（FP8 127.8 TPS），7B 57.4 TPS，TTFT 14.5/41.5ms（FP8 17.5ms）\n\nOrin：1.8B BF16 44.4 TPS，7B 10.3 TPS，TTFT 52/199ms；支持 32/256 并发",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -1884,7 +1884,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：2B/9B/35B 单流 104/40/48 TPS\n\nOrin：2B/9B/35B 单流 169/56/83 TPS",
+      "description": "Thor：2B/9B/35B 单流 169/84/95 TPS\n\nOrin：2B/9B/35B 单流 169/56/83 TPS",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -1938,7 +1938,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：66s 英语译中文 19.17s\n\nOrin：66s 英语译中文 22.48s；支持中英实时语音流翻译",
+      "description": "Thor：66s 英语译中文 11.60s\n\nOrin：66s 英语译中文 22.48s；支持中英实时语音流翻译",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -1992,7 +1992,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：5.55s 中文 WAV 51ms（109 倍实时），MP3 104ms\n\nOrin：5.55s 中文 WAV 86ms（64 倍实时），MP3 163ms",
+      "description": "Thor：5.55s 中文 WAV 4.6ms（1,200 倍实时），MP3 10.5ms，8 并发 388 rps\n\nOrin：5.55s 中文 WAV 86ms（64 倍实时），MP3 163ms",
       "badge": "",
       "coverTitle": "SenseVoice",
       "coverSubtitle": "Small Q4_K",
@@ -2046,7 +2046,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：16.93s 中文音频转写 1.25s\n\nOrin：16.93s 中文音频转写 3.37s；支持单次最长 1 小时录音转写",
+      "description": "Thor：16.93s 中文音频转写 0.93s（18.9 倍实时），4 并发 25.0 倍实时\n\nOrin：16.93s 中文音频转写 3.37s；支持单次最长 1 小时录音转写",
       "badge": "",
       "coverTitle": "Nemotron 3.5",
       "coverSubtitle": "TRANSCRIBE · 30B-A4B",
@@ -2100,7 +2100,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：0.6B 转写 2.2s 中文音频 85ms\n\nOrin：0.6B 转写 2.2s 中文音频 318ms；支持 0.6B/1.7B 流式语音识别，单次最长 30s",
+      "description": "Thor：0.6B/1.7B 短音频 47ms/69ms，长音频 222ms/360ms（最高 2.83x）\n\nOrin：0.6B 转写 2.2s 中文音频 318ms；支持 0.6B/1.7B 流式语音识别，单次最长 30s",
       "badge": "",
       "coverTitle": "Qwen3-ASR",
       "coverSubtitle": "0.6B / 1.7B · SPEECH TO TEXT",
@@ -2154,7 +2154,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：3.0s 中文音频 77.7ms，4 并发 148.15 倍实时\n\nOrin：2.2s 中文音频 187.6ms，4 并发 68.17 倍实时；支持 100 种语言语音识别与翻译",
+      "description": "Thor：短音频 46.2/48.3ms，整体 109.4 倍实时（1.64x），4 并发 171.0 倍实时\n\nOrin：2.2s 中文音频 187.6ms，4 并发 68.17 倍实时；支持 100 种语言语音识别与翻译",
       "badge": "",
       "coverTitle": "Whisper Turbo",
       "coverSubtitle": "100 LANGUAGES · SPEECH TO TEXT",
@@ -2208,7 +2208,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：6.74s 中文音频转写 289ms（23.4 倍实时）\n\nOrin：6.74s 中文音频转写 409ms（16.5 倍实时，4 并发 2.44 条/s；无缓存 443ms / 2.24 条/s）",
+      "description": "Thor：6.74s 中文音频转写 163.1ms（41.3 倍实时，4 并发 212.6ms / 16.1 条/s）\n\nOrin：6.74s 中文音频转写 409ms（16.5 倍实时，4 并发 2.44 条/s；无缓存 443ms / 2.24 条/s）",
       "badge": "",
       "coverTitle": "R2T2",
       "coverSubtitle": "CONFUCIUS4 · SPEECH TO TEXT",
@@ -2262,7 +2262,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10.93s 韩语音频对齐 35.8ms\n\nOrin：10.93s 韩语音频对齐 82.8ms；支持 11 种语言词/字级时间戳对齐，最长 300s",
+      "description": "Thor：10.93s 韩语音频对齐 14.4ms（短音频 8.7ms）\n\nOrin：10.93s 韩语音频对齐 82.8ms；支持 11 种语言词/字级时间戳对齐，最长 300s",
       "badge": "",
       "coverTitle": "Qwen3",
       "coverSubtitle": "FORCED ALIGNER · 0.6B",
@@ -2316,7 +2316,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：23.97s 音频四轨分离 1.11s\n\nOrin：23.97s 音频四轨分离 1.86s；支持 44.1kHz 人声、伴奏、鼓与贝斯分离，最长 180s",
+      "description": "Thor：23.98s 音频四轨分离 0.23s（推理 0.15s，4.33x）\n\nOrin：23.97s 音频四轨分离 1.86s；支持 44.1kHz 人声、伴奏、鼓与贝斯分离，最长 180s",
       "badge": "",
       "coverTitle": "Demucs",
       "coverSubtitle": "HTDEMUCS · VOCAL SEPARATION",
@@ -3491,6 +3491,81 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-24 03:05:02",
+      "appVersion": "2.3.377",
+      "prevAppVersion": "2.3.364",
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "packageId": "cloud.lazycat.aipod.glm-53-flash-vllm-tp4",
+          "title": "GLM 5.3 Flash TP4",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.mtrans",
+          "title": "Firefox Translations 机器翻译",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.t3po",
+          "title": "Confucius4-T3PO",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.hy-mt2",
+          "title": "Hy-MT2 翻译",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.index-translate",
+          "title": "Index Translate 翻译",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.hy-simulmt",
+          "title": "Hy-SimulMT 语音翻译",
+          "categoryZh": "语音翻译"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.sensevoice-small-q4k",
+          "title": "SenseVoiceSmall Q4_K",
+          "categoryZh": "语音识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.nemotron35",
+          "title": "Nemotron 3.5 Transcribe",
+          "categoryZh": "语音识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.qwen3asr",
+          "title": "Qwen3-ASR",
+          "categoryZh": "语音识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.whisperlargev3turbo",
+          "title": "Whisper Large V3 Turbo",
+          "categoryZh": "语音识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.r2t2",
+          "title": "Confucius4-R2T2",
+          "categoryZh": "语音识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.qwen3aligner",
+          "title": "Qwen3 ForcedAligner",
+          "categoryZh": "语音对齐"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.demucs",
+          "title": "Demucs",
+          "categoryZh": "人声分离"
+        }
+      ],
+      "totalVisible": 58
+    },
     {
       "ts": "2026-11-23 18:16:57",
       "appVersion": "2.3.364",

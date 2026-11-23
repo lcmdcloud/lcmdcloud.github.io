@@ -7,4 +7,4 @@
 
 Auto-synced daily locally:
 - Pre-sale materials: 12 pure responsive HTML documents (6 ZH / 6 EN)
-- AI Pod Model Store: v2.3.364 (58 models)
+- AI Pod Model Store: v2.3.377 (58 models)

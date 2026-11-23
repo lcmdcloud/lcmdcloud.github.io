@@ -1,15 +1,15 @@
 {
   "schemaVersion": 5,
-  "buildVer": "b283c03b",
-  "updatedAt": "2026-11-23 22:53:18",
+  "buildVer": "3b6d2cd8",
+  "updatedAt": "2026-11-24 03:05:06",
   "presaleRepo": {
     "commitSha": "4b9ccc2434ae14a11cf766db3ce012ec5f0b02d5",
     "commitShort": "4b9ccc2",
     "commitDate": "2026-11-23 10:00:44 +0800"
   },
   "modelStoreSummary": {
-    "appVersion": "2.3.364",
-    "appUpdatedAt": "2026-11-23 13:47:43",
+    "appVersion": "2.3.377",
+    "appUpdatedAt": "2026-11-24 03:00:26",
     "visibleCount": 58,
     "categoryCount": 19,
     "thorCount": 57,
