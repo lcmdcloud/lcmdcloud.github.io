@@ -823,6 +823,9 @@
     body.screenshot-mode .filters-panel,
     body.screenshot-mode .update-banner { display: none !important; }
     body.screenshot-mode .container { padding-top: 24px; padding-bottom: 36px; }
+    body.embed-mode #nav-back,
+    body.embed-mode #lang-seg-wrap,
+    body.embed-mode #btn-theme { display: none !important; }
 
     .shot-float {
       position: fixed;
@@ -1004,7 +1007,7 @@
       </div>
 
       <div class="topbar-actions">
-        <div class="seg" role="group" aria-label="Language">
+        <div class="seg" id="lang-seg-wrap" role="group" aria-label="Language">
           <button type="button" data-lang="zh" class="active">中文</button>
           <button type="button" data-lang="en">EN</button>
         </div>
@@ -1272,12 +1275,16 @@
         return (navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en';
       }
 
+      const urlParams = new URLSearchParams(window.location.search);
+      const isEmbed = urlParams.get('embed') === '1';
+      if (isEmbed) document.body.classList.add('embed-mode');
+
       const state = {
         data: null,
         lang: detectInitialLang(),
         view: localStorage.getItem('ms-view') || 'cards',
         scale: localStorage.getItem('ms-scale') || 'large',
-        theme: localStorage.getItem('lcmd-theme') || 'light',
+        theme: urlParams.get('theme') || localStorage.getItem('lcmd-theme') || 'light',
         category: 'all',
         hw: 'all',
         query: '',

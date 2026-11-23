@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LCMD Cloud · 售前资料与 AI 模型广场</title>
-  <meta name="description" content="LCMD Cloud bilingual product pre-sale materials (AI Pod X5-T5000 & LC03 Micro Server) and AI Pod Model Store." />
+  <title>LCMD Cloud · 微服 / 算力舱 / AI 模型广场</title>
+  <meta name="description" content="LCMD Cloud bilingual portal: LC03 Micro Server, AI Pod X5-T5000, AI Model Store, and Official Website." />
   <link
     rel="icon"
     type="image/svg+xml"
@@ -12,23 +12,20 @@
   />
   <style>
     :root {
-      --bg: #f6f8fb;
+      --header-h: 56px;
+      --sidebar-w: 224px;
+      --bg: #f5f7fb;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
       --surface-muted: #eef2f6;
-      --border: #e5eaf1;
-      --border-strong: #cbd5e1;
+      --border: #e2e8f0;
       --text: #0f172a;
       --text-secondary: #475569;
       --text-muted: #64748b;
       --primary: #2563eb;
-      --primary-hover: #1d4ed8;
       --primary-soft: #eff6ff;
       --primary-border: #bfdbfe;
-      --studio-bg: linear-gradient(145deg, #f8fafc 0%, #eef2f7 100%);
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
-      --shadow-md: 0 12px 30px -12px rgba(15, 23, 42, 0.1), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
-      --radius-xl: 20px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
     }
 
     html.dark {
@@ -37,97 +34,99 @@
       --surface-soft: #182131;
       --surface-muted: #1e293b;
       --border: #253247;
-      --border-strong: #364762;
       --text: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --primary: #60a5fa;
-      --primary-hover: #3b82f6;
-      --primary-soft: rgba(59, 130, 246, 0.15);
-      --primary-border: rgba(96, 165, 250, 0.32);
-      --studio-bg: linear-gradient(145deg, #161f2e 0%, #0f1622 100%);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
-      --shadow-md: 0 14px 32px -12px rgba(0, 0, 0, 0.5);
+      --primary-soft: rgba(59, 130, 246, 0.16);
+      --primary-border: rgba(96, 165, 250, 0.34);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.35);
     }
 
     * { box-sizing: border-box; }
-    body {
+    html, body {
       margin: 0;
+      height: 100%;
+      overflow: hidden;
       background: var(--bg);
       color: var(--text);
       font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.5;
     }
 
-    /* Sticky Navbar */
-    .navbar {
-      position: sticky;
-      top: 0;
-      z-index: 40;
-      background: color-mix(in srgb, var(--surface) 88%, transparent);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+    /* Top Bar */
+    .topbar {
+      height: var(--header-h);
+      background: var(--surface);
       border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 12px 24px;
+      padding: 0 18px;
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 14px;
+      position: relative;
+      z-index: 40;
     }
+
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
+      gap: 9px;
       text-decoration: none;
       color: var(--text);
+      flex-shrink: 0;
     }
     .brand-logo {
-      width: 32px;
-      height: 32px;
-      border-radius: 9px;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
       object-fit: cover;
       border: 1px solid var(--border);
     }
     .brand-name {
-      font-size: 16.5px;
+      font-size: 16px;
       font-weight: 800;
       letter-spacing: -0.02em;
     }
 
-    .nav-tabs {
-      display: inline-flex;
+    /* Primary Top Tabs */
+    .top-tabs {
+      display: flex;
+      align-items: center;
       gap: 4px;
       background: var(--surface-muted);
       border: 1px solid var(--border);
       border-radius: 11px;
       padding: 3px;
+      overflow-x: auto;
+      scrollbar-width: none;
     }
-    .nav-tab {
+    .top-tabs::-webkit-scrollbar { display: none; }
+
+    .top-tab {
+      border: 0;
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 16px;
-      border-radius: 8px;
-      text-decoration: none;
-      color: var(--text-secondary);
-      font-size: 14px;
-      font-weight: 700;
-      transition: all 0.15s ease;
+      white-space: nowrap;
+      transition: all 0.14s ease;
     }
-    .nav-tab:hover { color: var(--text); }
-    .nav-tab.active {
+    .top-tab:hover { color: var(--text); }
+    .top-tab.active {
       background: var(--surface);
       color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
-    .tab-pill {
-      font-size: 11.5px;
+    .tab-badge {
+      font-size: 11px;
       font-weight: 700;
       padding: 1px 6px;
       border-radius: 999px;
@@ -136,11 +135,36 @@
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
     }
 
-    .nav-right {
+    .top-right {
       display: flex;
       align-items: center;
       gap: 8px;
+      flex-shrink: 0;
     }
+
+    .tool-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      height: 32px;
+      padding: 0 11px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-secondary);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.14s ease;
+    }
+    .tool-btn:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--primary-soft);
+    }
+
     .lang-seg {
       display: inline-flex;
       background: var(--surface-muted);
@@ -152,9 +176,9 @@
       border: 0;
       background: transparent;
       color: var(--text-secondary);
-      padding: 5px 11px;
-      border-radius: 7px;
-      font-size: 13px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12.5px;
       font-weight: 700;
       cursor: pointer;
     }
@@ -163,373 +187,348 @@
       color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
-    .icon-btn {
-      border: 1px solid var(--border);
+
+    /* Workspace Layout */
+    .workspace {
+      display: flex;
+      height: calc(100vh - var(--header-h));
+      width: 100%;
+    }
+
+    /* Left Sidebar (for product sections) */
+    .sidebar {
+      width: var(--sidebar-w);
+      flex-shrink: 0;
       background: var(--surface);
-      color: var(--text);
-      width: 34px;
-      height: 34px;
-      border-radius: 9px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 15px;
-    }
-    .icon-btn:hover { background: var(--surface-soft); }
-
-    /* Container */
-    .container {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 36px 24px 56px;
-    }
-
-    .page-head {
-      margin-bottom: 26px;
-    }
-    .page-head h1 {
-      margin: 0;
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-    }
-    .page-head p {
-      margin: 6px 0 0;
-      font-size: 15px;
-      color: var(--text-secondary);
-    }
-
-    /* Product Cards */
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 24px;
-    }
-    .product-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
+      border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
+      padding: 16px 12px;
+      gap: 14px;
+      overflow-y: auto;
     }
-    .product-card:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-md);
-      border-color: var(--border-strong);
-    }
+    .sidebar.hidden { display: none; }
 
-    .card-visual {
-      position: relative;
-      height: 230px;
-      background: var(--studio-bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
+    .side-product {
+      padding: 4px 8px 10px;
       border-bottom: 1px solid var(--border);
     }
-    .card-visual img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: contain;
-      display: block;
-      transition: transform 0.25s ease;
-    }
-    .product-card:hover .card-visual img {
-      transform: scale(1.03);
-    }
-    .visual-badge {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      font-size: 12px;
-      font-weight: 700;
-    }
-
-    .card-body {
-      padding: 22px 24px 24px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      flex: 1;
-    }
-    .card-title {
+    .side-product-name {
       margin: 0;
-      font-size: 21px;
+      font-size: 15px;
       font-weight: 800;
-      letter-spacing: -0.015em;
+      color: var(--text);
+      line-height: 1.3;
     }
-    .card-sub {
-      margin: 5px 0 0;
-      font-size: 14px;
-      color: var(--text-secondary);
+    .side-product-sub {
+      margin: 4px 0 0;
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
     }
 
-    .doc-list {
+    .side-nav {
       display: flex;
       flex-direction: column;
-      gap: 9px;
-      margin-top: auto;
+      gap: 4px;
     }
-    .doc-btn {
+    .side-item {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      padding: 10px 12px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      text-align: left;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
-      padding: 12px 16px;
+      gap: 8px;
+      transition: all 0.14s ease;
+    }
+    .side-item:hover {
+      background: var(--surface-soft);
+      color: var(--text);
+    }
+    .side-item.active {
+      background: var(--primary-soft);
+      border-color: var(--primary-border);
+      color: var(--primary);
+    }
+    .side-ext {
+      font-size: 10.5px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      opacity: 0.72;
+    }
+
+    .side-footer {
+      margin-top: auto;
+      padding: 12px 8px 2px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .side-ext-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 6px 8px;
+      border-radius: 8px;
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+    }
+    .side-ext-link:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+
+    /* Main Content Stage */
+    .stage {
+      flex: 1;
+      min-width: 0;
+      height: 100%;
+      position: relative;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .doc-frame {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      background: #ffffff;
+      display: block;
+    }
+    html.dark .doc-frame.models-frame {
+      background: #0b0f17;
+    }
+
+    /* Image Viewer inside Stage (for PNG-only items like LC03 overview / X5 ZH specs) */
+    .img-stage {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+    }
+    .img-toolbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-sm);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .img-stage img {
       border-radius: 12px;
+      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
+      background: #ffffff;
+      max-width: 100%;
+      height: auto;
+      transition: max-width 0.18s ease;
+    }
+    .img-stage.zoom-full img {
+      max-width: none;
+    }
+
+    /* Official Site Tab Panel (clean quick-entry if clicked, or direct link) */
+    .official-panel {
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      padding: 40px 24px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+    .official-card {
+      width: 100%;
+      max-width: 680px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 28px 30px;
+      box-shadow: var(--shadow-sm);
+    }
+    .official-card h2 {
+      margin: 0 0 6px;
+      font-size: 22px;
+      font-weight: 800;
+    }
+    .official-card p {
+      margin: 0 0 20px;
+      font-size: 14.5px;
+      color: var(--text-secondary);
+    }
+    .official-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .official-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-radius: 13px;
       border: 1px solid var(--border);
       background: var(--surface-soft);
       color: var(--text);
       text-decoration: none;
-      font-size: 14.5px;
-      font-weight: 700;
-      cursor: pointer;
       transition: all 0.15s ease;
-      text-align: left;
     }
-    .doc-btn:hover {
+    .official-link:hover {
       border-color: var(--primary);
       background: var(--primary-soft);
       color: var(--primary);
     }
-    .doc-btn.primary {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-    .doc-btn.primary:hover {
-      background: var(--primary-hover);
-      border-color: var(--primary-hover);
-      color: #ffffff;
-    }
-    .doc-arrow {
-      font-size: 13px;
-      opacity: 0.72;
-      flex-shrink: 0;
-    }
+    .official-link strong { display: block; font-size: 15px; }
+    .official-link span { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
 
-    /* Compact Model Store Strip */
-    .ms-strip {
-      margin-top: 24px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 20px 26px;
-      box-shadow: var(--shadow-sm);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-    .ms-strip:hover {
-      border-color: var(--primary-border);
-      box-shadow: var(--shadow-md);
-    }
-    .ms-left {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .ms-icon {
-      width: 44px;
-      height: 44px;
-      border-radius: 13px;
-      background: var(--primary-soft);
-      border: 1px solid var(--primary-border);
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 21px;
-      flex-shrink: 0;
-    }
-    .ms-title { margin: 0; font-size: 17px; font-weight: 800; }
-    .ms-sub { margin: 3px 0 0; font-size: 13.5px; color: var(--text-secondary); }
-    .btn-enter {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 10px 18px;
-      border-radius: 11px;
-      background: var(--primary);
-      color: #ffffff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .btn-enter:hover { background: var(--primary-hover); }
-
-    /* Footer */
-    .footer {
-      margin-top: 34px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      font-size: 13px;
-      color: var(--text-muted);
-    }
-
-    /* Lightbox for PNG-only items */
-    .lightbox {
-      position: fixed;
+    .loading-state {
+      position: absolute;
       inset: 0;
-      z-index: 100;
-      background: rgba(15, 23, 42, 0.88);
-      backdrop-filter: blur(6px);
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      gap: 12px;
-    }
-    .lightbox.open { display: flex; }
-    .lightbox-bar {
-      width: 100%;
-      max-width: 1120px;
       display: flex;
       align-items: center;
-      justify-content: space-between;
-      color: #ffffff;
-      gap: 10px;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 14px;
+      pointer-events: none;
     }
-    .lb-btn {
-      padding: 6px 12px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      background: rgba(255, 255, 255, 0.12);
-      color: #ffffff;
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .lb-btn:hover { background: rgba(255, 255, 255, 0.22); }
-    .lightbox-img-wrap {
-      max-width: 94vw;
-      max-height: 82vh;
-      overflow: auto;
-      border-radius: 12px;
-      background: #0f172a;
-    }
-    .lightbox-img-wrap img { display: block; max-width: 100%; height: auto; }
 
-    @media (max-width: 820px) {
-      .products-grid { grid-template-columns: 1fr; }
-      .container { padding: 22px 14px 44px; }
+    /* Responsive Mobile Layout: Sidebar becomes clean horizontal sub-tab bar under topbar */
+    @media (max-width: 860px) {
+      .topbar {
+        height: auto;
+        padding: 10px 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .top-tabs {
+        order: 3;
+        width: 100%;
+      }
+      .workspace {
+        flex-direction: column;
+        height: calc(100vh - 98px);
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        border-right: 0;
+        border-bottom: 1px solid var(--border);
+        padding: 8px 12px;
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+      }
+      .side-product, .side-footer { display: none; }
+      .side-nav {
+        flex-direction: row;
+        gap: 6px;
+      }
+      .side-item {
+        padding: 7px 12px;
+        white-space: nowrap;
+        font-size: 13px;
+      }
+      .btn-open-text { display: none; }
     }
   </style>
 </head>
 <body>
-  <header class="navbar">
-    <div class="nav-inner">
-      <a class="brand" href="./">
-        <img class="brand-logo" src="assets/logo.jpg" alt="LCMD" onerror="this.style.display='none'" />
-        <span class="brand-name">LCMD Cloud</span>
+  <header class="topbar">
+    <a class="brand" href="#lc03" id="brand-link">
+      <img class="brand-logo" src="assets/logo.jpg" alt="LCMD" onerror="this.style.display='none'" />
+      <span class="brand-name">LCMD Cloud</span>
+    </a>
+
+    <nav class="top-tabs" id="top-tabs" aria-label="Main sections"></nav>
+
+    <div class="top-right">
+      <a class="tool-btn" id="btn-open-new" href="#" target="_blank" rel="noopener" style="display:none;">
+        <span class="btn-open-text" id="btn-open-label">新窗口</span>
+        <span>↗</span>
       </a>
-
-      <nav class="nav-tabs" aria-label="Sections">
-        <a class="nav-tab active" href="./" id="tab-materials">售前资料</a>
-        <a class="nav-tab" href="model-store/" id="tab-models">
-          <span id="tab-models-label">AI 模型广场</span>
-          <span class="tab-pill" id="tab-models-count">--</span>
-        </a>
-      </nav>
-
-      <div class="nav-right">
-        <div class="lang-seg" role="group" aria-label="Language">
-          <button type="button" data-lang="zh" class="active">中文</button>
-          <button type="button" data-lang="en">EN</button>
-        </div>
-        <button type="button" class="icon-btn" id="btn-theme" title="Theme">🌓</button>
+      <div class="lang-seg" role="group" aria-label="Language">
+        <button type="button" data-lang="zh" class="active">中文</button>
+        <button type="button" data-lang="en">EN</button>
       </div>
+      <button type="button" class="tool-btn" id="btn-theme" title="Theme" style="padding:0 9px;">🌓</button>
     </div>
   </header>
 
-  <main class="container">
-    <div class="page-head">
-      <h1 id="page-title">产品售前资料</h1>
-      <p id="page-sub">AI Pod X5-T5000 与 LC03 官方中英文产品介绍、一图概览与硬件参数</p>
-    </div>
-
-    <section class="products-grid" id="products-grid">
-      <div style="color:var(--text-muted);padding:32px 0;">Loading…</div>
-    </section>
-
-    <section class="ms-strip">
-      <div class="ms-left">
-        <div class="ms-icon">🤖</div>
-        <div>
-          <h2 class="ms-title" id="ms-title">AI Pod 模型广场</h2>
-          <p class="ms-sub" id="ms-sub">加载中…</p>
-        </div>
+  <div class="workspace">
+    <aside class="sidebar" id="sidebar">
+      <div class="side-product">
+        <h2 class="side-product-name" id="side-title">--</h2>
+        <p class="side-product-sub" id="side-sub">--</p>
       </div>
-      <a class="btn-enter" href="model-store/" id="ms-enter">进入模型广场 →</a>
-    </section>
+      <nav class="side-nav" id="side-nav"></nav>
+      <div class="side-footer" id="side-footer"></div>
+    </aside>
 
-    <footer class="footer">
-      <div id="footer-left">LCMD Cloud</div>
-      <div id="footer-meta">--</div>
-    </footer>
-  </main>
-
-  <div class="lightbox" id="lightbox">
-    <div class="lightbox-bar">
-      <strong id="lightbox-title" style="font-size:14.5px;"></strong>
-      <div style="display:flex;gap:8px;">
-        <a class="lb-btn" id="lightbox-open" href="#" target="_blank" rel="noopener">新窗口打开 ↗</a>
-        <button type="button" class="lb-btn" id="lightbox-close">关闭</button>
-      </div>
-    </div>
-    <div class="lightbox-img-wrap">
-      <img id="lightbox-img" src="" alt="" />
-    </div>
+    <main class="stage" id="stage">
+      <div class="loading-state">Loading…</div>
+    </main>
   </div>
 
   <script>
     (function () {
       const I18N = {
         zh: {
-          docTitle: 'LCMD Cloud · 售前资料与 AI 模型广场',
-          tabMaterials: '售前资料',
+          docTitle: 'LCMD Cloud · 微服 / 算力舱 / AI 模型广场',
+          tabLC03: '微服介绍资料',
+          tabX5: '算力舱介绍资料',
           tabModels: 'AI 模型广场',
-          pageTitle: '产品售前资料',
-          pageSub: 'AI Pod X5-T5000 与 LC03 官方中英文产品介绍、一图概览与硬件参数',
-          msTitle: 'AI Pod 模型广场',
-          msSub: (ms) => `${ms.visibleCount} 款本地一键部署模型 · ${ms.categoryCount} 大能力分类 · 支持 AGX Thor / Orin / 多机集群`,
-          msEnter: '进入模型广场 →',
-          footerLeft: 'LCMD Cloud · 每日自动同步',
-          openOrig: '新窗口打开 ↗',
-          closeText: '关闭',
+          tabOfficial: '官网',
+          openNew: '新窗口打开',
+          fitWidth: '适应宽度',
+          origSize: '原始尺寸',
+          officialPage: '官网产品页',
+          officialHome: '懒猫微服官网',
+          officialHomeDesc: 'lazycat.cloud — 懒猫微服与算力舱官方主页',
+          officialLC03: '懒猫微服 LC03 官网介绍',
+          officialLC03Desc: 'lazycat.cloud/lcmd — LC03 硬件配置与产品详情',
+          officialTitle: '懒猫官方入口',
+          officialSub: '访问懒猫微服与算力舱官方网站，获取最新产品发布与购买信息。',
+          syncedPrefix: '同步于 ',
         },
         en: {
-          docTitle: 'LCMD Cloud · Pre-sale Materials & AI Model Store',
-          tabMaterials: 'Pre-sale Materials',
+          docTitle: 'LCMD Cloud · Micro Server / AI Pod / Model Store',
+          tabLC03: 'Micro Server (LC03)',
+          tabX5: 'AI Pod (X5-T5000)',
           tabModels: 'AI Model Store',
-          pageTitle: 'Product Pre-sale Materials',
-          pageSub: 'Official Chinese & English brochures, overviews and hardware specs for AI Pod X5-T5000 & LC03',
-          msTitle: 'AI Pod Model Store',
-          msSub: (ms) => `${ms.visibleCount} one-click local models · ${ms.categoryCount} categories · AGX Thor, Orin & Multi-Node`,
-          msEnter: 'Open Model Store →',
-          footerLeft: 'LCMD Cloud · Auto-synced daily',
-          openOrig: 'Open Original ↗',
-          closeText: 'Close',
+          tabOfficial: 'Official Site',
+          openNew: 'Open in New Tab',
+          fitWidth: 'Fit Width',
+          origSize: 'Actual Size',
+          officialPage: 'Official Product Page',
+          officialHome: 'LazyCat Official Website',
+          officialHomeDesc: 'lazycat.cloud — Official LCMD Micro Server & AI Pod homepage',
+          officialLC03: 'LC03 Micro Server Official Page',
+          officialLC03Desc: 'lazycat.cloud/lcmd — Official specifications & details',
+          officialTitle: 'Official Website Links',
+          officialSub: 'Visit the official LazyCat Cloud websites for product announcements and ordering.',
+          syncedPrefix: 'Synced ',
         },
       };
 
@@ -545,6 +544,9 @@
         lang: detectLang(),
         theme: localStorage.getItem('lcmd-theme') || 'light',
         manifest: null,
+        section: 'LC03', // productId | 'models' | 'official'
+        slot: 'brochure',
+        imgZoomFull: false,
       };
 
       const $ = (s) => document.querySelector(s);
@@ -561,116 +563,244 @@
           .replace(/"/g, '&quot;');
       }
 
-      function openLightbox(url, title) {
-        $('#lightbox-title').textContent = title;
-        $('#lightbox-img').src = url;
-        $('#lightbox-open').href = url;
-        $('#lightbox').classList.add('open');
+      function sectionTabLabel(pid) {
+        const L = t();
+        if (pid === 'LC03') return L.tabLC03;
+        if (pid === 'AI-Pod-X5') return L.tabX5;
+        const p = state.manifest?.products?.find((x) => x.id === pid);
+        return p ? (isEn() ? p.nameEn : p.nameZh) : pid;
       }
 
-      function closeLightbox() {
-        $('#lightbox').classList.remove('open');
+      function sectionSlug(pid) {
+        if (pid === 'LC03') return 'lc03';
+        if (pid === 'AI-Pod-X5') return 'aipod';
+        return pid.toLowerCase();
       }
 
-      function applyChrome() {
+      function resolveSectionFromSlug(slug) {
+        if (!slug) return 'LC03';
+        const s = slug.toLowerCase();
+        if (s === 'lc03') return 'LC03';
+        if (s === 'aipod' || s === 'ai-pod-x5' || s === 'x5') return 'AI-Pod-X5';
+        if (s === 'models' || s === 'model-store') return 'models';
+        if (s === 'official') return 'official';
+        const match = state.manifest?.products?.find((p) => p.id.toLowerCase() === s);
+        return match ? match.id : 'LC03';
+      }
+
+      function parseHash() {
+        const raw = window.location.hash.replace(/^#/, '');
+        if (!raw) return;
+        const [secSlug, slotSlug] = raw.split('/');
+        state.section = resolveSectionFromSlug(secSlug);
+        if (slotSlug) state.slot = decodeURIComponent(slotSlug);
+      }
+
+      function syncHash() {
+        let hash = '';
+        if (state.section === 'models') hash = '#models';
+        else if (state.section === 'official') hash = '#official';
+        else hash = `#${sectionSlug(state.section)}/${encodeURIComponent(state.slot)}`;
+        if (window.location.hash !== hash) {
+          window.history.replaceState({}, '', `${window.location.pathname}?lang=${state.lang}${hash}`);
+        }
+      }
+
+      function getProductDocs(pid) {
+        const m = state.manifest;
+        if (!m) return [];
+        let docs = m.items.filter((x) => x.productId === pid && x.lang === state.lang);
+        if (!docs.length) docs = m.items.filter((x) => x.productId === pid);
+        return docs;
+      }
+
+      function renderTopbar() {
         const L = t();
         document.documentElement.lang = isEn() ? 'en' : 'zh-CN';
         document.documentElement.classList.toggle('dark', state.theme === 'dark');
         document.title = L.docTitle;
-
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
+        $('#btn-open-label').textContent = L.openNew;
 
-        $('#tab-materials').textContent = L.tabMaterials;
-        $('#tab-models-label').textContent = L.tabModels;
-        $('#tab-models').href = `model-store/?lang=${state.lang}`;
-        $('#ms-enter').href = `model-store/?lang=${state.lang}`;
-        $('#page-title').textContent = L.pageTitle;
-        $('#page-sub').textContent = L.pageSub;
-        $('#ms-title').textContent = L.msTitle;
-        $('#ms-enter').textContent = L.msEnter;
-        $('#footer-left').textContent = L.footerLeft;
-        $('#lightbox-open').textContent = L.openOrig;
-        $('#lightbox-close').textContent = L.closeText;
+        const m = state.manifest;
+        const products = m?.products || [];
+        const modelCount = m?.modelStoreSummary?.visibleCount ?? '--';
+
+        const tabs = [
+          ...products.map(
+            (p) => `
+              <button type="button" class="top-tab ${state.section === p.id ? 'active' : ''}" data-sec="${esc(p.id)}">
+                ${esc(sectionTabLabel(p.id))}
+              </button>
+            `,
+          ),
+          `<button type="button" class="top-tab ${state.section === 'models' ? 'active' : ''}" data-sec="models">
+            <span>${esc(L.tabModels)}</span>
+            <span class="tab-badge">${esc(modelCount)}</span>
+          </button>`,
+          `<button type="button" class="top-tab ${state.section === 'official' ? 'active' : ''}" data-sec="official">
+            <span>${esc(L.tabOfficial)}</span>
+          </button>`,
+        ];
+
+        $('#top-tabs').innerHTML = tabs.join('');
+        $$('#top-tabs [data-sec]').forEach((btn) =>
+          btn.addEventListener('click', () => {
+            const sec = btn.dataset.sec;
+            state.section = sec;
+            if (sec !== 'models' && sec !== 'official') {
+              const docs = getProductDocs(sec);
+              if (docs.length && !docs.some((d) => d.slot === state.slot)) {
+                state.slot = docs[0].slot;
+              }
+            }
+            state.imgZoomFull = false;
+            syncHash();
+            render();
+          }),
+        );
       }
 
-      function render() {
-        applyChrome();
-        const m = state.manifest;
-        if (!m) return;
+      function renderStage() {
         const L = t();
-        const ms = m.modelStoreSummary || {};
+        const m = state.manifest;
+        const sidebar = $('#sidebar');
+        const stage = $('#stage');
+        const openBtn = $('#btn-open-new');
 
-        $('#tab-models-count').textContent = ms.visibleCount ?? '--';
-        $('#ms-sub').textContent = L.msSub(ms);
-        $('#footer-meta').textContent = `AI Pod v${ms.appVersion || '--'} · ${(m.updatedAt || '').slice(0, 10)}`;
+        if (!m) return;
 
-        const gridHtml = m.products
-          .map((p) => {
-            const name = isEn() ? p.nameEn : p.nameZh;
-            const tagline = isEn() ? p.taglineEn : p.taglineZh;
-            const badge = isEn() ? p.badgeEn : p.badgeZh;
+        // 1. AI Model Store (full width, no left sidebar)
+        if (state.section === 'models') {
+          sidebar.classList.add('hidden');
+          const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1`;
+          openBtn.style.display = 'inline-flex';
+          openBtn.href = `model-store/?lang=${state.lang}`;
+          stage.innerHTML = `<iframe class="doc-frame models-frame" src="${esc(url)}" title="AI Model Store"></iframe>`;
+          return;
+        }
 
-            let docs = m.items.filter((x) => x.productId === p.id && x.lang === state.lang);
-            if (!docs.length) docs = m.items.filter((x) => x.productId === p.id);
-
-            const docsHtml = docs
-              .map((item, idx) => {
-                const label = isEn() ? item.titleEn : item.titleZh;
-                const isPrimary = idx === 0;
-                if (isImg(item.ext)) {
-                  return `
-                    <button type="button" class="doc-btn ${isPrimary ? 'primary' : ''} js-zoom" data-url="${esc(item.url)}" data-title="${esc(`${name} · ${label}`)}">
-                      <span>${esc(label)}</span>
-                      <span class="doc-arrow">↗</span>
-                    </button>
-                  `;
-                }
-                return `
-                  <a class="doc-btn ${isPrimary ? 'primary' : ''}" href="${esc(item.url)}" target="_blank" rel="noopener">
-                    <span>${esc(label)}</span>
-                    <span class="doc-arrow">↗</span>
+        // 2. Official Site
+        if (state.section === 'official') {
+          sidebar.classList.add('hidden');
+          openBtn.style.display = 'inline-flex';
+          openBtn.href = 'https://lazycat.cloud/';
+          stage.innerHTML = `
+            <div class="official-panel">
+              <div class="official-card">
+                <h2>${esc(L.officialTitle)}</h2>
+                <p>${esc(L.officialSub)}</p>
+                <div class="official-links">
+                  <a class="official-link" href="https://lazycat.cloud/" target="_blank" rel="noopener">
+                    <div>
+                      <strong>${esc(L.officialHome)}</strong>
+                      <span>${esc(L.officialHomeDesc)}</span>
+                    </div>
+                    <span>↗</span>
                   </a>
-                `;
-              })
-              .join('');
-
-            return `
-              <article class="product-card">
-                ${
-                  p.cover
-                    ? `<div class="card-visual">
-                        <span class="visual-badge">${esc(badge)}</span>
-                        <img src="${esc(p.cover)}" alt="${esc(name)}" loading="lazy" />
-                      </div>`
-                    : ''
-                }
-                <div class="card-body">
-                  <div>
-                    <h2 class="card-title">${esc(name)}</h2>
-                    <p class="card-sub">${esc(tagline)}</p>
-                  </div>
-                  <div class="doc-list">${docsHtml}</div>
+                  <a class="official-link" href="https://lazycat.cloud/lcmd" target="_blank" rel="noopener">
+                    <div>
+                      <strong>${esc(L.officialLC03)}</strong>
+                      <span>${esc(L.officialLC03Desc)}</span>
+                    </div>
+                    <span>↗</span>
+                  </a>
                 </div>
-              </article>
+              </div>
+            </div>
+          `;
+          return;
+        }
+
+        // 3. Product Documentation Section (LC03 / AI-Pod-X5 / future products)
+        const product = m.products.find((p) => p.id === state.section) || m.products[0];
+        if (!product) return;
+        state.section = product.id;
+
+        const docs = getProductDocs(product.id);
+        let activeDoc = docs.find((d) => d.slot === state.slot) || docs[0];
+        if (activeDoc) state.slot = activeDoc.slot;
+
+        sidebar.classList.remove('hidden');
+        $('#side-title').textContent = isEn() ? product.nameEn : product.nameZh;
+        $('#side-sub').textContent = isEn() ? product.taglineEn : product.taglineZh;
+
+        $('#side-nav').innerHTML = docs
+          .map((d) => {
+            const label = isEn() ? d.titleEn : d.titleZh;
+            const active = activeDoc && d.slot === activeDoc.slot;
+            return `
+              <button type="button" class="side-item ${active ? 'active' : ''}" data-slot="${esc(d.slot)}">
+                <span>${esc(label)}</span>
+                <span class="side-ext">${esc(d.ext)}</span>
+              </button>
             `;
           })
           .join('');
 
-        $('#products-grid').innerHTML = gridHtml;
-        $$('.js-zoom').forEach((el) =>
-          el.addEventListener('click', () => openLightbox(el.dataset.url, el.dataset.title)),
+        $$('#side-nav [data-slot]').forEach((btn) =>
+          btn.addEventListener('click', () => {
+            state.slot = btn.dataset.slot;
+            state.imgZoomFull = false;
+            syncHash();
+            render();
+          }),
         );
+
+        const officialUrl = product.id === 'LC03' ? 'https://lazycat.cloud/lcmd' : 'https://lazycat.cloud/';
+        $('#side-footer').innerHTML = `
+          <a class="side-ext-link" href="${officialUrl}" target="_blank" rel="noopener">
+            <span>${esc(L.officialPage)}</span>
+            <span>↗</span>
+          </a>
+          <div>${esc(L.syncedPrefix)}${(m.updatedAt || '').slice(0, 10)}</div>
+        `;
+
+        if (!activeDoc) {
+          openBtn.style.display = 'none';
+          stage.innerHTML = `<div class="loading-state">No document found</div>`;
+          return;
+        }
+
+        openBtn.style.display = 'inline-flex';
+        openBtn.href = activeDoc.url;
+
+        if (isImg(activeDoc.ext)) {
+          stage.innerHTML = `
+            <div class="img-stage ${state.imgZoomFull ? 'zoom-full' : ''}" id="img-stage">
+              <div class="img-toolbar">
+                <button type="button" class="tool-btn" id="btn-img-zoom">${esc(state.imgZoomFull ? L.fitWidth : L.origSize)}</button>
+                <a class="tool-btn" href="${esc(activeDoc.url)}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
+              </div>
+              <img src="${esc(activeDoc.url)}" alt="${esc(isEn() ? activeDoc.titleEn : activeDoc.titleZh)}" />
+            </div>
+          `;
+          $('#btn-img-zoom')?.addEventListener('click', () => {
+            state.imgZoomFull = !state.imgZoomFull;
+            const wrap = $('#img-stage');
+            wrap.classList.toggle('zoom-full', state.imgZoomFull);
+            $('#btn-img-zoom').textContent = state.imgZoomFull ? L.fitWidth : L.origSize;
+          });
+        } else {
+          stage.innerHTML = `<iframe class="doc-frame" src="${esc(activeDoc.url)}" title="${esc(isEn() ? activeDoc.titleEn : activeDoc.titleZh)}"></iframe>`;
+        }
+      }
+
+      function render() {
+        renderTopbar();
+        renderStage();
       }
 
       async function init() {
-        applyChrome();
         try {
           const res = await fetch(`./materials/manifest.json?t=${Date.now()}`, { cache: 'no-store' });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           state.manifest = await res.json();
+          parseHash();
+          syncHash();
           render();
         } catch (err) {
-          $('#products-grid').innerHTML = `<div style="color:var(--text-muted);padding:32px 0;">Failed to load: ${esc(err.message)}</div>`;
+          $('#stage').innerHTML = `<div class="loading-state">Failed to load: ${esc(err.message)}</div>`;
         }
       }
 
@@ -678,9 +808,7 @@
         b.addEventListener('click', () => {
           state.lang = b.dataset.lang;
           localStorage.setItem('lcmd-lang', state.lang);
-          const u = new URL(window.location.href);
-          u.searchParams.set('lang', state.lang);
-          window.history.replaceState({}, '', u);
+          syncHash();
           render();
         }),
       );
@@ -688,15 +816,12 @@
       $('#btn-theme').addEventListener('click', () => {
         state.theme = state.theme === 'dark' ? 'light' : 'dark';
         localStorage.setItem('lcmd-theme', state.theme);
-        applyChrome();
+        render();
       });
 
-      $('#lightbox-close').addEventListener('click', closeLightbox);
-      $('#lightbox').addEventListener('click', (e) => {
-        if (e.target === $('#lightbox')) closeLightbox();
-      });
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
+      window.addEventListener('hashchange', () => {
+        parseHash();
+        render();
       });
 
       init();

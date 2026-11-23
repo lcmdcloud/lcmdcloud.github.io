@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "updatedAt": "2026-11-23 19:10:20",
+  "updatedAt": "2026-11-23 19:12:33",
   "presaleRepo": {
     "commitSha": "4b9ccc2434ae14a11cf766db3ce012ec5f0b02d5",
     "commitShort": "4b9ccc2",
@@ -23,26 +23,26 @@
   },
   "products": [
     {
-      "id": "AI-Pod-X5",
+      "id": "LC03",
       "order": 1,
-      "nameZh": "懒猫算力舱 AI Pod X5-T5000",
-      "nameEn": "LCMD AI Pod X5-T5000",
-      "taglineZh": "NVIDIA AGX Thor T5000 · 2070 TOPS · 128GB 统一内存 · 支持多机高速堆叠",
-      "taglineEn": "NVIDIA AGX Thor T5000 · 2070 TOPS · 128GB Unified Memory · Multi-Node Stacking",
-      "badgeZh": "AI 算力舱",
-      "badgeEn": "AI Compute Appliance",
-      "cover": "assets/product-x5.webp"
+      "nameZh": "懒猫微服 LC03",
+      "nameEn": "LCMD LC03 Micro Server",
+      "taglineZh": "115mm 立方机身 · 7 盘位 · 4500+ 应用 · 小龙猫 AI",
+      "taglineEn": "115mm Cube · 7-Bay · 4,500+ Apps · Totoro AI",
+      "badgeZh": "微服",
+      "badgeEn": "Micro Server",
+      "cover": "assets/product-lc03.jpg"
     },
     {
-      "id": "LC03",
+      "id": "AI-Pod-X5",
       "order": 2,
-      "nameZh": "懒猫微服 LC03 私有云主机",
-      "nameEn": "LCMD LC03 Micro Server",
-      "taglineZh": "115mm 立方机身 · 7 盘位存储 · 4500+ 私有云应用 · 小龙猫 AI 助手",
-      "taglineEn": "115mm Cube · 7-Bay Storage · 4,500+ Self-Hosted Apps · Totoro AI",
-      "badgeZh": "私有云主机",
-      "badgeEn": "Private Cloud Server",
-      "cover": "assets/product-lc03.jpg"
+      "nameZh": "懒猫算力舱 X5-T5000",
+      "nameEn": "LCMD AI Pod X5-T5000",
+      "taglineZh": "AGX Thor T5000 · 2070 TOPS · 128GB 统一内存",
+      "taglineEn": "AGX Thor T5000 · 2070 TOPS · 128GB Unified Memory",
+      "badgeZh": "算力舱",
+      "badgeEn": "AI Pod",
+      "cover": "assets/product-x5.webp"
     }
   ],
   "items": [
