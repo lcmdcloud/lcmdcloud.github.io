@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LCMD Cloud · 微服 / 算力舱 / AI 模型广场</title>
-  <meta name="description" content="LCMD Cloud bilingual portal: LC03 Micro Server, AI Pod X5-T5000, AI Model Store, and Official Website." />
+  <meta name="description" content="LCMD Cloud bilingual desktop portal: LC03 Micro Server, AI Pod X5-T5000, AI Model Store, and Official Websites (lazycat.cloud / lcmd.cloud)." />
   <link
     rel="icon"
     type="image/svg+xml"
@@ -12,8 +12,6 @@
   />
   <style>
     :root {
-      --header-h: 56px;
-      --sidebar-w: 224px;
       --bg: #f5f7fb;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
@@ -54,17 +52,22 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Top Bar */
+    body {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Row 1: Primary Top Navigation */
     .topbar {
-      height: var(--header-h);
+      height: 54px;
+      flex-shrink: 0;
       background: var(--surface);
       border-bottom: 1px solid var(--border);
-      padding: 0 18px;
+      padding: 0 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 14px;
-      position: relative;
       z-index: 40;
     }
 
@@ -97,21 +100,16 @@
       border: 1px solid var(--border);
       border-radius: 11px;
       padding: 3px;
-      overflow-x: auto;
-      scrollbar-width: none;
     }
-    .top-tabs::-webkit-scrollbar { display: none; }
-
     .top-tab {
       border: 0;
       background: transparent;
       color: var(--text-secondary);
-      padding: 6px 14px;
+      padding: 6px 15px;
       border-radius: 8px;
       font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -163,6 +161,17 @@
       color: var(--primary);
       background: var(--primary-soft);
     }
+    .tool-btn.accent {
+      background: var(--primary-soft);
+      border-color: var(--primary-border);
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .tool-btn.accent:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
 
     .lang-seg {
       display: inline-flex;
@@ -187,117 +196,77 @@
       box-shadow: var(--shadow-sm);
     }
 
-    /* Workspace */
-    .workspace {
-      display: flex;
-      height: calc(100vh - var(--header-h));
-      width: 100%;
-    }
-
-    /* Left Sidebar */
-    .sidebar {
-      width: var(--sidebar-w);
+    /* Row 2: Compact Product Sub-Tabs Bar (100% full desktop width below!) */
+    .subbar {
+      height: 44px;
       flex-shrink: 0;
-      background: var(--surface);
-      border-right: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      padding: 16px 12px;
-      gap: 14px;
-      overflow-y: auto;
-    }
-    .sidebar.hidden { display: none; }
-
-    .side-product {
-      padding: 4px 8px 10px;
+      background: var(--surface-soft);
       border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      z-index: 30;
     }
-    .side-product-name {
-      margin: 0;
-      font-size: 15px;
+    .subbar.hidden { display: none; }
+
+    .sub-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      min-width: 0;
+    }
+    .sub-prod-name {
+      font-size: 14px;
       font-weight: 800;
       color: var(--text);
-      line-height: 1.3;
+      white-space: nowrap;
+      padding-right: 14px;
+      border-right: 1px solid var(--border);
     }
-    .side-product-sub {
-      margin: 4px 0 0;
-      font-size: 12px;
-      color: var(--text-muted);
-      line-height: 1.45;
-    }
-
-    .side-nav {
+    .sub-tabs {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      align-items: center;
+      gap: 6px;
     }
-    .side-item {
-      border: 1px solid transparent;
+    .sub-tab {
+      border: 0;
       background: transparent;
       color: var(--text-secondary);
-      padding: 10px 12px;
-      border-radius: 10px;
-      font-size: 14px;
+      height: 44px;
+      padding: 0 14px;
+      font-size: 13.5px;
       font-weight: 700;
       cursor: pointer;
-      text-align: left;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      transition: all 0.14s ease;
-    }
-    .side-item:hover {
-      background: var(--surface-soft);
-      color: var(--text);
-    }
-    .side-item.active {
-      background: var(--primary-soft);
-      border-color: var(--primary-border);
-      color: var(--primary);
-    }
-    .side-ext {
-      font-size: 11px;
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      opacity: 0.72;
-    }
-
-    .side-footer {
-      margin-top: auto;
-      padding: 12px 8px 2px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      font-size: 12px;
-      color: var(--text-muted);
-    }
-    .side-ext-link {
-      color: var(--text-secondary);
-      text-decoration: none;
-      font-weight: 600;
       display: inline-flex;
       align-items: center;
-      justify-content: space-between;
-      padding: 6px 8px;
-      border-radius: 8px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
+      gap: 6px;
+      border-bottom: 2.5px solid transparent;
+      transition: all 0.14s ease;
+      white-space: nowrap;
     }
-    .side-ext-link:hover {
-      border-color: var(--primary);
+    .sub-tab:hover { color: var(--text); }
+    .sub-tab.active {
       color: var(--primary);
+      border-bottom-color: var(--primary);
+    }
+    .sub-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12.5px;
+      color: var(--text-muted);
+      flex-shrink: 0;
     }
 
-    /* Main Stage */
+    /* Full-Width Stage (100vw!) */
     .stage {
       flex: 1;
-      min-width: 0;
-      height: 100%;
+      width: 100%;
+      min-height: 0;
       position: relative;
       background: var(--bg);
-      display: flex;
-      flex-direction: column;
     }
 
     .doc-frame {
@@ -309,7 +278,6 @@
     }
     html.dark .doc-frame.models-frame { background: #0b0f17; }
 
-    /* Loading Overlay (prevents blank white screen while multi-MB HTML loads) */
     .frame-loader {
       position: absolute;
       inset: 0;
@@ -322,12 +290,9 @@
       gap: 12px;
       color: var(--text-secondary);
       font-size: 14px;
-      transition: opacity 0.2s ease;
+      transition: opacity 0.18s ease;
     }
-    .frame-loader.done {
-      opacity: 0;
-      pointer-events: none;
-    }
+    .frame-loader.done { opacity: 0; pointer-events: none; }
     .spinner {
       width: 28px;
       height: 28px;
@@ -338,48 +303,15 @@
     }
     @keyframes spin { to { transform: rotate(360deg); } }
 
-    /* Single Image Viewer */
-    .img-stage {
-      width: 100%;
-      height: 100%;
-      overflow: auto;
-      padding: 24px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 14px;
-    }
-    .img-toolbar {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
-    .img-stage img {
-      border-radius: 12px;
-      box-shadow: 0 12px 32px rgba(15, 23, 42, 0.12);
-      background: #ffffff;
-      max-width: 100%;
-      height: auto;
-    }
-    .img-stage.zoom-full img { max-width: none; }
-
-    /* Product Preview Gallery View */
+    /* Product Preview Gallery */
     .gallery-stage {
       width: 100%;
       height: 100%;
       overflow-y: auto;
-      padding: 26px 28px 48px;
+      padding: 28px 36px 52px;
     }
     .gallery-inner {
-      max-width: 1260px;
+      max-width: 1440px;
       margin: 0 auto;
     }
     .gallery-head {
@@ -390,17 +322,10 @@
       flex-wrap: wrap;
       gap: 10px;
     }
-    .gallery-head h2 {
-      margin: 0;
-      font-size: 20px;
-      font-weight: 800;
-    }
-    .gallery-head span {
-      font-size: 13px;
-      color: var(--text-muted);
-    }
+    .gallery-head h2 { margin: 0; font-size: 21px; font-weight: 800; }
+    .gallery-head span { font-size: 13.5px; color: var(--text-muted); }
     .gallery-wide {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 16px;
@@ -408,15 +333,11 @@
       cursor: zoom-in;
       box-shadow: var(--shadow-sm);
     }
-    .gallery-wide img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+    .gallery-wide img { width: 100%; height: auto; display: block; }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+      gap: 18px;
     }
     .gallery-card {
       background: var(--surface);
@@ -427,27 +348,16 @@
       box-shadow: var(--shadow-sm);
       transition: transform 0.15s ease, border-color 0.15s ease;
     }
-    .gallery-card:hover {
-      transform: translateY(-2px);
-      border-color: var(--primary);
-    }
+    .gallery-card:hover { transform: translateY(-2px); border-color: var(--primary); }
     .gallery-thumb {
       aspect-ratio: 4 / 3;
       background: var(--surface-soft);
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
     }
-    .gallery-thumb img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
+    .gallery-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
     .gallery-cap {
-      padding: 10px 13px;
-      font-size: 13.5px;
+      padding: 11px 14px;
+      font-size: 14px;
       font-weight: 700;
       color: var(--text);
       border-top: 1px solid var(--border);
@@ -458,30 +368,45 @@
       width: 100%;
       height: 100%;
       overflow: auto;
-      padding: 40px 24px;
+      padding: 48px 24px;
       display: flex;
       align-items: flex-start;
       justify-content: center;
     }
     .official-card {
       width: 100%;
-      max-width: 660px;
+      max-width: 780px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 28px 30px;
+      border-radius: 22px;
+      padding: 32px 36px;
       box-shadow: var(--shadow-sm);
     }
-    .official-card h2 { margin: 0 0 6px; font-size: 22px; font-weight: 800; }
-    .official-card p { margin: 0 0 20px; font-size: 14.5px; color: var(--text-secondary); }
-    .official-links { display: flex; flex-direction: column; gap: 10px; }
+    .official-eyebrow {
+      display: inline-block;
+      padding: 4px 11px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-border);
+      color: var(--primary);
+      font-size: 12.5px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .official-card h2 { margin: 0 0 8px; font-size: 24px; font-weight: 800; }
+    .official-card p { margin: 0 0 22px; font-size: 15px; color: var(--text-secondary); }
+    .official-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
     .official-link {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 14px 18px;
-      border-radius: 13px;
+      padding: 18px 20px;
+      border-radius: 14px;
       border: 1px solid var(--border);
       background: var(--surface-soft);
       color: var(--text);
@@ -493,8 +418,9 @@
       background: var(--primary-soft);
       color: var(--primary);
     }
-    .official-link strong { display: block; font-size: 15px; }
-    .official-link span { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 2px; }
+    .official-link strong { display: block; font-size: 15.5px; }
+    .official-link span { display: block; font-size: 12.5px; color: var(--text-muted); margin-top: 3px; }
+    .official-link.wide { grid-column: span 2; }
 
     /* Lightbox */
     .lightbox {
@@ -513,7 +439,7 @@
     .lightbox.open { display: flex; }
     .lightbox-bar {
       width: 100%;
-      max-width: 1180px;
+      max-width: 1240px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -540,37 +466,11 @@
       background: #0f172a;
     }
     .lightbox-img-wrap img { display: block; max-width: 100%; max-height: 80vh; width: auto; height: auto; }
-
-    @media (max-width: 860px) {
-      .topbar {
-        height: auto;
-        padding: 10px 12px;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .top-tabs { order: 3; width: 100%; }
-      .workspace { flex-direction: column; height: calc(100vh - 98px); }
-      .sidebar {
-        width: 100%;
-        height: auto;
-        border-right: 0;
-        border-bottom: 1px solid var(--border);
-        padding: 8px 12px;
-        flex-direction: row;
-        align-items: center;
-        overflow-x: auto;
-      }
-      .side-product, .side-footer { display: none; }
-      .side-nav { flex-direction: row; gap: 6px; }
-      .side-item { padding: 7px 12px; white-space: nowrap; font-size: 13px; }
-      .btn-open-text { display: none; }
-      .gallery-stage { padding: 16px 14px 36px; }
-    }
   </style>
 </head>
 <body>
   <header class="topbar">
-    <a class="brand" href="#lc03" id="brand-link">
+    <a class="brand" href="#lc03/brochure">
       <img class="brand-logo" src="assets/logo.jpg" alt="LCMD" onerror="this.style.display='none'" />
       <span class="brand-name">LCMD Cloud</span>
     </a>
@@ -578,9 +478,9 @@
     <nav class="top-tabs" id="top-tabs" aria-label="Main sections"></nav>
 
     <div class="top-right">
+      <a class="tool-btn accent" id="btn-site-shortcut" href="https://lazycat.cloud/" target="_blank" rel="noopener">lazycat.cloud ↗</a>
       <a class="tool-btn" id="btn-open-new" href="#" target="_blank" rel="noopener" style="display:none;">
-        <span class="btn-open-text" id="btn-open-label">新窗口</span>
-        <span>↗</span>
+        <span id="btn-open-label">新窗口</span> ↗
       </a>
       <div class="lang-seg" role="group" aria-label="Language">
         <button type="button" data-lang="zh" class="active">中文</button>
@@ -590,22 +490,18 @@
     </div>
   </header>
 
-  <div class="workspace">
-    <aside class="sidebar" id="sidebar">
-      <div class="side-product">
-        <h2 class="side-product-name" id="side-title">--</h2>
-        <p class="side-product-sub" id="side-sub">--</p>
-      </div>
-      <nav class="side-nav" id="side-nav"></nav>
-      <div class="side-footer" id="side-footer"></div>
-    </aside>
-
-    <main class="stage" id="stage">
-      <div class="frame-loader"><div class="spinner"></div><span>Loading…</span></div>
-    </main>
+  <div class="subbar" id="subbar">
+    <div class="sub-left">
+      <span class="sub-prod-name" id="sub-prod-name">--</span>
+      <nav class="sub-tabs" id="sub-tabs"></nav>
+    </div>
+    <div class="sub-right" id="sub-right"></div>
   </div>
 
-  <!-- Lightbox for Gallery -->
+  <main class="stage" id="stage">
+    <div class="frame-loader"><div class="spinner"></div><span>Loading…</span></div>
+  </main>
+
   <div class="lightbox" id="lightbox">
     <div class="lightbox-bar">
       <strong id="lb-title" style="font-size:14.5px;"></strong>
@@ -630,21 +526,23 @@
           tabX5: '算力舱介绍资料',
           tabModels: 'AI 模型广场',
           tabOfficial: '官网',
+          siteShortcutLabel: 'lazycat.cloud ↗',
+          siteShortcutUrl: 'https://lazycat.cloud/',
           galleryLabel: '产品预览图集',
           gallerySub: (n) => `共 ${n} 张高清实拍与功能预览图 · 点击任意图片放大查看`,
-          openNew: '新窗口打开',
-          loadingDoc: '正在加载页面内容…',
+          openNew: '独立打开',
+          loadingDoc: '正在加载桌面版页面…',
           slowHint: '加载较慢？新窗口打开 ↗',
-          fitWidth: '适应宽度',
-          origSize: '原始尺寸',
-          officialPage: '官网产品页',
-          officialHome: '懒猫微服官网',
-          officialHomeDesc: 'lazycat.cloud — 懒猫微服与算力舱官方主页',
-          officialLC03: '懒猫微服 LC03 官网介绍',
-          officialLC03Desc: 'lazycat.cloud/lcmd — LC03 硬件配置与产品详情',
+          officialProductBtn: '官网产品页 ↗',
+          officialEyebrow: '中文官网 · lazycat.cloud',
           officialTitle: '懒猫官方入口',
-          officialSub: '访问懒猫微服与算力舱官方网站，获取最新产品发布与购买信息。',
-          syncedPrefix: '同步于 ',
+          officialSub: '直达懒猫微服、懒猫算力舱 AI Pod 官方网站与应用商店。',
+          officialLinks: [
+            { title: '懒猫微服官网首页', desc: 'lazycat.cloud — 品牌主页与最新产品动态', url: 'https://lazycat.cloud/', wide: true },
+            { title: '懒猫微服 LC03 官方产品页', desc: 'lazycat.cloud/lcmd — 私有云主机介绍与配置', url: 'https://lazycat.cloud/lcmd' },
+            { title: '懒猫算力舱 AI Pod 官方产品页', desc: 'lazycat.cloud/ai-pod — 桌面级 AI 算力舱介绍与配置', url: 'https://lazycat.cloud/ai-pod' },
+            { title: '懒猫应用商店', desc: 'lazycat.cloud/appstore — 4500+ 私有云与 AI 应用', url: 'https://lazycat.cloud/appstore/', wide: true },
+          ],
           openOrig: '原图 ↗',
           closeText: '关闭',
         },
@@ -654,21 +552,23 @@
           tabX5: 'AI Pod (X5-T5000)',
           tabModels: 'AI Model Store',
           tabOfficial: 'Official Site',
+          siteShortcutLabel: 'lcmd.cloud ↗',
+          siteShortcutUrl: 'https://lcmd.cloud/',
           galleryLabel: 'Product Previews',
           gallerySub: (n) => `${n} HD hardware & feature previews · click any image to enlarge`,
-          openNew: 'Open in New Tab',
-          loadingDoc: 'Loading document…',
+          openNew: 'Open Fullscreen',
+          loadingDoc: 'Loading desktop page…',
           slowHint: 'Taking a while? Open in new tab ↗',
-          fitWidth: 'Fit Width',
-          origSize: 'Actual Size',
-          officialPage: 'Official Product Page',
-          officialHome: 'LazyCat Official Website',
-          officialHomeDesc: 'lazycat.cloud — Official LCMD Micro Server & AI Pod homepage',
-          officialLC03: 'LC03 Micro Server Official Page',
-          officialLC03Desc: 'lazycat.cloud/lcmd — Official specifications & details',
-          officialTitle: 'Official Website Links',
-          officialSub: 'Visit the official LazyCat Cloud websites for product announcements and ordering.',
-          syncedPrefix: 'Synced ',
+          officialProductBtn: 'Official Page (lcmd.cloud) ↗',
+          officialEyebrow: 'Global Official Website · lcmd.cloud',
+          officialTitle: 'LCMD Global Official Site',
+          officialSub: 'For international customers, visit lcmd.cloud for official Micro Server & AI Pod product pages and ordering.',
+          officialLinks: [
+            { title: 'LCMD Global Homepage', desc: 'lcmd.cloud — Official international portal', url: 'https://lcmd.cloud/', wide: true },
+            { title: 'LCMD Micro Server (LC03)', desc: 'lcmd.cloud/lcmd — Private cloud server specs & overview', url: 'https://lcmd.cloud/lcmd' },
+            { title: 'LCMD AI Pod', desc: 'lcmd.cloud/ai-pod — Local AI supercomputing appliance', url: 'https://lcmd.cloud/ai-pod' },
+            { title: 'LCMD App Store', desc: 'lcmd.cloud/appstore — 4,500+ self-hosted & AI apps', url: 'https://lcmd.cloud/appstore', wide: true },
+          ],
           openOrig: 'Original ↗',
           closeText: 'Close',
         },
@@ -688,7 +588,6 @@
         manifest: null,
         section: 'LC03',
         slot: 'brochure',
-        imgZoomFull: false,
         lbList: [],
         lbIndex: 0,
       };
@@ -697,7 +596,6 @@
       const $$ = (s) => Array.from(document.querySelectorAll(s));
       const t = () => I18N[state.lang];
       const isEn = () => state.lang === 'en';
-      const isImg = (ext) => ['PNG', 'JPG', 'JPEG', 'WEBP'].includes(ext);
 
       function esc(str) {
         return String(str ?? '')
@@ -807,7 +705,6 @@
         const frame = $('#doc-frame');
         const loader = $('#frame-loader');
         frame.addEventListener('load', () => loader?.classList.add('done'));
-        // Safety fade-out in case load event already fired
         setTimeout(() => loader?.classList.add('done'), 8000);
       }
 
@@ -817,6 +714,9 @@
         document.documentElement.classList.toggle('dark', state.theme === 'dark');
         document.title = L.docTitle;
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
+
+        $('#btn-site-shortcut').textContent = L.siteShortcutLabel;
+        $('#btn-site-shortcut').href = L.siteShortcutUrl;
         $('#btn-open-label').textContent = L.openNew;
         $('#lb-open').textContent = L.openOrig;
         $('#lb-close').textContent = L.closeText;
@@ -854,7 +754,6 @@
               const validSlot = (state.slot === 'gallery' && hasGallery) || docs.some((d) => d.slot === state.slot);
               if (!validSlot && docs.length) state.slot = docs[0].slot;
             }
-            state.imgZoomFull = false;
             syncHash();
             render();
           }),
@@ -864,14 +763,14 @@
       function renderStage() {
         const L = t();
         const m = state.manifest;
-        const sidebar = $('#sidebar');
+        const subbar = $('#subbar');
         const stage = $('#stage');
         const openBtn = $('#btn-open-new');
         if (!m) return;
 
         // 1. Model Store
         if (state.section === 'models') {
-          sidebar.classList.add('hidden');
+          subbar.classList.add('hidden');
           const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1&v=${m.buildVer || ''}`;
           openBtn.style.display = 'inline-flex';
           openBtn.href = `model-store/?lang=${state.lang}`;
@@ -879,31 +778,31 @@
           return;
         }
 
-        // 2. Official Site
+        // 2. Official Site (ZH -> lazycat.cloud + ai-pod; EN -> lcmd.cloud + ai-pod)
         if (state.section === 'official') {
-          sidebar.classList.add('hidden');
+          subbar.classList.add('hidden');
           openBtn.style.display = 'inline-flex';
-          openBtn.href = 'https://lazycat.cloud/';
+          openBtn.href = L.siteShortcutUrl;
           stage.innerHTML = `
             <div class="official-panel">
               <div class="official-card">
+                <div class="official-eyebrow">${esc(L.officialEyebrow)}</div>
                 <h2>${esc(L.officialTitle)}</h2>
                 <p>${esc(L.officialSub)}</p>
-                <div class="official-links">
-                  <a class="official-link" href="https://lazycat.cloud/" target="_blank" rel="noopener">
-                    <div>
-                      <strong>${esc(L.officialHome)}</strong>
-                      <span>${esc(L.officialHomeDesc)}</span>
-                    </div>
-                    <span>↗</span>
-                  </a>
-                  <a class="official-link" href="https://lazycat.cloud/lcmd" target="_blank" rel="noopener">
-                    <div>
-                      <strong>${esc(L.officialLC03)}</strong>
-                      <span>${esc(L.officialLC03Desc)}</span>
-                    </div>
-                    <span>↗</span>
-                  </a>
+                <div class="official-grid">
+                  ${L.officialLinks
+                    .map(
+                      (lk) => `
+                        <a class="official-link ${lk.wide ? 'wide' : ''}" href="${esc(lk.url)}" target="_blank" rel="noopener">
+                          <div>
+                            <strong>${esc(lk.title)}</strong>
+                            <span>${esc(lk.desc)}</span>
+                          </div>
+                          <span>↗</span>
+                        </a>
+                      `,
+                    )
+                    .join('')}
                 </div>
               </div>
             </div>
@@ -911,7 +810,7 @@
           return;
         }
 
-        // 3. Product Documentation Section
+        // 3. Product Section (Full-Width Desktop HTML!)
         const product = m.products.find((p) => p.id === state.section) || m.products[0];
         if (!product) return;
         state.section = product.id;
@@ -920,55 +819,47 @@
         const gallery = getProductGallery(product);
 
         const navItems = [
-          ...docs.map((d) => ({ slot: d.slot, label: isEn() ? d.titleEn : d.titleZh, badge: d.ext, doc: d })),
-          ...(gallery.length ? [{ slot: 'gallery', label: L.galleryLabel, badge: String(gallery.length), gallery }] : []),
+          ...docs.map((d) => ({ slot: d.slot, label: isEn() ? d.titleEn : d.titleZh, doc: d })),
+          ...(gallery.length ? [{ slot: 'gallery', label: L.galleryLabel, gallery }] : []),
         ];
 
         let active = navItems.find((x) => x.slot === state.slot) || navItems[0];
         if (active) state.slot = active.slot;
 
-        sidebar.classList.remove('hidden');
-        $('#side-title').textContent = isEn() ? product.nameEn : product.nameZh;
-        $('#side-sub').textContent = isEn() ? product.taglineEn : product.taglineZh;
+        subbar.classList.remove('hidden');
+        $('#sub-prod-name').textContent = isEn() ? product.nameEn : product.nameZh;
 
-        $('#side-nav').innerHTML = navItems
+        $('#sub-tabs').innerHTML = navItems
           .map(
             (item) => `
-              <button type="button" class="side-item ${active && item.slot === active.slot ? 'active' : ''}" data-slot="${esc(item.slot)}">
-                <span>${esc(item.label)}</span>
-                <span class="side-ext">${esc(item.badge)}</span>
+              <button type="button" class="sub-tab ${active && item.slot === active.slot ? 'active' : ''}" data-slot="${esc(item.slot)}">
+                ${esc(item.label)}
               </button>
             `,
           )
           .join('');
 
-        $$('#side-nav [data-slot]').forEach((btn) =>
+        $$('#sub-tabs [data-slot]').forEach((btn) =>
           btn.addEventListener('click', () => {
             state.slot = btn.dataset.slot;
-            state.imgZoomFull = false;
             syncHash();
             render();
           }),
         );
 
-        const officialUrl = product.id === 'LC03' ? 'https://lazycat.cloud/lcmd' : 'https://lazycat.cloud/';
-        $('#side-footer').innerHTML = `
-          <a class="side-ext-link" href="${officialUrl}" target="_blank" rel="noopener">
-            <span>${esc(L.officialPage)}</span>
-            <span>↗</span>
-          </a>
-          <div>${esc(L.syncedPrefix)}${(m.updatedAt || '').slice(0, 10)}</div>
+        const officialUrl = isEn() ? (product.officialEn || 'https://lcmd.cloud/') : (product.officialZh || 'https://lazycat.cloud/');
+        $('#sub-right').innerHTML = `
+          <span>${esc((m.updatedAt || '').slice(0, 10))}</span>
+          <a class="tool-btn" href="${esc(officialUrl)}" target="_blank" rel="noopener">${esc(L.officialProductBtn)}</a>
         `;
 
         if (!active) return;
 
-        // 3a. Visual Preview Gallery
+        // 3a. Product Preview Gallery
         if (active.slot === 'gallery') {
           openBtn.style.display = 'none';
           const wideItem = gallery.find((g) => g.wide);
           const gridItems = gallery.filter((g) => !g.wide);
-          const allForLb = gallery;
-
           stage.innerHTML = `
             <div class="gallery-stage">
               <div class="gallery-inner">
@@ -986,7 +877,7 @@
                 <div class="gallery-grid">
                   ${gridItems
                     .map((g) => {
-                      const idx = allForLb.indexOf(g);
+                      const idx = gallery.indexOf(g);
                       const cap = isEn() ? g.titleEn : g.titleZh;
                       return `
                         <article class="gallery-card js-gal" data-idx="${idx}">
@@ -1003,36 +894,15 @@
             </div>
           `;
           $$('.js-gal').forEach((el) =>
-            el.addEventListener('click', () => openLightbox(allForLb, Number(el.dataset.idx))),
+            el.addEventListener('click', () => openLightbox(gallery, Number(el.dataset.idx))),
           );
           return;
         }
 
-        // 3b. Single Image Document (e.g. LC03 Overview / X5 ZH Hardware Specs)
-        const doc = active.doc;
-        const docUrl = withVer(doc.url);
+        // 3b. Pure Desktop HTML Document (100% full-width!)
+        const docUrl = withVer(active.doc.url);
         openBtn.style.display = 'inline-flex';
         openBtn.href = docUrl;
-
-        if (isImg(doc.ext)) {
-          stage.innerHTML = `
-            <div class="img-stage ${state.imgZoomFull ? 'zoom-full' : ''}" id="img-stage">
-              <div class="img-toolbar">
-                <button type="button" class="tool-btn" id="btn-img-zoom">${esc(state.imgZoomFull ? L.fitWidth : L.origSize)}</button>
-                <a class="tool-btn" href="${esc(docUrl)}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
-              </div>
-              <img src="${esc(docUrl)}" alt="${esc(active.label)}" />
-            </div>
-          `;
-          $('#btn-img-zoom')?.addEventListener('click', () => {
-            state.imgZoomFull = !state.imgZoomFull;
-            $('#img-stage').classList.toggle('zoom-full', state.imgZoomFull);
-            $('#btn-img-zoom').textContent = state.imgZoomFull ? L.fitWidth : L.origSize;
-          });
-          return;
-        }
-
-        // 3c. HTML Document inside seamless iframe with loading indicator
         mountIframe(docUrl, active.label, '');
       }
 
