@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>LCMD Cloud · 售前资料与 AI 模型广场</title>
-  <meta name="description" content="LCMD Cloud bilingual product pre-sale materials (LC03 Micro Server & AI Pod X5-T5000) and live AI Pod Model Store catalog." />
+  <meta name="description" content="LCMD Cloud bilingual product pre-sale materials (AI Pod X5-T5000 & LC03 Micro Server) and AI Pod Model Store." />
   <link
     rel="icon"
     type="image/svg+xml"
@@ -12,27 +12,22 @@
   />
   <style>
     :root {
-      --bg: #f4f6fa;
+      --bg: #f6f8fb;
       --surface: #ffffff;
       --surface-soft: #f8fafc;
-      --surface-muted: #eef2f7;
-      --border: #e2e8f0;
+      --surface-muted: #eef2f6;
+      --border: #e5eaf1;
       --border-strong: #cbd5e1;
       --text: #0f172a;
-      --text-secondary: #334155;
+      --text-secondary: #475569;
       --text-muted: #64748b;
       --primary: #2563eb;
       --primary-hover: #1d4ed8;
       --primary-soft: #eff6ff;
       --primary-border: #bfdbfe;
-      --accent: #7c3aed;
-      --emerald: #059669;
-      --amber: #d97706;
-      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.05);
-      --shadow-md: 0 10px 28px -8px rgba(15, 23, 42, 0.08), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
-      --shadow-lg: 0 20px 44px -14px rgba(15, 23, 42, 0.14);
-      --radius-xl: 22px;
-      --radius-lg: 16px;
+      --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+      --shadow-md: 0 12px 30px -12px rgba(15, 23, 42, 0.1), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
+      --radius-xl: 20px;
       --radius-md: 12px;
       --radius-sm: 8px;
     }
@@ -42,362 +37,199 @@
       --surface: #131a26;
       --surface-soft: #182131;
       --surface-muted: #1e293b;
-      --border: #263348;
+      --border: #253247;
       --border-strong: #364762;
       --text: #f8fafc;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --primary: #60a5fa;
       --primary-hover: #3b82f6;
-      --primary-soft: rgba(59, 130, 246, 0.16);
-      --primary-border: rgba(96, 165, 250, 0.35);
-      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.32);
-      --shadow-md: 0 12px 28px -8px rgba(0, 0, 0, 0.45);
-      --shadow-lg: 0 24px 48px -14px rgba(0, 0, 0, 0.6);
+      --primary-soft: rgba(59, 130, 246, 0.15);
+      --primary-border: rgba(96, 165, 250, 0.32);
+      --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 14px 32px -12px rgba(0, 0, 0, 0.5);
     }
 
     * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       -webkit-font-smoothing: antialiased;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     /* Sticky Navbar */
     .navbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 40;
       background: color-mix(in srgb, var(--surface) 88%, transparent);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 1380px;
+      max-width: 1180px;
       margin: 0 auto;
       padding: 12px 24px;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
-      gap: 14px;
+      gap: 12px;
     }
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 11px;
+      gap: 10px;
       text-decoration: none;
       color: var(--text);
     }
     .brand-logo {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 9px;
       object-fit: cover;
       border: 1px solid var(--border);
-      background: var(--surface-soft);
-    }
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.2;
     }
     .brand-name {
-      font-size: 17px;
+      font-size: 16.5px;
       font-weight: 800;
       letter-spacing: -0.02em;
-    }
-    .brand-sub {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--text-muted);
     }
 
     .nav-tabs {
       display: inline-flex;
-      align-items: center;
       gap: 4px;
       background: var(--surface-muted);
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 4px;
+      border-radius: 11px;
+      padding: 3px;
     }
     .nav-tab {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 7px 16px;
+      padding: 6px 15px;
       border-radius: 8px;
       text-decoration: none;
       color: var(--text-secondary);
       font-size: 14px;
       font-weight: 700;
       transition: all 0.15s ease;
-      white-space: nowrap;
     }
-    .nav-tab:hover {
-      color: var(--text);
-    }
+    .nav-tab:hover { color: var(--text); }
     .nav-tab.active {
       background: var(--surface);
       color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
+    .tab-pill {
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 1px 6px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
 
-    .nav-controls {
+    .nav-right {
       display: flex;
       align-items: center;
       gap: 8px;
     }
-    .lang-switch {
+    .lang-seg {
       display: inline-flex;
       background: var(--surface-muted);
       border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 3px;
-      gap: 2px;
+      border-radius: 9px;
+      padding: 2px;
     }
-    .lang-switch button {
+    .lang-seg button {
       border: 0;
       background: transparent;
       color: var(--text-secondary);
-      padding: 6px 12px;
+      padding: 5px 11px;
       border-radius: 7px;
       font-size: 13px;
       font-weight: 700;
       cursor: pointer;
-      transition: all 0.15s ease;
     }
-    .lang-switch button.active {
+    .lang-seg button.active {
       background: var(--surface);
       color: var(--primary);
       box-shadow: var(--shadow-sm);
     }
-    .btn {
+    .icon-btn {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      width: 34px;
+      height: 34px;
+      border-radius: 9px;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 6px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      padding: 8px 14px;
-      border-radius: 10px;
-      font-size: 13.5px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: all 0.15s ease;
-      white-space: nowrap;
-    }
-    .btn:hover {
-      border-color: var(--border-strong);
-      background: var(--surface-soft);
-    }
-    .btn-primary {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-    .btn-primary:hover {
-      background: var(--primary-hover);
-      border-color: var(--primary-hover);
-      color: #ffffff;
-    }
-    .btn-soft {
-      background: var(--primary-soft);
-      border-color: var(--primary-border);
-      color: var(--primary);
-    }
-    .btn-soft:hover {
-      background: var(--primary);
-      border-color: var(--primary);
-      color: #ffffff;
-    }
-
-    /* Main Layout */
-    .container {
-      max-width: 1380px;
-      margin: 0 auto;
-      padding: 28px 24px 68px;
-    }
-
-    /* Hero */
-    .hero {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-xl);
-      padding: 34px 36px;
-      box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
-      margin-bottom: 30px;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0 0 auto 0;
-      height: 5px;
-      background: linear-gradient(90deg, #2563eb 0%, #7c3aed 50%, #059669 100%);
-    }
-    .hero-grid {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .hero-left {
-      max-width: 780px;
-    }
-    .hero-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: var(--primary-soft);
-      border: 1px solid var(--primary-border);
-      color: var(--primary);
-      font-size: 13px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .live-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #10b981;
-      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.22);
-    }
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(28px, 3.6vw, 40px);
-      font-weight: 800;
-      letter-spacing: -0.025em;
-      line-height: 1.18;
-    }
-    .hero-desc {
-      margin: 0 0 20px;
-      font-size: 16.5px;
-      color: var(--text-secondary);
-      line-height: 1.65;
-    }
-    .hero-cta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .hero-cta .btn {
-      padding: 11px 20px;
       font-size: 15px;
-      font-weight: 700;
-      border-radius: 12px;
     }
-    .hero-meta {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 6px;
-      font-size: 13.5px;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
-      text-align: right;
-    }
-    .version-pill {
-      padding: 6px 13px;
-      border-radius: 10px;
-      background: var(--surface-muted);
-      border: 1px solid var(--border);
-      color: var(--text);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13.5px;
-      font-weight: 700;
+    .icon-btn:hover { background: var(--surface-soft); }
+
+    /* Main */
+    .container {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 32px 24px 56px;
     }
 
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 14px;
-      margin-top: 26px;
-      padding-top: 22px;
-      border-top: 1px solid var(--border);
-    }
-    .stat-card {
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 18px;
-    }
-    .stat-num {
-      font-size: 30px;
-      font-weight: 800;
-      line-height: 1.15;
-      font-variant-numeric: tabular-nums;
-    }
-    .stat-num.blue { color: #2563eb; }
-    .stat-num.violet { color: #7c3aed; }
-    .stat-num.emerald { color: #059669; }
-    .stat-num.amber { color: #d97706; }
-    html.dark .stat-num.blue { color: #60a5fa; }
-    html.dark .stat-num.violet { color: #a78bfa; }
-    html.dark .stat-num.emerald { color: #34d399; }
-    html.dark .stat-num.amber { color: #fbbf24; }
-    .stat-label {
-      margin-top: 4px;
-      font-size: 13.5px;
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    /* Section Header */
-    .sec-head {
+    /* Slim Intro Header */
+    .page-head {
       display: flex;
       flex-wrap: wrap;
       align-items: flex-end;
       justify-content: space-between;
       gap: 12px;
-      margin: 34px 0 18px;
+      margin-bottom: 24px;
     }
-    .sec-head h2 {
+    .page-head h1 {
       margin: 0;
-      font-size: 24px;
+      font-size: clamp(24px, 3vw, 32px);
       font-weight: 800;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.025em;
+      line-height: 1.2;
     }
-    .sec-head p {
-      margin: 4px 0 0;
-      font-size: 14.5px;
-      color: var(--text-muted);
+    .page-head p {
+      margin: 6px 0 0;
+      font-size: 15px;
+      color: var(--text-secondary);
     }
 
-    /* Featured Product Cards */
+    /* Product Cards Grid */
     .products-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
-      gap: 22px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
     }
     .product-card {
       background: var(--surface);
-      border: 1.5px solid var(--border);
+      border: 1px solid var(--border);
       border-radius: var(--radius-xl);
       overflow: hidden;
       box-shadow: var(--shadow-sm);
       display: flex;
       flex-direction: column;
-      transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s ease;
     }
     .product-card:hover {
       transform: translateY(-2px);
       box-shadow: var(--shadow-md);
       border-color: var(--border-strong);
     }
-    .product-preview {
+
+    .card-cover {
       position: relative;
       aspect-ratio: 16 / 9;
       background: var(--surface-muted);
@@ -405,375 +237,325 @@
       cursor: zoom-in;
       border-bottom: 1px solid var(--border);
     }
-    .product-preview img {
+    .card-cover img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: top center;
       display: block;
-      transition: transform 0.3s ease;
+      transition: transform 0.25s ease;
     }
-    .product-preview:hover img {
-      transform: scale(1.02);
-    }
-    .preview-badge {
+    .card-cover:hover img { transform: scale(1.02); }
+    .cover-tag {
       position: absolute;
       top: 14px;
       left: 14px;
-      padding: 5px 12px;
+      padding: 4px 11px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.82);
+      background: rgba(15, 23, 42, 0.78);
       color: #ffffff;
-      font-size: 12.5px;
+      font-size: 12px;
       font-weight: 700;
       backdrop-filter: blur(8px);
     }
-    .preview-zoom-hint {
-      position: absolute;
-      right: 14px;
-      bottom: 14px;
-      padding: 5px 11px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.72);
-      color: #ffffff;
-      font-size: 12px;
-      font-weight: 600;
-      backdrop-filter: blur(8px);
-    }
-    .product-body {
-      padding: 24px 26px 26px;
+
+    .card-body {
+      padding: 22px 24px 20px;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 16px;
       flex: 1;
     }
-    .product-title-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .product-title {
+    .card-title {
       margin: 0;
-      font-size: 22px;
+      font-size: 21px;
       font-weight: 800;
       letter-spacing: -0.015em;
     }
-    .product-tagline {
-      margin: 0;
-      font-size: 14.5px;
+    .card-sub {
+      margin: 5px 0 0;
+      font-size: 14px;
       color: var(--text-secondary);
-      line-height: 1.6;
+      line-height: 1.55;
     }
-    .highlights {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-    .hl-chip {
-      padding: 4px 11px;
-      border-radius: 8px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-      color: var(--text-secondary);
-      font-size: 12.5px;
-      font-weight: 600;
-    }
-    .quick-links {
+
+    /* Clean 4-Action Grid */
+    .actions-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
-      gap: 9px;
-      margin-top: 4px;
-    }
-    .qlink {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      padding: 10px 13px;
-      border-radius: 11px;
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--text);
-      text-decoration: none;
-      font-size: 13.5px;
-      font-weight: 700;
-      transition: all 0.15s ease;
-    }
-    .qlink:hover {
-      border-color: var(--primary);
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-    .qlink-ext {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      padding: 2px 6px;
-      border-radius: 6px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      color: var(--text-muted);
-      flex-shrink: 0;
-    }
-
-    /* Model Store Banner */
-    .ms-banner {
-      margin-top: 34px;
-      background: linear-gradient(135deg, #1e3a8a 0%, #312e81 52%, #0f172a 100%);
-      color: #ffffff;
-      border-radius: var(--radius-xl);
-      padding: 30px 34px;
-      box-shadow: var(--shadow-lg);
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-    .ms-banner-left {
-      max-width: 760px;
-    }
-    .ms-banner-eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      padding: 4px 12px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.14);
-      font-size: 12.5px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .ms-banner h2 {
-      margin: 0 0 8px;
-      font-size: 26px;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-    .ms-banner p {
-      margin: 0 0 14px;
-      font-size: 15px;
-      color: rgba(255, 255, 255, 0.84);
-      line-height: 1.65;
-    }
-    .ms-pills {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .ms-pill {
-      padding: 5px 11px;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      font-size: 12.5px;
-      font-weight: 600;
-      color: #e2e8f0;
-    }
-    .ms-banner-btn {
-      padding: 13px 24px;
-      border-radius: 13px;
-      background: #ffffff;
-      color: #0f172a;
-      font-size: 15.5px;
-      font-weight: 800;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.25);
-      transition: transform 0.15s ease;
-    }
-    .ms-banner-btn:hover {
-      transform: translateY(-2px);
-    }
-
-    /* Full Materials Directory */
-    .filter-bar {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      margin-bottom: 18px;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 10px;
-      box-shadow: var(--shadow-sm);
     }
-    .search-input {
-      flex: 1 1 240px;
-      max-width: 380px;
-      padding: 9px 14px;
-      border-radius: 10px;
-      border: 1.5px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--text);
-      font-size: 14.5px;
-      outline: none;
-    }
-    .search-input:focus {
-      border-color: var(--primary);
-      background: var(--surface);
-    }
-    .chip-group {
+    .act-btn {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
       align-items: center;
-    }
-    .chip {
+      justify-content: space-between;
+      gap: 8px;
+      padding: 11px 14px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface-soft);
-      color: var(--text-secondary);
-      padding: 6px 13px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
+      color: var(--text);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
       cursor: pointer;
       transition: all 0.15s ease;
     }
-    .chip:hover {
-      border-color: var(--border-strong);
-      color: var(--text);
-    }
-    .chip.active {
-      background: var(--text);
-      color: var(--surface);
-      border-color: var(--text);
-    }
-
-    .files-table {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-    }
-    .file-row {
-      display: grid;
-      grid-template-columns: minmax(260px, 2.2fr) minmax(120px, 0.8fr) minmax(90px, 0.5fr) auto;
-      gap: 14px;
-      align-items: center;
-      padding: 14px 20px;
-      border-bottom: 1px solid var(--border);
-      transition: background 0.12s ease;
-    }
-    .file-row:last-child { border-bottom: 0; }
-    .file-row:hover { background: var(--surface-soft); }
-    .file-main {
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      min-width: 0;
-    }
-    .file-title {
-      font-size: 15px;
-      font-weight: 700;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      gap: 7px;
-      flex-wrap: wrap;
-    }
-    .file-sub {
-      font-size: 12.5px;
-      color: var(--text-muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      word-break: break-all;
-    }
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 11.5px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-    .badge-html { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
-    .badge-pdf  { background: #fff1f2; color: #be123c; border: 1px solid #fecdd3; }
-    .badge-img  { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
-    .badge-lang { background: var(--surface-muted); color: var(--text-secondary); border: 1px solid var(--border); }
-    .badge-new  { background: #ef4444; color: #ffffff; }
-    html.dark .badge-html { background: rgba(59,130,246,.18); color: #93c5fd; border-color: rgba(96,165,250,.35); }
-    html.dark .badge-pdf  { background: rgba(244,63,94,.18); color: #fda4af; border-color: rgba(251,113,133,.35); }
-    html.dark .badge-img  { background: rgba(16,185,129,.18); color: #6ee7b7; border-color: rgba(52,211,153,.35); }
-
-    .file-size {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 13px;
-      color: var(--text-muted);
-      font-variant-numeric: tabular-nums;
-    }
-    .file-actions {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-    .file-actions .btn {
-      padding: 6px 11px;
-      font-size: 12.5px;
-      border-radius: 8px;
-    }
-
-    /* Recent Commits Box */
-    .updates-card {
-      margin-top: 28px;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 20px 24px;
-    }
-    .updates-list {
-      display: flex;
-      flex-direction: column;
-      gap: 9px;
-      margin-top: 12px;
-    }
-    .update-item {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: 10px;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-      padding: 8px 12px;
-      border-radius: 10px;
-      background: var(--surface-soft);
-      border: 1px solid var(--border);
-    }
-    .commit-sha {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12.5px;
-      font-weight: 700;
-      padding: 2px 7px;
-      border-radius: 6px;
+    .act-btn:hover {
+      border-color: var(--primary);
       background: var(--primary-soft);
       color: var(--primary);
     }
-    .commit-date {
+    .act-btn.primary {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: #ffffff;
+    }
+    .act-btn.primary:hover {
+      background: var(--primary-hover);
+      border-color: var(--primary-hover);
+      color: #ffffff;
+    }
+    .act-fmt {
       font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 12.5px;
-      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 700;
+      opacity: 0.72;
+      flex-shrink: 0;
     }
 
-    /* Footer */
+    .card-foot {
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .foot-link {
+      border: 0;
+      background: transparent;
+      padding: 0;
+      color: var(--text-muted);
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .foot-link:hover { color: var(--primary); }
+    .dot-new {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #ef4444;
+      display: inline-block;
+    }
+
+    /* Compact Model Store Strip */
+    .ms-strip {
+      margin-top: 24px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 20px 26px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ms-strip:hover {
+      border-color: var(--primary-border);
+      box-shadow: var(--shadow-md);
+    }
+    .ms-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ms-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 13px;
+      background: var(--primary-soft);
+      border: 1px solid var(--primary-border);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 21px;
+      flex-shrink: 0;
+    }
+    .ms-title {
+      margin: 0;
+      font-size: 17px;
+      font-weight: 800;
+    }
+    .ms-sub {
+      margin: 3px 0 0;
+      font-size: 13.5px;
+      color: var(--text-secondary);
+    }
+    .btn-enter {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border-radius: 11px;
+      background: var(--primary);
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    .btn-enter:hover { background: var(--primary-hover); }
+
+    /* Minimal Footer */
     .footer {
-      margin-top: 42px;
-      padding-top: 20px;
+      margin-top: 32px;
+      padding-top: 16px;
       border-top: 1px solid var(--border);
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      font-size: 13.5px;
+      font-size: 13px;
       color: var(--text-muted);
     }
+    .footer-right {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
 
-    /* Lightbox */
+    /* Modal (Product More Files / All Files Drawer) */
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      background: rgba(15, 23, 42, 0.56);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      width: 100%;
+      max-width: 740px;
+      max-height: 82vh;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+    .modal-head {
+      padding: 16px 22px;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .modal-head h3 { margin: 0; font-size: 17px; font-weight: 800; }
+    .modal-search {
+      padding: 12px 22px 0;
+    }
+    .modal-search input {
+      width: 100%;
+      padding: 9px 13px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+      color: var(--text);
+      font-size: 14px;
+      outline: none;
+    }
+    .modal-search input:focus { border-color: var(--primary); }
+    .modal-body {
+      padding: 14px 22px 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .mfile-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: 11px;
+      border: 1px solid var(--border);
+      background: var(--surface-soft);
+    }
+    .mfile-info {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .mfile-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .mfile-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .mfile-acts {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+    .mini-btn {
+      padding: 5px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .mini-btn:hover { border-color: var(--primary); color: var(--primary); }
+    .badge-fmt {
+      padding: 2px 7px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    }
+    .badge-new {
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 700;
+      background: #ef4444;
+      color: #ffffff;
+    }
+
+    /* HD Image Lightbox */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -784,18 +566,18 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
-      gap: 14px;
+      padding: 20px;
+      gap: 12px;
     }
     .lightbox.open { display: flex; }
     .lightbox-bar {
       width: 100%;
-      max-width: 1200px;
+      max-width: 1120px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       color: #ffffff;
-      gap: 12px;
+      gap: 10px;
     }
     .lightbox-img-wrap {
       max-width: 94vw;
@@ -803,46 +585,31 @@
       overflow: auto;
       border-radius: 12px;
       background: #0f172a;
-      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.5);
     }
-    .lightbox-img-wrap img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-    }
+    .lightbox-img-wrap img { display: block; max-width: 100%; height: auto; }
 
     .toast {
       position: fixed;
       left: 50%;
-      bottom: 26px;
-      transform: translateX(-50%) translateY(14px);
+      bottom: 24px;
+      transform: translateX(-50%) translateY(12px);
       background: #0f172a;
       color: #ffffff;
-      padding: 10px 18px;
+      padding: 9px 16px;
       border-radius: 999px;
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 600;
       opacity: 0;
       pointer-events: none;
-      transition: all 0.2s ease;
+      transition: all 0.18s ease;
       z-index: 120;
     }
     .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-    .empty-state {
-      padding: 40px 20px;
-      text-align: center;
-      color: var(--text-muted);
-      font-size: 15px;
-    }
-
-    @media (max-width: 900px) {
+    @media (max-width: 860px) {
       .products-grid { grid-template-columns: 1fr; }
-      .file-row { grid-template-columns: 1fr; gap: 8px; }
-      .hero { padding: 24px 20px; }
-      .hero-meta { align-items: flex-start; text-align: left; }
-      .ms-banner { padding: 24px 20px; }
-      .container { padding: 18px 14px 48px; }
+      .actions-grid { grid-template-columns: 1fr; }
+      .container { padding: 20px 14px 44px; }
     }
   </style>
 </head>
@@ -851,135 +618,82 @@
     <div class="nav-inner">
       <a class="brand" href="./">
         <img class="brand-logo" src="assets/logo.jpg" alt="LCMD" onerror="this.style.display='none'" />
-        <div class="brand-text">
-          <span class="brand-name">LCMD Cloud</span>
-          <span class="brand-sub" id="nav-brand-sub">售前资料与 AI 模型中心</span>
-        </div>
+        <span class="brand-name">LCMD Cloud</span>
       </a>
 
-      <nav class="nav-tabs" aria-label="Primary sections">
-        <a class="nav-tab active" href="#materials" id="tab-materials">📚 售前资料</a>
-        <a class="nav-tab" href="model-store/" id="tab-model-store">🤖 AI 模型广场</a>
+      <nav class="nav-tabs" aria-label="Sections">
+        <a class="nav-tab active" href="./" id="tab-materials">售前资料</a>
+        <a class="nav-tab" href="model-store/" id="tab-models">
+          <span id="tab-models-label">AI 模型广场</span>
+          <span class="tab-pill" id="tab-models-count">--</span>
+        </a>
       </nav>
 
-      <div class="nav-controls">
-        <div class="lang-switch" role="group" aria-label="Language">
+      <div class="nav-right">
+        <div class="lang-seg" role="group" aria-label="Language">
           <button type="button" data-lang="zh" class="active">中文</button>
           <button type="button" data-lang="en">EN</button>
         </div>
-        <button type="button" class="btn" id="btn-theme" title="Toggle theme">🌓</button>
+        <button type="button" class="icon-btn" id="btn-theme" title="Theme">🌓</button>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="hero-grid">
-        <div class="hero-left">
-          <div class="hero-eyebrow"><span class="live-dot"></span><span id="hero-eyebrow-text">每日自动同步 · 中英文双语门户</span></div>
-          <h1 id="hero-title">LCMD Cloud 产品售前资料与 AI 模型广场</h1>
-          <p class="hero-desc" id="hero-desc">集中展示懒猫微服 LC03 与懒猫算力舱 AI Pod X5-T5000 全套中英文售前资料（交互网页手册、一图概览、硬件规格长图、高清海报与 PDF），并提供实时同步的 AI Pod 本地大模型广场展示面板。</p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="#products" id="cta-materials">📚 浏览售前资料</a>
-            <a class="btn btn-soft" href="model-store/" id="cta-model-store">🤖 进入 AI 模型广场 →</a>
-            <button type="button" class="btn" id="cta-copy-url">🔗 复制当前语言链接</button>
-          </div>
-        </div>
-        <div class="hero-meta">
-          <div class="version-pill" id="meta-aipod">AI Pod --</div>
-          <div id="meta-presale">售前仓库：--</div>
-          <div id="meta-updated">最近更新：--</div>
-        </div>
+    <div class="page-head">
+      <div>
+        <h1 id="page-title">产品售前资料</h1>
+        <p id="page-sub">懒猫算力舱 AI Pod X5 与懒猫微服 LC03 官方中英文手册、一图概览与硬件参数</p>
       </div>
+      <button type="button" class="mini-btn" id="btn-copy-url">🔗 复制链接</button>
+    </div>
 
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-num blue" id="stat-products">--</div>
-          <div class="stat-label" id="label-products">产品线</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num violet" id="stat-files">--</div>
-          <div class="stat-label" id="label-files">售前交付文档</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num emerald" id="stat-models">--</div>
-          <div class="stat-label" id="label-models">AI 模型广场展示模型</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-num amber" id="stat-cats">--</div>
-          <div class="stat-label" id="label-cats">AI 能力分类</div>
-        </div>
-      </div>
+    <section class="products-grid" id="products-grid">
+      <div style="color:var(--text-muted);padding:32px 0;">Loading…</div>
     </section>
 
-    <!-- Section 1: Featured Products -->
-    <section id="products">
-      <div class="sec-head">
+    <section class="ms-strip">
+      <div class="ms-left">
+        <div class="ms-icon">🤖</div>
         <div>
-          <h2 id="sec-products-title">核心产品售前资料</h2>
-          <p id="sec-products-sub">点击卡片直达交互网页版手册、一图概览、硬件参数长图与可转发 PDF</p>
+          <h2 class="ms-title" id="ms-title">AI Pod 模型广场</h2>
+          <p class="ms-sub" id="ms-sub">加载中…</p>
         </div>
       </div>
-      <div class="products-grid" id="products-grid">
-        <div class="empty-state">Loading…</div>
-      </div>
-    </section>
-
-    <!-- Model Store Banner -->
-    <section class="ms-banner">
-      <div class="ms-banner-left">
-        <div class="ms-banner-eyebrow"><span class="live-dot"></span><span id="ms-eyebrow">每日同步 · 支持客户大字截图模式</span></div>
-        <h2 id="ms-title">AI Pod 模型广场 · 中英文大字展示面板</h2>
-        <p id="ms-desc">完整收录本地可一键部署的大语言模型、视频/图像生成、语音识别与合成、翻译、文档 OCR 及多模态向量模型，提供大字卡片、客户清单、一图总览墙与一键文本清单复制。</p>
-        <div class="ms-pills" id="ms-pills"></div>
-      </div>
-      <a class="ms-banner-btn" href="model-store/" id="ms-open-btn">进入 AI 模型广场 →</a>
-    </section>
-
-    <!-- Section 2: Complete Auto-Synced Materials Directory -->
-    <section id="materials">
-      <div class="sec-head">
-        <div>
-          <h2 id="sec-library-title">全部资料目录（自动同步）</h2>
-          <p id="sec-library-sub">局域网资料仓库新增的任何中英文手册、长图或 PDF 都会在每日同步后自动收录于此</p>
-        </div>
-      </div>
-
-      <div class="filter-bar">
-        <input type="text" id="search-input" class="search-input" placeholder="搜索文件名、产品、格式…" autocomplete="off" />
-        <div class="chip-group" id="lang-filter-chips"></div>
-        <div class="chip-group" id="product-filter-chips"></div>
-        <div class="chip-group" id="type-filter-chips"></div>
-      </div>
-
-      <div class="files-table" id="files-table">
-        <div class="empty-state">Loading…</div>
-      </div>
-    </section>
-
-    <!-- Recent Updates -->
-    <section class="updates-card" id="updates-card" style="display:none;">
-      <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;">
-        <h3 style="margin:0;font-size:17px;font-weight:800;" id="updates-title">🕒 资料仓库最近更新记录</h3>
-        <span style="font-size:13px;color:var(--text-muted);" id="updates-sub">本地每日拉取检测，有变更自动构建推送</span>
-      </div>
-      <div class="updates-list" id="updates-list"></div>
+      <a class="btn-enter" href="model-store/" id="ms-enter">查看全部模型 →</a>
     </section>
 
     <footer class="footer">
-      <div id="footer-left">LCMD Cloud · 中英文产品售前资料与 AI 模型中心</div>
-      <div id="footer-right">--</div>
+      <div id="footer-left">LCMD Cloud · 中英文产品资料与模型中心</div>
+      <div class="footer-right">
+        <span id="footer-meta">--</span>
+        <button type="button" class="foot-link" id="btn-all-files">全部文件</button>
+      </div>
     </footer>
   </main>
 
-  <!-- HD Image Lightbox -->
+  <!-- Product / All Files Modal -->
+  <div class="modal-backdrop" id="files-modal">
+    <div class="modal">
+      <div class="modal-head">
+        <h3 id="modal-title">更多资料</h3>
+        <button type="button" class="mini-btn" id="modal-close">关闭</button>
+      </div>
+      <div class="modal-search" id="modal-search-wrap" style="display:none;">
+        <input type="text" id="modal-search" placeholder="搜索文件名…" autocomplete="off" />
+      </div>
+      <div class="modal-body" id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- HD Lightbox -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-bar">
-      <strong id="lightbox-title" style="font-size:15px;"></strong>
+      <strong id="lightbox-title" style="font-size:14.5px;"></strong>
       <div style="display:flex;gap:8px;">
-        <a class="btn" id="lightbox-open" href="#" target="_blank" rel="noopener">↗</a>
-        <a class="btn" id="lightbox-download" href="#" download>⬇</a>
-        <button type="button" class="btn btn-primary" id="lightbox-close">✕</button>
+        <a class="mini-btn" id="lightbox-open" href="#" target="_blank" rel="noopener">新窗口 ↗</a>
+        <a class="mini-btn" id="lightbox-dl" href="#" download>下载 ⬇</a>
+        <button type="button" class="mini-btn" id="lightbox-close">关闭</button>
       </div>
     </div>
     <div class="lightbox-img-wrap">
@@ -994,121 +708,68 @@
       const I18N = {
         zh: {
           docTitle: 'LCMD Cloud · 售前资料与 AI 模型广场',
-          brandSub: '售前资料与 AI 模型中心',
-          tabMaterials: '📚 售前资料',
-          tabModelStore: '🤖 AI 模型广场',
-          heroEyebrow: '每日本地自动同步 · 中英文双语门户',
-          heroTitle: 'LCMD Cloud 产品售前资料与 AI 模型广场',
-          heroDesc: '集中展示懒猫微服 LC03 与懒猫算力舱 AI Pod X5-T5000 全套中英文售前资料（交互网页手册、一图概览、硬件规格长图、高清宣传海报与 PDF），并同步提供 AI Pod 本地模型广场中英文大字展示面板。',
-          ctaMaterials: '📚 浏览售前资料',
-          ctaModelStore: '🤖 进入 AI 模型广场 →',
-          ctaCopyUrl: '🔗 复制当前语言链接',
-          labelProducts: '产品线',
-          labelFiles: '售前交付文件',
-          labelModels: 'AI 模型广场展示模型',
-          labelCats: 'AI 能力分类',
-          secProductsTitle: '核心产品售前资料',
-          secProductsSub: '内置离线网页版手册、一图概览、硬件参数长图与 PDF，支持直接发客户在线打开',
-          secLibraryTitle: '全部资料目录（自动同步）',
-          secLibrarySub: '局域网资料仓库新增的任何中英文文件，都会在本地每日同步构建后自动出现在下方目录中',
-          searchPlaceholder: '搜索资料名称、产品（X5 / LC03）、格式（HTML / PDF / PNG）…',
-          msEyebrow: '每日自动同步 · 专为客户展示与截图优化',
-          msTitle: 'AI Pod 模型广场 · 中英文大字展示面板',
-          msDesc: '覆盖大语言模型、视频/图像生成、语音识别与合成、翻译、文档 OCR 及多模态向量检索，支持标准/大字/超大字切换、客户截图模式、一图总览墙与一键复制中英文文本清单。',
-          msOpenBtn: '进入 AI 模型广场 →',
-          updatesTitle: '🕒 售前资料最近更新记录',
-          updatesSub: '本地定时任务每日自动拉取验证，仅在内容变更时推送更新',
-          footerLeft: 'LCMD Cloud · 产品售前资料与 AI 模型广场（中英文双语）',
-          zoomHint: '🔍 点击查看大图',
-          openBtn: '在线查看',
-          previewBtn: '预览',
-          downloadBtn: '下载',
-          copyLinkBtn: '复制链接',
-          langAll: '全部语言',
-          langZh: '中文资料',
-          langEn: 'English',
-          prodAll: '全部产品',
-          typeAll: '全部格式',
-          typeHtml: '交互网页 (HTML)',
-          typePdf: '手册 (PDF)',
-          typeImg: '图片/海报',
-          copiedUrl: '已复制当前页面链接',
-          copiedFile: '已复制资料直链',
-          noResults: '没有匹配的资料，请调整筛选条件',
-          metaPresale: '资料版本：',
-          metaUpdated: '最近同步：',
-          filesUnit: '份资料',
-          newTag: 'NEW 新增',
-          openOrig: '新窗口打开 ↗',
-          dlOrig: '下载原图 ⬇',
-          closeBtn: '关闭 (Esc)',
-          msPillModels: (n) => `${n} 款展示模型`,
-          msPillCats: (n) => `${n} 大能力分类`,
-          msPillThor: (n) => `AGX Thor 支持 ${n} 款`,
-          msPillOrin: (n) => `AGX Orin 支持 ${n} 款`,
-          msPillMulti: (n) => `多机集群 (TP2/TP4) ${n} 款`,
+          tabMaterials: '售前资料',
+          tabModels: 'AI 模型广场',
+          pageTitle: '产品售前资料',
+          pageSub: '懒猫算力舱 AI Pod X5 与懒猫微服 LC03 官方中英文手册、一图概览与硬件参数',
+          copyUrl: '🔗 复制链接',
+          copiedUrl: '已复制当前语言链接',
+          actBrochure: '在线浏览手册',
+          actOverview: '一图概览',
+          actSpecs: '硬件参数图',
+          actPdf: '下载 PDF 手册',
+          actMobile: '手机版手册',
+          actGallery: '12 张宣传海报 ↗',
+          moreFiles: (n) => `更多格式 (${n}) ▾`,
+          msTitle: 'AI Pod 模型广场（双语大字展示面板）',
+          msSub: (ms) => `${ms.visibleCount} 款本地一键部署模型 · ${ms.categoryCount} 大能力分类 · 支持 AGX Thor / Orin / 多机集群`,
+          msEnter: '进入模型广场 →',
+          footerLeft: 'LCMD Cloud · 每日自动同步',
+          allFilesBtn: '全部文件索引',
+          allFilesTitle: '全部同步文件',
+          searchPh: '搜索文件名或产品…',
+          openText: '打开',
+          previewText: '预览',
+          dlText: '下载',
+          closeText: '关闭',
+          openNew: '原图 ↗',
+          dlOrig: '下载 ⬇',
+          updatedPrefix: '更新于 ',
         },
         en: {
-          docTitle: 'LCMD Cloud · Product Pre-sale Materials & AI Model Store',
-          brandSub: 'Pre-sale Materials & AI Model Hub',
-          tabMaterials: '📚 Pre-sale Materials',
-          tabModelStore: '🤖 AI Model Store',
-          heroEyebrow: 'Auto-Synced Daily Locally · Bilingual Portal (ZH / EN)',
-          heroTitle: 'LCMD Cloud Product Materials & AI Model Store',
-          heroDesc: 'Complete Chinese & English pre-sale materials for LCMD LC03 Micro Server and AI Pod X5-T5000 (interactive HTML brochures, at-a-glance overviews, hardware spec sheets, HD posters & PDFs), paired with the live AI Pod Model Store.',
-          ctaMaterials: '📚 Browse Materials',
-          ctaModelStore: '🤖 Open AI Model Store →',
-          ctaCopyUrl: '🔗 Copy Portal Link',
-          labelProducts: 'Product Lines',
-          labelFiles: 'Pre-sale Deliverables',
-          labelModels: 'Public AI Models',
-          labelCats: 'AI Capability Categories',
-          secProductsTitle: 'Featured Product Materials',
-          secProductsSub: 'Self-contained interactive HTML brochures, overview posters, hardware spec sheets & shareable PDFs',
-          secLibraryTitle: 'Complete Materials Directory (Auto-Synced)',
-          secLibrarySub: 'Any new Chinese or English files added to the LAN repository automatically appear here after daily local sync',
-          searchPlaceholder: 'Search title, product (X5 / LC03), format (HTML / PDF / PNG)…',
-          msEyebrow: 'Daily Sync · Built for Client Demos & Screenshots',
-          msTitle: 'AI Pod Model Store · Bilingual Catalog Panel',
-          msDesc: 'Explore one-click local LLMs, video & image generation, ASR, TTS, translation, OCR and multimodal embedding models with Large Cards, Customer List, Overview Wall, Screenshot Mode & plain-text export.',
-          msOpenBtn: 'Open AI Model Store →',
-          updatesTitle: '🕒 Recent Pre-sale Repository Updates',
-          updatesSub: 'Pulled & verified locally every day; pushed only when content changes',
-          footerLeft: 'LCMD Cloud · Bilingual Pre-sale Materials & AI Model Store',
-          zoomHint: '🔍 Click to enlarge',
-          openBtn: 'Open',
-          previewBtn: 'Preview',
-          downloadBtn: 'Download',
-          copyLinkBtn: 'Copy Link',
-          langAll: 'All Languages',
-          langZh: 'Chinese (中文)',
-          langEn: 'English',
-          prodAll: 'All Products',
-          typeAll: 'All Formats',
-          typeHtml: 'Interactive (HTML)',
-          typePdf: 'Brochure (PDF)',
-          typeImg: 'Images / Posters',
-          copiedUrl: 'Portal link copied to clipboard',
-          copiedFile: 'Direct file link copied',
-          noResults: 'No matching materials found. Try clearing filters.',
-          metaPresale: 'Materials Commit: ',
-          metaUpdated: 'Last Synced: ',
-          filesUnit: 'files',
-          newTag: 'NEW',
-          openOrig: 'Open Original ↗',
+          docTitle: 'LCMD Cloud · Pre-sale Materials & AI Model Store',
+          tabMaterials: 'Pre-sale Materials',
+          tabModels: 'AI Model Store',
+          pageTitle: 'Product Pre-sale Materials',
+          pageSub: 'Official Chinese & English brochures, at-a-glance overviews and hardware specs for AI Pod X5 & LC03',
+          copyUrl: '🔗 Copy Link',
+          copiedUrl: 'Portal link copied',
+          actBrochure: 'Interactive Brochure',
+          actOverview: 'At-a-Glance',
+          actSpecs: 'Hardware Specs',
+          actPdf: 'Download PDF',
+          actMobile: 'Mobile Brochure',
+          actGallery: '12 Promo Posters ↗',
+          moreFiles: (n) => `More formats (${n}) ▾`,
+          msTitle: 'AI Pod Model Store (Bilingual Catalog)',
+          msSub: (ms) => `${ms.visibleCount} one-click local models · ${ms.categoryCount} categories · AGX Thor, Orin & Multi-Node clusters`,
+          msEnter: 'Open Model Store →',
+          footerLeft: 'LCMD Cloud · Auto-synced daily',
+          allFilesBtn: 'All Files',
+          allFilesTitle: 'All Synced Files',
+          searchPh: 'Search files or product…',
+          openText: 'Open',
+          previewText: 'Preview',
+          dlText: 'Download',
+          closeText: 'Close',
+          openNew: 'Original ↗',
           dlOrig: 'Download ⬇',
-          closeBtn: 'Close (Esc)',
-          msPillModels: (n) => `${n} Public Models`,
-          msPillCats: (n) => `${n} Categories`,
-          msPillThor: (n) => `${n} on AGX Thor`,
-          msPillOrin: (n) => `${n} on AGX Orin`,
-          msPillMulti: (n) => `${n} Multi-Node (TP2/TP4)`,
+          updatedPrefix: 'Updated ',
         },
       };
 
-      function detectInitialLang() {
-        const params = new URLSearchParams(window.location.search);
-        const q = params.get('lang');
+      function detectLang() {
+        const q = new URLSearchParams(window.location.search).get('lang');
         if (q === 'en' || q === 'zh') return q;
         const saved = localStorage.getItem('lcmd-lang');
         if (saved === 'en' || saved === 'zh') return saved;
@@ -1116,18 +777,19 @@
       }
 
       const state = {
-        lang: detectInitialLang(),
+        lang: detectLang(),
         theme: localStorage.getItem('lcmd-theme') || 'light',
         manifest: null,
-        filterLang: 'current', // 'current' | 'all' | 'zh' | 'en'
-        filterProduct: 'all',
-        filterType: 'all',
-        query: '',
+        modalItems: [],
+        modalTitle: '',
+        modalSearchable: false,
       };
 
       const $ = (s) => document.querySelector(s);
       const $$ = (s) => Array.from(document.querySelectorAll(s));
       const t = () => I18N[state.lang];
+      const isEn = () => state.lang === 'en';
+      const isImg = (ext) => ['PNG', 'JPG', 'JPEG', 'WEBP'].includes(ext);
 
       function esc(str) {
         return String(str ?? '')
@@ -1137,93 +799,23 @@
           .replace(/"/g, '&quot;');
       }
 
-      function showToast(msg) {
+      function fmtSize(mb) {
+        return mb < 0.1 ? `${Math.max(1, Math.round(mb * 1024))} KB` : `${mb.toFixed(1)} MB`;
+      }
+
+      function toast(msg) {
         const el = $('#toast');
         el.textContent = msg;
         el.classList.add('show');
-        clearTimeout(showToast._t);
-        showToast._t = setTimeout(() => el.classList.remove('show'), 2200);
-      }
-
-      function copyText(text, toastMsg) {
-        if (navigator.clipboard?.writeText) {
-          navigator.clipboard.writeText(text).then(() => showToast(toastMsg)).catch(() => fallbackCopy(text, toastMsg));
-        } else {
-          fallbackCopy(text, toastMsg);
-        }
-      }
-
-      function fallbackCopy(text, toastMsg) {
-        const ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        ta.remove();
-        showToast(toastMsg);
-      }
-
-      function formatSize(mb) {
-        if (mb < 0.1) return `${Math.max(1, Math.round(mb * 1024))} KB`;
-        return `${mb.toFixed(1)} MB`;
-      }
-
-      function isImageExt(ext) {
-        return ['PNG', 'JPG', 'JPEG', 'WEBP'].includes(ext);
-      }
-
-      function applyChrome() {
-        const L = t();
-        document.documentElement.lang = state.lang === 'en' ? 'en' : 'zh-CN';
-        document.documentElement.classList.toggle('dark', state.theme === 'dark');
-        document.title = L.docTitle;
-
-        $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
-
-        $('#nav-brand-sub').textContent = L.brandSub;
-        $('#tab-materials').textContent = L.tabMaterials;
-        $('#tab-model-store').textContent = L.tabModelStore;
-        $('#tab-model-store').href = `model-store/?lang=${state.lang}`;
-        $('#cta-model-store').href = `model-store/?lang=${state.lang}`;
-        $('#ms-open-btn').href = `model-store/?lang=${state.lang}`;
-
-        $('#hero-eyebrow-text').textContent = L.heroEyebrow;
-        $('#hero-title').textContent = L.heroTitle;
-        $('#hero-desc').textContent = L.heroDesc;
-        $('#cta-materials').textContent = L.ctaMaterials;
-        $('#cta-model-store').textContent = L.ctaModelStore;
-        $('#cta-copy-url').textContent = L.ctaCopyUrl;
-
-        $('#label-products').textContent = L.labelProducts;
-        $('#label-files').textContent = L.labelFiles;
-        $('#label-models').textContent = L.labelModels;
-        $('#label-cats').textContent = L.labelCats;
-
-        $('#sec-products-title').textContent = L.secProductsTitle;
-        $('#sec-products-sub').textContent = L.secProductsSub;
-        $('#sec-library-title').textContent = L.secLibraryTitle;
-        $('#sec-library-sub').textContent = L.secLibrarySub;
-        $('#search-input').placeholder = L.searchPlaceholder;
-
-        $('#ms-eyebrow').textContent = L.msEyebrow;
-        $('#ms-title').textContent = L.msTitle;
-        $('#ms-desc').textContent = L.msDesc;
-        $('#ms-open-btn').textContent = L.msOpenBtn;
-
-        $('#updates-title').textContent = L.updatesTitle;
-        $('#updates-sub').textContent = L.updatesSub;
-        $('#footer-left').textContent = L.footerLeft;
-        $('#lightbox-open').textContent = L.openOrig;
-        $('#lightbox-download').textContent = L.dlOrig;
-        $('#lightbox-close').textContent = L.closeBtn;
+        clearTimeout(toast._t);
+        toast._t = setTimeout(() => el.classList.remove('show'), 2000);
       }
 
       function openLightbox(url, title) {
         $('#lightbox-title').textContent = title;
         $('#lightbox-img').src = url;
-        $('#lightbox-img').alt = title;
         $('#lightbox-open').href = url;
-        $('#lightbox-download').href = url;
+        $('#lightbox-dl').href = url;
         $('#lightbox').classList.add('open');
       }
 
@@ -1231,246 +823,211 @@
         $('#lightbox').classList.remove('open');
       }
 
-      function renderProducts() {
+      function openFilesModal(title, items, searchable) {
+        state.modalTitle = title;
+        state.modalItems = items;
+        state.modalSearchable = Boolean(searchable);
+        $('#modal-title').textContent = title;
+        $('#modal-search-wrap').style.display = searchable ? 'block' : 'none';
+        $('#modal-search').value = '';
+        renderModalRows('');
+        $('#files-modal').classList.add('open');
+      }
+
+      function renderModalRows(query) {
+        const L = t();
+        const q = query.trim().toLowerCase();
+        const list = state.modalItems.filter((x) => {
+          if (!q) return true;
+          return `${x.titleZh} ${x.titleEn} ${x.fileName} ${x.productId} ${x.ext}`.toLowerCase().includes(q);
+        });
+        $('#modal-body').innerHTML = list
+          .map((item) => {
+            const label = isEn() ? item.titleEn : item.titleZh;
+            const openBtn = isImg(item.ext)
+              ? `<button type="button" class="mini-btn js-mpreview" data-url="${esc(item.url)}" data-title="${esc(label)}">${esc(L.previewText)}</button>`
+              : `<a class="mini-btn" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(L.openText)} ↗</a>`;
+            return `
+              <div class="mfile-row">
+                <div class="mfile-info">
+                  <span class="badge-fmt">${esc(item.ext)}</span>
+                  <span class="mfile-name">${esc(label)}</span>
+                  ${item.isNew ? '<span class="badge-new">NEW</span>' : ''}
+                  <span class="mfile-meta">${esc(fmtSize(item.sizeMB))}</span>
+                </div>
+                <div class="mfile-acts">
+                  ${openBtn}
+                  <a class="mini-btn" href="${esc(item.url)}" download>${esc(L.dlText)}</a>
+                </div>
+              </div>
+            `;
+          })
+          .join('') || '<div style="padding:20px;text-align:center;color:var(--text-muted);">--</div>';
+
+        $$('.js-mpreview').forEach((b) =>
+          b.addEventListener('click', () => openLightbox(b.dataset.url, b.dataset.title)),
+        );
+      }
+
+      /** Pick at most 4 clean, deduplicated primary actions for a product card. */
+      function pickPrimaryActions(items) {
+        const L = t();
+        const find = (pred) => items.find(pred);
+
+        const brochure = find((x) => x.role === 'brochure-desktop') || find((x) => x.ext === 'HTML' && x.role !== 'gallery');
+        const overview = find((x) => x.role === 'overview' && x.ext === 'PNG') || find((x) => x.role === 'overview');
+        const specs = find((x) => x.role === 'specs' && x.ext === 'PNG') || find((x) => x.role === 'specs');
+        const pdf = find((x) => x.role === 'pdf' && !x.fileName.toLowerCase().includes('mobile') && !x.fileName.includes('手机'))
+          || find((x) => x.role === 'pdf');
+
+        const chosen = [];
+        if (brochure) chosen.push({ item: brochure, label: L.actBrochure, primary: true, lightbox: false });
+        if (overview) chosen.push({ item: overview, label: L.actOverview, primary: false, lightbox: isImg(overview.ext) });
+        if (specs) chosen.push({ item: specs, label: L.actSpecs, primary: false, lightbox: isImg(specs.ext) });
+        if (pdf) chosen.push({ item: pdf, label: L.actPdf, primary: false, lightbox: false });
+
+        // For any brand-new unknown product folder that doesn't match the 4 roles above
+        if (!chosen.length) {
+          for (const item of items.slice(0, 4)) {
+            chosen.push({
+              item,
+              label: isEn() ? item.titleEn : item.titleZh,
+              primary: chosen.length === 0,
+              lightbox: isImg(item.ext),
+            });
+          }
+        }
+        return chosen;
+      }
+
+      function applyChrome() {
+        const L = t();
+        document.documentElement.lang = isEn() ? 'en' : 'zh-CN';
+        document.documentElement.classList.toggle('dark', state.theme === 'dark');
+        document.title = L.docTitle;
+
+        $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
+
+        $('#tab-materials').textContent = L.tabMaterials;
+        $('#tab-models-label').textContent = L.tabModels;
+        $('#tab-models').href = `model-store/?lang=${state.lang}`;
+        $('#ms-enter').href = `model-store/?lang=${state.lang}`;
+
+        $('#page-title').textContent = L.pageTitle;
+        $('#page-sub').textContent = L.pageSub;
+        $('#btn-copy-url').textContent = L.copyUrl;
+        $('#ms-title').textContent = L.msTitle;
+        $('#ms-enter').textContent = L.msEnter;
+        $('#footer-left').textContent = L.footerLeft;
+        $('#btn-all-files').textContent = L.allFilesBtn;
+        $('#modal-close').textContent = L.closeText;
+        $('#modal-search').placeholder = L.searchPh;
+        $('#lightbox-open').textContent = L.openNew;
+        $('#lightbox-dl').textContent = L.dlOrig;
+        $('#lightbox-close').textContent = L.closeText;
+      }
+
+      function render() {
+        applyChrome();
         const m = state.manifest;
         if (!m) return;
         const L = t();
-        const isEn = state.lang === 'en';
+        const ms = m.modelStoreSummary || {};
 
-        const html = m.products
+        $('#tab-models-count').textContent = ms.visibleCount ?? '--';
+        $('#ms-sub').textContent = L.msSub(ms);
+        $('#footer-meta').textContent = `AI Pod v${ms.appVersion || '--'} · ${L.updatedPrefix}${(m.updatedAt || '').slice(0, 10)}`;
+
+        const gridHtml = m.products
           .map((p) => {
-            const name = isEn ? p.nameEn : p.nameZh;
-            const tagline = isEn ? p.taglineEn : p.taglineZh;
-            const badge = isEn ? p.badgeEn : p.badgeZh;
-            const highlights = isEn ? p.highlightsEn : p.highlightsZh;
-            const preview = isEn ? (p.previewEn || p.previewZh) : (p.previewZh || p.previewEn);
+            const name = isEn() ? p.nameEn : p.nameZh;
+            const tagline = isEn() ? p.taglineEn : p.taglineZh;
+            const badge = isEn() ? p.badgeEn : p.badgeZh;
+            const preview = isEn() ? (p.previewEn || p.previewZh) : (p.previewZh || p.previewEn);
 
-            // Featured deliverables in active language (fallback to other lang if none exist)
             let langItems = m.items.filter((x) => x.productId === p.id && x.lang === state.lang);
             if (!langItems.length) langItems = m.items.filter((x) => x.productId === p.id);
-            const featured = langItems.filter((x) => x.featured).slice(0, 6);
-            const displayLinks = featured.length ? featured : langItems.slice(0, 6);
 
-            const linksHtml = displayLinks
-              .map((item) => {
-                const label = isEn ? item.titleEn : item.titleZh;
+            const primaryActions = pickPrimaryActions(langItems);
+            const gallery = langItems.find((x) => x.role === 'gallery');
+            const mobileHtml = langItems.find((x) => x.role === 'brochure-mobile');
+
+            // Secondary items for the optional drawer (exclude individual 12 posters when gallery exists)
+            const drawerItems = langItems.filter((x) => !(gallery && x.role === 'poster'));
+            const hasNew = drawerItems.some((x) => x.isNew);
+
+            const actsHtml = primaryActions
+              .map(({ item, label, primary, lightbox }) => {
+                if (lightbox) {
+                  return `
+                    <button type="button" class="act-btn ${primary ? 'primary' : ''} js-zoom" data-url="${esc(item.url)}" data-title="${esc(`${name} · ${label}`)}">
+                      <span>${esc(label)}</span>
+                      <span class="act-fmt">${esc(item.ext)}</span>
+                    </button>
+                  `;
+                }
                 return `
-                  <a class="qlink" href="${esc(item.url)}" target="_blank" rel="noopener">
+                  <a class="act-btn ${primary ? 'primary' : ''}" href="${esc(item.url)}" target="_blank" rel="noopener">
                     <span>${esc(label)}</span>
-                    <span class="qlink-ext">${esc(item.ext)}</span>
+                    <span class="act-fmt">${esc(item.ext)}</span>
                   </a>
                 `;
               })
               .join('');
 
-            const hlHtml = (highlights || [])
-              .map((h) => `<span class="hl-chip">${esc(h)}</span>`)
-              .join('');
+            const leftFoot = [];
+            if (mobileHtml) {
+              leftFoot.push(`<a class="foot-link" href="${esc(mobileHtml.url)}" target="_blank" rel="noopener">${esc(L.actMobile)} ↗</a>`);
+            }
+            if (gallery) {
+              leftFoot.push(`<a class="foot-link" href="${esc(gallery.url)}" target="_blank" rel="noopener">${esc(L.actGallery)}</a>`);
+            }
 
             return `
               <article class="product-card">
                 ${
                   preview
-                    ? `<div class="product-preview" data-lightbox-url="${esc(preview)}" data-lightbox-title="${esc(name)}">
+                    ? `<div class="card-cover js-zoom" data-url="${esc(preview)}" data-title="${esc(name)}">
                         <img src="${esc(preview)}" alt="${esc(name)}" loading="lazy" />
-                        <span class="preview-badge">${esc(badge)} · ${langItems.length} ${esc(L.filesUnit)}</span>
-                        <span class="preview-zoom-hint">${esc(L.zoomHint)}</span>
+                        <span class="cover-tag">${esc(badge)}</span>
                       </div>`
                     : ''
                 }
-                <div class="product-body">
-                  <div class="product-title-row">
-                    <h3 class="product-title">${esc(name)}</h3>
+                <div class="card-body">
+                  <div>
+                    <h2 class="card-title">${esc(name)}</h2>
+                    <p class="card-sub">${esc(tagline)}</p>
                   </div>
-                  <p class="product-tagline">${esc(tagline)}</p>
-                  ${hlHtml ? `<div class="highlights">${hlHtml}</div>` : ''}
-                  <div class="quick-links">${linksHtml}</div>
+                  <div class="actions-grid">${actsHtml}</div>
+                  <div class="card-foot">
+                    <div style="display:flex;gap:14px;flex-wrap:wrap;">${leftFoot.join('')}</div>
+                    <button type="button" class="foot-link js-more" data-pid="${esc(p.id)}">
+                      ${hasNew ? '<span class="dot-new"></span>' : ''}
+                      <span>${esc(L.moreFiles(drawerItems.length))}</span>
+                    </button>
+                  </div>
                 </div>
               </article>
             `;
           })
           .join('');
 
-        $('#products-grid').innerHTML = html;
-        $$('.product-preview').forEach((el) => {
-          el.addEventListener('click', () => {
-            openLightbox(el.dataset.lightboxUrl, el.dataset.lightboxTitle);
-          });
-        });
-      }
+        $('#products-grid').innerHTML = gridHtml;
 
-      function renderFilterChips() {
-        const m = state.manifest;
-        if (!m) return;
-        const L = t();
-        const isEn = state.lang === 'en';
-
-        const activeLang = state.filterLang === 'current' ? state.lang : state.filterLang;
-
-        $('#lang-filter-chips').innerHTML = [
-          `<button type="button" class="chip ${activeLang === 'all' ? 'active' : ''}" data-fl="all">${esc(L.langAll)}</button>`,
-          `<button type="button" class="chip ${activeLang === 'zh' ? 'active' : ''}" data-fl="zh">${esc(L.langZh)} (${m.stats.zhFiles})</button>`,
-          `<button type="button" class="chip ${activeLang === 'en' ? 'active' : ''}" data-fl="en">${esc(L.langEn)} (${m.stats.enFiles})</button>`,
-        ].join('');
-
-        $('#product-filter-chips').innerHTML = [
-          `<button type="button" class="chip ${state.filterProduct === 'all' ? 'active' : ''}" data-fp="all">${esc(L.prodAll)}</button>`,
-          ...m.products.map(
-            (p) =>
-              `<button type="button" class="chip ${state.filterProduct === p.id ? 'active' : ''}" data-fp="${esc(p.id)}">${esc(isEn ? p.nameEn : p.nameZh)}</button>`,
-          ),
-        ].join('');
-
-        $('#type-filter-chips').innerHTML = [
-          `<button type="button" class="chip ${state.filterType === 'all' ? 'active' : ''}" data-ft="all">${esc(L.typeAll)}</button>`,
-          `<button type="button" class="chip ${state.filterType === 'html' ? 'active' : ''}" data-ft="html">${esc(L.typeHtml)}</button>`,
-          `<button type="button" class="chip ${state.filterType === 'pdf' ? 'active' : ''}" data-ft="pdf">${esc(L.typePdf)}</button>`,
-          `<button type="button" class="chip ${state.filterType === 'img' ? 'active' : ''}" data-ft="img">${esc(L.typeImg)}</button>`,
-        ].join('');
-
-        $$('[data-fl]').forEach((b) =>
-          b.addEventListener('click', () => {
-            state.filterLang = b.dataset.fl;
-            renderDirectory();
-          }),
+        $$('.js-zoom').forEach((el) =>
+          el.addEventListener('click', () => openLightbox(el.dataset.url, el.dataset.title)),
         );
-        $$('[data-fp]').forEach((b) =>
-          b.addEventListener('click', () => {
-            state.filterProduct = b.dataset.fp;
-            renderDirectory();
-          }),
-        );
-        $$('[data-ft]').forEach((b) =>
-          b.addEventListener('click', () => {
-            state.filterType = b.dataset.ft;
-            renderDirectory();
-          }),
-        );
-      }
 
-      function renderDirectory() {
-        const m = state.manifest;
-        if (!m) return;
-        const L = t();
-        const isEn = state.lang === 'en';
-        renderFilterChips();
-
-        const effectiveLang = state.filterLang === 'current' ? state.lang : state.filterLang;
-        const q = state.query.trim().toLowerCase();
-
-        const filtered = m.items.filter((item) => {
-          if (effectiveLang !== 'all' && item.lang !== effectiveLang) return false;
-          if (state.filterProduct !== 'all' && item.productId !== state.filterProduct) return false;
-          if (state.filterType === 'html' && item.ext !== 'HTML') return false;
-          if (state.filterType === 'pdf' && item.ext !== 'PDF') return false;
-          if (state.filterType === 'img' && !isImageExt(item.ext)) return false;
-          if (q) {
-            const hay = `${item.titleZh} ${item.titleEn} ${item.fileName} ${item.productId} ${item.ext} ${item.path}`.toLowerCase();
-            if (!hay.includes(q)) return false;
-          }
-          return true;
-        });
-
-        if (!filtered.length) {
-          $('#files-table').innerHTML = `<div class="empty-state">${esc(L.noResults)}</div>`;
-          return;
-        }
-
-        const prodMap = new Map(m.products.map((p) => [p.id, p]));
-        $('#files-table').innerHTML = filtered
-          .map((item) => {
-            const p = prodMap.get(item.productId);
-            const prodName = p ? (isEn ? p.nameEn : p.nameZh) : item.productId;
-            const title = isEn ? item.titleEn : item.titleZh;
-            const extCls = item.ext === 'HTML' ? 'badge-html' : item.ext === 'PDF' ? 'badge-pdf' : 'badge-img';
-            const imgBtn = isImageExt(item.ext)
-              ? `<button type="button" class="btn btn-soft js-preview" data-url="${esc(item.url)}" data-title="${esc(title)}">${esc(L.previewBtn)}</button>`
-              : `<a class="btn btn-soft" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(L.openBtn)} ↗</a>`;
-
-            return `
-              <div class="file-row">
-                <div class="file-main">
-                  <div class="file-title">
-                    <span class="badge ${extCls}">${esc(item.ext)}</span>
-                    <span>${esc(title)}</span>
-                    ${item.isNew ? `<span class="badge badge-new">${esc(L.newTag)}</span>` : ''}
-                  </div>
-                  <div class="file-sub">${esc(item.sourceRel)}</div>
-                </div>
-                <div style="display:flex;gap:6px;flex-wrap:wrap;">
-                  <span class="badge badge-lang">${item.lang === 'zh' ? '中文' : 'EN'}</span>
-                  <span class="badge badge-lang">${esc(prodName)}</span>
-                </div>
-                <div class="file-size">${esc(formatSize(item.sizeMB))}</div>
-                <div class="file-actions">
-                  ${imgBtn}
-                  <a class="btn" href="${esc(item.url)}" download>${esc(L.downloadBtn)}</a>
-                  <button type="button" class="btn js-copy" data-url="${esc(item.url)}">${esc(L.copyLinkBtn)}</button>
-                </div>
-              </div>
-            `;
-          })
-          .join('');
-
-        $$('.js-preview').forEach((btn) =>
-          btn.addEventListener('click', () => openLightbox(btn.dataset.url, btn.dataset.title)),
-        );
-        $$('.js-copy').forEach((btn) =>
+        $$('.js-more').forEach((btn) =>
           btn.addEventListener('click', () => {
-            const fullUrl = new URL(btn.dataset.url, window.location.href).href;
-            copyText(fullUrl, L.copiedFile);
+            const p = m.products.find((x) => x.id === btn.dataset.pid);
+            let items = m.items.filter((x) => x.productId === btn.dataset.pid && x.lang === state.lang);
+            if (!items.length) items = m.items.filter((x) => x.productId === btn.dataset.pid);
+            const gallery = items.find((x) => x.role === 'gallery');
+            const clean = items.filter((x) => !(gallery && x.role === 'poster'));
+            openFilesModal(isEn() ? p.nameEn : p.nameZh, clean, false);
           }),
         );
-      }
-
-      function renderMetaAndBanner() {
-        const m = state.manifest;
-        if (!m) return;
-        const L = t();
-        const ms = m.modelStoreSummary || {};
-
-        $('#meta-aipod').textContent = `AI Pod v${ms.appVersion || '--'}`;
-        $('#meta-presale').textContent = `${L.metaPresale}${m.presaleRepo?.commitShort || '--'} (${(m.presaleRepo?.commitDate || '').slice(0, 10)})`;
-        $('#meta-updated').textContent = `${L.metaUpdated}${m.updatedAt || '--'}`;
-
-        $('#stat-products').textContent = m.stats?.productCount ?? '--';
-        $('#stat-files').textContent = m.stats?.totalFiles ?? '--';
-        $('#stat-models').textContent = ms.visibleCount ?? '--';
-        $('#stat-cats').textContent = ms.categoryCount ?? '--';
-
-        $('#ms-pills').innerHTML = [
-          `<span class="ms-pill">${esc(L.msPillModels(ms.visibleCount || 0))}</span>`,
-          `<span class="ms-pill">${esc(L.msPillCats(ms.categoryCount || 0))}</span>`,
-          `<span class="ms-pill">${esc(L.msPillThor(ms.thorCount || 0))}</span>`,
-          `<span class="ms-pill">${esc(L.msPillOrin(ms.orinCount || 0))}</span>`,
-          `<span class="ms-pill">${esc(L.msPillMulti(ms.multiNodeCount || 0))}</span>`,
-        ].join('');
-
-        const commits = m.presaleRepo?.recentCommits || [];
-        if (commits.length) {
-          $('#updates-card').style.display = 'block';
-          $('#updates-list').innerHTML = commits
-            .slice(0, 5)
-            .map(
-              (c) => `
-                <div class="update-item">
-                  <span class="commit-sha">${esc(c.sha)}</span>
-                  <span class="commit-date">${esc(c.date)}</span>
-                  <span>${esc(c.subject)}</span>
-                </div>
-              `,
-            )
-            .join('');
-        }
-
-        $('#footer-right').textContent = `AI Pod v${ms.appVersion || '--'} · Pre-sale ${m.presaleRepo?.commitShort || '--'} · ${m.updatedAt || '--'}`;
-      }
-
-      function renderAll() {
-        applyChrome();
-        renderMetaAndBanner();
-        renderProducts();
-        renderDirectory();
       }
 
       async function init() {
@@ -1479,23 +1036,22 @@
           const res = await fetch(`./materials/manifest.json?t=${Date.now()}`, { cache: 'no-store' });
           if (!res.ok) throw new Error(`HTTP ${res.status}`);
           state.manifest = await res.json();
-          renderAll();
+          render();
         } catch (err) {
-          $('#products-grid').innerHTML = `<div class="empty-state">Failed to load materials manifest: ${esc(err.message)}</div>`;
+          $('#products-grid').innerHTML = `<div style="color:var(--text-muted);padding:32px 0;">Failed to load: ${esc(err.message)}</div>`;
         }
       }
 
-      // Events
-      $$('[data-lang]').forEach((btn) => {
-        btn.addEventListener('click', () => {
-          state.lang = btn.dataset.lang;
+      $$('[data-lang]').forEach((b) =>
+        b.addEventListener('click', () => {
+          state.lang = b.dataset.lang;
           localStorage.setItem('lcmd-lang', state.lang);
-          const url = new URL(window.location.href);
-          url.searchParams.set('lang', state.lang);
-          window.history.replaceState({}, '', url);
-          renderAll();
-        });
-      });
+          const u = new URL(window.location.href);
+          u.searchParams.set('lang', state.lang);
+          window.history.replaceState({}, '', u);
+          render();
+        }),
+      );
 
       $('#btn-theme').addEventListener('click', () => {
         state.theme = state.theme === 'dark' ? 'light' : 'dark';
@@ -1503,15 +1059,22 @@
         applyChrome();
       });
 
-      $('#cta-copy-url').addEventListener('click', () => {
-        const url = new URL(window.location.href);
-        url.searchParams.set('lang', state.lang);
-        copyText(url.href, t().copiedUrl);
+      $('#btn-copy-url').addEventListener('click', () => {
+        const u = new URL(window.location.href);
+        u.searchParams.set('lang', state.lang);
+        navigator.clipboard?.writeText(u.href).then(() => toast(t().copiedUrl));
       });
 
-      $('#search-input').addEventListener('input', (e) => {
-        state.query = e.target.value;
-        renderDirectory();
+      $('#btn-all-files').addEventListener('click', () => {
+        if (!state.manifest) return;
+        const langItems = state.manifest.items.filter((x) => x.lang === state.lang);
+        openFilesModal(t().allFilesTitle, langItems.length ? langItems : state.manifest.items, true);
+      });
+
+      $('#modal-search').addEventListener('input', (e) => renderModalRows(e.target.value));
+      $('#modal-close').addEventListener('click', () => $('#files-modal').classList.remove('open'));
+      $('#files-modal').addEventListener('click', (e) => {
+        if (e.target === $('#files-modal')) $('#files-modal').classList.remove('open');
       });
 
       $('#lightbox-close').addEventListener('click', closeLightbox);
@@ -1519,7 +1082,10 @@
         if (e.target === $('#lightbox')) closeLightbox();
       });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeLightbox();
+        if (e.key === 'Escape') {
+          closeLightbox();
+          $('#files-modal').classList.remove('open');
+        }
       });
 
       init();
