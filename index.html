@@ -545,11 +545,6 @@
     </nav>
 
     <div class="top-right">
-      <a class="tool-btn accent hide-mobile" id="btn-site-shortcut" href="https://lazycat.cloud/" target="_blank" rel="noopener">lazycat.cloud ↗</a>
-      <a class="tool-btn" id="btn-open-new" href="#" target="_blank" rel="noopener">
-        <span class="hide-mobile" id="btn-open-label">独立打开</span>
-        <span>↗</span>
-      </a>
       <div class="lang-seg" role="group" aria-label="Language">
         <button type="button" data-lang="zh" class="active">中文</button>
         <button type="button" data-lang="en">EN</button>
@@ -608,7 +603,7 @@
           tabLC03: 'Micro Server (LC03)',
           tabX5: 'AI Pod (X5-T5000)',
           tabModels: 'AI Model Store',
-          tabOfficial: 'Official Site',
+          tabOfficial: 'lcmd.cloud',
           siteShortcutLabel: 'lcmd.cloud ↗',
           siteShortcutUrl: 'https://lcmd.cloud/',
           openNew: 'Fullscreen',
@@ -791,10 +786,6 @@
         $('#brand-name').textContent = L.brandName;
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
 
-        $('#btn-site-shortcut').textContent = L.siteShortcutLabel;
-        $('#btn-site-shortcut').href = L.siteShortcutUrl;
-        $('#btn-open-label').textContent = L.openNew;
-
         ensureTopTabs();
         const cntEl = $('#tab-model-cnt');
         if (cntEl) cntEl.textContent = state.manifest?.modelStoreSummary?.visibleCount ?? '--';
@@ -831,7 +822,10 @@
           subTabsEl.style.display = 'none';
           subInfoEl.style.display = 'inline-flex';
           subInfoEl.innerHTML = `<span class="live-dot"></span><span>${esc(L.modelsSubInfo(m.modelStoreSummary || {}))}</span>`;
-          subRightEl.innerHTML = `<span class="sub-date">${esc((m.updatedAt || '').slice(0, 10))}</span>`;
+          subRightEl.innerHTML = `
+            <span class="sub-date">${esc((m.updatedAt || '').slice(0, 10))}</span>
+            <a class="tool-btn" href="model-store/?lang=${state.lang}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
+          `;
           state.lastSubKey = 'models';
           return;
         }
@@ -841,7 +835,7 @@
           subTabsEl.style.display = 'none';
           subInfoEl.style.display = 'inline-flex';
           subInfoEl.innerHTML = `<span>${esc(L.officialSubInfo)}</span>`;
-          subRightEl.innerHTML = `<a class="tool-btn" href="${esc(L.siteShortcutUrl)}" target="_blank" rel="noopener">${esc(L.siteShortcutLabel)}</a>`;
+          subRightEl.innerHTML = `<a class="tool-btn accent" href="${esc(L.siteShortcutUrl)}" target="_blank" rel="noopener">${esc(L.siteShortcutLabel)}</a>`;
           state.lastSubKey = 'official';
           return;
         }
@@ -884,10 +878,10 @@
 
         requestAnimationFrame(() => moveIndicator(subTabsEl, $('#sub-indicator'), activeSubBtn));
 
-        const officialUrl = isEn() ? (product.officialEn || 'https://lcmd.cloud/') : (product.officialZh || 'https://lazycat.cloud/');
+        const docHref = activeDoc ? withVer(activeDoc.url) : '#';
         subRightEl.innerHTML = `
           <span class="sub-date">${esc((m.updatedAt || '').slice(0, 10))}</span>
-          <a class="tool-btn" href="${esc(officialUrl)}" target="_blank" rel="noopener">${esc(L.officialProductBtn)}</a>
+          <a class="tool-btn" href="${esc(docHref)}" target="_blank" rel="noopener">${esc(L.openNew)} ↗</a>
         `;
       }
 
@@ -941,13 +935,10 @@
       function updateStage() {
         const L = t();
         const m = state.manifest;
-        const openBtn = $('#btn-open-new');
         if (!m) return;
 
         if (state.section === 'models') {
           const url = `model-store/?lang=${state.lang}&theme=${state.theme}&embed=1&v=${m.buildVer || ''}`;
-          openBtn.classList.remove('is-ghost');
-          openBtn.href = `model-store/?lang=${state.lang}`;
           showPane(`models:${state.lang}:${state.theme}`, (el, rec) =>
             createIframePane(el, rec, url, 'AI Model Store', 'models-frame'),
           );
@@ -955,8 +946,6 @@
         }
 
         if (state.section === 'official') {
-          openBtn.classList.remove('is-ghost');
-          openBtn.href = L.siteShortcutUrl;
           showPane(`official:${state.lang}`, (el, rec) => {
             rec.loaded = true;
             el.innerHTML = `
@@ -991,8 +980,6 @@
         const activeDoc = docs.find((d) => d.slot === state.slot) || docs[0];
         if (!activeDoc) return;
         const docUrl = withVer(activeDoc.url);
-        openBtn.classList.remove('is-ghost');
-        openBtn.href = docUrl;
         showPane(`doc:${state.lang}:${state.section}:${activeDoc.slot}`, (el, rec) =>
           createIframePane(el, rec, docUrl, isEn() ? activeDoc.titleEn : activeDoc.titleZh, ''),
         );
