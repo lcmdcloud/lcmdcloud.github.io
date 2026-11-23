@@ -5,8 +5,8 @@
   "appName": "AI Pod",
   "appVersion": "2.3.364",
   "appUpdatedAt": "2026-11-23 13:47:43",
-  "syncedAt": "2026-11-23 19:07:13",
-  "syncedTs": 1795432033,
+  "syncedAt": "2026-11-23 19:10:20",
+  "syncedTs": 1795432220,
   "syncIntervalMinutes": 60,
   "bundleFile": "ModelStore-D3OSmAEn.js",
   "stats": {

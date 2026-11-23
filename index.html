@@ -25,11 +25,10 @@
       --primary-hover: #1d4ed8;
       --primary-soft: #eff6ff;
       --primary-border: #bfdbfe;
+      --studio-bg: linear-gradient(145deg, #f8fafc 0%, #eef2f7 100%);
       --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
       --shadow-md: 0 12px 30px -12px rgba(15, 23, 42, 0.1), 0 2px 6px -2px rgba(15, 23, 42, 0.04);
       --radius-xl: 20px;
-      --radius-md: 12px;
-      --radius-sm: 8px;
     }
 
     html.dark {
@@ -46,6 +45,7 @@
       --primary-hover: #3b82f6;
       --primary-soft: rgba(59, 130, 246, 0.15);
       --primary-border: rgba(96, 165, 250, 0.32);
+      --studio-bg: linear-gradient(145deg, #161f2e 0%, #0f1622 100%);
       --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
       --shadow-md: 0 14px 32px -12px rgba(0, 0, 0, 0.5);
     }
@@ -71,7 +71,7 @@
       border-bottom: 1px solid var(--border);
     }
     .nav-inner {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: 0 auto;
       padding: 12px 24px;
       display: flex;
@@ -112,7 +112,7 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      padding: 6px 15px;
+      padding: 6px 16px;
       border-radius: 8px;
       text-decoration: none;
       color: var(--text-secondary);
@@ -178,28 +178,21 @@
     }
     .icon-btn:hover { background: var(--surface-soft); }
 
-    /* Main */
+    /* Container */
     .container {
-      max-width: 1180px;
+      max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 24px 56px;
+      padding: 36px 24px 56px;
     }
 
-    /* Slim Intro Header */
     .page-head {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
     .page-head h1 {
       margin: 0;
       font-size: clamp(24px, 3vw, 32px);
       font-weight: 800;
       letter-spacing: -0.025em;
-      line-height: 1.2;
     }
     .page-head p {
       margin: 6px 0 0;
@@ -207,7 +200,7 @@
       color: var(--text-secondary);
     }
 
-    /* Product Cards Grid */
+    /* Product Cards */
     .products-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -229,38 +222,41 @@
       border-color: var(--border-strong);
     }
 
-    .card-cover {
+    .card-visual {
       position: relative;
-      aspect-ratio: 16 / 9;
-      background: var(--surface-muted);
-      overflow: hidden;
-      cursor: zoom-in;
+      height: 230px;
+      background: var(--studio-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
       border-bottom: 1px solid var(--border);
     }
-    .card-cover img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: top center;
+    .card-visual img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       display: block;
       transition: transform 0.25s ease;
     }
-    .card-cover:hover img { transform: scale(1.02); }
-    .cover-tag {
+    .product-card:hover .card-visual img {
+      transform: scale(1.03);
+    }
+    .visual-badge {
       position: absolute;
       top: 14px;
       left: 14px;
-      padding: 4px 11px;
+      padding: 4px 10px;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.78);
-      color: #ffffff;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
       font-size: 12px;
       font-weight: 700;
-      backdrop-filter: blur(8px);
     }
 
     .card-body {
-      padding: 22px 24px 20px;
+      padding: 22px 24px 24px;
       display: flex;
       flex-direction: column;
       gap: 16px;
@@ -276,84 +272,50 @@
       margin: 5px 0 0;
       font-size: 14px;
       color: var(--text-secondary);
-      line-height: 1.55;
     }
 
-    /* Clean 4-Action Grid */
-    .actions-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 10px;
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+      margin-top: auto;
     }
-    .act-btn {
+    .doc-btn {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 8px;
-      padding: 11px 14px;
+      gap: 10px;
+      padding: 12px 16px;
       border-radius: 12px;
       border: 1px solid var(--border);
       background: var(--surface-soft);
       color: var(--text);
       text-decoration: none;
-      font-size: 14px;
+      font-size: 14.5px;
       font-weight: 700;
       cursor: pointer;
       transition: all 0.15s ease;
+      text-align: left;
     }
-    .act-btn:hover {
+    .doc-btn:hover {
       border-color: var(--primary);
       background: var(--primary-soft);
       color: var(--primary);
     }
-    .act-btn.primary {
+    .doc-btn.primary {
       background: var(--primary);
       border-color: var(--primary);
       color: #ffffff;
     }
-    .act-btn.primary:hover {
+    .doc-btn.primary:hover {
       background: var(--primary-hover);
       border-color: var(--primary-hover);
       color: #ffffff;
     }
-    .act-fmt {
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-      font-size: 11px;
-      font-weight: 700;
+    .doc-arrow {
+      font-size: 13px;
       opacity: 0.72;
       flex-shrink: 0;
-    }
-
-    .card-foot {
-      margin-top: auto;
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
-    .foot-link {
-      border: 0;
-      background: transparent;
-      padding: 0;
-      color: var(--text-muted);
-      font-size: 13px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-    }
-    .foot-link:hover { color: var(--primary); }
-    .dot-new {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: #ef4444;
-      display: inline-block;
     }
 
     /* Compact Model Store Strip */
@@ -392,16 +354,8 @@
       font-size: 21px;
       flex-shrink: 0;
     }
-    .ms-title {
-      margin: 0;
-      font-size: 17px;
-      font-weight: 800;
-    }
-    .ms-sub {
-      margin: 3px 0 0;
-      font-size: 13.5px;
-      color: var(--text-secondary);
-    }
+    .ms-title { margin: 0; font-size: 17px; font-weight: 800; }
+    .ms-sub { margin: 3px 0 0; font-size: 13.5px; color: var(--text-secondary); }
     .btn-enter {
       display: inline-flex;
       align-items: center;
@@ -417,9 +371,9 @@
     }
     .btn-enter:hover { background: var(--primary-hover); }
 
-    /* Minimal Footer */
+    /* Footer */
     .footer {
-      margin-top: 32px;
+      margin-top: 34px;
       padding-top: 16px;
       border-top: 1px solid var(--border);
       display: flex;
@@ -430,132 +384,8 @@
       font-size: 13px;
       color: var(--text-muted);
     }
-    .footer-right {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
 
-    /* Modal (Product More Files / All Files Drawer) */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      z-index: 80;
-      background: rgba(15, 23, 42, 0.56);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-    .modal-backdrop.open { display: flex; }
-    .modal {
-      width: 100%;
-      max-width: 740px;
-      max-height: 82vh;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.3);
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .modal-head {
-      padding: 16px 22px;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-    .modal-head h3 { margin: 0; font-size: 17px; font-weight: 800; }
-    .modal-search {
-      padding: 12px 22px 0;
-    }
-    .modal-search input {
-      width: 100%;
-      padding: 9px 13px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-      color: var(--text);
-      font-size: 14px;
-      outline: none;
-    }
-    .modal-search input:focus { border-color: var(--primary); }
-    .modal-body {
-      padding: 14px 22px 20px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-    .mfile-row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 10px 14px;
-      border-radius: 11px;
-      border: 1px solid var(--border);
-      background: var(--surface-soft);
-    }
-    .mfile-info {
-      min-width: 0;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      flex-wrap: wrap;
-    }
-    .mfile-name {
-      font-size: 14px;
-      font-weight: 700;
-      color: var(--text);
-    }
-    .mfile-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-    .mfile-acts {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-shrink: 0;
-    }
-    .mini-btn {
-      padding: 5px 10px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: var(--surface);
-      color: var(--text);
-      font-size: 12.5px;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-    }
-    .mini-btn:hover { border-color: var(--primary); color: var(--primary); }
-    .badge-fmt {
-      padding: 2px 7px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 700;
-      background: var(--primary-soft);
-      color: var(--primary);
-      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    }
-    .badge-new {
-      padding: 1px 6px;
-      border-radius: 999px;
-      font-size: 10.5px;
-      font-weight: 700;
-      background: #ef4444;
-      color: #ffffff;
-    }
-
-    /* HD Image Lightbox */
+    /* Lightbox for PNG-only items */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -579,6 +409,18 @@
       color: #ffffff;
       gap: 10px;
     }
+    .lb-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.12);
+      color: #ffffff;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .lb-btn:hover { background: rgba(255, 255, 255, 0.22); }
     .lightbox-img-wrap {
       max-width: 94vw;
       max-height: 82vh;
@@ -588,28 +430,9 @@
     }
     .lightbox-img-wrap img { display: block; max-width: 100%; height: auto; }
 
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 24px;
-      transform: translateX(-50%) translateY(12px);
-      background: #0f172a;
-      color: #ffffff;
-      padding: 9px 16px;
-      border-radius: 999px;
-      font-size: 13.5px;
-      font-weight: 600;
-      opacity: 0;
-      pointer-events: none;
-      transition: all 0.18s ease;
-      z-index: 120;
-    }
-    .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
-
-    @media (max-width: 860px) {
+    @media (max-width: 820px) {
       .products-grid { grid-template-columns: 1fr; }
-      .actions-grid { grid-template-columns: 1fr; }
-      .container { padding: 20px 14px 44px; }
+      .container { padding: 22px 14px 44px; }
     }
   </style>
 </head>
@@ -641,11 +464,8 @@
 
   <main class="container">
     <div class="page-head">
-      <div>
-        <h1 id="page-title">产品售前资料</h1>
-        <p id="page-sub">懒猫算力舱 AI Pod X5 与懒猫微服 LC03 官方中英文手册、一图概览与硬件参数</p>
-      </div>
-      <button type="button" class="mini-btn" id="btn-copy-url">🔗 复制链接</button>
+      <h1 id="page-title">产品售前资料</h1>
+      <p id="page-sub">AI Pod X5-T5000 与 LC03 官方中英文产品介绍、一图概览与硬件参数</p>
     </div>
 
     <section class="products-grid" id="products-grid">
@@ -660,48 +480,27 @@
           <p class="ms-sub" id="ms-sub">加载中…</p>
         </div>
       </div>
-      <a class="btn-enter" href="model-store/" id="ms-enter">查看全部模型 →</a>
+      <a class="btn-enter" href="model-store/" id="ms-enter">进入模型广场 →</a>
     </section>
 
     <footer class="footer">
-      <div id="footer-left">LCMD Cloud · 中英文产品资料与模型中心</div>
-      <div class="footer-right">
-        <span id="footer-meta">--</span>
-        <button type="button" class="foot-link" id="btn-all-files">全部文件</button>
-      </div>
+      <div id="footer-left">LCMD Cloud</div>
+      <div id="footer-meta">--</div>
     </footer>
   </main>
 
-  <!-- Product / All Files Modal -->
-  <div class="modal-backdrop" id="files-modal">
-    <div class="modal">
-      <div class="modal-head">
-        <h3 id="modal-title">更多资料</h3>
-        <button type="button" class="mini-btn" id="modal-close">关闭</button>
-      </div>
-      <div class="modal-search" id="modal-search-wrap" style="display:none;">
-        <input type="text" id="modal-search" placeholder="搜索文件名…" autocomplete="off" />
-      </div>
-      <div class="modal-body" id="modal-body"></div>
-    </div>
-  </div>
-
-  <!-- HD Lightbox -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-bar">
       <strong id="lightbox-title" style="font-size:14.5px;"></strong>
       <div style="display:flex;gap:8px;">
-        <a class="mini-btn" id="lightbox-open" href="#" target="_blank" rel="noopener">新窗口 ↗</a>
-        <a class="mini-btn" id="lightbox-dl" href="#" download>下载 ⬇</a>
-        <button type="button" class="mini-btn" id="lightbox-close">关闭</button>
+        <a class="lb-btn" id="lightbox-open" href="#" target="_blank" rel="noopener">新窗口打开 ↗</a>
+        <button type="button" class="lb-btn" id="lightbox-close">关闭</button>
       </div>
     </div>
     <div class="lightbox-img-wrap">
       <img id="lightbox-img" src="" alt="" />
     </div>
   </div>
-
-  <div class="toast" id="toast"></div>
 
   <script>
     (function () {
@@ -711,60 +510,26 @@
           tabMaterials: '售前资料',
           tabModels: 'AI 模型广场',
           pageTitle: '产品售前资料',
-          pageSub: '懒猫算力舱 AI Pod X5 与懒猫微服 LC03 官方中英文手册、一图概览与硬件参数',
-          copyUrl: '🔗 复制链接',
-          copiedUrl: '已复制当前语言链接',
-          actBrochure: '在线浏览手册',
-          actOverview: '一图概览',
-          actSpecs: '硬件参数图',
-          actPdf: '下载 PDF 手册',
-          actMobile: '手机版手册',
-          actGallery: '12 张宣传海报 ↗',
-          moreFiles: (n) => `更多格式 (${n}) ▾`,
-          msTitle: 'AI Pod 模型广场（双语大字展示面板）',
+          pageSub: 'AI Pod X5-T5000 与 LC03 官方中英文产品介绍、一图概览与硬件参数',
+          msTitle: 'AI Pod 模型广场',
           msSub: (ms) => `${ms.visibleCount} 款本地一键部署模型 · ${ms.categoryCount} 大能力分类 · 支持 AGX Thor / Orin / 多机集群`,
           msEnter: '进入模型广场 →',
           footerLeft: 'LCMD Cloud · 每日自动同步',
-          allFilesBtn: '全部文件索引',
-          allFilesTitle: '全部同步文件',
-          searchPh: '搜索文件名或产品…',
-          openText: '打开',
-          previewText: '预览',
-          dlText: '下载',
+          openOrig: '新窗口打开 ↗',
           closeText: '关闭',
-          openNew: '原图 ↗',
-          dlOrig: '下载 ⬇',
-          updatedPrefix: '更新于 ',
         },
         en: {
           docTitle: 'LCMD Cloud · Pre-sale Materials & AI Model Store',
           tabMaterials: 'Pre-sale Materials',
           tabModels: 'AI Model Store',
           pageTitle: 'Product Pre-sale Materials',
-          pageSub: 'Official Chinese & English brochures, at-a-glance overviews and hardware specs for AI Pod X5 & LC03',
-          copyUrl: '🔗 Copy Link',
-          copiedUrl: 'Portal link copied',
-          actBrochure: 'Interactive Brochure',
-          actOverview: 'At-a-Glance',
-          actSpecs: 'Hardware Specs',
-          actPdf: 'Download PDF',
-          actMobile: 'Mobile Brochure',
-          actGallery: '12 Promo Posters ↗',
-          moreFiles: (n) => `More formats (${n}) ▾`,
-          msTitle: 'AI Pod Model Store (Bilingual Catalog)',
-          msSub: (ms) => `${ms.visibleCount} one-click local models · ${ms.categoryCount} categories · AGX Thor, Orin & Multi-Node clusters`,
+          pageSub: 'Official Chinese & English brochures, overviews and hardware specs for AI Pod X5-T5000 & LC03',
+          msTitle: 'AI Pod Model Store',
+          msSub: (ms) => `${ms.visibleCount} one-click local models · ${ms.categoryCount} categories · AGX Thor, Orin & Multi-Node`,
           msEnter: 'Open Model Store →',
           footerLeft: 'LCMD Cloud · Auto-synced daily',
-          allFilesBtn: 'All Files',
-          allFilesTitle: 'All Synced Files',
-          searchPh: 'Search files or product…',
-          openText: 'Open',
-          previewText: 'Preview',
-          dlText: 'Download',
+          openOrig: 'Open Original ↗',
           closeText: 'Close',
-          openNew: 'Original ↗',
-          dlOrig: 'Download ⬇',
-          updatedPrefix: 'Updated ',
         },
       };
 
@@ -780,9 +545,6 @@
         lang: detectLang(),
         theme: localStorage.getItem('lcmd-theme') || 'light',
         manifest: null,
-        modalItems: [],
-        modalTitle: '',
-        modalSearchable: false,
       };
 
       const $ = (s) => document.querySelector(s);
@@ -799,105 +561,15 @@
           .replace(/"/g, '&quot;');
       }
 
-      function fmtSize(mb) {
-        return mb < 0.1 ? `${Math.max(1, Math.round(mb * 1024))} KB` : `${mb.toFixed(1)} MB`;
-      }
-
-      function toast(msg) {
-        const el = $('#toast');
-        el.textContent = msg;
-        el.classList.add('show');
-        clearTimeout(toast._t);
-        toast._t = setTimeout(() => el.classList.remove('show'), 2000);
-      }
-
       function openLightbox(url, title) {
         $('#lightbox-title').textContent = title;
         $('#lightbox-img').src = url;
         $('#lightbox-open').href = url;
-        $('#lightbox-dl').href = url;
         $('#lightbox').classList.add('open');
       }
 
       function closeLightbox() {
         $('#lightbox').classList.remove('open');
-      }
-
-      function openFilesModal(title, items, searchable) {
-        state.modalTitle = title;
-        state.modalItems = items;
-        state.modalSearchable = Boolean(searchable);
-        $('#modal-title').textContent = title;
-        $('#modal-search-wrap').style.display = searchable ? 'block' : 'none';
-        $('#modal-search').value = '';
-        renderModalRows('');
-        $('#files-modal').classList.add('open');
-      }
-
-      function renderModalRows(query) {
-        const L = t();
-        const q = query.trim().toLowerCase();
-        const list = state.modalItems.filter((x) => {
-          if (!q) return true;
-          return `${x.titleZh} ${x.titleEn} ${x.fileName} ${x.productId} ${x.ext}`.toLowerCase().includes(q);
-        });
-        $('#modal-body').innerHTML = list
-          .map((item) => {
-            const label = isEn() ? item.titleEn : item.titleZh;
-            const openBtn = isImg(item.ext)
-              ? `<button type="button" class="mini-btn js-mpreview" data-url="${esc(item.url)}" data-title="${esc(label)}">${esc(L.previewText)}</button>`
-              : `<a class="mini-btn" href="${esc(item.url)}" target="_blank" rel="noopener">${esc(L.openText)} ↗</a>`;
-            return `
-              <div class="mfile-row">
-                <div class="mfile-info">
-                  <span class="badge-fmt">${esc(item.ext)}</span>
-                  <span class="mfile-name">${esc(label)}</span>
-                  ${item.isNew ? '<span class="badge-new">NEW</span>' : ''}
-                  <span class="mfile-meta">${esc(fmtSize(item.sizeMB))}</span>
-                </div>
-                <div class="mfile-acts">
-                  ${openBtn}
-                  <a class="mini-btn" href="${esc(item.url)}" download>${esc(L.dlText)}</a>
-                </div>
-              </div>
-            `;
-          })
-          .join('') || '<div style="padding:20px;text-align:center;color:var(--text-muted);">--</div>';
-
-        $$('.js-mpreview').forEach((b) =>
-          b.addEventListener('click', () => openLightbox(b.dataset.url, b.dataset.title)),
-        );
-      }
-
-      /** Pick at most 4 clean, deduplicated primary actions for a product card. */
-      function pickPrimaryActions(items) {
-        const L = t();
-        const find = (pred) => items.find(pred);
-
-        const brochure = find((x) => x.role === 'brochure-desktop') || find((x) => x.ext === 'HTML' && x.role !== 'gallery');
-        const overview = find((x) => x.role === 'overview' && x.ext === 'PNG') || find((x) => x.role === 'overview');
-        const specs = find((x) => x.role === 'specs' && x.ext === 'PNG') || find((x) => x.role === 'specs');
-        const pdf = find((x) => x.role === 'pdf' && !x.fileName.toLowerCase().includes('mobile') && !x.fileName.includes('手机'))
-          || find((x) => x.role === 'pdf');
-
-        const chosen = [];
-        if (brochure) chosen.push({ item: brochure, label: L.actBrochure, primary: true, lightbox: false });
-        if (overview) chosen.push({ item: overview, label: L.actOverview, primary: false, lightbox: isImg(overview.ext) });
-        if (specs) chosen.push({ item: specs, label: L.actSpecs, primary: false, lightbox: isImg(specs.ext) });
-        if (pdf) chosen.push({ item: pdf, label: L.actPdf, primary: false, lightbox: false });
-
-        // For any brand-new unknown product folder that doesn't match the 4 roles above
-        if (!chosen.length) {
-          for (const item of items.slice(0, 4)) {
-            chosen.push({
-              item,
-              label: isEn() ? item.titleEn : item.titleZh,
-              primary: chosen.length === 0,
-              lightbox: isImg(item.ext),
-            });
-          }
-        }
-        return chosen;
       }
 
       function applyChrome() {
@@ -912,18 +584,12 @@
         $('#tab-models-label').textContent = L.tabModels;
         $('#tab-models').href = `model-store/?lang=${state.lang}`;
         $('#ms-enter').href = `model-store/?lang=${state.lang}`;
-
         $('#page-title').textContent = L.pageTitle;
         $('#page-sub').textContent = L.pageSub;
-        $('#btn-copy-url').textContent = L.copyUrl;
         $('#ms-title').textContent = L.msTitle;
         $('#ms-enter').textContent = L.msEnter;
         $('#footer-left').textContent = L.footerLeft;
-        $('#btn-all-files').textContent = L.allFilesBtn;
-        $('#modal-close').textContent = L.closeText;
-        $('#modal-search').placeholder = L.searchPh;
-        $('#lightbox-open').textContent = L.openNew;
-        $('#lightbox-dl').textContent = L.dlOrig;
+        $('#lightbox-open').textContent = L.openOrig;
         $('#lightbox-close').textContent = L.closeText;
       }
 
@@ -936,60 +602,45 @@
 
         $('#tab-models-count').textContent = ms.visibleCount ?? '--';
         $('#ms-sub').textContent = L.msSub(ms);
-        $('#footer-meta').textContent = `AI Pod v${ms.appVersion || '--'} · ${L.updatedPrefix}${(m.updatedAt || '').slice(0, 10)}`;
+        $('#footer-meta').textContent = `AI Pod v${ms.appVersion || '--'} · ${(m.updatedAt || '').slice(0, 10)}`;
 
         const gridHtml = m.products
           .map((p) => {
             const name = isEn() ? p.nameEn : p.nameZh;
             const tagline = isEn() ? p.taglineEn : p.taglineZh;
             const badge = isEn() ? p.badgeEn : p.badgeZh;
-            const preview = isEn() ? (p.previewEn || p.previewZh) : (p.previewZh || p.previewEn);
 
-            let langItems = m.items.filter((x) => x.productId === p.id && x.lang === state.lang);
-            if (!langItems.length) langItems = m.items.filter((x) => x.productId === p.id);
+            let docs = m.items.filter((x) => x.productId === p.id && x.lang === state.lang);
+            if (!docs.length) docs = m.items.filter((x) => x.productId === p.id);
 
-            const primaryActions = pickPrimaryActions(langItems);
-            const gallery = langItems.find((x) => x.role === 'gallery');
-            const mobileHtml = langItems.find((x) => x.role === 'brochure-mobile');
-
-            // Secondary items for the optional drawer (exclude individual 12 posters when gallery exists)
-            const drawerItems = langItems.filter((x) => !(gallery && x.role === 'poster'));
-            const hasNew = drawerItems.some((x) => x.isNew);
-
-            const actsHtml = primaryActions
-              .map(({ item, label, primary, lightbox }) => {
-                if (lightbox) {
+            const docsHtml = docs
+              .map((item, idx) => {
+                const label = isEn() ? item.titleEn : item.titleZh;
+                const isPrimary = idx === 0;
+                if (isImg(item.ext)) {
                   return `
-                    <button type="button" class="act-btn ${primary ? 'primary' : ''} js-zoom" data-url="${esc(item.url)}" data-title="${esc(`${name} · ${label}`)}">
+                    <button type="button" class="doc-btn ${isPrimary ? 'primary' : ''} js-zoom" data-url="${esc(item.url)}" data-title="${esc(`${name} · ${label}`)}">
                       <span>${esc(label)}</span>
-                      <span class="act-fmt">${esc(item.ext)}</span>
+                      <span class="doc-arrow">↗</span>
                     </button>
                   `;
                 }
                 return `
-                  <a class="act-btn ${primary ? 'primary' : ''}" href="${esc(item.url)}" target="_blank" rel="noopener">
+                  <a class="doc-btn ${isPrimary ? 'primary' : ''}" href="${esc(item.url)}" target="_blank" rel="noopener">
                     <span>${esc(label)}</span>
-                    <span class="act-fmt">${esc(item.ext)}</span>
+                    <span class="doc-arrow">↗</span>
                   </a>
                 `;
               })
               .join('');
 
-            const leftFoot = [];
-            if (mobileHtml) {
-              leftFoot.push(`<a class="foot-link" href="${esc(mobileHtml.url)}" target="_blank" rel="noopener">${esc(L.actMobile)} ↗</a>`);
-            }
-            if (gallery) {
-              leftFoot.push(`<a class="foot-link" href="${esc(gallery.url)}" target="_blank" rel="noopener">${esc(L.actGallery)}</a>`);
-            }
-
             return `
               <article class="product-card">
                 ${
-                  preview
-                    ? `<div class="card-cover js-zoom" data-url="${esc(preview)}" data-title="${esc(name)}">
-                        <img src="${esc(preview)}" alt="${esc(name)}" loading="lazy" />
-                        <span class="cover-tag">${esc(badge)}</span>
+                  p.cover
+                    ? `<div class="card-visual">
+                        <span class="visual-badge">${esc(badge)}</span>
+                        <img src="${esc(p.cover)}" alt="${esc(name)}" loading="lazy" />
                       </div>`
                     : ''
                 }
@@ -998,14 +649,7 @@
                     <h2 class="card-title">${esc(name)}</h2>
                     <p class="card-sub">${esc(tagline)}</p>
                   </div>
-                  <div class="actions-grid">${actsHtml}</div>
-                  <div class="card-foot">
-                    <div style="display:flex;gap:14px;flex-wrap:wrap;">${leftFoot.join('')}</div>
-                    <button type="button" class="foot-link js-more" data-pid="${esc(p.id)}">
-                      ${hasNew ? '<span class="dot-new"></span>' : ''}
-                      <span>${esc(L.moreFiles(drawerItems.length))}</span>
-                    </button>
-                  </div>
+                  <div class="doc-list">${docsHtml}</div>
                 </div>
               </article>
             `;
@@ -1013,20 +657,8 @@
           .join('');
 
         $('#products-grid').innerHTML = gridHtml;
-
         $$('.js-zoom').forEach((el) =>
           el.addEventListener('click', () => openLightbox(el.dataset.url, el.dataset.title)),
-        );
-
-        $$('.js-more').forEach((btn) =>
-          btn.addEventListener('click', () => {
-            const p = m.products.find((x) => x.id === btn.dataset.pid);
-            let items = m.items.filter((x) => x.productId === btn.dataset.pid && x.lang === state.lang);
-            if (!items.length) items = m.items.filter((x) => x.productId === btn.dataset.pid);
-            const gallery = items.find((x) => x.role === 'gallery');
-            const clean = items.filter((x) => !(gallery && x.role === 'poster'));
-            openFilesModal(isEn() ? p.nameEn : p.nameZh, clean, false);
-          }),
         );
       }
 
@@ -1059,33 +691,12 @@
         applyChrome();
       });
 
-      $('#btn-copy-url').addEventListener('click', () => {
-        const u = new URL(window.location.href);
-        u.searchParams.set('lang', state.lang);
-        navigator.clipboard?.writeText(u.href).then(() => toast(t().copiedUrl));
-      });
-
-      $('#btn-all-files').addEventListener('click', () => {
-        if (!state.manifest) return;
-        const langItems = state.manifest.items.filter((x) => x.lang === state.lang);
-        openFilesModal(t().allFilesTitle, langItems.length ? langItems : state.manifest.items, true);
-      });
-
-      $('#modal-search').addEventListener('input', (e) => renderModalRows(e.target.value));
-      $('#modal-close').addEventListener('click', () => $('#files-modal').classList.remove('open'));
-      $('#files-modal').addEventListener('click', (e) => {
-        if (e.target === $('#files-modal')) $('#files-modal').classList.remove('open');
-      });
-
       $('#lightbox-close').addEventListener('click', closeLightbox);
       $('#lightbox').addEventListener('click', (e) => {
         if (e.target === $('#lightbox')) closeLightbox();
       });
       document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') {
-          closeLightbox();
-          $('#files-modal').classList.remove('open');
-        }
+        if (e.key === 'Escape') closeLightbox();
       });
 
       init();
