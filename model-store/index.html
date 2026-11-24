@@ -1300,6 +1300,216 @@
       font-size: 15px;
     }
 
+    /* ==================== Force Sync Button & 5s Result Popup ==================== */
+    @keyframes spin360 {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .btn-sync {
+      border-color: var(--blue-line);
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .btn-sync:hover:not(:disabled) {
+      border-color: var(--blue);
+      background: color-mix(in srgb, var(--blue-soft) 80%, var(--blue) 12%);
+      color: var(--blue);
+    }
+
+    .btn-sync:disabled {
+      opacity: 0.72;
+      cursor: wait;
+    }
+
+    .btn-sync svg {
+      width: 13.5px;
+      height: 13.5px;
+      flex-shrink: 0;
+    }
+
+    .btn-sync.loading svg {
+      animation: spin360 0.8s linear infinite;
+    }
+
+    .sync-popup {
+      position: fixed;
+      top: 18px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-16px) scale(0.98);
+      width: min(470px, calc(100vw - 24px));
+      background: color-mix(in srgb, var(--surface) 96%, transparent);
+      backdrop-filter: saturate(180%) blur(18px);
+      -webkit-backdrop-filter: saturate(180%) blur(18px);
+      border: 1px solid var(--line-strong);
+      border-radius: 12px;
+      box-shadow: 0 20px 50px -14px rgba(15, 23, 42, 0.24), 0 4px 14px -4px rgba(15, 23, 42, 0.08);
+      z-index: 96;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.22s cubic-bezier(0.22, 1, 0.36, 1), transform 0.24s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .sync-popup.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0) scale(1);
+    }
+
+    .sync-pop-inner {
+      padding: 14px 16px 13px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .sync-pop-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+    }
+
+    .sync-pop-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .sync-pop-icon.updated { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); }
+    .sync-pop-icon.none    { background: var(--blue-soft);  color: var(--blue);  border: 1px solid var(--blue-line); }
+    .sync-pop-icon.error   { background: var(--rose-soft);  color: var(--rose);  border: 1px solid var(--rose-line); }
+
+    .sync-pop-main {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .sync-pop-title-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .sync-pop-title {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+
+    .sync-pop-sub {
+      margin-top: 3px;
+      font-size: 12px;
+      color: var(--ink-3);
+      line-height: 1.45;
+    }
+
+    .sync-pop-ctrl {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .sync-pop-cd {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-3);
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      padding: 2px 6px;
+    }
+
+    .sync-pop-close {
+      border: 0;
+      background: transparent;
+      color: var(--ink-3);
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+    }
+    .sync-pop-close:hover { background: var(--surface-3); color: var(--ink); }
+
+    .sync-pop-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .sync-pop-list {
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      max-height: 185px;
+      overflow-y: auto;
+    }
+
+    .sync-pop-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      font-size: 12.5px;
+      line-height: 1.35;
+    }
+
+    .sync-pop-item-l {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+    }
+
+    .sync-pop-item-name {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sync-pop-more {
+      font-size: 11.5px;
+      color: var(--ink-3);
+      padding-top: 2px;
+      border-top: 1px dashed var(--line);
+    }
+
+    .sync-pop-bar {
+      height: 3px;
+      width: 100%;
+      background: var(--surface-3);
+      overflow: hidden;
+    }
+
+    .sync-pop-bar-fill {
+      height: 100%;
+      width: 100%;
+      transform-origin: left center;
+      transition: transform 0.1s linear;
+    }
+
+    .sync-pop-bar-fill.updated { background: var(--green); }
+    .sync-pop-bar-fill.none    { background: var(--blue); }
+    .sync-pop-bar-fill.error   { background: var(--rose); }
+
     /* ==================== Responsive Adaptation ==================== */
     @media (max-width: 1080px) {
       .page-head { grid-template-columns: 1fr; gap: 16px; }
@@ -1333,7 +1543,7 @@
     }
 
     @media print {
-      .topbar, .controls-shell, .update-banner, .shot-float, .toast { display: none !important; }
+      .topbar, .controls-shell, .update-banner, .shot-float, .sync-popup, .toast { display: none !important; }
       body { background: #ffffff; background-image: none; }
       .card, .wall-card, .spec-board { break-inside: avoid; box-shadow: none; }
     }
@@ -1440,6 +1650,13 @@
             <button type="button" data-scale="xlarge" id="btn-s-xlarge">特大</button>
           </div>
 
+          <button type="button" class="btn btn-sync" id="btn-force-sync">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12a9 9 0 1 1-2.64-6.36" />
+              <polyline points="21 3 21 9 15 9" />
+            </svg>
+            <span id="lbl-force-sync">强制拉取更新</span>
+          </button>
           <button type="button" class="btn" id="btn-changelog">更新记录</button>
           <button type="button" class="btn" id="btn-copy-list">复制清单</button>
           <button type="button" class="btn btn-accent" id="btn-screenshot">截图模式</button>
@@ -1491,6 +1708,8 @@
     </div>
   </div>
 
+  <div class="sync-popup" id="sync-popup" role="status" aria-live="polite"></div>
+
   <div class="toast" id="toast"></div>
 
   <script>
@@ -1527,9 +1746,24 @@
           sNormal: '标准',
           sLarge: '大字',
           sXlarge: '特大',
+          btnForceSync: '强制拉取更新',
+          btnSyncing: '拉取中…',
           btnChangelog: '更新记录',
           btnCopy: '复制清单',
           btnShot: '截图模式',
+          syncNoneTitle: '暂无更新数据',
+          syncNoneSub: (ver, cnt, syncedAt) => `当前已是最新 · AI Pod v${ver} · ${cnt} 款展示模型 · 同步 ${syncedAt.slice(0, 16)}`,
+          syncUpdatedTitle: '已拉取最新模型数据',
+          syncUpdatedSub: (ver, cnt, syncedAt) => `当前 AI Pod v${ver} · 共 ${cnt} 款展示模型 · 同步 ${syncedAt.slice(0, 16)}`,
+          syncErrTitle: '拉取更新失败',
+          syncTagAdd: '新增',
+          syncTagUpd: '更新',
+          syncTagRem: '下线',
+          syncCountAdd: (n) => `+${n} 新增`,
+          syncCountUpd: (n) => `↻ ${n} 更新`,
+          syncCountRem: (n) => `−${n} 下线`,
+          syncCountTotal: (n) => `共 ${n} 款`,
+          syncMore: (n) => `另有 ${n} 项变动，可点击「更新记录」查看详情`,
           heroBadge: 'AI POD MODEL STORE · 每 30 分钟自动同步',
           heroTitle: '懒猫 AI Pod 模型广场 · 实测支持一览',
           heroSub: '涵盖大语言模型、视频/图像生成、实时语音、文档 OCR 与多模态检索，本地一键部署，点击任意卡片查看完整硬件与实测参数。',
@@ -1609,9 +1843,24 @@
           sNormal: 'Std',
           sLarge: 'Lg',
           sXlarge: 'XL',
+          btnForceSync: 'Force Refresh',
+          btnSyncing: 'Syncing…',
           btnChangelog: 'Changelog',
           btnCopy: 'Copy List',
           btnShot: 'Screenshot',
+          syncNoneTitle: 'No Updates Available',
+          syncNoneSub: (ver, cnt, syncedAt) => `Already up to date · AI Pod v${ver} · ${cnt} models · Synced ${syncedAt.slice(0, 16)}`,
+          syncUpdatedTitle: 'Latest Model Data Loaded',
+          syncUpdatedSub: (ver, cnt, syncedAt) => `AI Pod v${ver} · ${cnt} models total · Synced ${syncedAt.slice(0, 16)}`,
+          syncErrTitle: 'Failed to Refresh Data',
+          syncTagAdd: 'NEW',
+          syncTagUpd: 'UPD',
+          syncTagRem: 'DEL',
+          syncCountAdd: (n) => `+${n} Added`,
+          syncCountUpd: (n) => `↻ ${n} Updated`,
+          syncCountRem: (n) => `−${n} Removed`,
+          syncCountTotal: (n) => `${n} Total`,
+          syncMore: (n) => `+${n} more changes · open Changelog for details`,
           heroBadge: 'AI POD MODEL STORE · AUTO-SYNCED EVERY 30M',
           heroTitle: 'LCMD AI Pod Model Store · Benchmark Catalog',
           heroSub: 'LLMs, video & image generation, real-time speech, OCR, and multimodal retrieval — locally deployable in one click. Click any card for full specs.',
@@ -1708,6 +1957,7 @@
         query: '',
         showHidden: false,
         screenshotMode: false,
+        syncing: false,
       };
 
       const $ = (sel) => document.querySelector(sel);
@@ -2047,6 +2297,7 @@
         $('#btn-s-normal').textContent = L.sNormal;
         $('#btn-s-large').textContent = L.sLarge;
         $('#btn-s-xlarge').textContent = L.sXlarge;
+        $('#lbl-force-sync').textContent = state.syncing ? L.btnSyncing : L.btnForceSync;
         $('#btn-changelog').textContent = L.btnChangelog;
         $('#btn-copy-list').textContent = L.btnCopy;
         $('#btn-screenshot').textContent = L.btnShot;
@@ -2539,6 +2790,270 @@
         }
       }
 
+      // ==================== Force Pull Update & 5s Auto-Dismiss Popup ====================
+      const GITHUB_RAW_DATA_URL = 'https://raw.githubusercontent.com/lcmdcloud/lcmdcloud.github.io/main/model-store/data.json';
+      const GITHUB_RAW_COVERS_BASE = 'https://raw.githubusercontent.com/lcmdcloud/lcmdcloud.github.io/main/model-store/';
+
+      function modelFingerprint(m) {
+        return JSON.stringify({
+          t: m.title,
+          te: m.titleEn,
+          d: m.description,
+          de: m.descriptionEn,
+          h: Boolean(m.hidden),
+          c: m.category,
+          dc: m.deviceCount,
+          hw: (m.hardware || []).map((x) => `${x.device}:${x.memoryGiB}:${x.diskGiB}:${x.profile || ''}`),
+          rv: m.release?.version || '',
+        });
+      }
+
+      function diffModelData(prev, next) {
+        const prevMap = new Map((prev?.models || []).map((m) => [m.packageId, m]));
+        const nextMap = new Map((next?.models || []).map((m) => [m.packageId, m]));
+        const added = [];
+        const updated = [];
+        const removed = [];
+
+        for (const [id, nm] of nextMap.entries()) {
+          const pm = prevMap.get(id);
+          if (!pm) {
+            added.push(nm);
+          } else if (modelFingerprint(pm) !== modelFingerprint(nm)) {
+            updated.push(nm);
+          }
+        }
+        for (const [id, pm] of prevMap.entries()) {
+          if (!nextMap.has(id)) removed.push(pm);
+        }
+
+        const versionChanged = Boolean(prev?.appVersion && next?.appVersion && prev.appVersion !== next.appVersion);
+        const syncedChanged = Boolean(prev?.syncedTs && next?.syncedTs && next.syncedTs > prev.syncedTs);
+        const hasChanges = versionChanged || added.length > 0 || updated.length > 0 || removed.length > 0 || (syncedChanged && prev?.appUpdatedAt !== next?.appUpdatedAt);
+        return { versionChanged, prevVersion: prev?.appVersion, nextVersion: next?.appVersion, added, updated, removed, hasChanges };
+      }
+
+      async function fetchJsonNoCache(url, timeoutMs = 9000) {
+        const ctrl = new AbortController();
+        const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+        try {
+          const sep = url.includes('?') ? '&' : '?';
+          const res = await fetch(`${url}${sep}force=${Date.now()}&r=${Math.random().toString(36).slice(2, 7)}`, {
+            cache: 'no-store',
+            signal: ctrl.signal,
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          return await res.json();
+        } finally {
+          clearTimeout(timer);
+        }
+      }
+
+      function normalizeRawCovers(data) {
+        if (!data?.models) return data;
+        return {
+          ...data,
+          models: data.models.map((m) => {
+            if (m.image && m.image.startsWith('./covers/')) {
+              return { ...m, image: GITHUB_RAW_COVERS_BASE + m.image.slice(2) };
+            }
+            return m;
+          }),
+        };
+      }
+
+      const popupTimer = { raf: null, start: 0, remaining: 5000, paused: false };
+
+      function closeSyncPopup() {
+        const el = $('#sync-popup');
+        if (el) el.classList.remove('show');
+        if (popupTimer.raf) {
+          cancelAnimationFrame(popupTimer.raf);
+          popupTimer.raf = null;
+        }
+      }
+
+      function showSyncPopup({ type, title, subtitle, versionBadge, diff, totalVisible, durationMs = 5000 }) {
+        const L = t();
+        const el = $('#sync-popup');
+        closeSyncPopup();
+
+        const iconSvg =
+          type === 'updated'
+            ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`
+            : type === 'error'
+              ? `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>`
+              : `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="16 10 11 15 8 12"/></svg>`;
+
+        let detailsHtml = '';
+        if (type === 'updated' && diff) {
+          const statPills = [];
+          if (diff.added.length) statPills.push(`<span class="log-chip log-add num">${esc(L.syncCountAdd(diff.added.length))}</span>`);
+          if (diff.updated.length) statPills.push(`<span class="log-chip log-upd num">${esc(L.syncCountUpd(diff.updated.length))}</span>`);
+          if (diff.removed.length) statPills.push(`<span class="log-chip log-rem num">${esc(L.syncCountRem(diff.removed.length))}</span>`);
+          if (typeof totalVisible === 'number') statPills.push(`<span class="badge ctx num">${esc(L.syncCountTotal(totalVisible))}</span>`);
+
+          const rows = [
+            ...diff.added.map((m) => ({ kind: 'add', tag: L.syncTagAdd, cls: 'log-add', m })),
+            ...diff.updated.map((m) => ({ kind: 'upd', tag: L.syncTagUpd, cls: 'log-upd', m })),
+            ...diff.removed.map((m) => ({ kind: 'rem', tag: L.syncTagRem, cls: 'log-rem', m })),
+          ];
+
+          const maxRows = 6;
+          const visibleRows = rows.slice(0, maxRows);
+          const extra = rows.length - visibleRows.length;
+
+          detailsHtml = `
+            ${statPills.length ? `<div class="sync-pop-stats">${statPills.join('')}</div>` : ''}
+            ${
+              visibleRows.length
+                ? `<div class="sync-pop-list">
+                    ${visibleRows
+                      .map(
+                        (r) => `
+                      <div class="sync-pop-item">
+                        <div class="sync-pop-item-l">
+                          <span class="log-chip ${r.cls}" style="padding:1px 6px;font-size:10.5px;">${esc(r.tag)}</span>
+                          <span class="sync-pop-item-name">${esc(modelTitle(r.m))}</span>
+                        </div>
+                        <span class="badge ctx num" style="font-size:10px;padding:1px 5px;">${esc(renderShortHw(r.m))}</span>
+                      </div>
+                    `,
+                      )
+                      .join('')}
+                    ${extra > 0 ? `<div class="sync-pop-more">${esc(L.syncMore(extra))}</div>` : ''}
+                  </div>`
+                : ''
+            }
+          `;
+        }
+
+        el.innerHTML = `
+          <div class="sync-pop-inner">
+            <div class="sync-pop-head">
+              <div class="sync-pop-icon ${type}">${iconSvg}</div>
+              <div class="sync-pop-main">
+                <div class="sync-pop-title-row">
+                  <span class="sync-pop-title">${esc(title)}</span>
+                  ${versionBadge ? `<span class="badge thor num">${esc(versionBadge)}</span>` : ''}
+                </div>
+                ${subtitle ? `<div class="sync-pop-sub num">${esc(subtitle)}</div>` : ''}
+              </div>
+              <div class="sync-pop-ctrl">
+                <span class="sync-pop-cd num" id="sync-pop-cd">${Math.ceil(durationMs / 1000)}s</span>
+                <button type="button" class="sync-pop-close" id="sync-pop-close" aria-label="Close">×</button>
+              </div>
+            </div>
+            ${detailsHtml}
+          </div>
+          <div class="sync-pop-bar"><div class="sync-pop-bar-fill ${type}" id="sync-pop-bar-fill"></div></div>
+        `;
+
+        $('#sync-pop-close')?.addEventListener('click', closeSyncPopup);
+        requestAnimationFrame(() => el.classList.add('show'));
+
+        popupTimer.remaining = durationMs;
+        popupTimer.paused = false;
+        let lastTs = performance.now();
+
+        const tick = (now) => {
+          const dt = now - lastTs;
+          lastTs = now;
+          if (!popupTimer.paused) {
+            popupTimer.remaining = Math.max(0, popupTimer.remaining - dt);
+            const ratio = popupTimer.remaining / durationMs;
+            const fill = $('#sync-pop-bar-fill');
+            const cd = $('#sync-pop-cd');
+            if (fill) fill.style.transform = `scaleX(${ratio})`;
+            if (cd) cd.textContent = `${Math.max(1, Math.ceil(popupTimer.remaining / 1000))}s`;
+          }
+          if (popupTimer.remaining <= 0) {
+            closeSyncPopup();
+            return;
+          }
+          popupTimer.raf = requestAnimationFrame(tick);
+        };
+        popupTimer.raf = requestAnimationFrame(tick);
+      }
+
+      const syncPopupEl = $('#sync-popup');
+      syncPopupEl.addEventListener('mouseenter', () => { popupTimer.paused = true; });
+      syncPopupEl.addEventListener('mouseleave', () => { popupTimer.paused = false; });
+
+      async function forcePullUpdate() {
+        if (state.syncing) return;
+        const L = t();
+        const btn = $('#btn-force-sync');
+        state.syncing = true;
+        btn.disabled = true;
+        btn.classList.add('loading');
+        $('#lbl-force-sync').textContent = L.btnSyncing;
+
+        try {
+          const isRemoteHost = /^https?:$/i.test(window.location.protocol) && !['localhost', '127.0.0.1'].includes(window.location.hostname);
+          const tasks = [
+            fetchJsonNoCache('./data.json').then((d) => ({ source: 'local', data: d })),
+          ];
+          if (isRemoteHost) {
+            tasks.push(
+              fetchJsonNoCache(GITHUB_RAW_DATA_URL).then((d) => ({ source: 'github-raw', data: d })),
+            );
+          }
+
+          const settled = await Promise.allSettled(tasks);
+          const okResults = settled.filter((r) => r.status === 'fulfilled' && r.value?.data?.models).map((r) => r.value);
+          if (!okResults.length) {
+            const firstErr = settled.find((r) => r.status === 'rejected')?.reason;
+            throw new Error(firstErr?.message || 'Network error');
+          }
+
+          // Pick freshest payload by syncedTs, falling back to local
+          okResults.sort((a, b) => (b.data.syncedTs || 0) - (a.data.syncedTs || 0));
+          const best = okResults[0];
+          const nextData = best.source === 'github-raw' ? normalizeRawCovers(best.data) : best.data;
+
+          const prevData = state.data;
+          const diff = diffModelData(prevData, nextData);
+          const visCount = (nextData.models || []).filter((m) => !m.hidden).length;
+
+          if (!prevData || diff.hasChanges) {
+            state.data = nextData;
+            render();
+            const verBadge = diff.versionChanged
+              ? `v${diff.prevVersion} → v${diff.nextVersion}`
+              : `v${nextData.appVersion}`;
+            showSyncPopup({
+              type: 'updated',
+              title: L.syncUpdatedTitle,
+              subtitle: L.syncUpdatedSub(nextData.appVersion, visCount, nextData.syncedAt || ''),
+              versionBadge: verBadge,
+              diff,
+              totalVisible: visCount,
+              durationMs: 5000,
+            });
+          } else {
+            showSyncPopup({
+              type: 'none',
+              title: L.syncNoneTitle,
+              subtitle: L.syncNoneSub(nextData.appVersion, visCount, nextData.syncedAt || ''),
+              durationMs: 5000,
+            });
+          }
+        } catch (err) {
+          showSyncPopup({
+            type: 'error',
+            title: L.syncErrTitle,
+            subtitle: err.message || String(err),
+            durationMs: 5000,
+          });
+        } finally {
+          state.syncing = false;
+          btn.disabled = false;
+          btn.classList.remove('loading');
+          $('#lbl-force-sync').textContent = t().btnForceSync;
+        }
+      }
+
       $$('[data-view]').forEach((btn) =>
         btn.addEventListener('click', () => {
           state.view = btn.dataset.view;
@@ -2598,6 +3113,7 @@
         applyPreferences();
       });
 
+      $('#btn-force-sync').addEventListener('click', forcePullUpdate);
       $('#btn-copy-list').addEventListener('click', copyPlainList);
       $('#btn-changelog').addEventListener('click', openChangelog);
       $('#btn-close-modal').addEventListener('click', () => $('#changelog-modal').classList.remove('open'));
@@ -2639,7 +3155,9 @@
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          if ($('#detail-modal').classList.contains('open')) {
+          if ($('#sync-popup').classList.contains('show')) {
+            closeSyncPopup();
+          } else if ($('#detail-modal').classList.contains('open')) {
             $('#detail-modal').classList.remove('open');
           } else if ($('#changelog-modal').classList.contains('open')) {
             $('#changelog-modal').classList.remove('open');
