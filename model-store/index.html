@@ -2024,7 +2024,7 @@
       }
 
       function extractContextBadge(m) {
-        const text = `${m.description || ''} ${m.hardware?.[0]?.profile || ''}`;
+        const text = `${m.description || ''} ${m.descriptionEn || ''}`;
         const hit = text.match(/(\d+(?:\.\d+)?[KM])\s*(?:上下文|context)/i);
         if (hit) return `${hit[1].toUpperCase()} CTX`;
         const tok = text.match(/\b(1048576|900000|262144|131072|32768|8192)\s*tokens\b/i);
@@ -2356,9 +2356,8 @@
               m.meta,
               m.description,
               m.descriptionEn,
-              m.packageId,
               m.badge,
-              ...(m.hardware || []).map((h) => `${h.device} ${h.profile}`),
+              ...(m.hardware || []).map((h) => h.device),
             ]
               .join(' ')
               .toLowerCase();
@@ -2401,19 +2400,18 @@
             const cardsHtml = items
               .map((m) => {
                 const { boxes, speedup } = extractTriMetrics(m);
-                const prof = m.hardware?.[0]?.profile && m.hardware[0].profile !== 'default'
-                  ? m.hardware[0].profile
-                  : modelCatLabel(m);
+                const subLine = `${modelCatLabel(m)}${m.meta ? ` · ${m.meta}` : ''}`;
                 const fitCls = m.imageFit === 'contain' ? 'contain' : '';
+                const mid = m.id || m.packageId || m.title;
 
                 return `
-                  <article class="card ${m.hidden ? 'is-hidden' : ''}" data-pkg="${esc(m.packageId)}">
+                  <article class="card ${m.hidden ? 'is-hidden' : ''}" data-pkg="${esc(mid)}">
                     <div class="card-top">
                       <div class="card-id">
                         ${m.image ? `<div class="card-thumb ${fitCls}"><img src="${esc(m.image)}" alt="${esc(modelTitle(m))}" loading="lazy" /></div>` : ''}
                         <div class="card-titles">
                           <h3 class="card-title">${esc(modelTitle(m))}</h3>
-                          <div class="card-sub num" title="${esc(prof)}">${esc(prof)}</div>
+                          <div class="card-sub" title="${esc(subLine)}">${esc(subLine)}</div>
                         </div>
                       </div>
                       <div class="badges">${renderHwBadges(m)}</div>
@@ -2480,7 +2478,7 @@
                   .join('');
 
                 return `
-                  <div class="spec-row" data-pkg="${esc(m.packageId)}">
+                  <div class="spec-row" data-pkg="${esc(m.id || m.packageId || m.title)}">
                     <div class="spec-name-cell">
                       ${m.image ? `<div class="spec-mini-thumb"><img src="${esc(m.image)}" alt="" loading="lazy" /></div>` : ''}
                       <div style="min-width:0">
@@ -2531,7 +2529,7 @@
             const itemsHtml = items
               .map(
                 (m) => `
-                  <div class="wall-item" data-pkg="${esc(m.packageId)}">
+                  <div class="wall-item" data-pkg="${esc(m.id || m.packageId || m.title)}">
                     <span class="wall-item-name">${esc(modelTitle(m))}${m.isNew ? ' <span class="badge new" style="font-size:9.5px;padding:1px 4px;margin-left:4px;">NEW</span>' : ''}</span>
                     <span class="wall-item-hw num">${esc(renderShortHw(m))}</span>
                   </div>
@@ -2556,8 +2554,8 @@
         return `<div class="wall-grid">${cards}</div>`;
       }
 
-      function openDetailModal(pkgId) {
-        const m = state.data?.models?.find((x) => x.packageId === pkgId);
+      function openDetailModal(modelId) {
+        const m = state.data?.models?.find((x) => (x.id || x.packageId || x.title) === modelId);
         if (!m) return;
         const L = t();
         $('#detail-title').textContent = modelTitle(m);
@@ -2582,16 +2580,10 @@
                   <span><b>${memLbl}:</b> ${formatGiB(h.memoryGiB)}${per}</span>
                   <span><b>${L.disk}:</b> ${diskOp} ${formatGiB(h.diskGiB)}${per}</span>
                 </div>
-                ${h.profile && h.profile !== 'default' ? `<div class="detail-hw-profile num">${esc(h.profile)}</div>` : ''}
               </div>
             `;
           })
           .join('');
-
-        const notes = (m.hardware || [])
-          .map((h) => h.memoryNoteZh)
-          .filter(Boolean);
-        const uniqueNotes = Array.from(new Set(notes));
 
         const fitCls = m.imageFit === 'contain' ? 'contain' : '';
         $('#detail-body').innerHTML = `
@@ -2599,7 +2591,6 @@
           <div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;">
             <span class="badge ctx">${esc(modelCatLabel(m))}</span>
             ${renderHwBadges(m)}
-            ${m.release?.version ? `<span class="badge ctx num">v${esc(m.release.version)}</span>` : ''}
           </div>
           <div>
             <div class="detail-section-label">${esc(L.detailPerfSec)}</div>
@@ -2609,26 +2600,8 @@
             <div class="detail-section-label">${esc(L.detailHwSec)}</div>
             <div class="detail-hw-grid">${hwCards}</div>
           </div>
-          ${
-            uniqueNotes.length
-              ? `<div>
-                  <div class="detail-section-label">${esc(L.detailNoteSec)}</div>
-                  <div class="detail-note">${uniqueNotes.map((n) => esc(n)).join('<br/><br/>')}</div>
-                </div>`
-              : ''
-          }
-          <div>
-            <div class="detail-section-label">${esc(L.detailPkgSec)}</div>
-            <div class="detail-pkg num">
-              <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${esc(m.packageId)}</span>
-              <button type="button" class="btn" id="btn-copy-pkg" style="padding:4px 9px;font-size:11.5px;">${esc(L.copyPkg)}</button>
-            </div>
-          </div>
         `;
 
-        $('#btn-copy-pkg')?.addEventListener('click', () => {
-          navigator.clipboard?.writeText(m.packageId).then(() => showToast(L.pkgCopied));
-        });
         $('#detail-modal').classList.add('open');
       }
 
@@ -2814,6 +2787,10 @@
         return (a?.syncedTs || 0) - (b?.syncedTs || 0);
       }
 
+      function modelKey(m) {
+        return m.id || m.packageId || m.title;
+      }
+
       function modelFingerprint(m) {
         return JSON.stringify({
           t: m.title,
@@ -2823,14 +2800,13 @@
           h: Boolean(m.hidden),
           c: m.category,
           dc: m.deviceCount,
-          hw: (m.hardware || []).map((x) => `${x.device}:${x.memoryGiB}:${x.diskGiB}:${x.profile || ''}:${x.memoryNoteZh || ''}`),
-          rv: m.release?.version || '',
+          hw: (m.hardware || []).map((x) => `${x.device}:${x.memoryGiB}:${x.diskGiB}`),
         });
       }
 
       function diffModelData(prev, next) {
-        const prevMap = new Map((prev?.models || []).map((m) => [m.packageId, m]));
-        const nextMap = new Map((next?.models || []).map((m) => [m.packageId, m]));
+        const prevMap = new Map((prev?.models || []).map((m) => [modelKey(m), m]));
+        const nextMap = new Map((next?.models || []).map((m) => [modelKey(m), m]));
         const added = [];
         const updated = [];
         const removed = [];
