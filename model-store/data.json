@@ -4,12 +4,11 @@
   "appName": "AI Pod",
   "appVersion": "2.3.391",
   "appUpdatedAt": "2026-11-24 15:14:28",
-  "syncedAt": "2026-11-24 16:40:48",
-  "syncedTs": 1795509648,
+  "syncedAt": "2026-11-24 16:44:22",
+  "syncedTs": 1795509862,
   "stats": {
     "visibleCount": 58,
-    "hiddenCount": 7,
-    "totalCount": 65,
+    "totalCount": 58,
     "categoryCount": 19,
     "thorCount": 57,
     "orinCount": 46,
@@ -20,153 +19,134 @@
       "key": "llm",
       "zh": "大语言模型",
       "en": "Large Language Models",
-      "visibleCount": 16,
-      "totalCount": 23,
-      "shortEn": "LLM"
+      "shortEn": "LLM",
+      "visibleCount": 16
     },
     {
       "key": "video",
       "zh": "视频生成",
       "en": "Video Generation",
-      "visibleCount": 5,
-      "totalCount": 5,
-      "shortEn": "Video"
+      "shortEn": "Video",
+      "visibleCount": 5
     },
     {
       "key": "image",
       "zh": "图像生成",
       "en": "Image Generation",
-      "visibleCount": 4,
-      "totalCount": 4,
-      "shortEn": "Image"
+      "shortEn": "Image",
+      "visibleCount": 4
     },
     {
       "key": "translation",
       "zh": "语言翻译",
       "en": "Machine Translation",
-      "visibleCount": 4,
-      "totalCount": 4,
-      "shortEn": "MT"
+      "shortEn": "MT",
+      "visibleCount": 4
     },
     {
       "key": "speechTranslation",
       "zh": "语音翻译",
       "en": "Speech Translation",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Speech MT"
+      "shortEn": "Speech MT",
+      "visibleCount": 1
     },
     {
       "key": "asr",
       "zh": "语音识别",
       "en": "Speech Recognition (ASR)",
-      "visibleCount": 5,
-      "totalCount": 5,
-      "shortEn": "ASR"
+      "shortEn": "ASR",
+      "visibleCount": 5
     },
     {
       "key": "alignment",
       "zh": "语音对齐",
       "en": "Speech Alignment",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Alignment"
+      "shortEn": "Alignment",
+      "visibleCount": 1
     },
     {
       "key": "separation",
       "zh": "人声分离",
       "en": "Vocal Separation",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Separation"
+      "shortEn": "Separation",
+      "visibleCount": 1
     },
     {
       "key": "diarization",
       "zh": "说话人分离",
       "en": "Speaker Diarization",
-      "visibleCount": 3,
-      "totalCount": 3,
-      "shortEn": "Diarization"
+      "shortEn": "Diarization",
+      "visibleCount": 3
     },
     {
       "key": "tts",
       "zh": "语音合成",
       "en": "Speech Synthesis (TTS)",
-      "visibleCount": 6,
-      "totalCount": 6,
-      "shortEn": "TTS"
+      "shortEn": "TTS",
+      "visibleCount": 6
     },
     {
       "key": "layout",
       "zh": "版面分析",
       "en": "Document Layout Analysis",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Layout"
+      "shortEn": "Layout",
+      "visibleCount": 1
     },
     {
       "key": "ocr",
       "zh": "文字识别",
       "en": "Text Recognition (OCR)",
-      "visibleCount": 3,
-      "totalCount": 3,
-      "shortEn": "OCR"
+      "shortEn": "OCR",
+      "visibleCount": 3
     },
     {
       "key": "decision",
       "zh": "多模态决策",
       "en": "Multimodal Decisions",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Decision"
+      "shortEn": "Decision",
+      "visibleCount": 1
     },
     {
       "key": "embedding",
       "zh": "文本向量",
       "en": "Text Embeddings",
-      "visibleCount": 2,
-      "totalCount": 2,
-      "shortEn": "Embedding"
+      "shortEn": "Embedding",
+      "visibleCount": 2
     },
     {
       "key": "imageTextEmbedding",
       "zh": "图文向量",
       "en": "Text-Image Embeddings",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "CLIP"
+      "shortEn": "CLIP",
+      "visibleCount": 1
     },
     {
       "key": "multimodalEmbedding",
       "zh": "多模态向量",
       "en": "Multimodal Embeddings",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Multimodal"
+      "shortEn": "Multimodal",
+      "visibleCount": 1
     },
     {
       "key": "reranking",
       "zh": "检索重排",
       "en": "Retrieval Reranking",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Reranking"
+      "shortEn": "Reranking",
+      "visibleCount": 1
     },
     {
       "key": "faceRecognition",
       "zh": "人脸识别",
       "en": "Face Recognition",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Face ID"
+      "shortEn": "Face ID",
+      "visibleCount": 1
     },
     {
       "key": "imageCaptioning",
       "zh": "图片描述",
       "en": "Image Captioning",
-      "visibleCount": 1,
-      "totalCount": 1,
-      "shortEn": "Captioning"
+      "shortEn": "Captioning",
+      "visibleCount": 1
     }
   ],
   "models": [
@@ -191,7 +171,6 @@
       "imageFit": "cover",
       "image": "./covers/deepseek-v41-tensorfold-C2K2UJZJ.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -206,113 +185,8 @@
       "isNew": true
     },
     {
-      "id": "m-6bcabd69",
-      "order": 2,
-      "title": "DeepSeek V4.1 Flash 1017 TensorFold",
-      "titleEn": "DeepSeek V4.1 Flash 1017 TensorFold",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "2 × AGX Thor",
-      "deviceCount": 2,
-      "devices": [
-        "thor"
-      ],
-      "isMultiNode": true,
-      "description": "代码单流 70.19 TPS，4 并发总吞吐 92.68 TPS，32K Prefill 1046.17 TPS，TTFT 0.375s，最高 1M 上下文",
-      "descriptionEn": "Code single-stream 70.19 TPS, 4-way total throughput 92.68 TPS, 32K prefill 1,046.17 TPS, TTFT 0.375s; up to 1M context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/deepseek-v41-tensorfold-C2K2UJZJ.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 112,
-          "diskGiB": 294.97,
-          "diskLowerBound": true,
-          "perDevice": true,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
-      "id": "m-bcb39b1d",
-      "order": 3,
-      "title": "DeepSeek V4.1 Flash 1017 DeepInfer",
-      "titleEn": "DeepSeek V4.1 Flash 1017 DeepInfer",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "2 × AGX Thor",
-      "deviceCount": 2,
-      "devices": [
-        "thor"
-      ],
-      "isMultiNode": true,
-      "description": "代码单流 69.85 TPS，8 并发总吞吐 151.33 TPS，32K 预热后有效 Prefill 1069.49 TPS，短输入 TTFT 209.42ms，最高 1M 上下文",
-      "descriptionEn": "Code single-stream 69.85 TPS, 8-way total throughput 151.33 TPS, warm 32K effective prefill 1,069.49 TPS, short-input TTFT 209.42ms; up to 1M context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/deepseek-v41-tensorfold-C2K2UJZJ.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 112,
-          "diskGiB": 393.02,
-          "diskLowerBound": true,
-          "perDevice": true,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
-      "id": "m-c4cf44be",
-      "order": 4,
-      "title": "DeepSeek V4.1 Flash 未审查版 TensorFold",
-      "titleEn": "DeepSeek V4.1 Flash · Uncensored TensorFold",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "2 × AGX Thor",
-      "deviceCount": 2,
-      "devices": [
-        "thor"
-      ],
-      "isMultiNode": true,
-      "description": "单流最高50.49TPS， 8并发 155.04 TPS， 28K Prefill 1050.06 TPS, TTFT 0.327s，最高 1M 上下文",
-      "descriptionEn": "Single-stream up to 50.49 TPS, 8-way concurrency 155.04 TPS, 28K prefill 1,050.06 TPS, TTFT 0.327s; up to 1M context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/deepseek-v41-tensorfold-C2K2UJZJ.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 117,
-          "diskGiB": 385.3418,
-          "diskLowerBound": true,
-          "perDevice": true,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
       "id": "m-b4233743",
-      "order": 5,
+      "order": 2,
       "title": "DeepSeek V4 Flash Vision 未审查版",
       "titleEn": "DeepSeek V4 Flash Vision · Uncensored",
       "category": "llm",
@@ -331,7 +205,6 @@
       "imageFit": "cover",
       "image": "./covers/deepseek-v4-flash-vision-D5MUxjou.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -347,7 +220,7 @@
     },
     {
       "id": "m-e37087be",
-      "order": 6,
+      "order": 3,
       "title": "DeepSeek V4.1 Flash 1017 TP4",
       "titleEn": "DeepSeek V4.1 Flash 1017 TP4",
       "category": "llm",
@@ -366,7 +239,6 @@
       "imageFit": "cover",
       "image": "./covers/deepseek-v41-tensorfold-C2K2UJZJ.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -382,7 +254,7 @@
     },
     {
       "id": "m-40102f25",
-      "order": 7,
+      "order": 4,
       "title": "GLM 5.3 Flash",
       "titleEn": "GLM 5.3 Flash",
       "category": "llm",
@@ -401,7 +273,6 @@
       "imageFit": "cover",
       "image": "./covers/glm53-flash-DX4e5jz_.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -417,7 +288,7 @@
     },
     {
       "id": "m-2d1201e5",
-      "order": 8,
+      "order": 5,
       "title": "GLM 5.3 Flash TP4",
       "titleEn": "GLM 5.3 Flash TP4",
       "category": "llm",
@@ -436,7 +307,6 @@
       "imageFit": "cover",
       "image": "./covers/glm53-flash-DX4e5jz_.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -452,7 +322,7 @@
     },
     {
       "id": "m-798e6e1d",
-      "order": 9,
+      "order": 6,
       "title": "GLM 5.3 Full",
       "titleEn": "GLM 5.3 Full",
       "category": "llm",
@@ -471,7 +341,6 @@
       "imageFit": "cover",
       "image": "./covers/glm53-full-cover-CJw-LTly.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -487,7 +356,7 @@
     },
     {
       "id": "m-f15b5a79",
-      "order": 10,
+      "order": 7,
       "title": "Qwen 3.8 27B 未审查版 DSpine",
       "titleEn": "Qwen 3.8 27B · Uncensored DSpine",
       "category": "llm",
@@ -507,7 +376,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen38-27b-BiaUuUKM.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -530,122 +398,8 @@
       "isNew": true
     },
     {
-      "id": "m-c0f6f92e",
-      "order": 11,
-      "title": "Qwen 3.8 27B 未审查版",
-      "titleEn": "Qwen 3.8 27B · Uncensored",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "AGX Thor / AGX Orin",
-      "deviceCount": 1,
-      "devices": [
-        "thor",
-        "orin"
-      ],
-      "isMultiNode": false,
-      "description": "AGX Orin：单流最高 22 TPS，8 并发约 123 TPS；最高 256K 上下文\n\nAGX Thor：单流新代码最高约 66 TPS，8 并发约 300 TPS，最高 900K 上下文",
-      "descriptionEn": "AGX Orin: single-stream up to 22 TPS, 8-way concurrency ~123 TPS; up to 256K context.\n\nAGX Thor: new-code single-stream up to ~66 TPS, 8-way concurrency ~300 TPS; up to 900K context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/qwen38-27b-BiaUuUKM.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 74.5,
-          "diskGiB": 20.6414,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        },
-        {
-          "device": "orin",
-          "memoryGiB": 44,
-          "diskGiB": 18.2175,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
-      "id": "m-9c0ce23c",
-      "order": 12,
-      "title": "Qwen 3.8 27B 未审查版 TensorFold",
-      "titleEn": "Qwen 3.8 27B · Uncensored TensorFold",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "AGX Thor",
-      "deviceCount": 1,
-      "devices": [
-        "thor"
-      ],
-      "isMultiNode": false,
-      "description": "正文单流最高约 76 TPS，代码单流最高约 148 TPS；8 并发正文约 185 TPS、代码约 235 TPS；最高900K上下文",
-      "descriptionEn": "Prose single-stream up to ~76 TPS, code single-stream up to ~148 TPS; 8-way concurrency ~185 TPS (prose) / ~235 TPS (code); up to 900K context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/qwen38-27b-BiaUuUKM.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 110,
-          "diskGiB": 18.5552,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
-      "id": "m-15fde1dc",
-      "order": 13,
-      "title": "Qwen 3.8 27B Coder390 代码加速版",
-      "titleEn": "Qwen 3.8 27B Coder390 · Code-Accelerated",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "AGX Thor",
-      "deviceCount": 1,
-      "devices": [
-        "thor"
-      ],
-      "isMultiNode": false,
-      "description": "单流 58.8 TPS，8 并发 242 TPS，8K Prefill 3739 TPS，TTFT 2.19s；代码加速，256K 上下文",
-      "descriptionEn": "Single-stream 58.8 TPS, 8-way concurrency 242 TPS, 8K prefill 3,739 TPS, TTFT 2.19s; code-accelerated, 256K context.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/qwen38-27b-BiaUuUKM.webp",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 80,
-          "diskGiB": 37.1464,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
       "id": "m-3167b03a",
-      "order": 14,
+      "order": 8,
       "title": "Qwen 3.8 Flash Next",
       "titleEn": "Qwen 3.8 Flash Next",
       "category": "llm",
@@ -665,7 +419,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen38-flash-next-CqWL9x0Z.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -689,7 +442,7 @@
     },
     {
       "id": "m-6645d9e6",
-      "order": 15,
+      "order": 9,
       "title": "Qwen 3.8 Flash Next TensorFold",
       "titleEn": "Qwen 3.8 Flash Next TensorFold",
       "category": "llm",
@@ -708,7 +461,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen38-flash-next-CqWL9x0Z.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -724,7 +476,7 @@
     },
     {
       "id": "m-3e412fb5",
-      "order": 16,
+      "order": 10,
       "title": "Qwen 3.8 Flash Next 未审查版",
       "titleEn": "Qwen 3.8 Flash Next · Uncensored",
       "category": "llm",
@@ -743,7 +495,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen38-flash-next-CqWL9x0Z.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -759,7 +510,7 @@
     },
     {
       "id": "m-7f2ac9f7",
-      "order": 17,
+      "order": 11,
       "title": "Qwen 3.6 35B A3B",
       "titleEn": "Qwen 3.6 35B A3B",
       "category": "llm",
@@ -779,7 +530,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen38-27b-BiaUuUKM.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -803,7 +553,7 @@
     },
     {
       "id": "m-e9cf2067",
-      "order": 18,
+      "order": 12,
       "title": "Qwen 3.5 4B",
       "titleEn": "Qwen 3.5 4B",
       "category": "llm",
@@ -823,7 +573,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen35-4b-CMF3Ai1Y.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -847,7 +596,7 @@
     },
     {
       "id": "m-71d58086",
-      "order": 19,
+      "order": 13,
       "title": "Flint",
       "titleEn": "Flint",
       "category": "llm",
@@ -867,7 +616,6 @@
       "imageFit": "contain",
       "image": "./covers/flint-CO08Ci4X.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -891,7 +639,7 @@
     },
     {
       "id": "m-b6643866",
-      "order": 20,
+      "order": 14,
       "title": "Gemma 4 31B IT Heretic",
       "titleEn": "Gemma 4 31B IT Heretic",
       "category": "llm",
@@ -911,7 +659,6 @@
       "imageFit": "cover",
       "image": "./covers/gemma4-31b-heretic-DfHEppRt.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -935,7 +682,7 @@
     },
     {
       "id": "m-6a78f49d",
-      "order": 21,
+      "order": 15,
       "title": "Nemotron 3.5 Bolt E4B",
       "titleEn": "Nemotron 3.5 Bolt E4B",
       "category": "llm",
@@ -955,7 +702,6 @@
       "imageFit": "cover",
       "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1600'%20height='900'%20viewBox='0%200%201600%20900'%3e%3cdefs%3e%3clinearGradient%20id='bg'%20x2='1'%20y2='1'%3e%3cstop%20stop-color='%23112c23'/%3e%3cstop%20offset='1'%20stop-color='%2307130e'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20width='1600'%20height='900'%20fill='url(%23bg)'/%3e%3ccircle%20cx='1250'%20cy='390'%20r='300'%20fill='none'%20stroke='%232a513c'%20stroke-width='2'/%3e%3ccircle%20cx='1250'%20cy='390'%20r='240'%20fill='none'%20stroke='%232a513c'%20stroke-width='2'/%3e%3cpath%20d='m1290%20130-210%20320h160l-60%20260%20270-370h-180z'%20fill='%23a9e45e'/%3e%3cpath%20d='M100%20640h630'%20stroke='%23a9e45e'%20stroke-width='3'/%3e%3c/svg%3e",
       "imageType": "data",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -978,52 +724,8 @@
       "isNew": true
     },
     {
-      "id": "m-80372864",
-      "order": 22,
-      "title": "ReaderLM v2",
-      "titleEn": "ReaderLM v2",
-      "category": "llm",
-      "categoryZh": "大语言模型",
-      "categoryEn": "Large Language Models",
-      "categoryShortEn": "LLM",
-      "meta": "AGX Thor / AGX Orin",
-      "deviceCount": 1,
-      "devices": [
-        "thor",
-        "orin"
-      ],
-      "isMultiNode": false,
-      "description": "1.5B HTML 正文提取，转换为 Markdown / JSON；Thor 自动采用 NVFP4 + CUTLASS，Orin 采用 Q4_K_M，默认输入与输出合计 32K tokens。\n\n合成 HTML 温态单流短文解码：Thor 151.2 tok/s，Orin 81.1 tok/s；不代表复杂真实网页性能。",
-      "descriptionEn": "1.5B HTML main-content extractor converting HTML to Markdown/JSON; Thor uses NVFP4 + CUTLASS, Orin uses Q4_K_M, 32K combined input+output tokens.\n\nWarm synthetic HTML single-stream decode: Thor 151.2 tok/s, Orin 81.1 tok/s.",
-      "badge": "",
-      "imageFit": "cover",
-      "image": "./covers/readerlm-v2-cover-COP9JNTs.jpg",
-      "imageType": "file",
-      "hidden": true,
-      "hardware": [
-        {
-          "device": "thor",
-          "memoryGiB": 12,
-          "diskGiB": 46.19,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        },
-        {
-          "device": "orin",
-          "memoryGiB": 4,
-          "diskGiB": 1.32,
-          "diskLowerBound": true,
-          "perDevice": false,
-          "cpuOnly": false
-        }
-      ],
-      "firstSeenAt": "2026-11-23 13:47:43",
-      "isNew": true
-    },
-    {
       "id": "m-da2872f8",
-      "order": 23,
+      "order": 16,
       "title": "MiniCPM5-2B",
       "titleEn": "MiniCPM5-2B",
       "category": "llm",
@@ -1043,7 +745,6 @@
       "imageFit": "cover",
       "image": "./covers/mini-cpm5-2b-cover-DHHcKk3u.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1067,7 +768,7 @@
     },
     {
       "id": "m-c5499b25",
-      "order": 24,
+      "order": 17,
       "title": "MiniMax H3 Duo",
       "titleEn": "MiniMax H3 Duo",
       "category": "video",
@@ -1086,7 +787,6 @@
       "imageFit": "cover",
       "image": "./covers/minimax-h3-CK1Wm2Fq.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1102,7 +802,7 @@
     },
     {
       "id": "m-5fb6cf06",
-      "order": 25,
+      "order": 18,
       "title": "MiniMax H3",
       "titleEn": "MiniMax H3",
       "category": "video",
@@ -1122,7 +822,6 @@
       "imageFit": "cover",
       "image": "./covers/minimax-h3-CK1Wm2Fq.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1146,7 +845,7 @@
     },
     {
       "id": "m-9ae28a8b",
-      "order": 26,
+      "order": 19,
       "title": "MiniMax H3 Sol",
       "titleEn": "MiniMax H3 Sol",
       "category": "video",
@@ -1165,7 +864,6 @@
       "imageFit": "cover",
       "image": "./covers/minimax-h3-CK1Wm2Fq.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1181,7 +879,7 @@
     },
     {
       "id": "m-36e90f66",
-      "order": 27,
+      "order": 20,
       "title": "Pika H3 Flex Turbo LoRA",
       "titleEn": "Pika H3 Flex Turbo LoRA",
       "category": "video",
@@ -1201,7 +899,6 @@
       "imageFit": "cover",
       "image": "./covers/pika-h3-flex-turbo-lora-6xkZ8PO9.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1225,7 +922,7 @@
     },
     {
       "id": "m-164e9409",
-      "order": 28,
+      "order": 21,
       "title": "Pika H3 Flex Turbo Ref2VA",
       "titleEn": "Pika H3 Flex Turbo Ref2VA",
       "category": "video",
@@ -1244,7 +941,6 @@
       "imageFit": "cover",
       "image": "./covers/pika-h3-flex-turbo-ref2va-D37E6G-l.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1260,7 +956,7 @@
     },
     {
       "id": "m-97014364",
-      "order": 29,
+      "order": 22,
       "title": "ComfyUI 2",
       "titleEn": "ComfyUI 2",
       "category": "image",
@@ -1277,14 +973,13 @@
       "imageFit": "cover",
       "image": "./covers/comfyui-banner-DIYH9zBQ.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [],
       "firstSeenAt": "2026-11-23 13:47:43",
       "isNew": true
     },
     {
       "id": "m-2d7b0ec4",
-      "order": 30,
+      "order": 23,
       "title": "MiniMax-H3-Image",
       "titleEn": "MiniMax-H3-Image",
       "category": "image",
@@ -1304,7 +999,6 @@
       "imageFit": "cover",
       "image": "./covers/minimax-h3-CK1Wm2Fq.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1328,7 +1022,7 @@
     },
     {
       "id": "m-8a5de8a1",
-      "order": 31,
+      "order": 24,
       "title": "Qwen Image 2.1 Turbo",
       "titleEn": "Qwen Image 2.1 Turbo",
       "category": "image",
@@ -1348,7 +1042,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen-image-heretic-3EQYzn6p.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1372,7 +1065,7 @@
     },
     {
       "id": "m-2435fce1",
-      "order": 32,
+      "order": 25,
       "title": "Qwen Image 2.1 Heretic",
       "titleEn": "Qwen Image 2.1 Heretic",
       "category": "image",
@@ -1392,7 +1085,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen-image-heretic-3EQYzn6p.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1416,7 +1108,7 @@
     },
     {
       "id": "m-f5f634ea",
-      "order": 33,
+      "order": 26,
       "title": "Firefox Translations 机器翻译",
       "titleEn": "Firefox Translations",
       "category": "translation",
@@ -1436,7 +1128,6 @@
       "imageFit": "contain",
       "image": "./covers/firefox-translations-CNsOVbAI.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1460,7 +1151,7 @@
     },
     {
       "id": "m-db2e8f17",
-      "order": 34,
+      "order": 27,
       "title": "Confucius4-T3PO",
       "titleEn": "Confucius4-T3PO",
       "category": "translation",
@@ -1480,7 +1171,6 @@
       "imageFit": "cover",
       "image": "./covers/t3po-cover-BvDaQlPg.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1504,7 +1194,7 @@
     },
     {
       "id": "m-d0dc1874",
-      "order": 35,
+      "order": 28,
       "title": "Hy-MT2 翻译",
       "titleEn": "Hy-MT2 Translation",
       "category": "translation",
@@ -1524,7 +1214,6 @@
       "imageFit": "cover",
       "image": "./covers/hy-mt2-C6s7qkc0.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1548,7 +1237,7 @@
     },
     {
       "id": "m-602eccf0",
-      "order": 36,
+      "order": 29,
       "title": "Index Translate 翻译",
       "titleEn": "Index Translate",
       "category": "translation",
@@ -1568,7 +1257,6 @@
       "imageFit": "cover",
       "image": "./covers/index-translate-cover-BxpKV_Hy.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1592,7 +1280,7 @@
     },
     {
       "id": "m-4bad2023",
-      "order": 37,
+      "order": 30,
       "title": "Hy-SimulMT 语音翻译",
       "titleEn": "Hy-SimulMT Speech Translation",
       "category": "speechTranslation",
@@ -1612,7 +1300,6 @@
       "imageFit": "cover",
       "image": "./covers/hy-simulmt-CIn25y4B.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1636,7 +1323,7 @@
     },
     {
       "id": "m-009832f2",
-      "order": 38,
+      "order": 31,
       "title": "SenseVoiceSmall Q4_K",
       "titleEn": "SenseVoiceSmall Q4_K",
       "category": "asr",
@@ -1656,7 +1343,6 @@
       "imageFit": "cover",
       "image": "./covers/sensevoice-small-q4k-BmLGyLuU.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1680,7 +1366,7 @@
     },
     {
       "id": "m-433aa524",
-      "order": 39,
+      "order": 32,
       "title": "Nemotron 3.5 Transcribe",
       "titleEn": "Nemotron 3.5 Transcribe",
       "category": "asr",
@@ -1700,7 +1386,6 @@
       "imageFit": "cover",
       "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1600'%20height='900'%20viewBox='0%200%201600%20900'%3e%3cdefs%3e%3clinearGradient%20id='bg'%20x2='1'%20y2='1'%3e%3cstop%20stop-color='%23071912'/%3e%3cstop%20offset='1'%20stop-color='%23173924'/%3e%3c/linearGradient%3e%3cradialGradient%20id='glow'%3e%3cstop%20stop-color='%2376b900'%20stop-opacity='.35'/%3e%3cstop%20offset='1'%20stop-color='%2376b900'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3c/defs%3e%3cpath%20fill='url(%23bg)'%20d='M0%200h1600v900H0z'/%3e%3ccircle%20cx='1180'%20cy='380'%20r='560'%20fill='url(%23glow)'/%3e%3cpath%20fill='%23a5e851'%20d='M70%2080h150v8H70z'/%3e%3cg%20fill='%2383a68a'%20opacity='.12'%3e%3cpath%20d='M0%20730h1600v1H0zM0%20770h1600v1H0zM0%20810h1600v1H0z'/%3e%3c/g%3e%3c/svg%3e",
       "imageType": "data",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1724,7 +1409,7 @@
     },
     {
       "id": "m-71857922",
-      "order": 40,
+      "order": 33,
       "title": "Qwen3-ASR",
       "titleEn": "Qwen3-ASR",
       "category": "asr",
@@ -1744,7 +1429,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen3-asr-Bfhq_76K.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1768,7 +1452,7 @@
     },
     {
       "id": "m-f7c51325",
-      "order": 41,
+      "order": 34,
       "title": "Whisper Large V3 Turbo",
       "titleEn": "Whisper Large V3 Turbo",
       "category": "asr",
@@ -1788,7 +1472,6 @@
       "imageFit": "cover",
       "image": "data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='800'%20height='450'%20viewBox='0%200%20800%20450'%3e%3cdefs%3e%3clinearGradient%20id='bg'%20x1='0'%20y1='0'%20x2='1'%20y2='1'%3e%3cstop%20offset='0%25'%20stop-color='%23c4b5fd'/%3e%3cstop%20offset='100%25'%20stop-color='%238b5cf6'/%3e%3c/linearGradient%3e%3c/defs%3e%3crect%20width='800'%20height='450'%20fill='url(%23bg)'/%3e%3cg%20fill='none'%20stroke='rgba(255,255,255,0.28)'%20stroke-width='14'%20stroke-linecap='round'%3e%3cpath%20d='M560%20190v70m38-115v160m38-190v220m38-155v90m38-145v200m38-170v140'/%3e%3c/g%3e%3c/svg%3e",
       "imageType": "data",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1812,7 +1495,7 @@
     },
     {
       "id": "m-e80a0380",
-      "order": 42,
+      "order": 35,
       "title": "Confucius4-R2T2",
       "titleEn": "Confucius4-R2T2",
       "category": "asr",
@@ -1832,7 +1515,6 @@
       "imageFit": "cover",
       "image": "./covers/r2t2-cover-DGlqYyvo.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1856,7 +1538,7 @@
     },
     {
       "id": "m-53a3b60d",
-      "order": 43,
+      "order": 36,
       "title": "Qwen3 ForcedAligner",
       "titleEn": "Qwen3 ForcedAligner",
       "category": "alignment",
@@ -1876,7 +1558,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen3-forced-aligner-Ba6vad03.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1900,7 +1581,7 @@
     },
     {
       "id": "m-23f10645",
-      "order": 44,
+      "order": 37,
       "title": "Demucs",
       "titleEn": "Demucs",
       "category": "separation",
@@ -1920,7 +1601,6 @@
       "imageFit": "cover",
       "image": "./covers/demucs-BzL-cOhB.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1944,7 +1624,7 @@
     },
     {
       "id": "m-59398dfc",
-      "order": 45,
+      "order": 38,
       "title": "Pyannote Segmentation 3.0",
       "titleEn": "Pyannote Segmentation 3.0",
       "category": "diarization",
@@ -1964,7 +1644,6 @@
       "imageFit": "cover",
       "image": "./covers/pyannote-segmentation-cover-C26MKqYC.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -1988,7 +1667,7 @@
     },
     {
       "id": "m-4724886a",
-      "order": 46,
+      "order": 39,
       "title": "CAM++",
       "titleEn": "CAM++",
       "category": "diarization",
@@ -2008,7 +1687,6 @@
       "imageFit": "cover",
       "image": "./covers/campplus-cover-Dv1dDiFY.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2032,7 +1710,7 @@
     },
     {
       "id": "m-41c89cc5",
-      "order": 47,
+      "order": 40,
       "title": "Nemotron 3 Diarization",
       "titleEn": "Nemotron 3 Diarization",
       "category": "diarization",
@@ -2052,7 +1730,6 @@
       "imageFit": "cover",
       "image": "./covers/nemotron3diar-cover-C869tj0f.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2076,7 +1753,7 @@
     },
     {
       "id": "m-e1e9fd2b",
-      "order": 48,
+      "order": 41,
       "title": "Kokoro-82M v1.1-zh",
       "titleEn": "Kokoro-82M v1.1-zh",
       "category": "tts",
@@ -2096,7 +1773,6 @@
       "imageFit": "cover",
       "image": "./covers/kokoro-82m-D3qLx4D5.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2120,7 +1796,7 @@
     },
     {
       "id": "m-75300309",
-      "order": 49,
+      "order": 42,
       "title": "AuK",
       "titleEn": "AuK",
       "category": "tts",
@@ -2140,7 +1816,6 @@
       "imageFit": "cover",
       "image": "./covers/auk-vP5Bp384.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2164,7 +1839,7 @@
     },
     {
       "id": "m-fa8737b7",
-      "order": 50,
+      "order": 43,
       "title": "IndexTTS 2.5",
       "titleEn": "IndexTTS 2.5",
       "category": "tts",
@@ -2184,7 +1859,6 @@
       "imageFit": "cover",
       "image": "./covers/indextts25-cover-BSW6zAHK.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2208,7 +1882,7 @@
     },
     {
       "id": "m-2400e66f",
-      "order": 51,
+      "order": 44,
       "title": "Qwen3-TTS 0.6B",
       "titleEn": "Qwen3-TTS 0.6B",
       "category": "tts",
@@ -2228,7 +1902,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen3-tts-B5I7A6Q_.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2252,7 +1925,7 @@
     },
     {
       "id": "m-947e63da",
-      "order": 52,
+      "order": 45,
       "title": "Sophon-Realtime 32B",
       "titleEn": "Sophon-Realtime 32B",
       "category": "tts",
@@ -2272,7 +1945,6 @@
       "imageFit": "cover",
       "image": "./covers/sophon-realtime-BBb8YzSy.jpg",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2296,7 +1968,7 @@
     },
     {
       "id": "m-bdfa83ac",
-      "order": 53,
+      "order": 46,
       "title": "Sophon-Realtime 4B Flash",
       "titleEn": "Sophon-Realtime 4B Flash",
       "category": "tts",
@@ -2316,7 +1988,6 @@
       "imageFit": "cover",
       "image": "./covers/sophon-realtime-BBb8YzSy.jpg",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2340,7 +2011,7 @@
     },
     {
       "id": "m-7ff856b7",
-      "order": 54,
+      "order": 47,
       "title": "PP-DocLayoutV3",
       "titleEn": "PP-DocLayoutV3",
       "category": "layout",
@@ -2360,7 +2031,6 @@
       "imageFit": "cover",
       "image": "./covers/pp-doclayout-v3-CKUN_O5K.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2384,7 +2054,7 @@
     },
     {
       "id": "m-da8061dc",
-      "order": 55,
+      "order": 48,
       "title": "Unlimited-OCR",
       "titleEn": "Unlimited-OCR",
       "category": "ocr",
@@ -2404,7 +2074,6 @@
       "imageFit": "cover",
       "image": "./covers/unlimited-ocr-CldQCjCC.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2428,7 +2097,7 @@
     },
     {
       "id": "m-95fe7e1f",
-      "order": 56,
+      "order": 49,
       "title": "Unlimited-OCR-2",
       "titleEn": "Unlimited-OCR-2",
       "category": "ocr",
@@ -2448,7 +2117,6 @@
       "imageFit": "cover",
       "image": "./covers/unlimited-ocr-2-DiG-mVvd.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2472,7 +2140,7 @@
     },
     {
       "id": "m-15b19fe3",
-      "order": 57,
+      "order": 50,
       "title": "PP-OCRv6",
       "titleEn": "PP-OCRv6",
       "category": "ocr",
@@ -2492,7 +2160,6 @@
       "imageFit": "cover",
       "image": "./covers/pp-ocrv6-CBES7HoQ.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2516,7 +2183,7 @@
     },
     {
       "id": "m-76dcf06f",
-      "order": 58,
+      "order": 51,
       "title": "Decision 3.0",
       "titleEn": "Decision 3.0",
       "category": "decision",
@@ -2536,7 +2203,6 @@
       "imageFit": "cover",
       "image": "./covers/decision-Co86kluo.jpg",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2560,7 +2226,7 @@
     },
     {
       "id": "m-46818159",
-      "order": 59,
+      "order": 52,
       "title": "Qwen3-Embedding",
       "titleEn": "Qwen3-Embedding",
       "category": "embedding",
@@ -2580,7 +2246,6 @@
       "imageFit": "cover",
       "image": "./covers/qwen3-embedding-W1Bi6X_R.png",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2604,7 +2269,7 @@
     },
     {
       "id": "m-68d84338",
-      "order": 60,
+      "order": 53,
       "title": "BGE-M3 稠密向量",
       "titleEn": "BGE-M3 Dense Embeddings",
       "category": "embedding",
@@ -2624,7 +2289,6 @@
       "imageFit": "cover",
       "image": "./covers/bge-m3-qpiAK8Tk.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2648,7 +2312,7 @@
     },
     {
       "id": "m-4a5f3b44",
-      "order": 61,
+      "order": 54,
       "title": "ZH-CLIP 中文图文向量",
       "titleEn": "ZH-CLIP Text-Image Embeddings",
       "category": "imageTextEmbedding",
@@ -2668,7 +2332,6 @@
       "imageFit": "cover",
       "image": "./covers/zh-clip-3J4BW3Bh.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2692,7 +2355,7 @@
     },
     {
       "id": "m-fe00a7b9",
-      "order": 62,
+      "order": 55,
       "title": "EmbeddingGemma 2",
       "titleEn": "EmbeddingGemma 2",
       "category": "multimodalEmbedding",
@@ -2712,7 +2375,6 @@
       "imageFit": "cover",
       "image": "./covers/embeddinggemma2-SyFCuCet.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2736,7 +2398,7 @@
     },
     {
       "id": "m-c52d76b0",
-      "order": 63,
+      "order": 56,
       "title": "BGE-Reranker-v2-M3 重排",
       "titleEn": "BGE-Reranker-v2-M3 Reranking",
       "category": "reranking",
@@ -2756,7 +2418,6 @@
       "imageFit": "cover",
       "image": "./covers/bge-reranker-v2-m3-Dgp8JZmC.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2780,7 +2441,7 @@
     },
     {
       "id": "m-ff1fd81e",
-      "order": 64,
+      "order": 57,
       "title": "buffalo_l 人脸识别",
       "titleEn": "buffalo_l Face Recognition",
       "category": "faceRecognition",
@@ -2800,7 +2461,6 @@
       "imageFit": "cover",
       "image": "./covers/buffalo-l-BumtilmG.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",
@@ -2824,7 +2484,7 @@
     },
     {
       "id": "m-6f85263f",
-      "order": 65,
+      "order": 58,
       "title": "BLIP 图片描述",
       "titleEn": "BLIP Image Captioning",
       "category": "imageCaptioning",
@@ -2844,7 +2504,6 @@
       "imageFit": "cover",
       "image": "./covers/blip-BRv1WJXe.webp",
       "imageType": "file",
-      "hidden": false,
       "hardware": [
         {
           "device": "thor",

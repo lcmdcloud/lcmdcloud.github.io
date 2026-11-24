@@ -1182,39 +1182,6 @@
       color: var(--ink-2);
     }
 
-    .detail-hw-profile {
-      font-size: 11.5px;
-      color: var(--ink-3);
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 4px;
-      padding: 5px 8px;
-      word-break: break-word;
-    }
-
-    .detail-note {
-      font-size: 12.5px;
-      color: var(--ink-2);
-      line-height: 1.65;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 12px 14px;
-    }
-
-    .detail-pkg {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 8px 12px;
-      background: var(--surface-2);
-      border: 1px solid var(--line);
-      border-radius: 6px;
-      font-size: 12px;
-      color: var(--ink-3);
-    }
-
     .log-entry {
       border: 1px solid var(--line);
       background: var(--surface-2);
@@ -1630,11 +1597,6 @@
             />
             <button type="button" class="search-clear" id="search-clear" aria-label="Clear">×</button>
           </div>
-
-          <label class="hidden-toggle">
-            <input type="checkbox" id="chk-hidden" />
-            <span id="lbl-hidden">含内测</span>
-          </label>
         </div>
 
         <div class="toolbar-right">
@@ -1778,7 +1740,6 @@
           hwThorSingle: 'Thor 单机',
           hwThorMulti: 'Thor 多机',
           hwOrin: 'Orin',
-          lblHidden: '含内测',
           allModels: '全部',
           unitCount: (n) => `${n} 款`,
           memRam: '内存',
@@ -1786,7 +1747,6 @@
           disk: '磁盘',
           perNode: '/台',
           newBadge: 'NEW',
-          hiddenBadge: '内测',
           detailBtn: '规格详情 →',
           specColModel: '模型与分类',
           specColHw: '硬件与资源需求',
@@ -1809,10 +1769,6 @@
           speedupTag: (x) => `Thor 快 ${x}×`,
           detailHwSec: '支持硬件与资源门槛',
           detailPerfSec: '官方实测数据',
-          detailNoteSec: '内存与部署说明',
-          detailPkgSec: '应用包信息',
-          copyPkg: '复制包名',
-          pkgCopied: '已复制应用包 ID',
           emptyMsg: '没有找到匹配的模型，请调整关键词或筛选条件。',
           footerSource: '懒猫微服 · AI Pod 模型广场（源端每 5 分钟自动检测同步，实际性能以设备部署后实测为准）',
           shotLabel: '客户截图模式',
@@ -1875,7 +1831,6 @@
           hwThorSingle: 'Thor 1×',
           hwThorMulti: 'Thor Multi',
           hwOrin: 'Orin',
-          lblHidden: 'Beta',
           allModels: 'All',
           unitCount: (n) => `${n}`,
           memRam: 'RAM',
@@ -1883,7 +1838,6 @@
           disk: 'Disk',
           perNode: '/node',
           newBadge: 'NEW',
-          hiddenBadge: 'Beta',
           detailBtn: 'Specs →',
           specColModel: 'Model & Category',
           specColHw: 'Hardware & Footprint',
@@ -1906,10 +1860,6 @@
           speedupTag: (x) => `Thor ${x}× Faster`,
           detailHwSec: 'Supported Hardware & Requirements',
           detailPerfSec: 'Measured Performance',
-          detailNoteSec: 'Memory & Deployment Notes',
-          detailPkgSec: 'Package Information',
-          copyPkg: 'Copy ID',
-          pkgCopied: 'Package ID copied',
           emptyMsg: 'No models match your current filter. Try adjusting keywords or hardware.',
           footerSource: 'LCMD · AI Pod Model Store (Auto-synced every 5 min; actual throughput subject to on-device test)',
           shotLabel: 'Screenshot Mode',
@@ -2230,7 +2180,6 @@
         const ctx = extractContextBadge(m);
         if (ctx) out.push(`<span class="badge ctx">${esc(ctx)}</span>`);
         if (m.isNew) out.push(`<span class="badge new">${esc(L.newBadge)}</span>`);
-        if (m.hidden) out.push(`<span class="badge beta">${esc(L.hiddenBadge)}</span>`);
         return out.join('');
       }
 
@@ -2316,7 +2265,6 @@
         $('#hw-thor-single').textContent = L.hwThorSingle;
         $('#hw-thor-multi').textContent = L.hwThorMulti;
         $('#hw-orin').textContent = L.hwOrin;
-        $('#lbl-hidden').textContent = L.lblHidden;
         $('#footer-source').textContent = L.footerSource;
 
         $('#shot-label').textContent = L.shotLabel;
@@ -2339,7 +2287,7 @@
 
       function getBaseModels() {
         if (!state.data) return [];
-        return state.data.models.filter((m) => (state.showHidden ? true : !m.hidden));
+        return state.data.models.filter((m) => !m.hidden);
       }
 
       function getFilteredModels() {
@@ -2402,10 +2350,10 @@
                 const { boxes, speedup } = extractTriMetrics(m);
                 const subLine = `${modelCatLabel(m)}${m.meta ? ` · ${m.meta}` : ''}`;
                 const fitCls = m.imageFit === 'contain' ? 'contain' : '';
-                const mid = m.id || m.packageId || m.title;
+                const mid = m.id || m.title;
 
                 return `
-                  <article class="card ${m.hidden ? 'is-hidden' : ''}" data-pkg="${esc(mid)}">
+                  <article class="card" data-mid="${esc(mid)}">
                     <div class="card-top">
                       <div class="card-id">
                         ${m.image ? `<div class="card-thumb ${fitCls}"><img src="${esc(m.image)}" alt="${esc(modelTitle(m))}" loading="lazy" /></div>` : ''}
@@ -2478,7 +2426,7 @@
                   .join('');
 
                 return `
-                  <div class="spec-row" data-pkg="${esc(m.id || m.packageId || m.title)}">
+                  <div class="spec-row" data-mid="${esc(m.id || m.title)}">
                     <div class="spec-name-cell">
                       ${m.image ? `<div class="spec-mini-thumb"><img src="${esc(m.image)}" alt="" loading="lazy" /></div>` : ''}
                       <div style="min-width:0">
@@ -2486,7 +2434,6 @@
                         <div class="spec-meta-tags">
                           ${extractContextBadge(m) ? `<span class="badge ctx">${esc(extractContextBadge(m))}</span>` : ''}
                           ${m.isNew ? `<span class="badge new">${esc(L.newBadge)}</span>` : ''}
-                          ${m.hidden ? `<span class="badge beta">${esc(L.hiddenBadge)}</span>` : ''}
                         </div>
                       </div>
                     </div>
@@ -2529,7 +2476,7 @@
             const itemsHtml = items
               .map(
                 (m) => `
-                  <div class="wall-item" data-pkg="${esc(m.id || m.packageId || m.title)}">
+                  <div class="wall-item" data-mid="${esc(m.id || m.title)}">
                     <span class="wall-item-name">${esc(modelTitle(m))}${m.isNew ? ' <span class="badge new" style="font-size:9.5px;padding:1px 4px;margin-left:4px;">NEW</span>' : ''}</span>
                     <span class="wall-item-hw num">${esc(renderShortHw(m))}</span>
                   </div>
@@ -2555,7 +2502,7 @@
       }
 
       function openDetailModal(modelId) {
-        const m = state.data?.models?.find((x) => (x.id || x.packageId || x.title) === modelId);
+        const m = state.data?.models?.find((x) => (x.id || x.title) === modelId);
         if (!m) return;
         const L = t();
         $('#detail-title').textContent = modelTitle(m);
@@ -2663,8 +2610,8 @@
       }
 
       function bindDetailClicks() {
-        $$('#content [data-pkg]').forEach((el) => {
-          el.addEventListener('click', () => openDetailModal(el.dataset.pkg));
+        $$('#content [data-mid]').forEach((el) => {
+          el.addEventListener('click', () => openDetailModal(el.dataset.mid));
         });
       }
 
@@ -2788,7 +2735,7 @@
       }
 
       function modelKey(m) {
-        return m.id || m.packageId || m.title;
+        return m.id || m.title;
       }
 
       function modelFingerprint(m) {
@@ -3096,11 +3043,6 @@
           render();
         }),
       );
-
-      $('#chk-hidden').addEventListener('change', (e) => {
-        state.showHidden = e.target.checked;
-        render();
-      });
 
       const searchInput = $('#search-input');
       const searchClear = $('#search-clear');
