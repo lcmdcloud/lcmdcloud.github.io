@@ -3,12 +3,12 @@
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appPackage": "cloud.lazycat.app.ai",
   "appName": "AI Pod",
-  "appVersion": "2.3.390",
-  "appUpdatedAt": "2026-11-24 12:25:17",
-  "syncedAt": "2026-11-24 12:35:05",
-  "syncedTs": 1795494905,
+  "appVersion": "2.3.391",
+  "appUpdatedAt": "2026-11-24 15:14:28",
+  "syncedAt": "2026-11-24 15:18:05",
+  "syncedTs": 1795504685,
   "syncIntervalMinutes": 60,
-  "bundleFile": "ModelStore-DG0zk3NY.js",
+  "bundleFile": "ModelStore-DGsPS4Vb.js",
   "stats": {
     "visibleCount": 58,
     "hiddenCount": 7,
@@ -1614,7 +1614,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：512×512 8 步生图 3.3s/张\n\nOrin：512×512 8 步生图 15.2s/张；支持图片编辑",
+      "description": "Thor：512×512 8 步生图 1.78s/张（1.56x），1024×1024 7.43s/张（1.39x）\n\nOrin：512×512 8 步生图 15.2s/张；支持图片编辑",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -1668,7 +1668,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：512×512 20 步生图 5.7s/张\n\nOrin：512×512 20 步生图 27.8s/张；支持 BF16/NVFP4/GGUF 精度",
+      "description": "Thor：512×512 25 步生图 4.49s/张（1.69x）\n\nOrin：512×512 20 步生图 27.8s/张；支持 BF16/NVFP4/GGUF 精度",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -2910,7 +2910,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：短文 0.70s，长文 1.74s\n\nOrin：短文 1.41s，长文 3.29s；支持中英文、多页及 PDF 识别",
+      "description": "Thor：短图 0.21s（1.69x），长页 2.61s（1.79x）\n\nOrin：短文 1.41s，长文 3.29s；支持中英文、多页及 PDF 识别",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -2964,7 +2964,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：英/中/两页 0.56s/0.72s/1.04s\n\nOrin：英/中/两页 0.95s/1.16s/1.92s；支持中英文、多页及百页连续识别",
+      "description": "Thor：短图 0.32s（1.24x），长页 4.67s（1.27x）\n\nOrin：英/中/两页 0.95s/1.16s/1.92s；支持中英文、多页及百页连续识别",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -3018,7 +3018,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：896×528 登机牌（Tiny/Small/Medium）68.1/46.2/27.6 张/s\n\nOrin：896×528 登机牌（Tiny/Small/Medium）35.1/18.4/11.8 张/s",
+      "description": "Thor：Small 短图 3.91ms（1.15x，C4 449.1 张/s）、登机牌 18.72ms（1.11x，C4 76.8 张/s）\n\nOrin：896×528 登机牌（Tiny/Small/Medium）35.1/18.4/11.8 张/s",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -3072,7 +3072,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：0.6B 文本/图片/视频 21.83/81.15/73.79ms\n\nOrin：0.6B 文本/图片/视频 32.52/158.17/149.96ms；0.6B–26B 多模态决策，16 个问题，8K 上下文",
+      "description": "Thor：0.6B 短文本/长文本/图片/视频 10.52/45.74/66.96/62.95ms（1.17x–1.86x）\n\nOrin：0.6B 文本/图片/视频 32.52/158.17/149.96ms；0.6B–26B 多模态决策，16 个问题，8K 上下文",
       "badge": "",
       "coverTitle": "Decision 3.0",
       "coverSubtitle": "0.6B — 26B",
@@ -3491,6 +3491,46 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-24 15:16:04",
+      "appVersion": "2.3.391",
+      "prevAppVersion": "2.3.390",
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "packageId": "cloud.lazycat.aipod.qwen-image-21-turbo",
+          "title": "Qwen Image 2.1 Turbo",
+          "categoryZh": "图像生成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.qwen-image-21-heretic",
+          "title": "Qwen Image 2.1 Heretic",
+          "categoryZh": "图像生成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.unlimited-ocr",
+          "title": "Unlimited-OCR",
+          "categoryZh": "文字识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.unlimited-ocr-2",
+          "title": "Unlimited-OCR-2",
+          "categoryZh": "文字识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.pp-ocrv6",
+          "title": "PP-OCRv6",
+          "categoryZh": "文字识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.decision",
+          "title": "Decision 3.0",
+          "categoryZh": "多模态决策"
+        }
+      ],
+      "totalVisible": 58
+    },
     {
       "ts": "2026-11-24 12:35:01",
       "appVersion": "2.3.390",

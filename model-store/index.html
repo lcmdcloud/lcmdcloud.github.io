@@ -1752,9 +1752,9 @@
           btnCopy: '复制清单',
           btnShot: '截图模式',
           syncNoneTitle: '暂无更新数据',
-          syncNoneSub: (ver, cnt, syncedAt) => `当前已是最新 · AI Pod v${ver} · ${cnt} 款展示模型 · 同步 ${syncedAt.slice(0, 16)}`,
+          syncNoneSub: (ver, cnt, appUpd, syncedAt) => `当前已是线上最新 · AI Pod v${ver}（发布 ${(appUpd || '').slice(5, 16)}）· ${cnt} 款模型 · 同步 ${(syncedAt || '').slice(5, 16)}`,
           syncUpdatedTitle: '已拉取最新模型数据',
-          syncUpdatedSub: (ver, cnt, syncedAt) => `当前 AI Pod v${ver} · 共 ${cnt} 款展示模型 · 同步 ${syncedAt.slice(0, 16)}`,
+          syncUpdatedSub: (ver, cnt, appUpd, syncedAt) => `AI Pod v${ver}（发布 ${(appUpd || '').slice(5, 16)}）· 共 ${cnt} 款模型 · 同步 ${(syncedAt || '').slice(5, 16)}`,
           syncErrTitle: '拉取更新失败',
           syncTagAdd: '新增',
           syncTagUpd: '更新',
@@ -1764,7 +1764,7 @@
           syncCountRem: (n) => `−${n} 下线`,
           syncCountTotal: (n) => `共 ${n} 款`,
           syncMore: (n) => `另有 ${n} 项变动，可点击「更新记录」查看详情`,
-          heroBadge: 'AI POD MODEL STORE · 每 30 分钟自动同步',
+          heroBadge: 'AI POD MODEL STORE · 每 5 分钟自动同步',
           heroTitle: '懒猫 AI Pod 模型广场 · 实测支持一览',
           heroSub: '涵盖大语言模型、视频/图像生成、实时语音、文档 OCR 与多模态检索，本地一键部署，点击任意卡片查看完整硬件与实测参数。',
           statVisible: '展示模型',
@@ -1814,7 +1814,7 @@
           copyPkg: '复制包名',
           pkgCopied: '已复制应用包 ID',
           emptyMsg: '没有找到匹配的模型，请调整关键词或筛选条件。',
-          footerSource: '懒猫微服 · AI Pod 模型广场（本机每 30 分钟自动检测同步，实际性能以设备部署后实测为准）',
+          footerSource: '懒猫微服 · AI Pod 模型广场（源端每 5 分钟自动检测同步，实际性能以设备部署后实测为准）',
           shotLabel: '客户截图模式',
           shotView: '切换视图',
           shotScale: '切换字号',
@@ -1849,9 +1849,9 @@
           btnCopy: 'Copy List',
           btnShot: 'Screenshot',
           syncNoneTitle: 'No Updates Available',
-          syncNoneSub: (ver, cnt, syncedAt) => `Already up to date · AI Pod v${ver} · ${cnt} models · Synced ${syncedAt.slice(0, 16)}`,
+          syncNoneSub: (ver, cnt, appUpd, syncedAt) => `Up to date · AI Pod v${ver} (Rel ${(appUpd || '').slice(5, 16)}) · ${cnt} models · Synced ${(syncedAt || '').slice(5, 16)}`,
           syncUpdatedTitle: 'Latest Model Data Loaded',
-          syncUpdatedSub: (ver, cnt, syncedAt) => `AI Pod v${ver} · ${cnt} models total · Synced ${syncedAt.slice(0, 16)}`,
+          syncUpdatedSub: (ver, cnt, appUpd, syncedAt) => `AI Pod v${ver} (Rel ${(appUpd || '').slice(5, 16)}) · ${cnt} models · Synced ${(syncedAt || '').slice(5, 16)}`,
           syncErrTitle: 'Failed to Refresh Data',
           syncTagAdd: 'NEW',
           syncTagUpd: 'UPD',
@@ -1861,7 +1861,7 @@
           syncCountRem: (n) => `−${n} Removed`,
           syncCountTotal: (n) => `${n} Total`,
           syncMore: (n) => `+${n} more changes · open Changelog for details`,
-          heroBadge: 'AI POD MODEL STORE · AUTO-SYNCED EVERY 30M',
+          heroBadge: 'AI POD MODEL STORE · AUTO-SYNCED EVERY 5M',
           heroTitle: 'LCMD AI Pod Model Store · Benchmark Catalog',
           heroSub: 'LLMs, video & image generation, real-time speech, OCR, and multimodal retrieval — locally deployable in one click. Click any card for full specs.',
           statVisible: 'Models',
@@ -1911,7 +1911,7 @@
           copyPkg: 'Copy ID',
           pkgCopied: 'Package ID copied',
           emptyMsg: 'No models match your current filter. Try adjusting keywords or hardware.',
-          footerSource: 'LCMD · AI Pod Model Store (Auto-synced every 30 min; actual throughput subject to on-device test)',
+          footerSource: 'LCMD · AI Pod Model Store (Auto-synced every 5 min; actual throughput subject to on-device test)',
           shotLabel: 'Screenshot Mode',
           shotView: 'View',
           shotScale: 'Scale',
@@ -2791,8 +2791,28 @@
       }
 
       // ==================== Force Pull Update & 5s Auto-Dismiss Popup ====================
-      const GITHUB_RAW_DATA_URL = 'https://raw.githubusercontent.com/lcmdcloud/lcmdcloud.github.io/main/model-store/data.json';
-      const GITHUB_RAW_COVERS_BASE = 'https://raw.githubusercontent.com/lcmdcloud/lcmdcloud.github.io/main/model-store/';
+      const GITHUB_REPO = 'lcmdcloud/lcmdcloud.github.io';
+      const GITHUB_COMMIT_API = `https://api.github.com/repos/${GITHUB_REPO}/commits/main`;
+      const GITHUB_RAW_MAIN_URL = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/model-store/data.json`;
+
+      function compareSemver(a, b) {
+        const pa = String(a || '0').split('.').map((n) => parseInt(n, 10) || 0);
+        const pb = String(b || '0').split('.').map((n) => parseInt(n, 10) || 0);
+        const len = Math.max(pa.length, pb.length);
+        for (let i = 0; i < len; i++) {
+          if ((pa[i] || 0) !== (pb[i] || 0)) return (pa[i] || 0) - (pb[i] || 0);
+        }
+        return 0;
+      }
+
+      function compareDatasetFreshness(a, b) {
+        const verCmp = compareSemver(a?.appVersion, b?.appVersion);
+        if (verCmp !== 0) return verCmp;
+        const updA = String(a?.appUpdatedAt || '');
+        const updB = String(b?.appUpdatedAt || '');
+        if (updA !== updB) return updA > updB ? 1 : -1;
+        return (a?.syncedTs || 0) - (b?.syncedTs || 0);
+      }
 
       function modelFingerprint(m) {
         return JSON.stringify({
@@ -2803,7 +2823,7 @@
           h: Boolean(m.hidden),
           c: m.category,
           dc: m.deviceCount,
-          hw: (m.hardware || []).map((x) => `${x.device}:${x.memoryGiB}:${x.diskGiB}:${x.profile || ''}`),
+          hw: (m.hardware || []).map((x) => `${x.device}:${x.memoryGiB}:${x.diskGiB}:${x.profile || ''}:${x.memoryNoteZh || ''}`),
           rv: m.release?.version || '',
         });
       }
@@ -2828,8 +2848,8 @@
         }
 
         const versionChanged = Boolean(prev?.appVersion && next?.appVersion && prev.appVersion !== next.appVersion);
-        const syncedChanged = Boolean(prev?.syncedTs && next?.syncedTs && next.syncedTs > prev.syncedTs);
-        const hasChanges = versionChanged || added.length > 0 || updated.length > 0 || removed.length > 0 || (syncedChanged && prev?.appUpdatedAt !== next?.appUpdatedAt);
+        const appUpdChanged = Boolean(prev?.appUpdatedAt && next?.appUpdatedAt && prev.appUpdatedAt !== next.appUpdatedAt);
+        const hasChanges = versionChanged || appUpdChanged || added.length > 0 || updated.length > 0 || removed.length > 0;
         return { versionChanged, prevVersion: prev?.appVersion, nextVersion: next?.appVersion, added, updated, removed, hasChanges };
       }
 
@@ -2849,13 +2869,22 @@
         }
       }
 
-      function normalizeRawCovers(data) {
-        if (!data?.models) return data;
+      async function fetchFromLatestCommitSha() {
+        const commit = await fetchJsonNoCache(GITHUB_COMMIT_API, 5000);
+        const sha = commit?.sha;
+        if (!sha || !/^[0-9a-f]{40}$/i.test(sha)) throw new Error('No commit SHA');
+        const rawBase = `https://raw.githubusercontent.com/${GITHUB_REPO}/${sha}/model-store/`;
+        const data = await fetchJsonNoCache(`${rawBase}data.json`, 8000);
+        return { source: 'github-sha', rawBase, data };
+      }
+
+      function normalizeRawCovers(data, rawBase) {
+        if (!data?.models || !rawBase) return data;
         return {
           ...data,
           models: data.models.map((m) => {
             if (m.image && m.image.startsWith('./covers/')) {
-              return { ...m, image: GITHUB_RAW_COVERS_BASE + m.image.slice(2) };
+              return { ...m, image: rawBase + m.image.slice(2) };
             }
             return m;
           }),
@@ -2992,11 +3021,13 @@
         try {
           const isRemoteHost = /^https?:$/i.test(window.location.protocol) && !['localhost', '127.0.0.1'].includes(window.location.hostname);
           const tasks = [
-            fetchJsonNoCache('./data.json').then((d) => ({ source: 'local', data: d })),
+            fetchJsonNoCache('./data.json').then((d) => ({ source: 'local', rawBase: '', data: d })),
           ];
           if (isRemoteHost) {
+            const rawMainBase = `https://raw.githubusercontent.com/${GITHUB_REPO}/main/model-store/`;
             tasks.push(
-              fetchJsonNoCache(GITHUB_RAW_DATA_URL).then((d) => ({ source: 'github-raw', data: d })),
+              fetchJsonNoCache(GITHUB_RAW_MAIN_URL).then((d) => ({ source: 'github-raw', rawBase: rawMainBase, data: d })),
+              fetchFromLatestCommitSha(),
             );
           }
 
@@ -3007,14 +3038,16 @@
             throw new Error(firstErr?.message || 'Network error');
           }
 
-          // Pick freshest payload by syncedTs, falling back to local
-          okResults.sort((a, b) => (b.data.syncedTs || 0) - (a.data.syncedTs || 0));
+          // Pick freshest payload by version -> appUpdatedAt -> syncedTs (never downgrade current data)
+          okResults.sort((a, b) => compareDatasetFreshness(b.data, a.data));
           const best = okResults[0];
-          const nextData = best.source === 'github-raw' ? normalizeRawCovers(best.data) : best.data;
+          const nextData = best.rawBase ? normalizeRawCovers(best.data, best.rawBase) : best.data;
 
           const prevData = state.data;
-          const diff = diffModelData(prevData, nextData);
-          const visCount = (nextData.models || []).filter((m) => !m.hidden).length;
+          const isFresherOrEqual = !prevData || compareDatasetFreshness(nextData, prevData) >= 0;
+          const diff = isFresherOrEqual ? diffModelData(prevData, nextData) : { hasChanges: false, added: [], updated: [], removed: [] };
+          const activeData = isFresherOrEqual ? nextData : prevData;
+          const visCount = (activeData.models || []).filter((m) => !m.hidden).length;
 
           if (!prevData || diff.hasChanges) {
             state.data = nextData;
@@ -3025,7 +3058,7 @@
             showSyncPopup({
               type: 'updated',
               title: L.syncUpdatedTitle,
-              subtitle: L.syncUpdatedSub(nextData.appVersion, visCount, nextData.syncedAt || ''),
+              subtitle: L.syncUpdatedSub(nextData.appVersion, visCount, nextData.appUpdatedAt, nextData.syncedAt),
               versionBadge: verBadge,
               diff,
               totalVisible: visCount,
@@ -3035,7 +3068,7 @@
             showSyncPopup({
               type: 'none',
               title: L.syncNoneTitle,
-              subtitle: L.syncNoneSub(nextData.appVersion, visCount, nextData.syncedAt || ''),
+              subtitle: L.syncNoneSub(activeData.appVersion, visCount, activeData.appUpdatedAt, activeData.syncedAt),
               durationMs: 5000,
             });
           }
