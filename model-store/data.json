@@ -3,12 +3,12 @@
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appPackage": "cloud.lazycat.app.ai",
   "appName": "AI Pod",
-  "appVersion": "2.3.384",
-  "appUpdatedAt": "2026-11-24 08:26:23",
-  "syncedAt": "2026-11-24 12:31:24",
-  "syncedTs": 1795494684,
+  "appVersion": "2.3.390",
+  "appUpdatedAt": "2026-11-24 12:25:17",
+  "syncedAt": "2026-11-24 12:35:05",
+  "syncedTs": 1795494905,
   "syncIntervalMinutes": 60,
-  "bundleFile": "ModelStore-N-AVbYgf.js",
+  "bundleFile": "ModelStore-DG0zk3NY.js",
   "stats": {
     "visibleCount": 58,
     "hiddenCount": 7,
@@ -491,7 +491,7 @@
         "thor"
       ],
       "isMultiNode": true,
-      "description": "代码单流 109.8 TPS，正文单流 63.3 TPS，8/16 并发代码 256.1/371.7 TPS，16K/32K Prefill 4023/4000 TPS，TTFT 0.18s；支持图文多模态与工具调用，约 3.85M KV 缓存池，1M 上下文",
+      "description": "代码单流 115.8 TPS，正文单流 76.3 TPS，8/16 并发 254.1/353.1 TPS，16K/32K Prefill 6052/6162 TPS（1M 3082 TPS），TTFT 0.15–0.17s；支持图文多模态与工具调用，约 3.85M KV 缓存池，1M 上下文",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -2748,7 +2748,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：首音 3.43s，首字 0.41s，RTF 1.05，双路吞吐 1.55x\n\nOrin：首音 4.02s，首字 0.45s，并发首音 4.74s；支持全双工实时语音对话与 Tag 情感合成",
+      "description": "Thor：首音 2.12s（1.71x），首字 0.18s（2.46x），RTF 0.533（2.34x），双路吞吐 2.91x（2.20x）\n\nOrin：首音 4.02s，首字 0.45s，并发首音 4.74s；支持全双工实时语音对话与 Tag 情感合成",
       "badge": "",
       "coverTitle": "Sophon-Realtime",
       "coverSubtitle": "32B · FULL-DUPLEX VOICE",
@@ -2802,7 +2802,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：首音 0.64s，首字 0.11s，RTF 0.56，双路吞吐 2.49x\n\nOrin：首音 0.81s，首字 0.14s，RTF 0.73，双路吞吐 1.97x；支持 4B 轻量全双工实时语音对话",
+      "description": "Thor：首音 0.31s（p50 0.26s，2.20x），首字 0.07s（2.00x），RTF 0.285（2.19x），双路吞吐 5.56x（2.42x）\n\nOrin：首音 0.81s，首字 0.14s，RTF 0.73，双路吞吐 1.97x；支持 4B 轻量全双工实时语音对话",
       "badge": "",
       "coverTitle": "Sophon 4B Flash",
       "coverSubtitle": "4B · FULL-DUPLEX VOICE",
@@ -2856,7 +2856,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单图版面分析 38.92ms\n\nOrin：单图版面分析 90.07ms；检测文字、表格与图像区域，支持 4 图批量",
+      "description": "Thor：单图版面分析 11.38ms（3.43x，双图 21.43ms / 3.75x）\n\nOrin：单图版面分析 90.07ms；检测文字、表格与图像区域，支持 4 图批量",
       "badge": "",
       "coverTitle": "PP-DocLayoutV3",
       "coverSubtitle": "DOCUMENT LAYOUT",
@@ -3126,7 +3126,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：0.6B 128-token 单条 9.4ms\n\nOrin：0.6B 128-token 单条 JP6 19.2ms / JP7 27ms；支持 0.6B/4B/8B、检索指令与可变维度，32K 上下文",
+      "description": "Thor：0.6B 128-token 单条 7.31ms（1.25x），8K 长文本 178.4ms（1.64x）\n\nOrin：0.6B 128-token 单条 JP6 19.2ms / JP7 27ms；支持 0.6B/4B/8B、检索指令与可变维度，32K 上下文",
       "badge": "",
       "coverTitle": "Qwen3-Embedding",
       "coverSubtitle": "0.6B / 4B / 8B",
@@ -3180,7 +3180,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单条 7ms，8 条批量 18ms\n\nOrin：单条 30ms，8 条批量 51ms；1024 维多语种稠密向量",
+      "description": "Thor：单条 3.68ms（1.89x），8 条批量 6.26ms（2.75x）\n\nOrin：单条 30ms，8 条批量 51ms；1024 维多语种稠密向量",
       "badge": "",
       "coverTitle": "BGE-M3",
       "coverSubtitle": "TEXT EMBEDDINGS",
@@ -3234,7 +3234,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单文/单图/8 图 4.5ms/13.6ms/36.4ms\n\nOrin：单文/单图/8 图 9.8ms/17.8ms/82.8ms；768 维中文图文向量",
+      "description": "Thor：单文/单图/8 图 3.99ms/10.07ms/29.60ms，32 图 84.16ms（1.58x）\n\nOrin：单文/单图/8 图 9.8ms/17.8ms/82.8ms；768 维中文图文向量",
       "badge": "",
       "coverTitle": "ZH-CLIP",
       "coverSubtitle": "TEXT × IMAGE",
@@ -3288,7 +3288,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：文本/图片/音频/视频 5.18/82.49/14.93/67.38ms\n\nOrin：文本/图片/音频/视频 9.13/174.97/24.37/151.95ms；支持 100+ 语言与 128–768 四档维度，8K 上下文",
+      "description": "Thor：文本/图片/音频/视频 3.26/22.50/10.43/38.18ms（最高 3.82x）\n\nOrin：文本/图片/音频/视频 9.13/174.97/24.37/151.95ms；支持 100+ 语言与 128–768 四档维度，8K 上下文",
       "badge": "",
       "coverTitle": "EmbeddingGemma 2",
       "coverSubtitle": "MULTIMODAL EMBEDDING",
@@ -3342,7 +3342,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单次重排 10ms\n\nOrin：单次重排 31ms；多语言检索结果精排",
+      "description": "Thor：单次重排 3.81ms（2.75x），8 文档重排 4.25ms（2.88x）\n\nOrin：单次重排 31ms；多语言检索结果精排",
       "badge": "",
       "coverTitle": "BGE",
       "coverSubtitle": "RERANKER v2-M3",
@@ -3396,7 +3396,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：6 张人脸检测 29ms\n\nOrin：6 张人脸检测 54ms；人脸检测与特征提取",
+      "description": "Thor：单图 8.80ms（2.33x），8 并发 33.57ms（2.80x，223 req/s）\n\nOrin：6 张人脸检测 54ms；人脸检测与特征提取",
       "badge": "",
       "coverTitle": "buffalo_l",
       "coverSubtitle": "FACE RECOGNITION",
@@ -3450,7 +3450,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单图 207.4ms，3 图 442.8ms\n\nOrin：单图 332.1ms，3 图 662.6ms；英文图片描述，支持 1–32 图批量",
+      "description": "Thor：单图 60.67ms（3.31x），4 并发 143.83ms（5.42x），4 图批量 107.81ms\n\nOrin：单图 332.1ms，3 图 662.6ms；英文图片描述，支持 1–32 图批量",
       "badge": "",
       "coverTitle": "BLIP",
       "coverSubtitle": "IMAGE CAPTIONING",
@@ -3491,6 +3491,71 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-24 12:35:01",
+      "appVersion": "2.3.390",
+      "prevAppVersion": "2.3.384",
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "packageId": "cloud.lazycat.aipod.glm-53-flash-vllm-tp4",
+          "title": "GLM 5.3 Flash TP4",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.sophon-realtime",
+          "title": "Sophon-Realtime 32B",
+          "categoryZh": "语音合成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.sophon-realtime-4b",
+          "title": "Sophon-Realtime 4B Flash",
+          "categoryZh": "语音合成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.pp-doclayout-v3",
+          "title": "PP-DocLayoutV3",
+          "categoryZh": "版面分析"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.qwen3-embedding",
+          "title": "Qwen3-Embedding",
+          "categoryZh": "文本向量"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.bge-m3",
+          "title": "BGE-M3 稠密向量",
+          "categoryZh": "文本向量"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.clip",
+          "title": "ZH-CLIP 中文图文向量",
+          "categoryZh": "图文向量"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.embeddinggemma2",
+          "title": "EmbeddingGemma 2",
+          "categoryZh": "多模态向量"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.bge-reranker-v2-m3",
+          "title": "BGE-Reranker-v2-M3 重排",
+          "categoryZh": "检索重排"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.buffalo",
+          "title": "buffalo_l 人脸识别",
+          "categoryZh": "人脸识别"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.blip",
+          "title": "BLIP 图片描述",
+          "categoryZh": "图片描述"
+        }
+      ],
+      "totalVisible": 58
+    },
     {
       "ts": "2026-11-24 08:35:01",
       "appVersion": "2.3.384",
