@@ -3,12 +3,12 @@
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appPackage": "cloud.lazycat.app.ai",
   "appName": "AI Pod",
-  "appVersion": "2.3.377",
-  "appUpdatedAt": "2026-11-24 03:00:26",
-  "syncedAt": "2026-11-24 06:15:05",
-  "syncedTs": 1795472105,
+  "appVersion": "2.3.384",
+  "appUpdatedAt": "2026-11-24 08:26:23",
+  "syncedAt": "2026-11-24 08:35:05",
+  "syncedTs": 1795480505,
   "syncIntervalMinutes": 60,
-  "bundleFile": "ModelStore-BS45bWfb.js",
+  "bundleFile": "ModelStore-N-AVbYgf.js",
   "stats": {
     "visibleCount": 58,
     "hiddenCount": 7,
@@ -2370,7 +2370,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10s/30s 音频分段 36.2ms/96.7ms\n\nOrin：10s/30s 音频分段 50.4ms/112.7ms；检测语音活动、说话人切换与重叠",
+      "description": "Thor：10s/30s 音频分段 10.8ms/45.9ms（3.17x/1.86x）\n\nOrin：10s/30s 音频分段 50.4ms/112.7ms；检测语音活动、说话人切换与重叠",
       "badge": "",
       "coverTitle": "Pyannote",
       "coverSubtitle": "SEGMENTATION 3.0",
@@ -2424,7 +2424,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10s/30s 音频提取 27.4ms/76.9ms\n\nOrin：10s/30s 音频提取 38.4ms/99.9ms；提取 192 维声纹特征，支持最多 8 段批量聚类",
+      "description": "Thor：10s/30s 音频提取 4.5ms/7.1ms（5.68x/9.99x）\n\nOrin：10s/30s 音频提取 38.4ms/99.9ms；提取 192 维声纹特征，支持最多 8 段批量聚类",
       "badge": "",
       "coverTitle": "CAM++",
       "coverSubtitle": "SPEAKER EMBEDDINGS",
@@ -2478,7 +2478,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：5s 音频 25.1ms，1h 音频 39.75s\n\nOrin：5s 音频 30.4ms，1h 音频 62.77s；支持最多 8 位说话人与重叠检测",
+      "description": "Thor：5s/60s 音频 11.5ms/156.1ms（2.10x/3.69x），4 并发 480x RT\n\nOrin：5s 音频 30.4ms，1h 音频 62.77s；支持最多 8 位说话人与重叠检测",
       "badge": "",
       "coverTitle": "Nemotron 3",
       "coverSubtitle": "SPEAKER DIARIZATION",
@@ -2532,7 +2532,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中/英文短句 101.8ms/77.6ms，4 并发 15.45 条/s\n\nOrin：中/英文短句 224.4ms/176.3ms，4 并发 6.55 条/s；支持 157 种音色",
+      "description": "Thor：中/英文短句 26.6ms/30.7ms（3.14x/3.02x），4 并发 44.30 条/s\n\nOrin：中/英文短句 224.4ms/176.3ms，4 并发 6.55 条/s；支持 157 种音色",
       "badge": "",
       "coverTitle": "",
       "coverSubtitle": "",
@@ -2586,7 +2586,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：2s 英/3s 中/2s 编辑 0.89s/1.07s/1.50s\n\nOrin：2s 英/3s 中/2s 编辑 2.06s/2.77s/3.87s；支持中英语音生成与编辑",
+      "description": "Thor：2s 英/3s 中/2s 编辑 0.34s/0.41s/0.67s（2.62x/2.64x/2.23x），8s 长句 0.73s（2.85x）\n\nOrin：2s 英/3s 中/2s 编辑 2.06s/2.77s/3.87s；支持中英语音生成与编辑",
       "badge": "",
       "coverTitle": "AuK",
       "coverSubtitle": "SPEECH GENERATION & EDITING",
@@ -2640,7 +2640,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中文短句 1.30s，英文短句 1.67s\n\nOrin：中文短句 2.76s，英文短句 3.58s；支持五语种声音克隆、情绪语速与流式合成",
+      "description": "Thor：中文短句 0.49s（2.66x），英文短句 0.60s（2.81x），长句最高 4.62x\n\nOrin：中文短句 2.76s，英文短句 3.58s；支持五语种声音克隆、情绪语速与流式合成",
       "badge": "",
       "coverTitle": "IndexTTS 2.5",
       "coverSubtitle": "MULTILINGUAL VOICE CLONING",
@@ -2694,7 +2694,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中文短句整句 0.93s，首音 0.25s\n\nOrin：中文短句整句 1.34s，首音 0.39s；支持零样本声音克隆",
+      "description": "Thor：中文短句 0.44s（2.10x），首音 0.10s，长段 2.66x，4 并发 5.93 条/s（5.46x）\n\nOrin：中文短句整句 1.34s，首音 0.39s；支持零样本声音克隆",
       "badge": "",
       "coverTitle": "Qwen3-TTS",
       "coverSubtitle": "0.6B · VOICE GENERATION",
@@ -3491,6 +3491,51 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-24 08:35:01",
+      "appVersion": "2.3.384",
+      "prevAppVersion": "2.3.377",
+      "added": [],
+      "removed": [],
+      "updated": [
+        {
+          "packageId": "cloud.lazycat.aipod.pyannote-segmentation",
+          "title": "Pyannote Segmentation 3.0",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.campplus",
+          "title": "CAM++",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.nemotron3diar",
+          "title": "Nemotron 3 Diarization",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.kokoro",
+          "title": "Kokoro-82M v1.1-zh",
+          "categoryZh": "语音合成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.auk",
+          "title": "AuK",
+          "categoryZh": "语音合成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.indextts25",
+          "title": "IndexTTS 2.5",
+          "categoryZh": "语音合成"
+        },
+        {
+          "packageId": "cloud.lazycat.aipod.qwen3tts",
+          "title": "Qwen3-TTS 0.6B",
+          "categoryZh": "语音合成"
+        }
+      ],
+      "totalVisible": 58
+    },
     {
       "ts": "2026-11-24 03:05:02",
       "appVersion": "2.3.377",
