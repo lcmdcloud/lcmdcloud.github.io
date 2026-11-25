@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.397",
-  "appUpdatedAt": "2026-11-25 14:06:24",
-  "syncedAt": "2026-11-25 14:10:05",
-  "syncedTs": 1795587005,
+  "appVersion": "2.3.399",
+  "appUpdatedAt": "2026-11-26 03:00:09",
+  "syncedAt": "2026-11-26 03:05:05",
+  "syncedTs": 1795633505,
   "stats": {
     "visibleCount": 57,
     "totalCount": 57,
@@ -413,7 +413,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 147.11 TPS（峰值 161.07），8 并发 315.60 TPS，4K/32K Prefill 2009/2500 TPS，TTFT 0.124–0.327s，支持图文视觉，256K 上下文；Hibana W3 + DFlash2\n\nOrin：单流 34–48 TPS，4 并发 48–58 TPS（支持 8 并发），8K/25K Prefill 718/819 TPS，TTFT 0.456s（25K 30.84s），256K 上下文；Q2A8",
+      "description": "Thor：单流 147.11 TPS（峰值 161.07），8 并发 315.60 TPS，4K/32K Prefill 2009/2500 TPS，TTFT 0.124–0.327s，支持图文视觉，256K 上下文；NVFP4\n\nOrin：单流 34–48 TPS，4 并发 48–58 TPS（支持 8 并发），8K/25K Prefill 718/819 TPS，TTFT 0.456s（25K 30.84s），256K 上下文；Q2A8",
       "descriptionEn": "Thor: single-stream 61.28 TPS, 8-way concurrency 218.28 TPS, 4K prefill 2,410.64 TPS, TTFT 1.666s, 256K context.\n\nOrin: single-stream 34–48 TPS, 4-way concurrency 48–58 TPS, 25K TTFT 30.84s, supports 8-way concurrency, 256K context.",
       "badge": "",
       "imageFit": "cover",
@@ -859,7 +859,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：5s 480p/1344×768 41.1s/99.3s，15s 1344×768 369.1s，长参考 15s 790.5s（2.13x）；MXFP8\n\nOrin：5s 640×384/832×480 153s/261s，15s 640×384 521s；BF16",
+      "description": "Thor：5s 480p/1344×768 41.1s/99.3s（8步参考 49.4s），15s 1344×768 369.1s，长参考 15s 4步/8步 790.5s/791.5s（3.88x）；NVFP4\n\nOrin：5s 640×384/832×480 153s/261s，15s 640×384 521s；BF16",
       "descriptionEn": "Thor: 5s at 640×384 / 832×480 / 864×480 / 1344×768 in 31.0 / 40.4 / 44.4 / 106.5s; 15s in 73.0 / 133.6 / 144.3 / 404.6s; 480p I2V 5s in 47.9–54.2s, 15s in 152.2–160.6s.\n\nOrin: 5s at 640×384 / 832×480 in 153s / 261s; 15s at 640×384 in 521s.",
       "badge": "",
       "imageFit": "cover",
@@ -868,8 +868,8 @@
       "hardware": [
         {
           "device": "thor",
-          "memoryGiB": 114,
-          "diskGiB": 96.3,
+          "memoryGiB": 110,
+          "diskGiB": 105.3,
           "diskLowerBound": true,
           "perDevice": false,
           "cpuOnly": false
@@ -1518,7 +1518,7 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10.93s 韩语音频对齐 14.4ms（短音频 8.7ms）；BF16\n\nOrin：10.93s 韩语音频对齐 82.8ms；11 种语言词/字级时间戳对齐，最长 300s；BF16",
+      "description": "Thor：10.93s 音频对齐 14.4ms（短音频 8.7ms）；BF16\n\nOrin：10.93s 音频对齐 82.8ms；11 种语言词/字级时间戳对齐，最长 300s；BF16",
       "descriptionEn": "Thor: 10.93s Korean audio aligned in 35.8ms.\n\nOrin: 10.93s Korean audio aligned in 82.8ms; word/character timestamp alignment for 11 languages, up to 300s.",
       "badge": "",
       "imageFit": "cover",
@@ -2493,6 +2493,28 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-26 03:05:02",
+      "appVersion": "2.3.399",
+      "prevAppVersion": "2.3.397",
+      "totalVisible": 57,
+      "added": [],
+      "updated": [
+        {
+          "title": "Qwen 3.8 Flash Next",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Pika H3 Flex Turbo LoRA",
+          "categoryZh": "视频生成"
+        },
+        {
+          "title": "Qwen3 ForcedAligner",
+          "categoryZh": "语音对齐"
+        }
+      ],
+      "removed": []
+    },
     {
       "ts": "2026-11-25 14:10:01",
       "appVersion": "2.3.397",
