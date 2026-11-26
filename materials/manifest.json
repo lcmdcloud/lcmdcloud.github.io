@@ -1,7 +1,7 @@
 {
   "schemaVersion": 5,
-  "buildVer": "53edbf49",
-  "updatedAt": "2026-11-26 23:43:26",
+  "buildVer": "7dc5e039",
+  "updatedAt": "2026-11-26 23:46:58",
   "presaleRepo": {
     "commitSha": "fc6e0a9089ac9e05f3b133fe678e6c8c4a7597cd",
     "commitShort": "fc6e0a9",
@@ -18,8 +18,8 @@
   },
   "stats": {
     "productCount": 2,
-    "totalFiles": 13,
-    "zhFiles": 7,
+    "totalFiles": 12,
+    "zhFiles": 6,
     "enFiles": 6
   },
   "products": [
@@ -238,22 +238,6 @@
       "path": "materials/en/lc03/specs.html",
       "url": "materials/en/lc03/specs.html",
       "sourceRel": "English/LC03/hardware-specifications/LC03-Micro-Server-Hardware-Specifications-EN.html"
-    },
-    {
-      "id": "2f221651fc",
-      "lang": "zh",
-      "productId": "AI-Pod-X5",
-      "slot": "doc-ce26d9d1",
-      "order": 10,
-      "titleZh": "X5 T5000 重排版 12页",
-      "titleEn": "X5 T5000 重排版 12页",
-      "fileName": "doc-ce26d9d1.pdf",
-      "ext": "PDF",
-      "sizeBytes": 7770634,
-      "sizeMB": 7.41,
-      "path": "materials/zh/x5/doc-ce26d9d1.pdf",
-      "url": "materials/zh/x5/doc-ce26d9d1.pdf",
-      "sourceRel": "Chinese/AI-Pod-X5/X5-T5000-重排版-12页.pdf"
     }
   ]
 }

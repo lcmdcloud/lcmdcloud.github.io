@@ -523,6 +523,18 @@
       .official-link.wide { grid-column: span 1; }
     }
 
+    @media (max-width: 640px) {
+      .topbar { padding: 6px 10px; gap: 6px; }
+      .brand { gap: 7px; min-width: auto; }
+      .brand-logo { width: 24px; height: 24px; border-radius: 6px; }
+      .brand-name { font-size: 14.5px; }
+      .top-tabs { padding: 2px; border-radius: 9px; }
+      .top-tab { padding: 5px 9px; font-size: 12.5px; }
+      .subbar { height: 34px; padding: 0 10px; }
+      .sub-info { font-size: 11.5px; }
+      .tool-btn { padding: 4px 8px; font-size: 11.5px; }
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .top-indicator, .sub-indicator, .view-pane, .pane-loader, .official-link {
         transition: none !important;
