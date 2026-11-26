@@ -4,8 +4,8 @@
   "appName": "AI Pod",
   "appVersion": "2.3.403",
   "appUpdatedAt": "2026-11-26 23:22:58",
-  "syncedAt": "2026-11-26 23:39:40",
-  "syncedTs": 1795707580,
+  "syncedAt": "2026-11-26 23:43:26",
+  "syncedTs": 1795707806,
   "stats": {
     "visibleCount": 60,
     "totalCount": 60,
@@ -449,10 +449,10 @@
       "description": "Thor：单流 99.5 TPS（代码 112.3，峰值 140.7），8 并发 437.9 TPS（代码 312.4），8K/32K/128K Prefill 6710/6245/5047 TPS，TTFT 113ms，支持思维链、多模态与工具调用，1M 上下文；默认 NVFP4（可选 BF16）\n\nOrin：单流 34.6 TPS（代码 38.4），8 并发 110.2 TPS，4K Prefill 1371 TPS，TTFT 288ms，256K 上下文；NVFP4/MXFP8/BF16",
       "descriptionEn": "Thor: Single-stream 99.5 TPS (code 112.3, peak 140.7), 8-way 437.9 TPS (code 312.4), 8K/32K/128K Prefill 6710/6245/5047 TPS, TTFT 113ms; thinking, vision & tools, 1M context; default NVFP4 (optional BF16)\n\nOrin: Single-stream 34.6 TPS (code 38.4), 8-way 110.2 TPS, 4K Prefill 1371 TPS, TTFT 288ms, 256K context; NVFP4/MXFP8/BF16",
       "precision": {
-        "thor": "默认 NVFP4（可选 BF16）",
-        "orin": "NVFP4/MXFP8/BF16",
-        "zh": "默认 NVFP4（可选 BF16） / NVFP4/MXFP8/BF16",
-        "en": "默认 NVFP4（可选 BF16） / NVFP4/MXFP8/BF16"
+        "thor": "NVFP4 / BF16",
+        "orin": "NVFP4 / MXFP8 / BF16",
+        "zh": "NVFP4 / BF16 / MXFP8",
+        "en": "NVFP4 / BF16 / MXFP8"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1197,7 +1197,7 @@
         "thor": "",
         "orin": "",
         "zh": "精度随工作流模型而定",
-        "en": "precision depends on loaded workflow models"
+        "en": "Workflow-dependent"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1325,9 +1325,9 @@
       "descriptionEn": "Thor: 512x512 25-step 4.49s/img (1.69x); W4A8 (BF16/NVFP4/GGUF supported)\n\nOrin: 512x512 20-step 27.8s/img; W4A8 (BF16/GGUF supported)",
       "precision": {
         "thor": "W4A8",
-        "orin": "W4A8",
-        "zh": "W4A8",
-        "en": "W4A8"
+        "orin": "W4A8 / BF16 / GGUF",
+        "zh": "W4A8 / BF16 / GGUF",
+        "en": "W4A8 / BF16 / GGUF"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1473,8 +1473,8 @@
       "precision": {
         "thor": "BF16 / FP8",
         "orin": "BF16",
-        "zh": "BF16 / FP8 / BF16",
-        "en": "BF16 / FP8 / BF16"
+        "zh": "BF16 / FP8",
+        "en": "BF16 / FP8"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2208,8 +2208,8 @@
       "precision": {
         "thor": "FP16 / FP32",
         "orin": "FP32",
-        "zh": "FP16 / FP32 / FP32",
-        "en": "FP16 / FP32 / FP32"
+        "zh": "FP16 / FP32",
+        "en": "FP16 / FP32"
       },
       "badge": "",
       "imageFit": "cover",
