@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.399",
-  "appUpdatedAt": "2026-11-26 03:00:09",
-  "syncedAt": "2026-11-26 18:02:43",
-  "syncedTs": 1795687363,
+  "appVersion": "2.3.400",
+  "appUpdatedAt": "2026-11-26 22:06:11",
+  "syncedAt": "2026-11-26 22:10:08",
+  "syncedTs": 1795702208,
   "stats": {
-    "visibleCount": 57,
-    "totalCount": 57,
+    "visibleCount": 58,
+    "totalCount": 58,
     "categoryCount": 19,
-    "thorCount": 56,
-    "orinCount": 46,
+    "thorCount": 57,
+    "orinCount": 47,
     "multiNodeCount": 7
   },
   "categories": [
@@ -20,7 +20,7 @@
       "zh": "大语言模型",
       "en": "Large Language Models",
       "shortEn": "LLM",
-      "visibleCount": 15
+      "visibleCount": 16
     },
     {
       "key": "video",
@@ -391,8 +391,57 @@
       "isNew": true
     },
     {
-      "id": "m-f15b5a79",
+      "id": "m-6714f621",
       "order": 7,
+      "title": "Inkling 2 Mini 未审查版",
+      "titleEn": "Inkling 2 Mini Uncensored",
+      "category": "llm",
+      "categoryZh": "大语言模型",
+      "categoryEn": "Large Language Models",
+      "categoryShortEn": "LLM",
+      "meta": "AGX Thor / AGX Orin",
+      "deviceCount": 1,
+      "devices": [
+        "thor",
+        "orin"
+      ],
+      "isMultiNode": false,
+      "description": "Thor：单流 80.2 TPS（代码 87.8），8 并发 319.4 TPS（代码 235.3），8K/32K/128K Prefill 6189/5792/4758 TPS，TTFT 135ms，支持思维链、多模态与工具调用，1M 上下文；NVFP4/MXFP8/BF16\n\nOrin：单流 34.6 TPS（代码 38.4），8 并发 110.2 TPS，4K Prefill 1371 TPS，TTFT 288ms，256K 上下文；NVFP4/MXFP8/BF16",
+      "descriptionEn": "Thor: Single-stream 80.2 TPS (code 87.8), 8-way 319.4 TPS (code 235.3), 8K/32K/128K Prefill 6189/5792/4758 TPS, TTFT 135ms; thinking, vision & tools, 1M context; NVFP4/MXFP8/BF16\n\nOrin: Single-stream 34.6 TPS (code 38.4), 8-way 110.2 TPS, 4K Prefill 1371 TPS, TTFT 288ms, 256K context; NVFP4/MXFP8/BF16",
+      "precision": {
+        "thor": "NVFP4/MXFP8/BF16",
+        "orin": "NVFP4/MXFP8/BF16",
+        "zh": "NVFP4/MXFP8/BF16",
+        "en": "NVFP4/MXFP8/BF16"
+      },
+      "badge": "",
+      "imageFit": "cover",
+      "image": "./covers/inkling-2-mini-uncensored-DEBvQRb0.webp",
+      "imageType": "file",
+      "hardware": [
+        {
+          "device": "thor",
+          "memoryGiB": 59.8,
+          "diskGiB": 37.8325,
+          "diskLowerBound": true,
+          "perDevice": false,
+          "cpuOnly": false
+        },
+        {
+          "device": "orin",
+          "memoryGiB": 36.2,
+          "diskGiB": 25.5246,
+          "diskLowerBound": true,
+          "perDevice": false,
+          "cpuOnly": false
+        }
+      ],
+      "firstSeenAt": "2026-11-26 22:10:01",
+      "isNew": true
+    },
+    {
+      "id": "m-f15b5a79",
+      "order": 8,
       "title": "Qwen 3.8 27B 未审查版 DSpine",
       "titleEn": "Qwen 3.8 27B Uncensored DSpine",
       "category": "llm",
@@ -441,7 +490,7 @@
     },
     {
       "id": "m-3167b03a",
-      "order": 8,
+      "order": 9,
       "title": "Qwen 3.8 Flash Next",
       "titleEn": "Qwen 3.8 Flash Next",
       "category": "llm",
@@ -490,7 +539,7 @@
     },
     {
       "id": "m-3e412fb5",
-      "order": 9,
+      "order": 10,
       "title": "Qwen 3.8 Flash Next 未审查版",
       "titleEn": "Qwen 3.8 Flash Next Uncensored",
       "category": "llm",
@@ -530,7 +579,7 @@
     },
     {
       "id": "m-7f2ac9f7",
-      "order": 10,
+      "order": 11,
       "title": "Qwen 3.6 35B A3B",
       "titleEn": "Qwen 3.6 35B A3B",
       "category": "llm",
@@ -579,7 +628,7 @@
     },
     {
       "id": "m-e9cf2067",
-      "order": 11,
+      "order": 12,
       "title": "Qwen 3.5 4B",
       "titleEn": "Qwen 3.5 4B",
       "category": "llm",
@@ -628,7 +677,7 @@
     },
     {
       "id": "m-71d58086",
-      "order": 12,
+      "order": 13,
       "title": "Flint",
       "titleEn": "Flint",
       "category": "llm",
@@ -677,7 +726,7 @@
     },
     {
       "id": "m-b6643866",
-      "order": 13,
+      "order": 14,
       "title": "Gemma 4 31B IT Heretic",
       "titleEn": "Gemma 4 31B IT Heretic",
       "category": "llm",
@@ -726,7 +775,7 @@
     },
     {
       "id": "m-6a78f49d",
-      "order": 14,
+      "order": 15,
       "title": "Nemotron 3.5 Bolt E4B",
       "titleEn": "Nemotron 3.5 Bolt E4B",
       "category": "llm",
@@ -775,7 +824,7 @@
     },
     {
       "id": "m-da2872f8",
-      "order": 15,
+      "order": 16,
       "title": "MiniCPM5-2B",
       "titleEn": "MiniCPM5-2B",
       "category": "llm",
@@ -824,7 +873,7 @@
     },
     {
       "id": "m-c5499b25",
-      "order": 16,
+      "order": 17,
       "title": "MiniMax H3 Duo",
       "titleEn": "MiniMax H3 Duo",
       "category": "video",
@@ -864,7 +913,7 @@
     },
     {
       "id": "m-5fb6cf06",
-      "order": 17,
+      "order": 18,
       "title": "MiniMax H3",
       "titleEn": "MiniMax H3",
       "category": "video",
@@ -913,7 +962,7 @@
     },
     {
       "id": "m-9ae28a8b",
-      "order": 18,
+      "order": 19,
       "title": "MiniMax H3 Sol",
       "titleEn": "MiniMax H3 Sol",
       "category": "video",
@@ -953,7 +1002,7 @@
     },
     {
       "id": "m-36e90f66",
-      "order": 19,
+      "order": 20,
       "title": "Pika H3 Flex Turbo LoRA",
       "titleEn": "Pika H3 Flex Turbo LoRA",
       "category": "video",
@@ -1002,7 +1051,7 @@
     },
     {
       "id": "m-164e9409",
-      "order": 20,
+      "order": 21,
       "title": "Pika H3 Flex Turbo Ref2VA",
       "titleEn": "Pika H3 Flex Turbo Ref2VA",
       "category": "video",
@@ -1042,7 +1091,7 @@
     },
     {
       "id": "m-97014364",
-      "order": 21,
+      "order": 22,
       "title": "ComfyUI 2",
       "titleEn": "ComfyUI 2",
       "category": "image",
@@ -1071,7 +1120,7 @@
     },
     {
       "id": "m-2d7b0ec4",
-      "order": 22,
+      "order": 23,
       "title": "MiniMax-H3-Image",
       "titleEn": "MiniMax-H3-Image",
       "category": "image",
@@ -1120,7 +1169,7 @@
     },
     {
       "id": "m-8a5de8a1",
-      "order": 23,
+      "order": 24,
       "title": "Qwen Image 2.1 Turbo",
       "titleEn": "Qwen Image 2.1 Turbo",
       "category": "image",
@@ -1169,7 +1218,7 @@
     },
     {
       "id": "m-2435fce1",
-      "order": 24,
+      "order": 25,
       "title": "Qwen Image 2.1 Heretic",
       "titleEn": "Qwen Image 2.1 Heretic",
       "category": "image",
@@ -1218,7 +1267,7 @@
     },
     {
       "id": "m-f5f634ea",
-      "order": 25,
+      "order": 26,
       "title": "Firefox Translations 机器翻译",
       "titleEn": "Firefox Translations Neural MT",
       "category": "translation",
@@ -1267,7 +1316,7 @@
     },
     {
       "id": "m-db2e8f17",
-      "order": 26,
+      "order": 27,
       "title": "Confucius4-T3PO",
       "titleEn": "Confucius4-T3PO",
       "category": "translation",
@@ -1316,7 +1365,7 @@
     },
     {
       "id": "m-d0dc1874",
-      "order": 27,
+      "order": 28,
       "title": "Hy-MT2 翻译",
       "titleEn": "Hy-MT2 Translation",
       "category": "translation",
@@ -1365,7 +1414,7 @@
     },
     {
       "id": "m-602eccf0",
-      "order": 28,
+      "order": 29,
       "title": "Index Translate 翻译",
       "titleEn": "Index Translate",
       "category": "translation",
@@ -1414,7 +1463,7 @@
     },
     {
       "id": "m-4bad2023",
-      "order": 29,
+      "order": 30,
       "title": "Hy-SimulMT 语音翻译",
       "titleEn": "Hy-SimulMT Speech Translation",
       "category": "speechTranslation",
@@ -1463,7 +1512,7 @@
     },
     {
       "id": "m-009832f2",
-      "order": 30,
+      "order": 31,
       "title": "SenseVoiceSmall Q4_K",
       "titleEn": "SenseVoiceSmall Q4_K",
       "category": "asr",
@@ -1512,7 +1561,7 @@
     },
     {
       "id": "m-433aa524",
-      "order": 31,
+      "order": 32,
       "title": "Nemotron 3.5 Transcribe",
       "titleEn": "Nemotron 3.5 Transcribe",
       "category": "asr",
@@ -1561,7 +1610,7 @@
     },
     {
       "id": "m-71857922",
-      "order": 32,
+      "order": 33,
       "title": "Qwen3-ASR",
       "titleEn": "Qwen3-ASR",
       "category": "asr",
@@ -1610,7 +1659,7 @@
     },
     {
       "id": "m-f7c51325",
-      "order": 33,
+      "order": 34,
       "title": "Whisper Large V3 Turbo",
       "titleEn": "Whisper Large V3 Turbo",
       "category": "asr",
@@ -1659,7 +1708,7 @@
     },
     {
       "id": "m-e80a0380",
-      "order": 34,
+      "order": 35,
       "title": "Confucius4-R2T2",
       "titleEn": "Confucius4-R2T2",
       "category": "asr",
@@ -1708,7 +1757,7 @@
     },
     {
       "id": "m-53a3b60d",
-      "order": 35,
+      "order": 36,
       "title": "Qwen3 ForcedAligner",
       "titleEn": "Qwen3 ForcedAligner",
       "category": "alignment",
@@ -1757,7 +1806,7 @@
     },
     {
       "id": "m-23f10645",
-      "order": 36,
+      "order": 37,
       "title": "Demucs",
       "titleEn": "Demucs",
       "category": "separation",
@@ -1806,7 +1855,7 @@
     },
     {
       "id": "m-59398dfc",
-      "order": 37,
+      "order": 38,
       "title": "Pyannote Segmentation 3.0",
       "titleEn": "Pyannote Segmentation 3.0",
       "category": "diarization",
@@ -1855,7 +1904,7 @@
     },
     {
       "id": "m-4724886a",
-      "order": 38,
+      "order": 39,
       "title": "CAM++",
       "titleEn": "CAM++",
       "category": "diarization",
@@ -1904,7 +1953,7 @@
     },
     {
       "id": "m-41c89cc5",
-      "order": 39,
+      "order": 40,
       "title": "Nemotron 3 Diarization",
       "titleEn": "Nemotron 3 Diarization",
       "category": "diarization",
@@ -1953,7 +2002,7 @@
     },
     {
       "id": "m-e1e9fd2b",
-      "order": 40,
+      "order": 41,
       "title": "Kokoro-82M v1.1-zh",
       "titleEn": "Kokoro-82M v1.1-zh",
       "category": "tts",
@@ -2002,7 +2051,7 @@
     },
     {
       "id": "m-75300309",
-      "order": 41,
+      "order": 42,
       "title": "AuK",
       "titleEn": "AuK",
       "category": "tts",
@@ -2051,7 +2100,7 @@
     },
     {
       "id": "m-fa8737b7",
-      "order": 42,
+      "order": 43,
       "title": "IndexTTS 2.5",
       "titleEn": "IndexTTS 2.5",
       "category": "tts",
@@ -2100,7 +2149,7 @@
     },
     {
       "id": "m-2400e66f",
-      "order": 43,
+      "order": 44,
       "title": "Qwen3-TTS 0.6B",
       "titleEn": "Qwen3-TTS 0.6B",
       "category": "tts",
@@ -2149,7 +2198,7 @@
     },
     {
       "id": "m-947e63da",
-      "order": 44,
+      "order": 45,
       "title": "Sophon-Realtime 32B",
       "titleEn": "Sophon-Realtime 32B",
       "category": "tts",
@@ -2198,7 +2247,7 @@
     },
     {
       "id": "m-bdfa83ac",
-      "order": 45,
+      "order": 46,
       "title": "Sophon-Realtime 4B Flash",
       "titleEn": "Sophon-Realtime 4B Flash",
       "category": "tts",
@@ -2247,7 +2296,7 @@
     },
     {
       "id": "m-7ff856b7",
-      "order": 46,
+      "order": 47,
       "title": "PP-DocLayoutV3",
       "titleEn": "PP-DocLayoutV3",
       "category": "layout",
@@ -2296,7 +2345,7 @@
     },
     {
       "id": "m-da8061dc",
-      "order": 47,
+      "order": 48,
       "title": "Unlimited-OCR",
       "titleEn": "Unlimited-OCR",
       "category": "ocr",
@@ -2345,7 +2394,7 @@
     },
     {
       "id": "m-95fe7e1f",
-      "order": 48,
+      "order": 49,
       "title": "Unlimited-OCR-2",
       "titleEn": "Unlimited-OCR-2",
       "category": "ocr",
@@ -2394,7 +2443,7 @@
     },
     {
       "id": "m-15b19fe3",
-      "order": 49,
+      "order": 50,
       "title": "PP-OCRv6",
       "titleEn": "PP-OCRv6",
       "category": "ocr",
@@ -2443,7 +2492,7 @@
     },
     {
       "id": "m-76dcf06f",
-      "order": 50,
+      "order": 51,
       "title": "Decision 3.0",
       "titleEn": "Decision 3.0",
       "category": "decision",
@@ -2492,7 +2541,7 @@
     },
     {
       "id": "m-46818159",
-      "order": 51,
+      "order": 52,
       "title": "Qwen3-Embedding",
       "titleEn": "Qwen3-Embedding",
       "category": "embedding",
@@ -2541,7 +2590,7 @@
     },
     {
       "id": "m-68d84338",
-      "order": 52,
+      "order": 53,
       "title": "BGE-M3 稠密向量",
       "titleEn": "BGE-M3 Dense Embeddings",
       "category": "embedding",
@@ -2590,7 +2639,7 @@
     },
     {
       "id": "m-4a5f3b44",
-      "order": 53,
+      "order": 54,
       "title": "ZH-CLIP 中文图文向量",
       "titleEn": "ZH-CLIP Chinese Text–Image Embeddings",
       "category": "imageTextEmbedding",
@@ -2639,7 +2688,7 @@
     },
     {
       "id": "m-fe00a7b9",
-      "order": 54,
+      "order": 55,
       "title": "EmbeddingGemma 2",
       "titleEn": "EmbeddingGemma 2",
       "category": "multimodalEmbedding",
@@ -2688,7 +2737,7 @@
     },
     {
       "id": "m-c52d76b0",
-      "order": 55,
+      "order": 56,
       "title": "BGE-Reranker-v2-M3 重排",
       "titleEn": "BGE-Reranker-v2-M3 Reranking",
       "category": "reranking",
@@ -2737,7 +2786,7 @@
     },
     {
       "id": "m-ff1fd81e",
-      "order": 56,
+      "order": 57,
       "title": "buffalo_l 人脸识别",
       "titleEn": "buffalo_l Face Recognition",
       "category": "faceRecognition",
@@ -2786,7 +2835,7 @@
     },
     {
       "id": "m-6f85263f",
-      "order": 57,
+      "order": 58,
       "title": "BLIP 图片描述",
       "titleEn": "BLIP Image Captioning",
       "category": "imageCaptioning",
@@ -2835,6 +2884,20 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-26 22:10:01",
+      "appVersion": "2.3.400",
+      "prevAppVersion": "2.3.399",
+      "totalVisible": 58,
+      "added": [
+        {
+          "title": "Inkling 2 Mini 未审查版",
+          "categoryZh": "大语言模型"
+        }
+      ],
+      "updated": [],
+      "removed": []
+    },
     {
       "ts": "2026-11-26 03:05:02",
       "appVersion": "2.3.399",
