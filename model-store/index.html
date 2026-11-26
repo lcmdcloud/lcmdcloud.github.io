@@ -361,28 +361,55 @@
       color: var(--ink);
     }
 
-    /* ==================== Control & Filter Bar ==================== */
+    /* ==================== Sticky 1-Row Filter & Dropdown Toolbar ==================== */
     .controls-shell {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 24px;
+      position: sticky;
+      top: 54px;
+      z-index: 35;
+      margin: 0 0 22px;
+      padding: 8px 12px;
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: saturate(180%) blur(16px);
+      -webkit-backdrop-filter: saturate(180%) blur(16px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow-xs);
+      transition: box-shadow 0.2s ease, border-color 0.2s ease, border-radius 0.2s ease;
+    }
+
+    body.embed-mode .controls-shell {
+      top: 0;
+    }
+
+    .controls-shell.is-stuck {
+      border-color: var(--line-strong);
+      box-shadow: 0 10px 28px -10px rgba(15, 23, 42, 0.16), 0 2px 6px -2px rgba(15, 23, 42, 0.06);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
     }
 
     .toolbar-row {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: center;
       justify-content: space-between;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .toolbar-left,
+    .toolbar-left {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      flex: 1 1 auto;
+      min-width: 0;
+      flex-wrap: wrap;
+    }
+
     .toolbar-right {
       display: flex;
-      flex-wrap: wrap;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
+      flex-shrink: 0;
     }
 
     .seg {
@@ -399,7 +426,7 @@
       border-right: 1px solid var(--line);
       background: transparent;
       color: var(--ink-2);
-      padding: 7px 12px;
+      padding: 6px 11px;
       font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
@@ -421,25 +448,38 @@
 
     .search-box {
       position: relative;
-      width: 250px;
+      flex: 1 1 200px;
+      min-width: 165px;
+      max-width: 280px;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      color: var(--ink-3);
+      pointer-events: none;
     }
 
     .search-input {
       width: 100%;
-      padding: 7px 28px 7px 11px;
+      padding: 6.5px 26px 6.5px 29px;
       border-radius: var(--radius-sm);
       border: 1px solid var(--line);
-      background: var(--surface);
+      background: var(--surface-2);
       color: var(--ink);
-      font-size: 13px;
+      font-size: 12.5px;
       font-weight: 500;
       outline: none;
-      box-shadow: var(--shadow-xs);
-      transition: border-color 0.15s, box-shadow 0.15s;
+      transition: border-color 0.15s, box-shadow 0.15s, background 0.15s;
     }
 
     .search-input::placeholder { color: var(--ink-3); }
     .search-input:focus {
+      background: var(--surface);
       border-color: var(--blue);
       box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
     }
@@ -452,8 +492,8 @@
       border: 0;
       background: var(--surface-3);
       color: var(--ink-2);
-      width: 18px;
-      height: 18px;
+      width: 17px;
+      height: 17px;
       border-radius: 50%;
       font-size: 12px;
       cursor: pointer;
@@ -470,7 +510,7 @@
       border: 1px solid var(--line);
       background: var(--surface);
       color: var(--ink-2);
-      padding: 7px 11px;
+      padding: 6.5px 10px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       font-weight: 600;
@@ -498,58 +538,334 @@
       color: #ffffff;
     }
 
-    .hidden-toggle {
+    /* Dropdown Multi-Select System */
+    .dd {
+      position: relative;
+      display: inline-flex;
+    }
+
+    .dd-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
-      font-size: 12.5px;
-      font-weight: 600;
-      color: var(--ink-3);
-      cursor: pointer;
-      user-select: none;
-      padding: 4px 6px;
-    }
-    .hidden-toggle input { accent-color: var(--blue); cursor: pointer; }
-
-    /* Category Pills Strip */
-    .pills-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding-top: 2px;
-    }
-
-    .pill {
       border: 1px solid var(--line);
       background: var(--surface);
       color: var(--ink-2);
-      padding: 6px 11px;
+      padding: 6.5px 10px;
       border-radius: var(--radius-sm);
       font-size: 12.5px;
       font-weight: 600;
       cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: all 0.15s ease;
+      white-space: nowrap;
+      box-shadow: var(--shadow-xs);
+      transition: border-color 0.15s, background 0.15s, color 0.15s;
     }
 
-    .pill:hover {
+    .dd-btn:hover,
+    .dd.open .dd-btn {
       border-color: var(--line-strong);
       color: var(--ink);
       background: var(--surface-2);
     }
 
-    .pill.active {
+    .dd-btn.has-filter {
       background: var(--blue-soft);
-      border-color: var(--blue);
+      border-color: var(--blue-line);
       color: var(--blue);
     }
 
-    .pill .cnt {
-      font-size: 11px;
-      opacity: 0.72;
+    .dd-btn .dd-val {
+      max-width: 145px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+
+    .dd-caret {
+      width: 12px;
+      height: 12px;
+      opacity: 0.65;
+      flex-shrink: 0;
+      transition: transform 0.18s ease;
+    }
+
+    .dd.open .dd-caret {
+      transform: rotate(180deg);
+    }
+
+    .dd-panel {
+      position: absolute;
+      top: calc(100% + 6px);
+      left: 0;
+      min-width: 228px;
+      background: var(--surface);
+      border: 1px solid var(--line-strong);
+      border-radius: 10px;
+      box-shadow: 0 18px 42px -12px rgba(15, 23, 42, 0.22), 0 4px 12px -4px rgba(15, 23, 42, 0.08);
+      padding: 10px;
+      z-index: 65;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+      animation: fadeUp 0.14s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .dd.align-right .dd-panel {
+      left: auto;
+      right: 0;
+    }
+
+    .dd.open .dd-panel {
+      display: flex;
+    }
+
+    .dd-panel.cat-panel {
+      width: 400px;
+      max-width: calc(100vw - 28px);
+    }
+
+    .dd-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      padding: 0 2px 6px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .dd-head-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .dd-head-actions {
+      display: inline-flex;
+      gap: 8px;
+    }
+
+    .dd-link {
+      border: 0;
+      background: transparent;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0;
+    }
+    .dd-link:hover { text-decoration: underline; }
+
+    .dd-checks {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .dd-checks.two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 4px 6px;
+      max-height: min(360px, 56vh);
+      overflow-y: auto;
+      padding-right: 2px;
+    }
+
+    .dd-opt {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--ink-2);
+      user-select: none;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .dd-opt:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    .dd-opt.checked {
+      background: var(--blue-soft);
+      color: var(--blue);
+    }
+
+    .dd-opt input[type="checkbox"] {
+      width: 14px;
+      height: 14px;
+      margin: 0;
+      accent-color: var(--blue);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .dd-opt-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .dd-opt-name {
+      flex: 1;
+      min-width: 0;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .dd-opt-cnt {
+      font-size: 11px;
+      color: var(--ink-3);
+      flex-shrink: 0;
+    }
+
+    .dd-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .dd-group-lbl {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--ink-3);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      padding-left: 2px;
+    }
+
+    .dd-seg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4px;
+    }
+
+    .dd-seg-grid button {
+      border: 1px solid var(--line);
+      background: var(--surface-2);
+      color: var(--ink-2);
+      padding: 6px 6px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.14s;
+    }
+
+    .dd-seg-grid button:hover {
+      border-color: var(--line-strong);
+      color: var(--ink);
+    }
+
+    .dd-seg-grid button.active {
+      background: var(--blue);
+      border-color: var(--blue);
+      color: #ffffff;
+    }
+
+    .dd-menu-item {
+      width: 100%;
+      border: 0;
+      background: transparent;
+      color: var(--ink-2);
+      padding: 8px 10px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      text-align: left;
+      transition: background 0.12s, color 0.12s;
+    }
+
+    .dd-menu-item:hover {
+      background: var(--surface-2);
+      color: var(--ink);
+    }
+
+    .dd-menu-item.accent {
+      color: var(--blue);
+      background: var(--blue-soft);
+    }
+    .dd-menu-item.accent:hover {
+      background: color-mix(in srgb, var(--blue-soft) 75%, var(--blue) 12%);
+    }
+
+    .btn-reset-pill {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      border: 1px dashed var(--line-strong);
+      background: transparent;
+      color: var(--ink-3);
+      padding: 5.5px 9px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-reset-pill.show { display: inline-flex; }
+    .btn-reset-pill:hover {
+      border-color: var(--rose);
+      color: var(--rose);
+      background: var(--rose-soft);
+    }
+
+    /* ==================== Back to Top Floating Button ==================== */
+    .back-top {
+      position: fixed;
+      right: 24px;
+      bottom: 26px;
+      z-index: 55;
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      border: 1px solid var(--line-strong);
+      background: color-mix(in srgb, var(--surface) 92%, transparent);
+      backdrop-filter: saturate(180%) blur(12px);
+      -webkit-backdrop-filter: saturate(180%) blur(12px);
+      color: var(--ink);
+      box-shadow: 0 10px 26px -6px rgba(15, 23, 42, 0.22), 0 2px 6px -2px rgba(15, 23, 42, 0.08);
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px) scale(0.95);
+      transition: opacity 0.2s ease, transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.15s, color 0.15s, background 0.15s;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+
+    .back-top:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: var(--surface);
+      transform: translateY(-2px) scale(1.03);
+    }
+
+    .back-top svg {
+      width: 18px;
+      height: 18px;
+    }
+
+    body.screenshot-mode .back-top { display: none !important; }
 
     /* ==================== Section Divider ==================== */
     .cat-section {
@@ -1493,17 +1809,26 @@
       .wall-grid { grid-template-columns: 1fr; }
     }
 
+    @media (max-width: 960px) {
+      .toolbar-row { flex-wrap: wrap; }
+      .toolbar-right { margin-left: auto; }
+    }
+
     @media (max-width: 640px) {
       .wrap { padding: 16px 14px 48px; }
       .topbar-inner { padding: 0 14px; }
       .kpi-strip { grid-template-columns: repeat(3, 1fr); }
       .kpi-cell { padding: 9px 10px; min-width: 0; }
       .kpi-val { font-size: 18px; }
-      .search-box { width: 100%; }
-      .toolbar-left, .toolbar-right { width: 100%; }
-      .pills-bar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: 4px; scrollbar-width: none; }
-      .pills-bar::-webkit-scrollbar { display: none; }
-      .pill { flex-shrink: 0; }
+      .controls-shell { padding: 8px 10px; }
+      .search-box { flex: 1 1 100%; max-width: none; }
+      .toolbar-left { width: 100%; gap: 6px; }
+      .toolbar-right { width: 100%; justify-content: flex-end; gap: 6px; }
+      .dd-panel.cat-panel { width: calc(100vw - 28px); }
+      .dd-checks.two-col { grid-template-columns: 1fr; }
+      .dd-btn { padding: 6px 8px; font-size: 12px; }
+      .dd-btn .dd-val { max-width: 96px; }
+      .back-top { right: 14px; bottom: 18px; width: 38px; height: 38px; }
       .card { padding: 16px; gap: 12px; }
       .card-thumb { width: 42px; height: 42px; }
       .tri-val { font-size: 15px; }
@@ -1511,7 +1836,7 @@
     }
 
     @media print {
-      .topbar, .controls-shell, .update-banner, .shot-float, .sync-popup, .toast { display: none !important; }
+      .topbar, .controls-shell, .update-banner, .shot-float, .sync-popup, .toast, .back-top { display: none !important; }
       body { background: #ffffff; background-image: none; }
       .card, .wall-card, .spec-board { break-inside: avoid; box-shadow: none; }
     }
@@ -1577,42 +1902,89 @@
 
     <section class="update-banner" id="update-banner"></section>
 
-    <!-- Controls & Filter Bar -->
-    <section class="controls-shell">
+    <!-- Sticky Compact 1-Row Filter & Action Bar -->
+    <section class="controls-shell" id="controls-shell">
       <div class="toolbar-row">
         <div class="toolbar-left">
-          <div class="seg" role="group" aria-label="Hardware" id="hw-chips">
-            <button type="button" data-hw="all" class="active" id="hw-all">全部硬件</button>
-            <button type="button" data-hw="thor-single" id="hw-thor-single">Thor 单机</button>
-            <button type="button" data-hw="thor-multi" id="hw-thor-multi">Thor 多机</button>
-            <button type="button" data-hw="orin" id="hw-orin">Orin</button>
-          </div>
-
           <div class="search-box">
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="8" />
+              <line x1="21" y1="21" x2="16.65" y2="16.65" />
+            </svg>
             <input
               type="text"
               id="search-input"
               class="search-input"
-              placeholder="搜索模型：DeepSeek / Qwen / 视频 / TP4…"
+              placeholder="搜索模型、精度、硬件…"
               autocomplete="off"
             />
             <button type="button" class="search-clear" id="search-clear" aria-label="Clear">×</button>
           </div>
+
+          <!-- Hardware Multi-Select Dropdown -->
+          <div class="dd" id="dd-hw">
+            <button type="button" class="dd-btn" id="dd-hw-btn" aria-expanded="false">
+              <span class="dd-val" id="dd-hw-label">硬件 · 全部</span>
+              <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dd-panel" id="dd-hw-panel">
+              <div class="dd-head">
+                <span class="dd-head-title" id="dd-hw-title">硬件平台（可多选）</span>
+                <div class="dd-head-actions">
+                  <button type="button" class="dd-link" id="dd-hw-clear">全部</button>
+                </div>
+              </div>
+              <div class="dd-checks" id="hw-options"></div>
+            </div>
+          </div>
+
+          <!-- Category Multi-Select Dropdown -->
+          <div class="dd" id="dd-cat">
+            <button type="button" class="dd-btn" id="dd-cat-btn" aria-expanded="false">
+              <span class="dd-val" id="dd-cat-label">分类 · 全部</span>
+              <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dd-panel cat-panel" id="dd-cat-panel">
+              <div class="dd-head">
+                <span class="dd-head-title" id="dd-cat-title">模型分类（可多选）</span>
+                <div class="dd-head-actions">
+                  <button type="button" class="dd-link" id="dd-cat-clear">全部</button>
+                </div>
+              </div>
+              <div class="dd-checks two-col" id="cat-options"></div>
+            </div>
+          </div>
+
+          <!-- Display (View + Scale) Dropdown -->
+          <div class="dd" id="dd-display">
+            <button type="button" class="dd-btn" id="dd-display-btn" aria-expanded="false">
+              <span class="dd-val" id="dd-display-label">评测卡片 · 标准</span>
+              <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dd-panel" id="dd-display-panel" style="min-width:250px;">
+              <div class="dd-group">
+                <span class="dd-group-lbl" id="dd-lbl-view">展示视图</span>
+                <div class="dd-seg-grid" role="group" aria-label="View">
+                  <button type="button" data-view="cards" class="active" id="btn-v-cards">评测卡片</button>
+                  <button type="button" data-view="list" id="btn-v-list">规格表</button>
+                  <button type="button" data-view="wall" id="btn-v-wall">总览墙</button>
+                </div>
+              </div>
+              <div class="dd-group">
+                <span class="dd-group-lbl" id="dd-lbl-scale">字号大小</span>
+                <div class="dd-seg-grid" role="group" aria-label="Scale">
+                  <button type="button" data-scale="normal" class="active" id="btn-s-normal">标准</button>
+                  <button type="button" data-scale="large" id="btn-s-large">大字</button>
+                  <button type="button" data-scale="xlarge" id="btn-s-xlarge">特大</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <button type="button" class="btn-reset-pill" id="btn-reset-filters">重置</button>
         </div>
 
         <div class="toolbar-right">
-          <div class="seg" role="group" aria-label="View">
-            <button type="button" data-view="cards" class="active" id="btn-v-cards">评测卡片</button>
-            <button type="button" data-view="list" id="btn-v-list">规格表</button>
-            <button type="button" data-view="wall" id="btn-v-wall">总览墙</button>
-          </div>
-
-          <div class="seg" role="group" aria-label="Scale">
-            <button type="button" data-scale="normal" class="active" id="btn-s-normal">标准</button>
-            <button type="button" data-scale="large" id="btn-s-large">大字</button>
-            <button type="button" data-scale="xlarge" id="btn-s-xlarge">特大</button>
-          </div>
-
           <button type="button" class="btn btn-sync" id="btn-force-sync">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21 12a9 9 0 1 1-2.64-6.36" />
@@ -1620,13 +1992,21 @@
             </svg>
             <span id="lbl-force-sync">强制拉取更新</span>
           </button>
-          <button type="button" class="btn" id="btn-changelog">更新记录</button>
-          <button type="button" class="btn" id="btn-copy-list">复制清单</button>
-          <button type="button" class="btn btn-accent" id="btn-screenshot">截图模式</button>
+
+          <!-- More Tools Dropdown -->
+          <div class="dd align-right" id="dd-tools">
+            <button type="button" class="dd-btn" id="dd-tools-btn" aria-expanded="false">
+              <span id="dd-tools-label">工具</span>
+              <svg class="dd-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+            <div class="dd-panel" id="dd-tools-panel" style="min-width:176px;gap:3px;padding:6px;">
+              <button type="button" class="dd-menu-item" id="btn-changelog">更新记录</button>
+              <button type="button" class="dd-menu-item" id="btn-copy-list">复制清单</button>
+              <button type="button" class="dd-menu-item accent" id="btn-screenshot">客户截图模式</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <div class="pills-bar" id="cat-chips"></div>
     </section>
 
     <div id="content">
@@ -1670,6 +2050,12 @@
       <div class="modal-body" id="changelog-body"></div>
     </div>
   </div>
+
+  <button type="button" class="back-top" id="btn-back-top" aria-label="回到顶部" title="回到顶部">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <polyline points="18 15 12 9 6 15" />
+    </svg>
+  </button>
 
   <div class="sync-popup" id="sync-popup" role="status" aria-live="polite"></div>
 
@@ -1737,10 +2123,21 @@
           statMulti: '多机集群',
           stampText: (appUpd, syncAt) => `源端发布 ${appUpd.slice(0, 16)} · 同步 ${syncAt.slice(0, 16)}`,
           searchPh: '搜索模型：DeepSeek / Qwen / 视频 / Orin / TP4…',
-          hwAll: '全部硬件',
+          hwAll: '全部',
           hwThorSingle: 'Thor 单机',
           hwThorMulti: 'Thor 多机',
-          hwOrin: 'Orin',
+          hwOrin: 'AGX Orin',
+          ddHwPrefix: '硬件',
+          ddHwTitle: '硬件平台（可多选）',
+          ddCatPrefix: '分类',
+          ddCatTitle: '模型分类（可多选）',
+          ddClearAll: '恢复全部',
+          ddLblView: '展示视图',
+          ddLblScale: '字号大小',
+          ddTools: '工具',
+          btnReset: '重置筛选',
+          selectedN: (n) => `已选 ${n} 项`,
+          backTopTitle: '回到顶部',
           allModels: '全部',
           unitCount: (n) => `${n} 款`,
           memRam: '内存',
@@ -1829,10 +2226,21 @@
           statMulti: 'Multi-Node',
           stampText: (appUpd, syncAt) => `Release ${appUpd.slice(0, 16)} · Synced ${syncAt.slice(0, 16)}`,
           searchPh: 'Search: DeepSeek / Qwen / Video / Orin / TP4…',
-          hwAll: 'All HW',
+          hwAll: 'All',
           hwThorSingle: 'Thor 1×',
           hwThorMulti: 'Thor Multi',
-          hwOrin: 'Orin',
+          hwOrin: 'AGX Orin',
+          ddHwPrefix: 'HW',
+          ddHwTitle: 'Hardware (Multi-Select)',
+          ddCatPrefix: 'Category',
+          ddCatTitle: 'Categories (Multi-Select)',
+          ddClearAll: 'Select All',
+          ddLblView: 'Layout View',
+          ddLblScale: 'Font Size',
+          ddTools: 'Tools',
+          btnReset: 'Reset',
+          selectedN: (n) => `${n} selected`,
+          backTopTitle: 'Back to top',
           allModels: 'All',
           unitCount: (n) => `${n}`,
           memRam: 'RAM',
@@ -1905,13 +2313,15 @@
         view: localStorage.getItem('ms-view') || 'cards',
         scale: localStorage.getItem('ms-scale') || 'normal',
         theme: urlParams.get('theme') || localStorage.getItem('lcmd-theme') || 'light',
-        category: 'all',
-        hw: 'all',
+        categories: new Set(),
+        hws: new Set(),
         query: '',
-        showHidden: false,
         screenshotMode: false,
         syncing: false,
       };
+
+      const isOrinOnly = () => state.hws.size === 1 && state.hws.has('orin');
+      const isThorOnly = () => state.hws.size > 0 && !state.hws.has('orin');
 
       const $ = (sel) => document.querySelector(sel);
       const $$ = (sel) => Array.from(document.querySelectorAll(sel));
@@ -2015,7 +2425,7 @@
 
         const thorHw = (m.hardware || []).find((h) => h.device === 'thor') || m.hardware?.[0] || null;
         const orinHw = (m.hardware || []).find((h) => h.device === 'orin') || null;
-        const activeHw = state.hw === 'orin' && orinHw ? orinHw : thorHw || orinHw;
+        const activeHw = isOrinOnly() && orinHw ? orinHw : thorHw || orinHw;
 
         const vramVal = activeHw ? `${formatGiB(activeHw.memoryGiB)}` : renderShortHw(m);
         const vramLbl = activeHw
@@ -2035,7 +2445,7 @@
 
         // 1. LLM Metrics Extraction
         if (m.category === 'llm') {
-          const focusText = state.hw === 'orin' && orinLine ? orinLine : primaryText;
+          const focusText = isOrinOnly() && orinLine ? orinLine : primaryText;
 
           let decodeVal = '';
           let decodeNum = null;
@@ -2066,7 +2476,7 @@
             }
           }
 
-          if (thorLine && orinLine && state.hw !== 'orin') {
+          if (thorLine && orinLine && !isOrinOnly()) {
             const tDec = thorLine.match(/(?:代码单流|单流)[^\d]{0,12}(?:\d+(?:\.\d+)?[–-])?(\d+(?:\.\d+)?)\s*TPS/i);
             const oDec = orinLine.match(/(?:代码单流|单流)[^\d]{0,12}(?:\d+(?:\.\d+)?[–-])?(\d+(?:\.\d+)?)\s*TPS/i);
             if (tDec && oDec) {
@@ -2098,9 +2508,9 @@
         }
 
         // 2. Non-LLM Metrics Extraction
-        const focusText = state.hw === 'orin' && orinLine ? orinLine : primaryText;
+        const focusText = isOrinOnly() && orinLine ? orinLine : primaryText;
         let metric1Val = '';
-        let metric1Lbl = state.hw === 'orin' && orinLine ? L.lblOrinSpeed : L.lblSpeed;
+        let metric1Lbl = isOrinOnly() && orinLine ? L.lblOrinSpeed : L.lblSpeed;
 
         const mRtf = focusText.match(/([\d,]+(?:\.\d+)?)\s*(?:倍实时|x\s*RT)/i);
         const mRate = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(张\/s|条\/s|req\/s|rps)/i);
@@ -2149,7 +2559,7 @@
           metric1Lbl = L.lblDeploy;
         }
 
-        if (thorLine && orinLine && state.hw !== 'orin') {
+        if (thorLine && orinLine && !isOrinOnly()) {
           const tMs = parseSpeedValMs(thorLine);
           const oMs = parseSpeedValMs(orinLine);
           if (tMs && oMs && oMs / tMs >= 1.35) {
@@ -2176,8 +2586,8 @@
       function getActivePrecision(m) {
         const p = m.precision;
         if (!p) return '';
-        if (state.hw === 'orin' && p.orin) return p.orin;
-        if ((state.hw === 'thor-single' || state.hw === 'thor-multi') && p.thor) return p.thor;
+        if (isOrinOnly() && p.orin) return p.orin;
+        if (isThorOnly() && p.thor) return p.thor;
         return isEn() ? (p.en || p.zh || p.thor || p.orin || '') : (p.zh || p.thor || p.orin || '');
       }
 
@@ -2205,11 +2615,11 @@
         const { thorLine, orinLine, otherText } = splitHwDesc(text);
         if (thorLine || orinLine) {
           const rows = [];
-          if (thorLine && state.hw !== 'orin') {
+          if (thorLine && !isOrinOnly()) {
             rows.push(`<div class="perf-line"><span class="perf-tag thor">THOR</span><span class="perf-text">${esc(thorLine)}</span></div>`);
           }
           if (orinLine) {
-            rows.push(`<div class="perf-line"><span class="perf-tag orin">ORIN</span><span class="perf-text ${state.hw === 'orin' ? '' : 'muted'}">${esc(orinLine)}</span></div>`);
+            rows.push(`<div class="perf-line"><span class="perf-tag orin">ORIN</span><span class="perf-text ${isOrinOnly() ? '' : 'muted'}">${esc(orinLine)}</span></div>`);
           }
           if (otherText) {
             rows.push(`<div class="perf-line"><span class="perf-text muted">${esc(otherText)}</span></div>`);
@@ -2252,7 +2662,6 @@
 
         $$('[data-view]').forEach((b) => b.classList.toggle('active', b.dataset.view === state.view));
         $$('[data-scale]').forEach((b) => b.classList.toggle('active', b.dataset.scale === state.scale));
-        $$('[data-hw]').forEach((b) => b.classList.toggle('active', b.dataset.hw === state.hw));
         $$('[data-lang]').forEach((b) => b.classList.toggle('active', b.dataset.lang === state.lang));
 
         $('#nav-back').href = `../?lang=${state.lang}`;
@@ -2268,6 +2677,20 @@
         $('#btn-copy-list').textContent = L.btnCopy;
         $('#btn-screenshot').textContent = L.btnShot;
 
+        const viewLbl = state.view === 'list' ? L.vList : state.view === 'wall' ? L.vWall : L.vCards;
+        const scaleLbl = state.scale === 'xlarge' ? L.sXlarge : state.scale === 'large' ? L.sLarge : L.sNormal;
+        $('#dd-display-label').textContent = `${viewLbl} · ${scaleLbl}`;
+        $('#dd-hw-title').textContent = L.ddHwTitle;
+        $('#dd-cat-title').textContent = L.ddCatTitle;
+        $('#dd-hw-clear').textContent = L.ddClearAll;
+        $('#dd-cat-clear').textContent = L.ddClearAll;
+        $('#dd-lbl-view').textContent = L.ddLblView;
+        $('#dd-lbl-scale').textContent = L.ddLblScale;
+        $('#dd-tools-label').textContent = L.ddTools;
+        $('#btn-reset-filters').textContent = L.btnReset;
+        $('#btn-back-top').title = L.backTopTitle;
+        $('#btn-back-top').setAttribute('aria-label', L.backTopTitle);
+
         $('#hero-badge-text').textContent = L.heroBadge;
         $('#hero-title').textContent = L.heroTitle;
         $('#hero-sub').textContent = L.heroSub;
@@ -2278,10 +2701,6 @@
         $('#lbl-stat-multi').textContent = L.statMulti;
 
         $('#search-input').placeholder = L.searchPh;
-        $('#hw-all').textContent = L.hwAll;
-        $('#hw-thor-single').textContent = L.hwThorSingle;
-        $('#hw-thor-multi').textContent = L.hwThorMulti;
-        $('#hw-orin').textContent = L.hwOrin;
         $('#footer-source').textContent = L.footerSource;
 
         $('#shot-label').textContent = L.shotLabel;
@@ -2294,12 +2713,19 @@
         $('#btn-close-detail').textContent = L.modalClose;
       }
 
-      function matchesHw(m, hw) {
-        if (hw === 'all') return true;
+      function matchesSingleHw(m, hw) {
         if (hw === 'thor-single') return m.devices.includes('thor') && !m.isMultiNode;
         if (hw === 'thor-multi') return m.devices.includes('thor') && m.isMultiNode;
         if (hw === 'orin') return m.devices.includes('orin');
         return true;
+      }
+
+      function matchesHwSet(m, hwSet) {
+        if (!hwSet || hwSet.size === 0) return true;
+        for (const hw of hwSet) {
+          if (matchesSingleHw(m, hw)) return true;
+        }
+        return false;
       }
 
       function getBaseModels() {
@@ -2310,8 +2736,8 @@
       function getFilteredModels() {
         const q = state.query.trim().toLowerCase();
         return getBaseModels().filter((m) => {
-          if (state.category !== 'all' && m.category !== state.category) return false;
-          if (!matchesHw(m, state.hw)) return false;
+          if (state.categories.size > 0 && !state.categories.has(m.category)) return false;
+          if (!matchesHwSet(m, state.hws)) return false;
           if (q) {
             const hay = [
               m.title,
@@ -2336,29 +2762,111 @@
         });
       }
 
-      function renderCategoryChips() {
+      function renderFilterDropdowns() {
         const L = t();
-        const base = getBaseModels().filter((m) => matchesHw(m, state.hw));
-        const counts = {};
-        for (const m of base) counts[m.category] = (counts[m.category] || 0) + 1;
+        const allBase = getBaseModels();
 
-        const chips = [
-          `<button type="button" class="pill ${state.category === 'all' ? 'active' : ''}" data-cat="all">${esc(L.allModels)} <span class="cnt num">${base.length}</span></button>`,
+        // 1. Hardware Multi-Select Options
+        const hwDefs = [
+          { key: 'thor-single', label: L.hwThorSingle, color: '#2563eb' },
+          { key: 'thor-multi', label: L.hwThorMulti, color: '#059669' },
+          { key: 'orin', label: L.hwOrin, color: '#d97706' },
         ];
-        for (const cat of state.data.categories) {
-          const c = counts[cat.key] || 0;
-          if (!c) continue;
-          chips.push(
-            `<button type="button" class="pill ${state.category === cat.key ? 'active' : ''}" data-cat="${esc(cat.key)}">${esc(catName(cat))} <span class="cnt num">${c}</span></button>`,
-          );
-        }
-        $('#cat-chips').innerHTML = chips.join('');
-        $$('#cat-chips .pill').forEach((btn) => {
-          btn.addEventListener('click', () => {
-            state.category = btn.dataset.cat;
+        const catFiltered = allBase.filter((m) => state.categories.size === 0 || state.categories.has(m.category));
+        $('#hw-options').innerHTML = hwDefs
+          .map((h) => {
+            const cnt = catFiltered.filter((m) => matchesSingleHw(m, h.key)).length;
+            const checked = state.hws.has(h.key);
+            return `
+              <label class="dd-opt ${checked ? 'checked' : ''}">
+                <input type="checkbox" data-hw-opt="${esc(h.key)}" ${checked ? 'checked' : ''} />
+                <span class="dd-opt-dot" style="background:${h.color}"></span>
+                <span class="dd-opt-name">${esc(h.label)}</span>
+                <span class="dd-opt-cnt num">${cnt}</span>
+              </label>
+            `;
+          })
+          .join('');
+
+        $$('#hw-options input[data-hw-opt]').forEach((inp) => {
+          inp.addEventListener('change', () => {
+            const k = inp.dataset.hwOpt;
+            if (inp.checked) state.hws.add(k);
+            else state.hws.delete(k);
             render();
           });
         });
+
+        const hwBtn = $('#dd-hw-btn');
+        if (state.hws.size === 0) {
+          $('#dd-hw-label').textContent = `${L.ddHwPrefix} · ${L.hwAll}`;
+          hwBtn.classList.remove('has-filter');
+        } else if (state.hws.size === 1) {
+          const only = hwDefs.find((x) => state.hws.has(x.key));
+          $('#dd-hw-label').textContent = `${L.ddHwPrefix} · ${only ? only.label : ''}`;
+          hwBtn.classList.add('has-filter');
+        } else {
+          $('#dd-hw-label').textContent = `${L.ddHwPrefix} · ${L.selectedN(state.hws.size)}`;
+          hwBtn.classList.add('has-filter');
+        }
+
+        // 2. Category Multi-Select Options
+        const hwFiltered = allBase.filter((m) => matchesHwSet(m, state.hws));
+        const catCounts = {};
+        for (const m of hwFiltered) catCounts[m.category] = (catCounts[m.category] || 0) + 1;
+
+        const TONE_HEX = {
+          blue: '#2563eb',
+          violet: '#7c3aed',
+          rose: '#e11d48',
+          emerald: '#059669',
+          amber: '#d97706',
+          cyan: '#0284c7',
+          slate: '#475569',
+        };
+
+        $('#cat-options').innerHTML = state.data.categories
+          .filter((cat) => (catCounts[cat.key] || 0) > 0 || state.categories.has(cat.key))
+          .map((cat) => {
+            const cnt = catCounts[cat.key] || 0;
+            const checked = state.categories.has(cat.key);
+            const dotColor = TONE_HEX[CATEGORY_TONES[cat.key] || 'slate'] || '#475569';
+            return `
+              <label class="dd-opt ${checked ? 'checked' : ''}">
+                <input type="checkbox" data-cat-opt="${esc(cat.key)}" ${checked ? 'checked' : ''} />
+                <span class="dd-opt-dot" style="background:${dotColor}"></span>
+                <span class="dd-opt-name" title="${esc(catName(cat))}">${esc(catName(cat))}</span>
+                <span class="dd-opt-cnt num">${cnt}</span>
+              </label>
+            `;
+          })
+          .join('');
+
+        $$('#cat-options input[data-cat-opt]').forEach((inp) => {
+          inp.addEventListener('change', () => {
+            const k = inp.dataset.catOpt;
+            if (inp.checked) state.categories.add(k);
+            else state.categories.delete(k);
+            render();
+          });
+        });
+
+        const catBtn = $('#dd-cat-btn');
+        if (state.categories.size === 0) {
+          $('#dd-cat-label').textContent = `${L.ddCatPrefix} · ${L.allModels} (${hwFiltered.length})`;
+          catBtn.classList.remove('has-filter');
+        } else if (state.categories.size === 1) {
+          const onlyKey = Array.from(state.categories)[0];
+          const cObj = state.data.categories.find((c) => c.key === onlyKey);
+          $('#dd-cat-label').textContent = `${L.ddCatPrefix} · ${cObj ? catName(cObj) : onlyKey}`;
+          catBtn.classList.add('has-filter');
+        } else {
+          $('#dd-cat-label').textContent = `${L.ddCatPrefix} · ${L.selectedN(state.categories.size)}`;
+          catBtn.classList.add('has-filter');
+        }
+
+        const hasAnyFilter = state.hws.size > 0 || state.categories.size > 0 || Boolean(state.query.trim());
+        $('#btn-reset-filters').classList.toggle('show', hasAnyFilter);
       }
 
       function renderCardsView(groups) {
@@ -2651,7 +3159,7 @@
         $('#meta-stamp').textContent = L.stampText(d.appUpdatedAt || '', d.syncedAt || '');
         $('#footer-stamp').textContent = `AI Pod v${d.appVersion} · ${d.syncedAt}`;
 
-        renderCategoryChips();
+        renderFilterDropdowns();
         renderUpdateBanner();
 
         const filtered = getFilteredModels();
@@ -2663,12 +3171,16 @@
         $('#stat-multi').textContent = filtered.filter((m) => m.isMultiNode).length;
 
         const filterNotes = [];
-        if (state.hw === 'thor-single') filterNotes.push(L.hwThorSingle);
-        if (state.hw === 'thor-multi') filterNotes.push(L.hwThorMulti);
-        if (state.hw === 'orin') filterNotes.push(L.hwOrin);
-        if (state.category !== 'all') {
-          const cObj = d.categories.find((c) => c.key === state.category);
-          if (cObj) filterNotes.push(catName(cObj));
+        if (state.hws.has('thor-single')) filterNotes.push(L.hwThorSingle);
+        if (state.hws.has('thor-multi')) filterNotes.push(L.hwThorMulti);
+        if (state.hws.has('orin')) filterNotes.push(L.hwOrin);
+        if (state.categories.size > 0) {
+          const names = Array.from(state.categories)
+            .map((k) => {
+              const cObj = d.categories.find((c) => c.key === k);
+              return cObj ? catName(cObj) : k;
+            });
+          filterNotes.push(names.length <= 2 ? names.join(' / ') : L.selectedN(names.length));
         }
         if (state.query.trim()) filterNotes.push(`"${state.query.trim()}"`);
 
@@ -3037,6 +3549,69 @@
         }
       }
 
+      // ==================== Dropdown Toggle, Sticky Shadow & Back-to-Top ====================
+      function closeAllDropdowns(exceptId = '') {
+        $$('.dd').forEach((dd) => {
+          if (dd.id !== exceptId) {
+            dd.classList.remove('open');
+            dd.querySelector('.dd-btn')?.setAttribute('aria-expanded', 'false');
+          }
+        });
+      }
+
+      $$('.dd .dd-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          const dd = btn.closest('.dd');
+          const willOpen = !dd.classList.contains('open');
+          closeAllDropdowns(dd.id);
+          dd.classList.toggle('open', willOpen);
+          btn.setAttribute('aria-expanded', String(willOpen));
+        });
+      });
+
+      $$('.dd-panel').forEach((panel) => {
+        panel.addEventListener('click', (e) => e.stopPropagation());
+      });
+
+      document.addEventListener('click', () => closeAllDropdowns());
+
+      $('#dd-hw-clear').addEventListener('click', () => {
+        state.hws.clear();
+        render();
+      });
+
+      $('#dd-cat-clear').addEventListener('click', () => {
+        state.categories.clear();
+        render();
+      });
+
+      $('#btn-reset-filters').addEventListener('click', () => {
+        state.hws.clear();
+        state.categories.clear();
+        state.query = '';
+        $('#search-input').value = '';
+        $('#search-clear').classList.remove('show');
+        closeAllDropdowns();
+        render();
+      });
+
+      const controlsShellEl = $('#controls-shell');
+      const backTopBtn = $('#btn-back-top');
+      const updateScrollUI = () => {
+        const y = window.scrollY || document.documentElement.scrollTop || 0;
+        backTopBtn.classList.toggle('show', y > 260);
+        if (controlsShellEl) {
+          const stickyTop = isEmbed ? 0 : 54;
+          const rect = controlsShellEl.getBoundingClientRect();
+          controlsShellEl.classList.toggle('is-stuck', rect.top <= stickyTop + 1 && y > 40);
+        }
+      };
+      window.addEventListener('scroll', updateScrollUI, { passive: true });
+      backTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
       $$('[data-view]').forEach((btn) =>
         btn.addEventListener('click', () => {
           state.view = btn.dataset.view;
@@ -3050,13 +3625,6 @@
           state.scale = btn.dataset.scale;
           localStorage.setItem('ms-scale', state.scale);
           applyPreferences();
-        }),
-      );
-
-      $$('[data-hw]').forEach((btn) =>
-        btn.addEventListener('click', () => {
-          state.hw = btn.dataset.hw;
-          render();
         }),
       );
 
@@ -3092,8 +3660,14 @@
       });
 
       $('#btn-force-sync').addEventListener('click', forcePullUpdate);
-      $('#btn-copy-list').addEventListener('click', copyPlainList);
-      $('#btn-changelog').addEventListener('click', openChangelog);
+      $('#btn-copy-list').addEventListener('click', () => {
+        closeAllDropdowns();
+        copyPlainList();
+      });
+      $('#btn-changelog').addEventListener('click', () => {
+        closeAllDropdowns();
+        openChangelog();
+      });
       $('#btn-close-modal').addEventListener('click', () => $('#changelog-modal').classList.remove('open'));
       $('#changelog-modal').addEventListener('click', (e) => {
         if (e.target === $('#changelog-modal')) $('#changelog-modal').classList.remove('open');
@@ -3104,6 +3678,7 @@
       });
 
       $('#btn-screenshot').addEventListener('click', () => {
+        closeAllDropdowns();
         state.screenshotMode = true;
         applyPreferences();
         showToast(t().toastShot);
@@ -3133,7 +3708,9 @@
 
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-          if ($('#sync-popup').classList.contains('show')) {
+          if ($('.dd.open')) {
+            closeAllDropdowns();
+          } else if ($('#sync-popup').classList.contains('show')) {
             closeSyncPopup();
           } else if ($('#detail-modal').classList.contains('open')) {
             $('#detail-modal').classList.remove('open');
