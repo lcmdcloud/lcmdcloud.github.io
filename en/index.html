@@ -8,8 +8,14 @@
   <link rel="shortcut icon" href="../favicon.ico" />
   <meta http-equiv="refresh" content="0; url=../?lang=en" />
   <script>
-    try { localStorage.setItem('lcmd-lang', 'en'); } catch (e) {}
-    window.location.replace('../?lang=en');
+    (function () {
+      try { localStorage.setItem('lcmd-lang', 'en'); } catch (e) {}
+      var params = new URLSearchParams(window.location.search);
+      if (!params.get('lang')) params.set('lang', 'en');
+      var qs = params.toString();
+      var target = '../' + (qs ? '?' + qs : '') + '';
+      window.location.replace(target);
+    })();
   </script>
 </head>
 <body>

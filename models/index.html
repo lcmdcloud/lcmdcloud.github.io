@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>懒猫 AI Pod 模型广场</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="../assets/favicon.png" />
+  <link rel="shortcut icon" href="../favicon.ico" />
+  <meta http-equiv="refresh" content="0; url=../#models" />
+  <script>
+    (function () {
+      
+      var params = new URLSearchParams(window.location.search);
+      
+      var qs = params.toString();
+      var target = '../' + (qs ? '?' + qs : '') + '#models';
+      window.location.replace(target);
+    })();
+  </script>
+</head>
+<body>
+  <p><a href="../#models">懒猫 AI Pod 模型广场</a></p>
+</body>
+</html>

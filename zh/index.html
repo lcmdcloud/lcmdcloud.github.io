@@ -8,8 +8,14 @@
   <link rel="shortcut icon" href="../favicon.ico" />
   <meta http-equiv="refresh" content="0; url=../?lang=zh" />
   <script>
-    try { localStorage.setItem('lcmd-lang', 'zh'); } catch (e) {}
-    window.location.replace('../?lang=zh');
+    (function () {
+      try { localStorage.setItem('lcmd-lang', 'zh'); } catch (e) {}
+      var params = new URLSearchParams(window.location.search);
+      if (!params.get('lang')) params.set('lang', 'zh');
+      var qs = params.toString();
+      var target = '../' + (qs ? '?' + qs : '') + '';
+      window.location.replace(target);
+    })();
   </script>
 </head>
 <body>
