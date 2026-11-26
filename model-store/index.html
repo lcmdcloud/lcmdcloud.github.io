@@ -719,6 +719,7 @@
     .badge.thor4 { background: var(--green-soft); color: var(--green); border: 1px solid var(--green-line); }
     .badge.orin  { background: var(--amber-soft); color: var(--amber); border: 1px solid var(--amber-line); }
     .badge.ctx   { background: var(--surface-2);  color: var(--ink-2); border: 1px solid var(--line); }
+    .badge.prec  { background: var(--violet-soft);color: var(--violet);border: 1px solid var(--violet-line); }
     .badge.new   { background: var(--rose-soft);  color: var(--rose);  border: 1px solid var(--rose-line); }
     .badge.beta  { background: var(--violet-soft);color: var(--violet);border: 1px solid var(--violet-line); }
 
@@ -1745,6 +1746,7 @@
           memRam: '内存',
           memVram: '显存',
           disk: '磁盘',
+          precisionLbl: '精度',
           perNode: '/台',
           newBadge: 'NEW',
           detailBtn: '规格详情 →',
@@ -1836,6 +1838,7 @@
           memRam: 'RAM',
           memVram: 'VRAM',
           disk: 'Disk',
+          precisionLbl: 'Precision',
           perNode: '/node',
           newBadge: 'NEW',
           detailBtn: 'Specs →',
@@ -2099,21 +2102,25 @@
         let metric1Val = '';
         let metric1Lbl = state.hw === 'orin' && orinLine ? L.lblOrinSpeed : L.lblSpeed;
 
-        const mRtf = focusText.match(/(\d+(?:\.\d+)?)\s*倍实时/);
-        const mRate = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(张\/s|条\/s)/);
+        const mRtf = focusText.match(/([\d,]+(?:\.\d+)?)\s*(?:倍实时|x\s*RT)/i);
+        const mRate = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*(张\/s|条\/s|req\/s|rps)/i);
         const mImg = focusText.match(/(\d+(?:\.\d+)?)\s*s\/张/);
         const mTps = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*TPS/i);
-        const mVidDur = m.category === 'video' && focusText.match(/(?:耗时|完整生成)\s*(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*s?/);
+        const mVidDur = m.category === 'video' && (
+          focusText.match(/(?:耗时|完整生成|20\s*步)\s*(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)?\s*s/i) ||
+          focusText.match(/(?:5s|5\.125s|1s)[^\d,;；，]{1,18}(?:480p|\d+[×x]\d+)(?:\/[^\s，,]+)?\s+(\d+(?:\.\d+)?)s/i)
+        );
         const mDual = focusText.match(/双路吞吐\s*(\d+(?:\.\d+)?)x/i);
         const mMs = focusText.match(/(\d+(?:\.\d+)?)(?:\/\d+(?:\.\d+)?)*\s*ms\b/i);
         const mSlashSec = focusText.match(/(\d+(?:\.\d+)?)s\/\d+(?:\.\d+)?s/i);
-        const mTimeS = focusText.match(/(?:耗时|完整生成|生图|转写|分离|译中文|短句|整句|短文|长文|首音)[^\d]{0,14}(\d+(?:\.\d+)?)\s*s\b/);
+        const mTimeS = focusText.match(/(?:耗时|完整生成|生图|转写|分离|译中文|音频|短图|短句|整句|短文|长文|单流|首音)[^\d]{0,14}(\d+(?:\.\d+)?)\s*s\b/);
 
         if (mRtf) {
           metric1Val = `${mRtf[1]}× RT`;
           metric1Lbl = isEn() ? 'Realtime Factor' : '实时倍率';
         } else if (mRate) {
-          const unit = mRate[2] === '张/s' ? (isEn() ? ' img/s' : ' 张/s') : (isEn() ? ' req/s' : ' 条/s');
+          const uRaw = mRate[2].toLowerCase();
+          const unit = uRaw === '张/s' ? (isEn() ? ' img/s' : ' 张/s') : (isEn() ? ' req/s' : ' 条/s');
           metric1Val = `${mRate[1]}${unit}`;
           metric1Lbl = L.lblPerf;
         } else if (mImg) {
@@ -2166,6 +2173,14 @@
         };
       }
 
+      function getActivePrecision(m) {
+        const p = m.precision;
+        if (!p) return '';
+        if (state.hw === 'orin' && p.orin) return p.orin;
+        if ((state.hw === 'thor-single' || state.hw === 'thor-multi') && p.thor) return p.thor;
+        return isEn() ? (p.en || p.zh || p.thor || p.orin || '') : (p.zh || p.thor || p.orin || '');
+      }
+
       function renderHwBadges(m) {
         const L = t();
         const out = [];
@@ -2177,6 +2192,8 @@
         if (m.devices.includes('orin')) {
           out.push(`<span class="badge orin">Orin</span>`);
         }
+        const prec = getActivePrecision(m);
+        if (prec) out.push(`<span class="badge prec" title="${esc(L.precisionLbl)}: ${esc(prec)}">${esc(prec)}</span>`);
         const ctx = extractContextBadge(m);
         if (ctx) out.push(`<span class="badge ctx">${esc(ctx)}</span>`);
         if (m.isNew) out.push(`<span class="badge new">${esc(L.newBadge)}</span>`);
@@ -2304,6 +2321,10 @@
               m.meta,
               m.description,
               m.descriptionEn,
+              m.precision?.zh,
+              m.precision?.en,
+              m.precision?.thor,
+              m.precision?.orin,
               m.badge,
               ...(m.hardware || []).map((h) => h.device),
             ]
@@ -2421,7 +2442,8 @@
                     const dev = isThor ? (h.perDevice && m.deviceCount > 1 ? `Thor ×${m.deviceCount}` : 'Thor') : 'Orin';
                     const diskOp = h.diskLowerBound ? '≥' : '';
                     const per = h.perDevice && m.deviceCount > 1 ? L.perNode : '';
-                    return `<div class="spec-hw-item num"><span class="badge ${cls}">${dev}</span><span>${formatGiB(h.memoryGiB)} · ${L.disk} ${diskOp}${formatGiB(h.diskGiB)}${per}</span></div>`;
+                    const hPrec = isThor ? m.precision?.thor : m.precision?.orin;
+                    return `<div class="spec-hw-item num"><span class="badge ${cls}">${dev}</span>${hPrec ? `<span class="badge prec">${esc(hPrec)}</span>` : ''}<span>${formatGiB(h.memoryGiB)} · ${L.disk} ${diskOp}${formatGiB(h.diskGiB)}${per}</span></div>`;
                   })
                   .join('');
 
@@ -2517,11 +2539,15 @@
             const memLbl = h.cpuOnly ? L.memRam : L.memVram;
             const per = h.perDevice && m.deviceCount > 1 ? L.perNode : '';
             const diskOp = h.diskLowerBound ? '≥' : '≈';
+            const hPrec = isThor ? m.precision?.thor : m.precision?.orin;
             return `
               <div class="detail-hw-card">
                 <div class="detail-hw-head">
                   <span>${esc(devName)}</span>
-                  <span class="badge ${cls}">${isThor ? 'NVIDIA THOR' : 'NVIDIA ORIN'}</span>
+                  <span style="display:inline-flex;gap:5px;align-items:center;">
+                    ${hPrec ? `<span class="badge prec">${esc(hPrec)}</span>` : ''}
+                    <span class="badge ${cls}">${isThor ? 'NVIDIA THOR' : 'NVIDIA ORIN'}</span>
+                  </span>
                 </div>
                 <div class="detail-hw-nums num">
                   <span><b>${memLbl}:</b> ${formatGiB(h.memoryGiB)}${per}</span>
@@ -2744,6 +2770,7 @@
           te: m.titleEn,
           d: m.description,
           de: m.descriptionEn,
+          p: m.precision?.zh || '',
           h: Boolean(m.hidden),
           c: m.category,
           dc: m.deviceCount,
