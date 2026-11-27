@@ -4,8 +4,8 @@
   "appName": "AI Pod",
   "appVersion": "2.3.413",
   "appUpdatedAt": "2026-11-28 03:00:27",
-  "syncedAt": "2026-11-28 04:10:40",
-  "syncedTs": 1795810240,
+  "syncedAt": "2026-11-28 04:15:07",
+  "syncedTs": 1795810507,
   "stats": {
     "visibleCount": 62,
     "totalCount": 62,
@@ -154,7 +154,7 @@
       "id": "m-aec5738d",
       "order": 1,
       "title": "DeepSeek V4.1 Flash 1017 未审查版",
-      "titleEn": "DeepSeek V4.1 Flash 1017 · Uncensored",
+      "titleEn": "DeepSeek V4.1 Flash 1017 Uncensored",
       "category": "llm",
       "categoryZh": "大语言模型",
       "categoryEn": "Large Language Models",
@@ -166,7 +166,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 64.84 TPS（峰值 90.11），8 并发 91.95 TPS（同代码 214.19），32K Prefill 1500.04 TPS，TTFT 0.261s；支持 1M 上下文；EXL3 2.52bpw",
-      "descriptionEn": "Single-stream 64.84 TPS (peak 90.11), 8-way concurrency 91.95 TPS (code 214.19), 32K Prefill 1500.04 TPS, TTFT 0.261s; 1M context; EXL3 2.52bpw",
+      "descriptionEn": "Single-stream 64.84 TPS (peak 90.11), 8-way 91.95 TPS (same-code 214.19), 32K Prefill 1500.04 TPS, TTFT 0.261s; 1M context; EXL3 2.52bpw",
       "precision": {
         "thor": "EXL3 2.52bpw",
         "orin": "",
@@ -194,7 +194,7 @@
       "id": "m-b4233743",
       "order": 2,
       "title": "DeepSeek V4 Flash Vision 未审查版",
-      "titleEn": "DeepSeek V4 Flash Vision · Uncensored",
+      "titleEn": "DeepSeek V4 Flash Vision Uncensored",
       "category": "llm",
       "categoryZh": "大语言模型",
       "categoryEn": "Large Language Models",
@@ -206,7 +206,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 50.43–63.92 TPS，8 并发 180.97 TPS，4K/8K Prefill 1432/1405 TPS，TTFT 0.360s；支持视觉理解，1M 上下文；NVFP4",
-      "descriptionEn": "Single-stream 50.43–63.92 TPS, 8-way concurrency 180.97 TPS, 4K/8K Prefill 1432/1405 TPS, TTFT 0.360s; visual understanding, 1M context; NVFP4",
+      "descriptionEn": "Single-stream 50.43–63.92 TPS, 8-way 180.97 TPS, 4K/8K Prefill 1432/1405 TPS, TTFT 0.360s; vision support, 1M context; NVFP4",
       "precision": {
         "thor": "NVFP4",
         "orin": "",
@@ -246,7 +246,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 169.6 TPS（对话 103.2），8 并发 352.9 TPS，8K/32K Prefill 10930/12463 TPS，TTFT 19.5ms；支持视觉与视频理解，1M 上下文；FP8 + MXFP4",
-      "descriptionEn": "Single-stream 169.6 TPS (对话 103.2), 8-way concurrency 352.9 TPS, 8K/32K Prefill 10930/12463 TPS, TTFT 19.5ms; vision & video understanding, 1M context; FP8 + MXFP4",
+      "descriptionEn": "Single-stream 169.6 TPS (chat 103.2), 8-way 352.9 TPS, 8K/32K Prefill 10930/12463 TPS, TTFT 19.5ms; vision & video, 1M context; FP8 + MXFP4",
       "precision": {
         "thor": "FP8 + MXFP4",
         "orin": "",
@@ -286,7 +286,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 86.5 TPS（TPOT 11.7ms），8 并发 222.6 TPS，4K/16K Prefill 2443/2648 TPS，多模态视觉 2.33s（TTFT 285.5ms）；支持思维链、视觉理解与工具调用，1M 上下文；NVFP4 + DFly2",
-      "descriptionEn": "Single-stream 86.5 TPS (TPOT 11.7ms), 8-way concurrency 222.6 TPS, 4K/16K Prefill 2443/2648 TPS, 多模态视觉 2.33s (TTFT 285.5ms); supports 思维链 / 视觉理解与工具调用, 1M context; NVFP4 + DFly2",
+      "descriptionEn": "Single-stream 86.5 TPS (TPOT 11.7ms), 8-way 222.6 TPS, 4K/16K Prefill 2443/2648 TPS, Vision 2.33s (TTFT 285.5ms); thinking, vision & tool calling, 1M context; NVFP4 + DFly2",
       "precision": {
         "thor": "NVFP4 + DFly2",
         "orin": "",
@@ -326,7 +326,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 62.45 TPS，8 并发 134.99 TPS，8K/32K Prefill 1193.9/1255.8 TPS，TTFT 0.183s；约 2.7M KV 池，1M 上下文；EXL3 4bpw",
-      "descriptionEn": "Single-stream 62.45 TPS, 8-way concurrency 134.99 TPS, 8K/32K Prefill 1193.9/1255.8 TPS, TTFT 0.183s; 约 2.7M KV 池, 1M context; EXL3 4bpw",
+      "descriptionEn": "Single-stream 62.45 TPS, 8-way 134.99 TPS, 8K/32K Prefill 1193.9/1255.8 TPS, TTFT 0.183s; ~2.7M KV pool, 1M context; EXL3 4bpw",
       "precision": {
         "thor": "EXL3 4bpw",
         "orin": "",
@@ -366,7 +366,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 115.8 TPS（正文 76.3），8/16 并发 254.1/353.1 TPS，16K/32K Prefill 6052/6162 TPS（1M 3082），TTFT 0.15–0.17s；支持图文多模态与工具调用，1M 上下文；NVFP4",
-      "descriptionEn": "Single-stream 115.8 TPS (正文 76.3), 8/16-way concurrency 254.1/353.1 TPS, 16K/32K Prefill 6052/6162 TPS (1M 3082), TTFT 0.15–0.17s; multimodal vision & tool use, 1M context; NVFP4",
+      "descriptionEn": "Single-stream 115.8 TPS (prose 76.3), 8/16-way 254.1/353.1 TPS, 16K/32K Prefill 6052/6162 TPS (1M 3082), TTFT 0.15–0.17s; vision & tools, 1M context; NVFP4",
       "precision": {
         "thor": "NVFP4",
         "orin": "",
@@ -406,7 +406,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 22.54–23.80 TPS，8 并发 37.20 TPS，2K/8K Prefill 178.3/166.7 TPS，TTFT 2.26s；8 共享槽，12K 上下文；EXLR8",
-      "descriptionEn": "Single-stream 22.54–23.80 TPS, 8-way concurrency 37.20 TPS, 2K/8K Prefill 178.3/166.7 TPS, TTFT 2.26s; 8 共享槽, 12K context; EXLR8",
+      "descriptionEn": "Single-stream 22.54–23.80 TPS, 8-way 37.20 TPS, 2K/8K Prefill 178.3/166.7 TPS, TTFT 2.26s; 8 shared slots, 12K context; EXLR8",
       "precision": {
         "thor": "EXLR8",
         "orin": "",
@@ -446,7 +446,7 @@
       ],
       "isMultiNode": true,
       "description": "单流 56.1 TPS（正文 33.5，代码峰值 60.8），8 并发 72.2 TPS，8K/32K/128K Prefill 1100/1154/1038 TPS，TTFT 0.61s；442K 上下文；EXLR8 K4",
-      "descriptionEn": "Single-stream 56.1 TPS (正文 33.5, 代码peak 60.8), 8-way concurrency 72.2 TPS, 8K/32K/128K Prefill 1100/1154/1038 TPS, TTFT 0.61s; 442K context; EXLR8 K4",
+      "descriptionEn": "Single-stream 56.1 TPS (prose 33.5, code peak 60.8), 8-way 72.2 TPS, 8K/32K/128K Prefill 1100/1154/1038 TPS, TTFT 0.61s; 442K context; EXLR8 K4",
       "precision": {
         "thor": "EXLR8 K4",
         "orin": "",
@@ -487,7 +487,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 99.5 TPS（代码 112.3，峰值 140.7），8 并发 437.9 TPS（代码 312.4），8K/32K/128K Prefill 6710/6245/5047 TPS，TTFT 113ms，支持思维链、多模态与工具调用，1M 上下文；默认 NVFP4（可选 BF16）\n\nOrin：单流 34.6 TPS（代码 38.4），8 并发 110.2 TPS，4K Prefill 1371 TPS，TTFT 288ms，256K 上下文；NVFP4/MXFP8/BF16",
-      "descriptionEn": "Thor: Single-stream 99.5 TPS (代码 112.3, peak 140.7), 8-way concurrency 437.9 TPS (代码 312.4), 8K/32K/128K Prefill 6710/6245/5047 TPS, TTFT 113ms, supports 思维链 / 多模态与工具调用, 1M context; 默认 NVFP4 (可选 BF16) Orin: Single-stream 34.6 TPS (代码 38.4), 8-way concurrency 110.2 TPS, 4K Prefill 1371 TPS, TTFT 288ms, 256K context; NVFP4/MXFP8/BF16",
+      "descriptionEn": "Thor: Single-stream 99.5 TPS (code 112.3, peak 140.7), 8-way 437.9 TPS (code 312.4), 8K/32K/128K Prefill 6710/6245/5047 TPS, TTFT 113ms; thinking, vision & tools, 1M context; default NVFP4 (optional BF16)\n\nOrin: Single-stream 34.6 TPS (code 38.4), 8-way 110.2 TPS, 4K Prefill 1371 TPS, TTFT 288ms, 256K context; NVFP4/MXFP8/BF16",
       "precision": {
         "thor": "NVFP4 / BF16",
         "orin": "NVFP4 / MXFP8 / BF16",
@@ -523,7 +523,7 @@
       "id": "m-f15b5a79",
       "order": 10,
       "title": "Qwen 3.8 27B 未审查版 DSpine",
-      "titleEn": "Qwen 3.8 27B · Uncensored DSpine",
+      "titleEn": "Qwen 3.8 27B Uncensored DSpine",
       "category": "llm",
       "categoryZh": "大语言模型",
       "categoryEn": "Large Language Models",
@@ -536,7 +536,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 202.64 TPS（峰值 205.08），8 并发 725.07 TPS，4K Prefill 3203.5 TPS，TTFT 85.6ms，900K 上下文；NVFP4\n\nOrin：单流 27.91 TPS，8 并发 156.04 TPS，4K Prefill 783.3 TPS，TTFT 462ms，256K 上下文；AWQ INT4",
-      "descriptionEn": "Thor: Single-stream 202.64 TPS (peak 205.08), 8-way concurrency 725.07 TPS, 4K Prefill 3203.5 TPS, TTFT 85.6ms, 900K context; NVFP4 Orin: Single-stream 27.91 TPS, 8-way concurrency 156.04 TPS, 4K Prefill 783.3 TPS, TTFT 462ms, 256K context; AWQ INT4",
+      "descriptionEn": "Thor: Single-stream 202.64 TPS (peak 205.08), 8-way 725.07 TPS, 4K Prefill 3203.5 TPS, TTFT 85.6ms, 900K context; NVFP4\n\nOrin: Single-stream 27.91 TPS, 8-way 156.04 TPS, 4K Prefill 783.3 TPS, TTFT 462ms, 256K context; AWQ INT4",
       "precision": {
         "thor": "NVFP4",
         "orin": "AWQ INT4",
@@ -585,7 +585,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 147.11 TPS（峰值 161.07），8 并发 315.60 TPS，4K/32K Prefill 2009/2500 TPS，TTFT 0.124–0.327s，支持图文视觉，256K 上下文；NVFP4\n\nOrin：单流 48.62 TPS（TTFT 0.148s），8 并发 106.52 TPS（Decode 110.76 TPS，TTFT P50 0.796s），Prefill 1310 TPS，支持图文视觉，256K 上下文；E8P-HQ v3",
-      "descriptionEn": "Thor: Single-stream 147.11 TPS (peak 161.07), 8-way concurrency 315.60 TPS, 4K/32K Prefill 2009/2500 TPS, TTFT 0.124–0.327s, supports 图文视觉, 256K context; NVFP4 Orin: Single-stream 48.62 TPS (TTFT 0.148s), 8-way concurrency 106.52 TPS (Decode 110.76 TPS, TTFT P50 0.796s), Prefill 1310 TPS, supports 图文视觉, 256K context; E8P-HQ v3",
+      "descriptionEn": "Thor: Single-stream 147.11 TPS (peak 161.07), 8-way 315.60 TPS, 4K/32K Prefill 2009/2500 TPS, TTFT 0.124–0.327s, vision supported, 256K context; NVFP4\n\nOrin: Single-stream 48.62 TPS (TTFT 0.148s), 8-way 106.52 TPS (Decode 110.76 TPS, TTFT P50 0.796s), Prefill 1310 TPS, vision supported, 256K context; E8P-HQ v3",
       "precision": {
         "thor": "NVFP4",
         "orin": "",
@@ -621,7 +621,7 @@
       "id": "m-3e412fb5",
       "order": 12,
       "title": "Qwen 3.8 Flash Next 未审查版",
-      "titleEn": "Qwen 3.8 Flash Next · Uncensored",
+      "titleEn": "Qwen 3.8 Flash Next Uncensored",
       "category": "llm",
       "categoryZh": "大语言模型",
       "categoryEn": "Large Language Models",
@@ -633,7 +633,7 @@
       ],
       "isMultiNode": false,
       "description": "单流 33.72–78.46 TPS，8 并发 60.81–111.04 TPS，18K Prefill 1953.27 TPS，5K TTFT 2.61s，320K 上下文；NVFP4 + FP8",
-      "descriptionEn": "Single-stream 33.72–78.46 TPS, 8-way concurrency 60.81–111.04 TPS, 18K Prefill 1953.27 TPS, 5K TTFT 2.61s, 320K context; NVFP4 + FP8",
+      "descriptionEn": "Single-stream 33.72–78.46 TPS, 8-way 60.81–111.04 TPS, 18K Prefill 1953.27 TPS, 5K TTFT 2.61s, 320K context; NVFP4 + FP8",
       "precision": {
         "thor": "NVFP4 + FP8",
         "orin": "",
@@ -674,7 +674,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 139.30 TPS，8 并发 360.66 TPS，4K Prefill 4572.63 TPS，TTFT 0.109s，256K 上下文；NVFP4\n\nOrin：单流 54.06–54.69 TPS，8 并发 92.81–92.95 TPS，4K Prefill 786.8 TPS，TTFT 0.401s；图文多模态、思考与工具调用，256K 上下文；Q4_K_M",
-      "descriptionEn": "Thor: Single-stream 139.30 TPS, 8-way concurrency 360.66 TPS, 4K Prefill 4572.63 TPS, TTFT 0.109s, 256K context; NVFP4 Orin: Single-stream 54.06–54.69 TPS, 8-way concurrency 92.81–92.95 TPS, 4K Prefill 786.8 TPS, TTFT 0.401s; 图文多模态 / 思考与工具调用, 256K context; Q4_K_M",
+      "descriptionEn": "Thor: Single-stream 139.30 TPS, 8-way 360.66 TPS, 4K Prefill 4572.63 TPS, TTFT 0.109s, 256K context; NVFP4\n\nOrin: Single-stream 54.06–54.69 TPS, 8-way 92.81–92.95 TPS, 4K Prefill 786.8 TPS, TTFT 0.401s; vision, thinking & tools, 256K context; Q4_K_M",
       "precision": {
         "thor": "NVFP4",
         "orin": "Q4_K_M",
@@ -723,7 +723,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 60.92 TPS（峰值 70.49），8 并发 198.98 TPS，4K Prefill 2874.28 TPS，TTFT 1.43s，图文多模态、思考与工具调用，256K 上下文；Q4_K_M + MTP\n\nOrin：单流 43.23 TPS（峰值 50.57），8 并发 123.85 TPS，4K Prefill 1020.48 TPS，TTFT 4.03s，图文多模态、思考与工具调用，256K 上下文；Q4_K_M + MTP",
-      "descriptionEn": "Thor: Single-stream 60.92 TPS (peak 70.49), 8-way concurrency 198.98 TPS, 4K Prefill 2874.28 TPS, TTFT 1.43s, 图文多模态 / 思考与工具调用, 256K context; Q4_K_M + MTP Orin: Single-stream 43.23 TPS (peak 50.57), 8-way concurrency 123.85 TPS, 4K Prefill 1020.48 TPS, TTFT 4.03s, 图文多模态 / 思考与工具调用, 256K context; Q4_K_M + MTP",
+      "descriptionEn": "Thor: Single-stream 60.92 TPS (peak 70.49), 8-way 198.98 TPS, 4K Prefill 2874.28 TPS, TTFT 1.43s; vision, thinking & tools, 256K context; Q4_K_M + MTP\n\nOrin: Single-stream 43.23 TPS (peak 50.57), 8-way 123.85 TPS, 4K Prefill 1020.48 TPS, TTFT 4.03s; vision, thinking & tools, 256K context; Q4_K_M + MTP",
       "precision": {
         "thor": "Q4_K_M + MTP",
         "orin": "Q4_K_M + MTP",
@@ -772,7 +772,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 119.2 TPS，支持最高 8 并发，4.5K Prefill 1991.7 TPS，TTFT 64.3ms（1.6K 0.415s），32K 上下文；IQ4_NL\n\nOrin：单流 65.0 TPS，支持最高 8 并发，4.5K Prefill 1116.7 TPS，TTFT 123ms；支持图文理解，32K 上下文；IQ4_NL",
-      "descriptionEn": "Thor: Single-stream 119.2 TPS, supports 最高 8-way concurrency, 4.5K Prefill 1991.7 TPS, TTFT 64.3ms (1.6K 0.415s), 32K context; IQ4_NL Orin: Single-stream 65.0 TPS, supports 最高 8-way concurrency, 4.5K Prefill 1116.7 TPS, TTFT 123ms; vision-language understanding, 32K context; IQ4_NL",
+      "descriptionEn": "Thor: Single-stream 119.2 TPS, up to 8-way concurrency, 4.5K Prefill 1991.7 TPS, TTFT 64.3ms (1.6K 0.415s), 32K context; IQ4_NL\n\nOrin: Single-stream 65.0 TPS, up to 8-way concurrency, 4.5K Prefill 1116.7 TPS, TTFT 123ms; vision support, 32K context; IQ4_NL",
       "precision": {
         "thor": "IQ4_NL",
         "orin": "IQ4_NL",
@@ -821,7 +821,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 231.50 TPS，8 并发 412.54 TPS，8K Prefill 1691.32 TPS，TTFT 0.470s，256K 上下文；Q4_1\n\nOrin：单流 125.44 TPS，8 并发 273.23 TPS，8K Prefill 1108.29 TPS，TTFT 0.774s，256K 上下文；Q4_1",
-      "descriptionEn": "Thor: Single-stream 231.50 TPS, 8-way concurrency 412.54 TPS, 8K Prefill 1691.32 TPS, TTFT 0.470s, 256K context; Q4_1 Orin: Single-stream 125.44 TPS, 8-way concurrency 273.23 TPS, 8K Prefill 1108.29 TPS, TTFT 0.774s, 256K context; Q4_1",
+      "descriptionEn": "Thor: Single-stream 231.50 TPS, 8-way 412.54 TPS, 8K Prefill 1691.32 TPS, TTFT 0.470s, 256K context; Q4_1\n\nOrin: Single-stream 125.44 TPS, 8-way 273.23 TPS, 8K Prefill 1108.29 TPS, TTFT 0.774s, 256K context; Q4_1",
       "precision": {
         "thor": "Q4_1",
         "orin": "Q4_1",
@@ -870,7 +870,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：T5000 单流 36.76 TPS（T4000 27.75），8 并发 158.93 TPS，6K Prefill 2189.15 TPS，TTFT 0.185s；NVFP4\n\nOrin：单流 16.87–17.06 TPS，8 并发 50.67–54.11 TPS，6K Prefill 165.45 TPS，TTFT 1.15s；图文多模态、思考与工具调用，32K–256K 上下文；Q4_K_M",
-      "descriptionEn": "Thor: T5000 Single-stream 36.76 TPS (T4000 27.75), 8-way concurrency 158.93 TPS, 6K Prefill 2189.15 TPS, TTFT 0.185s; NVFP4 Orin: Single-stream 16.87–17.06 TPS, 8-way concurrency 50.67–54.11 TPS, 6K Prefill 165.45 TPS, TTFT 1.15s; 图文多模态 / 思考与工具调用, 32K–256K context; Q4_K_M",
+      "descriptionEn": "Thor: T5000 single-stream 36.76 TPS (T4000 27.75), 8-way 158.93 TPS, 6K Prefill 2189.15 TPS, TTFT 0.185s; NVFP4\n\nOrin: Single-stream 16.87–17.06 TPS, 8-way 50.67–54.11 TPS, 6K Prefill 165.45 TPS, TTFT 1.15s; vision, thinking & tools, 32K–256K context; Q4_K_M",
       "precision": {
         "thor": "NVFP4",
         "orin": "Q4_K_M",
@@ -919,7 +919,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 108.29 TPS，多并发 94.02 TPS，3K Prefill 3709.0 TPS，TTFT 0.180s，256K 上下文；Q4_K_M\n\nOrin：单流 81.74 TPS（单路），4K Prefill 1301.1 TPS，TTFT 0.423s；对话、可控思考与工具调用，256K 上下文；Q4_K_M",
-      "descriptionEn": "Thor: Single-stream 108.29 TPS, 多并发 94.02 TPS, 3K Prefill 3709.0 TPS, TTFT 0.180s, 256K context; Q4_K_M Orin: Single-stream 81.74 TPS (单路), 4K Prefill 1301.1 TPS, TTFT 0.423s; 对话 / 可控思考与工具调用, 256K context; Q4_K_M",
+      "descriptionEn": "Thor: Single-stream 108.29 TPS, concurrent 94.02 TPS, 3K Prefill 3709.0 TPS, TTFT 0.180s, 256K context; Q4_K_M\n\nOrin: Single-stream 81.74 TPS (1-slot), 4K Prefill 1301.1 TPS, TTFT 0.423s; chat, thinking & tools, 256K context; Q4_K_M",
       "precision": {
         "thor": "Q4_K_M",
         "orin": "Q4_K_M",
@@ -968,7 +968,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 85.54 TPS（单路），5K Prefill 7459 TPS，TTFT 0.183s（5K 0.68s），128K 上下文；Q8_0\n\nOrin：单流 48.28 TPS（单路），5K Prefill 2773 TPS，5K TTFT 1.83s，128K 上下文；Q8_0",
-      "descriptionEn": "Thor: Single-stream 85.54 TPS (单路), 5K Prefill 7459 TPS, TTFT 0.183s (5K 0.68s), 128K context; Q8_0 Orin: Single-stream 48.28 TPS (单路), 5K Prefill 2773 TPS, 5K TTFT 1.83s, 128K context; Q8_0",
+      "descriptionEn": "Thor: Single-stream 85.54 TPS (1-slot), 5K Prefill 7459 TPS, TTFT 0.183s (5K 0.68s), 128K context; Q8_0\n\nOrin: Single-stream 48.28 TPS (1-slot), 5K Prefill 2773 TPS, 5K TTFT 1.83s, 128K context; Q8_0",
       "precision": {
         "thor": "Q8_0",
         "orin": "Q8_0",
@@ -1016,7 +1016,7 @@
       ],
       "isMultiNode": true,
       "description": "双 Thor 协同；832×480 2.33s（56 帧）20 步 37.20s（采样 32.69s）；BF16",
-      "descriptionEn": "双 Thor 协同; 832×480 2.33s (56 帧)20 步 37.20s (采样 32.69s); BF16",
+      "descriptionEn": "Dual-Thor collaborative; 832x480 2.33s (56 frames) 20-step 37.20s (sampling 32.69s); BF16",
       "precision": {
         "thor": "BF16",
         "orin": "",
@@ -1057,7 +1057,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：1s 640×384 15.85s（1.12x），5s 640×384/832×480 52.95s/85.57s（1.23x/1.26x），显存降 6.8 GB；MXFP8 + FP8\n\nOrin：5s 640×384/832×480 393.7s/446.8s，10s 640×384 531.2s；INT8",
-      "descriptionEn": "Thor: 1s 640×384 15.85s (1.12x), 5s 640×384/832×480 52.95s/85.57s (1.23x/1.26x), 显存降 6.8 GB; MXFP8 + FP8 Orin: 5s 640×384/832×480 393.7s/446.8s, 10s 640×384 531.2s; INT8",
+      "descriptionEn": "Thor: 1s 640x384 15.85s (1.12x), 5s 640x384/832x480 52.95s/85.57s (1.23x/1.26x), -6.8 GB peak VRAM; MXFP8 + FP8\n\nOrin: 5s 640x384/832x480 393.7s/446.8s, 10s 640x384 531.2s; INT8",
       "precision": {
         "thor": "MXFP8 + FP8",
         "orin": "INT8",
@@ -1105,7 +1105,7 @@
       ],
       "isMultiNode": false,
       "description": "1s 640×384 5.28s（1.16x），5.125s 960×544 28.12s（1.22x），Stage 2 显存降 25.9 GB；支持 1–15s、640×384 至 1344×768（暂不支持 Orin）；FP8 + NVFP4",
-      "descriptionEn": "1s 640×384 5.28s (1.16x), 5.125s 960×544 28.12s (1.22x), Stage 2 显存降 25.9 GB; supports 1–15s / 640×384 至 1344×768 (Thor only); FP8 + NVFP4",
+      "descriptionEn": "1s 640x384 5.28s (1.16x), 5.125s 960x544 28.12s (1.22x), -25.9 GB Stage 2 VRAM; supports 1–15s, 640x384 to 1344x768 (Orin unsupported); FP8 + NVFP4",
       "precision": {
         "thor": "FP8 + NVFP4",
         "orin": "",
@@ -1133,7 +1133,7 @@
       "id": "m-36e90f66",
       "order": 23,
       "title": "Pika H3 Flex Turbo",
-      "titleEn": "Pika H3 Flex Turbo LoRA",
+      "titleEn": "Pika H3 Flex Turbo",
       "category": "video",
       "categoryZh": "视频生成",
       "categoryEn": "Video Generation",
@@ -1146,7 +1146,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：支持图像、视频、音频和首尾帧混合参考生视频（Ref2VA）；5s 480p/1344×768 41.1s/99.3s（8步参考 49.4s），15s 1344×768 369.1s，长参考 15s 4步/8步 790.5s/791.5s（3.88x）；NVFP4\n\nOrin：5s 640×384/832×480 153s/261s，15s 640×384 521s；BF16",
-      "descriptionEn": "Thor: supports 图像 / 视频 / 音频和首尾帧混合参考生视频 (Ref2VA); 5s 480p/1344×768 41.1s/99.3s (8步参考 49.4s), 15s 1344×768 369.1s, 长参考 15s 4步/8步 790.5s/791.5s (3.88x); NVFP4 Orin: 5s 640×384/832×480 153s/261s, 15s 640×384 521s; BF16",
+      "descriptionEn": "Thor: Ref2VA supports mixed image, video, audio, and start/end frame references. 5s 480p/1344x768 41.1s/99.3s (8-step ref 49.4s), 15s 1344x768 369.1s, long-ref 15s 4/8-step 790.5s/791.5s (3.88x); NVFP4\n\nOrin: 5s 640x384/832x480 153s/261s, 15s 640x384 521s; BF16",
       "precision": {
         "thor": "NVFP4",
         "orin": "BF16",
@@ -1192,7 +1192,7 @@
       "devices": [],
       "isMultiNode": false,
       "description": "可视化节点式 AI 图像/视频工作流平台，内置文件管理器，支持部署至指定算力舱；精度随工作流模型而定",
-      "descriptionEn": "可视化节点式 AI 图像/视频工作流平台, 内置文件管理器, supports 部署至指定算力舱; 精度随工作流模型而定",
+      "descriptionEn": "Visual node-based AI image/video workflow platform with built-in file manager and compute-pod deployment; precision depends on loaded workflow models",
       "precision": {
         "thor": "",
         "orin": "",
@@ -1224,7 +1224,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：2048×2048 6 步生图 7.84s/张（1.73x，显存峰值 51.6 GB）；NVFP4\n\nOrin：2048×2048 6 步生图 89.36s/张；支持参考图编辑；BF16",
-      "descriptionEn": "Thor: 2048×2048 6 -step generation 7.84s/image (1.73x, 显存peak 51.6 GB); NVFP4 Orin: 2048×2048 6 -step generation 89.36s/image; supports 参考图编辑; BF16",
+      "descriptionEn": "Thor: 2048x2048 6-step image generation 7.84s/img (1.73x, 51.6 GB peak VRAM); NVFP4\n\nOrin: 2048x2048 6-step image generation 89.36s/img; reference-image editing; BF16",
       "precision": {
         "thor": "NVFP4",
         "orin": "BF16",
@@ -1273,7 +1273,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：1024×1024 生图 86.72s/张（48.25 tok/s，2.16x）；FP8 + cuDNN SDPA\n\nOrin：1024×1024 生图 108.08s/张（38.77 tok/s，4.00x）；FP8 + Marlin W8A16",
-      "descriptionEn": "Thor: 1024×1024 生图 86.72s/image (48.25 tok/s, 2.16x); FP8 + cuDNN SDPA Orin: 1024×1024 生图 108.08s/image (38.77 tok/s, 4.00x); FP8 + Marlin W8A16",
+      "descriptionEn": "Thor: 1024x1024 image gen 86.72s/img (48.25 tok/s, 2.16x); FP8 + cuDNN SDPA\n\nOrin: 1024x1024 image gen 108.08s/img (38.77 tok/s, 4.00x); FP8 + Marlin W8A16",
       "precision": {
         "thor": "FP8 + cuDNN SDPA",
         "orin": "FP8 + Marlin W8A16",
@@ -1322,7 +1322,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：512×512 8 步生图 1.78s/张（1.56x），1024×1024 7.43s/张（1.39x）；INT8\n\nOrin：512×512 8 步生图 15.2s/张；支持图片编辑；INT8",
-      "descriptionEn": "Thor: 512×512 8 -step generation 1.78s/image (1.56x), 1024×1024 7.43s/image (1.39x); INT8 Orin: 512×512 8 -step generation 15.2s/image; supports 图片编辑; INT8",
+      "descriptionEn": "Thor: 512x512 8-step 1.78s/img (1.56x), 1024x1024 7.43s/img (1.39x); INT8\n\nOrin: 512x512 8-step 15.2s/img; image editing; INT8",
       "precision": {
         "thor": "INT8",
         "orin": "INT8",
@@ -1371,7 +1371,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：512×512 25 步生图 4.49s/张（1.69x）；W4A8（支持 BF16/NVFP4/GGUF）\n\nOrin：512×512 20 步生图 27.8s/张；W4A8（支持 BF16/GGUF）",
-      "descriptionEn": "Thor: 512×512 25 -step generation 4.49s/image (1.69x); W4A8 (supports BF16/NVFP4/GGUF) Orin: 512×512 20 -step generation 27.8s/image; W4A8 (supports BF16/GGUF)",
+      "descriptionEn": "Thor: 512x512 25-step 4.49s/img (1.69x); W4A8 (BF16/NVFP4/GGUF supported)\n\nOrin: 512x512 20-step 27.8s/img; W4A8 (BF16/GGUF supported)",
       "precision": {
         "thor": "W4A8",
         "orin": "W4A8 / BF16 / GGUF",
@@ -1407,7 +1407,7 @@
       "id": "m-f5f634ea",
       "order": 29,
       "title": "Firefox Translations 机器翻译",
-      "titleEn": "Firefox Translations",
+      "titleEn": "Firefox Translations Neural MT",
       "category": "translation",
       "categoryZh": "语言翻译",
       "categoryEn": "Machine Translation",
@@ -1420,7 +1420,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：延迟 0.86ms，1983 条/s；INT8\n\nOrin：延迟 6.25ms，457 条/s；多语种离线文本翻译；INT8",
-      "descriptionEn": "Thor: latency 0.86ms, 1983 seg/s; INT8 Orin: latency 6.25ms, 457 seg/s; 多语种离线文本翻译; INT8",
+      "descriptionEn": "Thor: Latency 0.86ms, 1983 req/s; INT8\n\nOrin: Latency 6.25ms, 457 req/s; offline multilingual text translation; INT8",
       "precision": {
         "thor": "INT8",
         "orin": "INT8",
@@ -1469,7 +1469,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单流 0.67s，4 并发 5.89 条/s；FP8\n\nOrin：单流 1.90s，4 并发 2.08 条/s；14B 中英文本同传；INT8",
-      "descriptionEn": "Thor: Single-stream 0.67s, 4-way concurrency 5.89 seg/s; FP8 Orin: Single-stream 1.90s, 4-way concurrency 2.08 seg/s; 14B 中英文本同传; INT8",
+      "descriptionEn": "Thor: Single-stream 0.67s, 4-way 5.89 req/s; FP8\n\nOrin: Single-stream 1.90s, 4-way 2.08 req/s; 14B ZH-EN live text translation; INT8",
       "precision": {
         "thor": "FP8",
         "orin": "INT8",
@@ -1518,7 +1518,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：1.8B/7B/30B-A3B 单流 161.5/45.9/69.2 TPS，TTFT 31.8/49.9/90.6ms；W4A16 + FP8\n\nOrin：1.8B/7B/30B-A3B 单流 129.6/37.8/43.6 TPS，TTFT 32.9/64.6/109ms；MXFP4 / FP8",
-      "descriptionEn": "Thor: 1.8B/7B/30B-A3B Single-stream 161.5/45.9/69.2 TPS, TTFT 31.8/49.9/90.6ms; W4A16 + FP8 Orin: 1.8B/7B/30B-A3B Single-stream 129.6/37.8/43.6 TPS, TTFT 32.9/64.6/109ms; MXFP4 / FP8",
+      "descriptionEn": "Thor: 1.8B/7B/30B-A3B single-stream 161.5/45.9/69.2 TPS, TTFT 31.8/49.9/90.6ms; W4A16 + FP8\n\nOrin: 1.8B/7B/30B-A3B single-stream 129.6/37.8/43.6 TPS, TTFT 32.9/64.6/109ms; MXFP4 / FP8",
       "precision": {
         "thor": "W4A16 + FP8",
         "orin": "MXFP4 / FP8",
@@ -1567,7 +1567,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：1.8B 180.6 TPS（FP8 127.8），7B 57.4 TPS，TTFT 14.5/41.5ms；BF16 / FP8\n\nOrin：1.8B 44.4 TPS，7B 10.3 TPS，TTFT 52/199ms；支持 32/256 并发；BF16",
-      "descriptionEn": "Thor: 1.8B 180.6 TPS (FP8 127.8), 7B 57.4 TPS, TTFT 14.5/41.5ms; BF16 / FP8 Orin: 1.8B 44.4 TPS, 7B 10.3 TPS, TTFT 52/199ms; supports 32/256-way concurrency; BF16",
+      "descriptionEn": "Thor: 1.8B 180.6 TPS (FP8 127.8), 7B 57.4 TPS, TTFT 14.5/41.5ms; BF16 / FP8\n\nOrin: 1.8B 44.4 TPS, 7B 10.3 TPS, TTFT 52/199ms; 32/256 concurrency; BF16",
       "precision": {
         "thor": "BF16 / FP8",
         "orin": "BF16",
@@ -1616,7 +1616,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：2B/9B/35B 单流 169/84/95 TPS；NVFP4\n\nOrin：2B/9B/35B 单流 169/56/83 TPS；INT4",
-      "descriptionEn": "Thor: 2B/9B/35B Single-stream 169/84/95 TPS; NVFP4 Orin: 2B/9B/35B Single-stream 169/56/83 TPS; INT4",
+      "descriptionEn": "Thor: 2B/9B/35B single-stream 169/84/95 TPS; NVFP4\n\nOrin: 2B/9B/35B single-stream 169/56/83 TPS; INT4",
       "precision": {
         "thor": "NVFP4",
         "orin": "INT4",
@@ -1665,7 +1665,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：66s 英语译中文 11.60s；Q4_K_M\n\nOrin：66s 英语译中文 22.48s；中英实时语音流翻译；Q4_K_M",
-      "descriptionEn": "Thor: 66s 英语译中文 11.60s; Q4_K_M Orin: 66s 英语译中文 22.48s; 中英实时语音流翻译; Q4_K_M",
+      "descriptionEn": "Thor: 66s EN-to-ZH speech translation 11.60s; Q4_K_M\n\nOrin: 66s EN-to-ZH speech translation 22.48s; real-time ZH-EN speech translation; Q4_K_M",
       "precision": {
         "thor": "Q4_K_M",
         "orin": "Q4_K_M",
@@ -1714,7 +1714,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：5.55s 中文 WAV 4.6ms（1,200 倍实时），MP3 10.5ms，8 并发 388 rps；Q4_K\n\nOrin：5.55s 中文 WAV 86ms（64 倍实时），MP3 163ms；Q4_K",
-      "descriptionEn": "Thor: 5.55s 中文 WAV 4.6ms (1,200 × real-time), MP3 10.5ms, 8-way concurrency 388 rps; Q4_K Orin: 5.55s 中文 WAV 86ms (64 × real-time), MP3 163ms; Q4_K",
+      "descriptionEn": "Thor: 5.55s ZH WAV 4.6ms (1,200x RT), MP3 10.5ms, 8-way 388 rps; Q4_K\n\nOrin: 5.55s ZH WAV 86ms (64x RT), MP3 163ms; Q4_K",
       "precision": {
         "thor": "Q4_K",
         "orin": "Q4_K",
@@ -1763,7 +1763,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：16.93s 中文音频 0.93s（18.9 倍实时），4 并发 25.0 倍实时；IQ4_NL\n\nOrin：16.93s 中文音频 3.37s；单次最长 1 小时录音转写；IQ4_NL",
-      "descriptionEn": "Thor: 16.93s Chinese audio 0.93s (18.9 × real-time), 4-way concurrency 25.0 × real-time; IQ4_NL Orin: 16.93s Chinese audio 3.37s; 单次最长 1 小时录音转写; IQ4_NL",
+      "descriptionEn": "Thor: 16.93s ZH audio 0.93s (18.9x RT), 4-way 25.0x RT; IQ4_NL\n\nOrin: 16.93s ZH audio 3.37s; up to 1-hour single transcription; IQ4_NL",
       "precision": {
         "thor": "IQ4_NL",
         "orin": "IQ4_NL",
@@ -1812,7 +1812,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：0.6B/1.7B 短音频 47ms/69ms，长音频 222ms/360ms（最高 2.83x）；BF16\n\nOrin：0.6B 2.2s 中文音频 318ms；支持 0.6B/1.7B 流式识别，单次最长 30s；BF16",
-      "descriptionEn": "Thor: 0.6B/1.7B 短音频 47ms/69ms, 长音频 222ms/360ms (最高 2.83x); BF16 Orin: 0.6B 2.2s Chinese audio 318ms; supports 0.6B/1.7B 流式识别, 单次最长 30s; BF16",
+      "descriptionEn": "Thor: 0.6B/1.7B short audio 47ms/69ms, long audio 222ms/360ms (up to 2.83x); BF16\n\nOrin: 0.6B 2.2s ZH audio 318ms; 0.6B/1.7B streaming ASR up to 30s; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -1861,7 +1861,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：短音频 46.2/48.3ms，109.4 倍实时（1.64x），4 并发 171.0 倍实时；FP16\n\nOrin：2.2s 中文音频 187.6ms，4 并发 68.17 倍实时；支持 100 种语言识别与翻译；FP16",
-      "descriptionEn": "Thor: 短音频 46.2/48.3ms, 109.4 × real-time (1.64x), 4-way concurrency 171.0 × real-time; FP16 Orin: 2.2s Chinese audio 187.6ms, 4-way concurrency 68.17 × real-time; supports 100 种语言识别与翻译; FP16",
+      "descriptionEn": "Thor: Short audio 46.2/48.3ms, 109.4x RT (1.64x), 4-way 171.0x RT; FP16\n\nOrin: 2.2s ZH audio 187.6ms, 4-way 68.17x RT; 100-language ASR & translation; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -1910,7 +1910,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：6.74s 中文音频 163.1ms（41.3 倍实时，4 并发 212.6ms / 16.1 条/s）；BF16\n\nOrin：6.74s 中文音频 409ms（16.5 倍实时，4 并发 2.44 条/s）；BF16",
-      "descriptionEn": "Thor: 6.74s Chinese audio 163.1ms (41.3 × real-time, 4-way concurrency 212.6ms / 16.1 seg/s); BF16 Orin: 6.74s Chinese audio 409ms (16.5 × real-time, 4-way concurrency 2.44 seg/s); BF16",
+      "descriptionEn": "Thor: 6.74s ZH audio 163.1ms (41.3x RT, 4-way 212.6ms / 16.1 req/s); BF16\n\nOrin: 6.74s ZH audio 409ms (16.5x RT, 4-way 2.44 req/s); BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -1959,7 +1959,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：10.93s 音频对齐 14.4ms（短音频 8.7ms）；BF16\n\nOrin：10.93s 音频对齐 82.8ms；11 种语言词/字级时间戳对齐，最长 300s；BF16",
-      "descriptionEn": "Thor: 10.93s 音频对齐 14.4ms (短音频 8.7ms); BF16 Orin: 10.93s 音频对齐 82.8ms; 11 种语言词/字级时间戳对齐, 最长 300s; BF16",
+      "descriptionEn": "Thor: 10.93s audio alignment 14.4ms (short 8.7ms); BF16\n\nOrin: 10.93s audio alignment 82.8ms; 11-language word/char timestamps up to 300s; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2008,7 +2008,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：23.98s 音频四轨分离 0.23s（推理 0.15s，4.33x）；FP32\n\nOrin：23.97s 音频四轨分离 1.86s；44.1kHz 人声、伴奏、鼓与贝斯分离，最长 180s；FP32",
-      "descriptionEn": "Thor: 23.98s 音频四轨分离 0.23s (推理 0.15s, 4.33x); FP32 Orin: 23.97s 音频四轨分离 1.86s; 44.1kHz 人声 / 伴奏 / 鼓与贝斯分离, 最长 180s; FP32",
+      "descriptionEn": "Thor: 23.98s 4-stem separation 0.23s (infer 0.15s, 4.33x); FP32\n\nOrin: 23.97s 4-stem separation 1.86s; 44.1kHz vocals/drums/bass/other up to 180s; FP32",
       "precision": {
         "thor": "FP32",
         "orin": "FP32",
@@ -2057,7 +2057,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：10s/30s 音频分段 10.8ms/45.9ms（3.17x/1.86x）；FP32\n\nOrin：10s/30s 音频分段 50.4ms/112.7ms；语音活动、说话人切换与重叠检测；FP32",
-      "descriptionEn": "Thor: 10s/30s 音频分段 10.8ms/45.9ms (3.17x/1.86x); FP32 Orin: 10s/30s 音频分段 50.4ms/112.7ms; 语音活动 / 说话人切换与重叠检测; FP32",
+      "descriptionEn": "Thor: 10s/30s segmentation 10.8ms/45.9ms (3.17x/1.86x); FP32\n\nOrin: 10s/30s segmentation 50.4ms/112.7ms; VAD, speaker change & overlap; FP32",
       "precision": {
         "thor": "FP32",
         "orin": "FP32",
@@ -2106,7 +2106,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：10s/30s 声纹提取 4.5ms/7.1ms（5.68x/9.99x）；FP32\n\nOrin：10s/30s 声纹提取 38.4ms/99.9ms；192 维声纹特征，支持最多 8 段批量聚类；FP32",
-      "descriptionEn": "Thor: 10s/30s 声纹提取 4.5ms/7.1ms (5.68x/9.99x); FP32 Orin: 10s/30s 声纹提取 38.4ms/99.9ms; 192 维声纹特征, supports 最多 8 段批量聚类; FP32",
+      "descriptionEn": "Thor: 10s/30s speaker embedding 4.5ms/7.1ms (5.68x/9.99x); FP32\n\nOrin: 10s/30s speaker embedding 38.4ms/99.9ms; 192-D speaker vectors, up to 8-clip batch; FP32",
       "precision": {
         "thor": "FP32",
         "orin": "FP32",
@@ -2155,7 +2155,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：5s/60s 音频 11.5ms/156.1ms（2.10x/3.69x），4 并发 480x RT；Q8_0\n\nOrin：5s 音频 30.4ms，1h 音频 62.77s；支持最多 8 位说话人与重叠检测；Q8_0",
-      "descriptionEn": "Thor: 5s/60s 音频 11.5ms/156.1ms (2.10x/3.69x), 4-way concurrency 480x RT; Q8_0 Orin: 5s 音频 30.4ms, 1h 音频 62.77s; supports 最多 8 位说话人与重叠检测; Q8_0",
+      "descriptionEn": "Thor: 5s/60s audio 11.5ms/156.1ms (2.10x/3.69x), 4-way 480x RT; Q8_0\n\nOrin: 5s audio 30.4ms, 1h audio 62.77s; up to 8 speakers & overlap detection; Q8_0",
       "precision": {
         "thor": "Q8_0",
         "orin": "Q8_0",
@@ -2204,7 +2204,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：中/英文短句 26.6ms/30.7ms（3.14x/3.02x），4 并发 44.30 条/s；FP32\n\nOrin：中/英文短句 224.4ms/176.3ms，4 并发 6.55 条/s；支持 157 种音色；FP32",
-      "descriptionEn": "Thor: 中/英文短句 26.6ms/30.7ms (3.14x/3.02x), 4-way concurrency 44.30 seg/s; FP32 Orin: 中/英文短句 224.4ms/176.3ms, 4-way concurrency 6.55 seg/s; supports 157 种音色; FP32",
+      "descriptionEn": "Thor: ZH/EN short 26.6ms/30.7ms (3.14x/3.02x), 4-way 44.30 req/s; FP32\n\nOrin: ZH/EN short 224.4ms/176.3ms, 4-way 6.55 req/s; 157 voices; FP32",
       "precision": {
         "thor": "FP32",
         "orin": "FP32",
@@ -2253,7 +2253,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：2s 英/3s 中/2s 编辑 0.34s/0.41s/0.67s（2.62x/2.64x/2.23x），8s 长句 0.73s（2.85x）；BF16 + FP32\n\nOrin：2s 英/3s 中/2s 编辑 2.06s/2.77s/3.87s；中英语音生成与编辑；BF16 + FP32",
-      "descriptionEn": "Thor: 2s 英/3s 中/2s 编辑 0.34s/0.41s/0.67s (2.62x/2.64x/2.23x), 8s 长句 0.73s (2.85x); BF16 + FP32 Orin: 2s 英/3s 中/2s 编辑 2.06s/2.77s/3.87s; 中英语音生成与编辑; BF16 + FP32",
+      "descriptionEn": "Thor: 2s EN/3s ZH/2s edit 0.34s/0.41s/0.67s (2.62x/2.64x/2.23x), 8s long 0.73s (2.85x); BF16 + FP32\n\nOrin: 2s EN/3s ZH/2s edit 2.06s/2.77s/3.87s; bilingual speech generation & editing; BF16 + FP32",
       "precision": {
         "thor": "BF16 + FP32",
         "orin": "BF16 + FP32",
@@ -2302,7 +2302,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：中文短句 0.49s（2.66x），英文短句 0.60s（2.81x），长句最高 4.62x；FP16 / FP32\n\nOrin：中文短句 2.76s，英文短句 3.58s；五语种声音克隆、情绪语速与流式合成；FP32",
-      "descriptionEn": "Thor: 中文短句 0.49s (2.66x), 英文短句 0.60s (2.81x), 长句最高 4.62x; FP16 / FP32 Orin: 中文短句 2.76s, 英文短句 3.58s; 五语种声音克隆 / 情绪语速与流式合成; FP32",
+      "descriptionEn": "Thor: ZH short 0.49s (2.66x), EN short 0.60s (2.81x), long up to 4.62x; FP16 / FP32\n\nOrin: ZH short 2.76s, EN short 3.58s; 5-language voice cloning, emotion & streaming; FP32",
       "precision": {
         "thor": "FP16 / FP32",
         "orin": "FP32",
@@ -2351,7 +2351,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：中文短句 0.44s（2.10x），首音 0.10s，长段 2.66x，4 并发 5.93 条/s（5.46x）；BF16\n\nOrin：中文短句整句 1.34s，首音 0.39s；支持零样本声音克隆；BF16",
-      "descriptionEn": "Thor: 中文短句 0.44s (2.10x), first audio 0.10s, 长段 2.66x, 4-way concurrency 5.93 seg/s (5.46x); BF16 Orin: 中文短句整句 1.34s, first audio 0.39s; supports 零样本声音克隆; BF16",
+      "descriptionEn": "Thor: ZH short 0.44s (2.10x), TTFA 0.10s, long 2.66x, 4-way 5.93 req/s (5.46x); BF16\n\nOrin: ZH short 1.34s, TTFA 0.39s; zero-shot voice cloning; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2400,7 +2400,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：首音 2.12s（1.71x），首字 0.18s（2.46x），RTF 0.533（2.34x），双路吞吐 2.91x（2.20x）；FP8 + BF16\n\nOrin：首音 4.02s，首字 0.45s，并发首音 4.74s；全双工实时语音对话与 Tag 情感合成；FP8 + BF16",
-      "descriptionEn": "Thor: first audio 2.12s (1.71x), first text 0.18s (2.46x), RTF 0.533 (2.34x), dual-stream throughput 2.91x (2.20x); FP8 + BF16 Orin: first audio 4.02s, first text 0.45s, 并发first audio 4.74s; 全双工实时语音对话与 Tag 情感合成; FP8 + BF16",
+      "descriptionEn": "Thor: TTFA 2.12s (1.71x), TTFT 0.18s (2.46x), RTF 0.533 (2.34x), 2-way 2.91x RT (2.20x); FP8 + BF16\n\nOrin: TTFA 4.02s, TTFT 0.45s, 2-way TTFA 4.74s; full-duplex real-time voice & emotion tags; FP8 + BF16",
       "precision": {
         "thor": "FP8 + BF16",
         "orin": "FP8 + BF16",
@@ -2449,7 +2449,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：首音 0.31s（p50 0.26s，2.20x），首字 0.07s（2.00x），RTF 0.285（2.19x），双路吞吐 5.56x（2.42x）；BF16\n\nOrin：首音 0.81s，首字 0.14s，RTF 0.73，双路吞吐 1.97x；4B 轻量全双工实时语音对话；BF16",
-      "descriptionEn": "Thor: first audio 0.31s (p50 0.26s, 2.20x), first text 0.07s (2.00x), RTF 0.285 (2.19x), dual-stream throughput 5.56x (2.42x); BF16 Orin: first audio 0.81s, first text 0.14s, RTF 0.73, dual-stream throughput 1.97x; 4B 轻量全双工实时语音对话; BF16",
+      "descriptionEn": "Thor: TTFA 0.31s (p50 0.26s, 2.20x), TTFT 0.07s (2.00x), RTF 0.285 (2.19x), 2-way 5.56x RT (2.42x); BF16\n\nOrin: TTFA 0.81s, TTFT 0.14s, RTF 0.73, 2-way 1.97x RT; 4B lightweight full-duplex voice; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2498,7 +2498,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单图版面分析 11.38ms（3.43x），双图 21.43ms（3.75x）；FP16\n\nOrin：单图版面分析 90.07ms；文字、表格与图像区域检测，支持 4 图批量；FP32",
-      "descriptionEn": "Thor: single-image layout analysis 11.38ms (3.43x), 双图 21.43ms (3.75x); FP16 Orin: single-image layout analysis 90.07ms; 文字 / 表格与图像区域检测, supports 4 图批量; FP32",
+      "descriptionEn": "Thor: Single-page layout 11.38ms (3.43x), 2-page 21.43ms (3.75x); FP16\n\nOrin: Single-page layout 90.07ms; text, table & figure detection, 4-image batch; FP32",
       "precision": {
         "thor": "FP16",
         "orin": "FP32",
@@ -2547,7 +2547,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：短图 0.21s（1.69x），长页 2.61s（1.79x）；BF16\n\nOrin：短文 1.41s，长文 3.29s；支持中英文、多页及 PDF 识别；BF16",
-      "descriptionEn": "Thor: 短图 0.21s (1.69x), 长页 2.61s (1.79x); BF16 Orin: 短文 1.41s, 长文 3.29s; supports 中英文 / 多页及 PDF 识别; BF16",
+      "descriptionEn": "Thor: Short image 0.21s (1.69x), long page 2.61s (1.79x); BF16\n\nOrin: Short text 1.41s, long text 3.29s; ZH/EN, multi-page & PDF OCR; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2596,7 +2596,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：短图 0.32s（1.24x），长页 4.67s（1.27x）；BF16\n\nOrin：英/中/两页 0.95s/1.16s/1.92s；支持中英文、多页及百页连续识别；BF16",
-      "descriptionEn": "Thor: 短图 0.32s (1.24x), 长页 4.67s (1.27x); BF16 Orin: 英/中/两页 0.95s/1.16s/1.92s; supports 中英文 / 多页及百页连续识别; BF16",
+      "descriptionEn": "Thor: Short image 0.32s (1.24x), long page 4.67s (1.27x); BF16\n\nOrin: EN/ZH/2-page 0.95s/1.16s/1.92s; ZH/EN, multi-page & 100-page OCR; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2645,7 +2645,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：Small 短图 3.91ms（1.15x，C4 449.1 张/s），登机牌 18.72ms（1.11x，C4 76.8 张/s）；FP16\n\nOrin：896×528 登机牌（Tiny/Small/Medium）35.1/18.4/11.8 张/s；FP16",
-      "descriptionEn": "Thor: Small 短图 3.91ms (1.15x, C4 449.1 img/s), 登机牌 18.72ms (1.11x, C4 76.8 img/s); FP16 Orin: 896×528 登机牌 (Tiny/Small/Medium)35.1/18.4/11.8 img/s; FP16",
+      "descriptionEn": "Thor: Small short 3.91ms (1.15x, C4 449.1 img/s), boarding pass 18.72ms (1.11x, C4 76.8 img/s); FP16\n\nOrin: 896x528 boarding pass (Tiny/Small/Medium) 35.1/18.4/11.8 img/s; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2694,7 +2694,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：0.6B 短文本/长文本/图片/视频 10.52/45.74/66.96/62.95ms（1.17x–1.86x）；BF16\n\nOrin：0.6B 文本/图片/视频 32.52/158.17/149.96ms；0.6B–26B 多模态决策，8K 上下文；BF16",
-      "descriptionEn": "Thor: 0.6B 短文本/长文本/图片/视频 10.52/45.74/66.96/62.95ms (1.17x–1.86x); BF16 Orin: 0.6B 文本/图片/视频 32.52/158.17/149.96ms; 0.6B–26B 多模态决策, 8K context; BF16",
+      "descriptionEn": "Thor: 0.6B short/long text/image/video 10.52/45.74/66.96/62.95ms (1.17x–1.86x); BF16\n\nOrin: 0.6B text/image/video 32.52/158.17/149.96ms; 0.6B–26B multimodal decision, 8K context; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2743,7 +2743,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：0.6B 128-token 单条 7.31ms（1.25x），8K 长文本 178.4ms（1.64x）；BF16\n\nOrin：0.6B 128-token 单条 JP6 19.2ms / JP7 27ms；支持 0.6B/4B/8B、指令与可变维度，32K 上下文；BF16",
-      "descriptionEn": "Thor: 0.6B 128-token 单条 7.31ms (1.25x), 8K 长文本 178.4ms (1.64x); BF16 Orin: 0.6B 128-token 单条 JP6 19.2ms / JP7 27ms; supports 0.6B/4B/8B / 指令与可变维度, 32K context; BF16",
+      "descriptionEn": "Thor: 0.6B 128-token single 7.31ms (1.25x), 8K long text 178.4ms (1.64x); BF16\n\nOrin: 0.6B 128-token single JP6 19.2ms / JP7 27ms; 0.6B/4B/8B, instructions & variable dims, 32K context; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2792,7 +2792,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单条 3.68ms（1.89x），8 条批量 6.26ms（2.75x）；FP16\n\nOrin：单条 30ms，8 条批量 51ms；1024 维多语种稠密向量；FP16",
-      "descriptionEn": "Thor: 单条 3.68ms (1.89x), 8 条批量 6.26ms (2.75x); FP16 Orin: 单条 30ms, 8 条批量 51ms; 1024 维多语种稠密向量; FP16",
+      "descriptionEn": "Thor: Single 3.68ms (1.89x), batch-8 6.26ms (2.75x); FP16\n\nOrin: Single 30ms, batch-8 51ms; 1024-D multilingual dense embeddings; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2828,7 +2828,7 @@
       "id": "m-4a5f3b44",
       "order": 58,
       "title": "ZH-CLIP 中文图文向量",
-      "titleEn": "ZH-CLIP Text-Image Embeddings",
+      "titleEn": "ZH-CLIP Chinese Text–Image Embeddings",
       "category": "imageTextEmbedding",
       "categoryZh": "图文向量",
       "categoryEn": "Text-Image Embeddings",
@@ -2841,7 +2841,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单文/单图/8 图 3.99/10.07/29.60ms，32 图 84.16ms（1.58x）；FP8\n\nOrin：单文/单图/8 图 9.8/17.8/82.8ms；768 维中文图文向量；FP16",
-      "descriptionEn": "Thor: 单文/单图/8 图 3.99/10.07/29.60ms, 32 图 84.16ms (1.58x); FP8 Orin: 单文/单图/8 图 9.8/17.8/82.8ms; 768 维中文图文向量; FP16",
+      "descriptionEn": "Thor: Text/image/8-img 3.99/10.07/29.60ms, 32-img 84.16ms (1.58x); FP8\n\nOrin: Text/image/8-img 9.8/17.8/82.8ms; 768-D Chinese text-image embeddings; FP16",
       "precision": {
         "thor": "FP8",
         "orin": "FP16",
@@ -2890,7 +2890,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：文本/图片/音频/视频 3.26/22.50/10.43/38.18ms（最高 3.82x）；BF16\n\nOrin：文本/图片/音频/视频 9.13/174.97/24.37/151.95ms；100+ 语言与 128–768 维度，8K 上下文；BF16",
-      "descriptionEn": "Thor: 文本/图片/音频/视频 3.26/22.50/10.43/38.18ms (最高 3.82x); BF16 Orin: 文本/图片/音频/视频 9.13/174.97/24.37/151.95ms; 100+ 语言与 128–768 维度, 8K context; BF16",
+      "descriptionEn": "Thor: Text/image/audio/video 3.26/22.50/10.43/38.18ms (up to 3.82x); BF16\n\nOrin: Text/image/audio/video 9.13/174.97/24.37/151.95ms; 100+ languages, 128–768 dims, 8K context; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2939,7 +2939,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单次重排 3.81ms（2.75x），8 文档 4.25ms（2.88x）；FP16\n\nOrin：单次重排 31ms；多语言检索结果精排；FP16",
-      "descriptionEn": "Thor: 单次重排 3.81ms (2.75x), 8 文档 4.25ms (2.88x); FP16 Orin: 单次重排 31ms; 多语言检索结果精排; FP16",
+      "descriptionEn": "Thor: Single rerank 3.81ms (2.75x), 8-doc 4.25ms (2.88x); FP16\n\nOrin: Single rerank 31ms; multilingual retrieval reranking; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2988,7 +2988,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单图 8.80ms（2.33x），8 并发 33.57ms（2.80x，223 req/s）；FP16\n\nOrin：6 张人脸检测 54ms；人脸检测与特征提取；FP16",
-      "descriptionEn": "Thor: 单图 8.80ms (2.33x), 8-way concurrency 33.57ms (2.80x, 223 req/s); FP16 Orin: 6 张人脸检测 54ms; 人脸检测与特征提取; FP16",
+      "descriptionEn": "Thor: Single image 8.80ms (2.33x), 8-way 33.57ms (2.80x, 223 req/s); FP16\n\nOrin: 6-face detection 54ms; face detection & embedding extraction; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -3037,7 +3037,7 @@
       ],
       "isMultiNode": false,
       "description": "Thor：单图 60.67ms（3.31x），4 并发 143.83ms（5.42x），4 图批量 107.81ms；FP16\n\nOrin：单图 332.1ms，3 图 662.6ms；英文图片描述，支持 1–32 图批量；FP32",
-      "descriptionEn": "Thor: 单图 60.67ms (3.31x), 4-way concurrency 143.83ms (5.42x), 4 图批量 107.81ms; FP16 Orin: 单图 332.1ms, 3 图 662.6ms; 英文图片描述, supports 1–32 图批量; FP32",
+      "descriptionEn": "Thor: Single image 60.67ms (3.31x), 4-way 143.83ms (5.42x), batch-4 107.81ms; FP16\n\nOrin: Single image 332.1ms, 3-img 662.6ms; English image captioning, 1–32 batch; FP32",
       "precision": {
         "thor": "FP16",
         "orin": "FP32",
