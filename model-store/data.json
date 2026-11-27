@@ -2,16 +2,16 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.403",
-  "appUpdatedAt": "2026-11-26 23:22:58",
-  "syncedAt": "2026-11-26 23:53:08",
-  "syncedTs": 1795708388,
+  "appVersion": "2.3.406",
+  "appUpdatedAt": "2026-11-27 13:17:44",
+  "syncedAt": "2026-11-27 13:20:08",
+  "syncedTs": 1795756808,
   "stats": {
-    "visibleCount": 60,
-    "totalCount": 60,
+    "visibleCount": 61,
+    "totalCount": 61,
     "categoryCount": 19,
-    "thorCount": 59,
-    "orinCount": 48,
+    "thorCount": 60,
+    "orinCount": 49,
     "multiNodeCount": 8
   },
   "categories": [
@@ -41,7 +41,7 @@
       "zh": "语言翻译",
       "en": "Machine Translation",
       "shortEn": "MT",
-      "visibleCount": 4
+      "visibleCount": 5
     },
     {
       "key": "speechTranslation",
@@ -1453,8 +1453,57 @@
       "isNew": true
     },
     {
-      "id": "m-d0dc1874",
+      "id": "m-8b3eb687",
       "order": 30,
+      "title": "Hy-MT3 翻译",
+      "titleEn": "Hy-MT3 Translation",
+      "category": "translation",
+      "categoryZh": "语言翻译",
+      "categoryEn": "Machine Translation",
+      "categoryShortEn": "MT",
+      "meta": "AGX Thor / AGX Orin",
+      "deviceCount": 1,
+      "devices": [
+        "thor",
+        "orin"
+      ],
+      "isMultiNode": false,
+      "description": "Thor：1.8B/7B/30B-A3B 单流 161.5/45.9/69.2 TPS，TTFT 31.8/49.9/90.6ms；W4A16 + FP8\n\nOrin：1.8B/7B/30B-A3B 单流 129.6/37.8/43.6 TPS，TTFT 32.9/64.6/109ms；MXFP4 / FP8",
+      "descriptionEn": "Thor: 1.8B/7B/30B-A3B single-stream 161.5/45.9/69.2 TPS, TTFT 31.8/49.9/90.6ms; W4A16 + FP8\n\nOrin: 1.8B/7B/30B-A3B single-stream 129.6/37.8/43.6 TPS, TTFT 32.9/64.6/109ms; MXFP4 / FP8",
+      "precision": {
+        "thor": "W4A16 + FP8",
+        "orin": "MXFP4 / FP8",
+        "zh": "W4A16 + FP8 / MXFP4 / FP8",
+        "en": "W4A16 + FP8 / MXFP4 / FP8"
+      },
+      "badge": "",
+      "imageFit": "cover",
+      "image": "./covers/hy-mt3-BoGgX9AB.png",
+      "imageType": "file",
+      "hardware": [
+        {
+          "device": "thor",
+          "memoryGiB": 8,
+          "diskGiB": 19.2708,
+          "diskLowerBound": true,
+          "perDevice": false,
+          "cpuOnly": false
+        },
+        {
+          "device": "orin",
+          "memoryGiB": 8,
+          "diskGiB": 13.1241,
+          "diskLowerBound": true,
+          "perDevice": false,
+          "cpuOnly": false
+        }
+      ],
+      "firstSeenAt": "2026-11-27 13:20:01",
+      "isNew": true
+    },
+    {
+      "id": "m-d0dc1874",
+      "order": 31,
       "title": "Hy-MT2 翻译",
       "titleEn": "Hy-MT2 Translation",
       "category": "translation",
@@ -1503,7 +1552,7 @@
     },
     {
       "id": "m-602eccf0",
-      "order": 31,
+      "order": 32,
       "title": "Index Translate 翻译",
       "titleEn": "Index Translate",
       "category": "translation",
@@ -1552,7 +1601,7 @@
     },
     {
       "id": "m-4bad2023",
-      "order": 32,
+      "order": 33,
       "title": "Hy-SimulMT 语音翻译",
       "titleEn": "Hy-SimulMT Speech Translation",
       "category": "speechTranslation",
@@ -1601,7 +1650,7 @@
     },
     {
       "id": "m-009832f2",
-      "order": 33,
+      "order": 34,
       "title": "SenseVoiceSmall Q4_K",
       "titleEn": "SenseVoiceSmall Q4_K",
       "category": "asr",
@@ -1650,7 +1699,7 @@
     },
     {
       "id": "m-433aa524",
-      "order": 34,
+      "order": 35,
       "title": "Nemotron 3.5 Transcribe",
       "titleEn": "Nemotron 3.5 Transcribe",
       "category": "asr",
@@ -1699,7 +1748,7 @@
     },
     {
       "id": "m-71857922",
-      "order": 35,
+      "order": 36,
       "title": "Qwen3-ASR",
       "titleEn": "Qwen3-ASR",
       "category": "asr",
@@ -1748,7 +1797,7 @@
     },
     {
       "id": "m-f7c51325",
-      "order": 36,
+      "order": 37,
       "title": "Whisper Large V3 Turbo",
       "titleEn": "Whisper Large V3 Turbo",
       "category": "asr",
@@ -1797,7 +1846,7 @@
     },
     {
       "id": "m-e80a0380",
-      "order": 37,
+      "order": 38,
       "title": "Confucius4-R2T2",
       "titleEn": "Confucius4-R2T2",
       "category": "asr",
@@ -1846,7 +1895,7 @@
     },
     {
       "id": "m-53a3b60d",
-      "order": 38,
+      "order": 39,
       "title": "Qwen3 ForcedAligner",
       "titleEn": "Qwen3 ForcedAligner",
       "category": "alignment",
@@ -1895,7 +1944,7 @@
     },
     {
       "id": "m-23f10645",
-      "order": 39,
+      "order": 40,
       "title": "Demucs",
       "titleEn": "Demucs",
       "category": "separation",
@@ -1944,7 +1993,7 @@
     },
     {
       "id": "m-59398dfc",
-      "order": 40,
+      "order": 41,
       "title": "Pyannote Segmentation 3.0",
       "titleEn": "Pyannote Segmentation 3.0",
       "category": "diarization",
@@ -1993,7 +2042,7 @@
     },
     {
       "id": "m-4724886a",
-      "order": 41,
+      "order": 42,
       "title": "CAM++",
       "titleEn": "CAM++",
       "category": "diarization",
@@ -2042,7 +2091,7 @@
     },
     {
       "id": "m-41c89cc5",
-      "order": 42,
+      "order": 43,
       "title": "Nemotron 3 Diarization",
       "titleEn": "Nemotron 3 Diarization",
       "category": "diarization",
@@ -2091,7 +2140,7 @@
     },
     {
       "id": "m-e1e9fd2b",
-      "order": 43,
+      "order": 44,
       "title": "Kokoro-82M v1.1-zh",
       "titleEn": "Kokoro-82M v1.1-zh",
       "category": "tts",
@@ -2140,7 +2189,7 @@
     },
     {
       "id": "m-75300309",
-      "order": 44,
+      "order": 45,
       "title": "AuK",
       "titleEn": "AuK",
       "category": "tts",
@@ -2189,7 +2238,7 @@
     },
     {
       "id": "m-fa8737b7",
-      "order": 45,
+      "order": 46,
       "title": "IndexTTS 2.5",
       "titleEn": "IndexTTS 2.5",
       "category": "tts",
@@ -2238,7 +2287,7 @@
     },
     {
       "id": "m-2400e66f",
-      "order": 46,
+      "order": 47,
       "title": "Qwen3-TTS 0.6B",
       "titleEn": "Qwen3-TTS 0.6B",
       "category": "tts",
@@ -2287,7 +2336,7 @@
     },
     {
       "id": "m-947e63da",
-      "order": 47,
+      "order": 48,
       "title": "Sophon-Realtime 32B",
       "titleEn": "Sophon-Realtime 32B",
       "category": "tts",
@@ -2336,7 +2385,7 @@
     },
     {
       "id": "m-bdfa83ac",
-      "order": 48,
+      "order": 49,
       "title": "Sophon-Realtime 4B Flash",
       "titleEn": "Sophon-Realtime 4B Flash",
       "category": "tts",
@@ -2385,7 +2434,7 @@
     },
     {
       "id": "m-7ff856b7",
-      "order": 49,
+      "order": 50,
       "title": "PP-DocLayoutV3",
       "titleEn": "PP-DocLayoutV3",
       "category": "layout",
@@ -2434,7 +2483,7 @@
     },
     {
       "id": "m-da8061dc",
-      "order": 50,
+      "order": 51,
       "title": "Unlimited-OCR",
       "titleEn": "Unlimited-OCR",
       "category": "ocr",
@@ -2483,7 +2532,7 @@
     },
     {
       "id": "m-95fe7e1f",
-      "order": 51,
+      "order": 52,
       "title": "Unlimited-OCR-2",
       "titleEn": "Unlimited-OCR-2",
       "category": "ocr",
@@ -2532,7 +2581,7 @@
     },
     {
       "id": "m-15b19fe3",
-      "order": 52,
+      "order": 53,
       "title": "PP-OCRv6",
       "titleEn": "PP-OCRv6",
       "category": "ocr",
@@ -2581,7 +2630,7 @@
     },
     {
       "id": "m-76dcf06f",
-      "order": 53,
+      "order": 54,
       "title": "Decision 3.0",
       "titleEn": "Decision 3.0",
       "category": "decision",
@@ -2630,7 +2679,7 @@
     },
     {
       "id": "m-46818159",
-      "order": 54,
+      "order": 55,
       "title": "Qwen3-Embedding",
       "titleEn": "Qwen3-Embedding",
       "category": "embedding",
@@ -2679,7 +2728,7 @@
     },
     {
       "id": "m-68d84338",
-      "order": 55,
+      "order": 56,
       "title": "BGE-M3 稠密向量",
       "titleEn": "BGE-M3 Dense Embeddings",
       "category": "embedding",
@@ -2728,7 +2777,7 @@
     },
     {
       "id": "m-4a5f3b44",
-      "order": 56,
+      "order": 57,
       "title": "ZH-CLIP 中文图文向量",
       "titleEn": "ZH-CLIP Chinese Text–Image Embeddings",
       "category": "imageTextEmbedding",
@@ -2777,7 +2826,7 @@
     },
     {
       "id": "m-fe00a7b9",
-      "order": 57,
+      "order": 58,
       "title": "EmbeddingGemma 2",
       "titleEn": "EmbeddingGemma 2",
       "category": "multimodalEmbedding",
@@ -2826,7 +2875,7 @@
     },
     {
       "id": "m-c52d76b0",
-      "order": 58,
+      "order": 59,
       "title": "BGE-Reranker-v2-M3 重排",
       "titleEn": "BGE-Reranker-v2-M3 Reranking",
       "category": "reranking",
@@ -2875,7 +2924,7 @@
     },
     {
       "id": "m-ff1fd81e",
-      "order": 59,
+      "order": 60,
       "title": "buffalo_l 人脸识别",
       "titleEn": "buffalo_l Face Recognition",
       "category": "faceRecognition",
@@ -2924,7 +2973,7 @@
     },
     {
       "id": "m-6f85263f",
-      "order": 60,
+      "order": 61,
       "title": "BLIP 图片描述",
       "titleEn": "BLIP Image Captioning",
       "category": "imageCaptioning",
@@ -2973,6 +3022,20 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-27 13:20:01",
+      "appVersion": "2.3.406",
+      "prevAppVersion": "2.3.403",
+      "totalVisible": 61,
+      "added": [
+        {
+          "title": "Hy-MT3 翻译",
+          "categoryZh": "语言翻译"
+        }
+      ],
+      "updated": [],
+      "removed": []
+    },
     {
       "ts": "2026-11-26 23:25:01",
       "appVersion": "2.3.403",
