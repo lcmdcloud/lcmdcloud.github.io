@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.431",
-  "appUpdatedAt": "2026-11-28 18:54:41",
-  "syncedAt": "2026-11-28 18:55:06",
-  "syncedTs": 1795863306,
+  "appVersion": "2.3.437",
+  "appUpdatedAt": "2026-11-29 00:07:58",
+  "syncedAt": "2026-11-29 00:10:07",
+  "syncedTs": 1795882207,
   "stats": {
     "visibleCount": 62,
     "totalCount": 62,
@@ -180,7 +180,7 @@
       "hardware": [
         {
           "device": "thor",
-          "memoryGiB": 112,
+          "memoryGiB": 108,
           "diskGiB": 449.6,
           "diskLowerBound": true,
           "perDevice": true,
@@ -220,7 +220,7 @@
       "hardware": [
         {
           "device": "thor",
-          "memoryGiB": 112,
+          "memoryGiB": 108,
           "diskGiB": 164.3799,
           "diskLowerBound": true,
           "perDevice": true,
@@ -300,7 +300,7 @@
       "hardware": [
         {
           "device": "thor",
-          "memoryGiB": 112,
+          "memoryGiB": 108,
           "diskGiB": 161.82,
           "diskLowerBound": true,
           "perDevice": true,
@@ -771,8 +771,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 119.2 TPS，支持最高 8 并发，4.5K Prefill 1991.7 TPS，TTFT 64.3ms（1.6K 0.415s），32K 上下文；IQ4_NL\n\nOrin：单流 65.0 TPS，支持最高 8 并发，4.5K Prefill 1116.7 TPS，TTFT 123ms；支持图文理解，32K 上下文；IQ4_NL",
-      "descriptionEn": "Thor: Single-stream 119.2 TPS, up to 8-way concurrency, 4.5K Prefill 1991.7 TPS, TTFT 64.3ms (1.6K 0.415s), 32K context; IQ4_NL\n\nOrin: Single-stream 65.0 TPS, up to 8-way concurrency, 4.5K Prefill 1116.7 TPS, TTFT 123ms; vision support, 32K context; IQ4_NL",
+      "description": "Thor：单流 119.2 TPS，支持最高 8 并发，4.5K Prefill 1991.7 TPS，TTFT 64.3ms（1.6K 0.415s），32K 上下文；IQ4_NL\n\nOrin：单流 64.0 TPS，默认 4 槽并发 127.3 TPS（2.36x，统一 KV 池，最高 8 并发），4.5K Prefill 1116.7 TPS，TTFT 123ms；支持图文理解，32K 上下文；IQ4_NL",
+      "descriptionEn": "Thor: Single-stream 119.2 TPS, up to 8-way concurrency, 4.5K Prefill 1991.7 TPS, TTFT 64.3ms (1.6K 0.415s), 32K context; IQ4_NL\n\nOrin: Single-stream 64.0 TPS, default 4-slot 127.3 TPS (2.36x, unified KV, up to 8-way), 4.5K Prefill 1116.7 TPS, TTFT 123ms; vision support, 32K context; IQ4_NL",
       "precision": {
         "thor": "IQ4_NL",
         "orin": "IQ4_NL",
@@ -918,8 +918,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 108.29 TPS，多并发 94.02 TPS，3K Prefill 3709.0 TPS，TTFT 0.180s，256K 上下文；Q4_K_M\n\nOrin：单流 81.74 TPS（单路），4K Prefill 1301.1 TPS，TTFT 0.423s；对话、可控思考与工具调用，256K 上下文；Q4_K_M",
-      "descriptionEn": "Thor: Single-stream 108.29 TPS, concurrent 94.02 TPS, 3K Prefill 3709.0 TPS, TTFT 0.180s, 256K context; Q4_K_M\n\nOrin: Single-stream 81.74 TPS (1-slot), 4K Prefill 1301.1 TPS, TTFT 0.423s; chat, thinking & tools, 256K context; Q4_K_M",
+      "description": "Thor：单流 108.29 TPS，多并发 94.02 TPS，3K Prefill 3709.0 TPS，TTFT 0.180s，256K 上下文；Q4_K_M\n\nOrin：单流 86.41 TPS，4 并发总吞吐 173.70 TPS（1.85x，统一 KV 池），4K Prefill 1301.1 TPS，TTFT 0.423s；对话、可控思考与工具调用，256K 上下文；Q4_K_M",
+      "descriptionEn": "Thor: Single-stream 108.29 TPS, concurrent 94.02 TPS, 3K Prefill 3709.0 TPS, TTFT 0.180s, 256K context; Q4_K_M\n\nOrin: Single-stream 86.41 TPS, 4-way 173.70 TPS (1.85x, unified KV), 4K Prefill 1301.1 TPS, TTFT 0.423s; chat, thinking & tools, 256K context; Q4_K_M",
       "precision": {
         "thor": "Q4_K_M",
         "orin": "Q4_K_M",
@@ -967,8 +967,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 85.54 TPS（单路），5K Prefill 7459 TPS，TTFT 0.183s（5K 0.68s），128K 上下文；Q8_0\n\nOrin：单流 48.28 TPS（单路），5K Prefill 2773 TPS，5K TTFT 1.83s，128K 上下文；Q8_0",
-      "descriptionEn": "Thor: Single-stream 85.54 TPS (1-slot), 5K Prefill 7459 TPS, TTFT 0.183s (5K 0.68s), 128K context; Q8_0\n\nOrin: Single-stream 48.28 TPS (1-slot), 5K Prefill 2773 TPS, 5K TTFT 1.83s, 128K context; Q8_0",
+      "description": "Thor：单流 85.54 TPS（单路），5K Prefill 7459 TPS，TTFT 0.183s（5K 0.68s），128K 上下文；Q8_0\n\nOrin：单流 48.85 TPS，4 并发总吞吐 163.53 TPS（3.45x，统一 KV 池），5K Prefill 2773 TPS，5K TTFT 1.83s，128K 上下文；Q8_0",
+      "descriptionEn": "Thor: Single-stream 85.54 TPS (1-slot), 5K Prefill 7459 TPS, TTFT 0.183s (5K 0.68s), 128K context; Q8_0\n\nOrin: Single-stream 48.85 TPS, 4-way 163.53 TPS (3.45x, unified KV), 5K Prefill 2773 TPS, 5K TTFT 1.83s, 128K context; Q8_0",
       "precision": {
         "thor": "Q8_0",
         "orin": "Q8_0",
@@ -1223,8 +1223,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：2048×2048 6 步生图 7.84s/张（1.73x，显存峰值 51.6 GB）；NVFP4\n\nOrin：2048×2048 6 步生图 89.36s/张；支持参考图编辑；BF16",
-      "descriptionEn": "Thor: 2048x2048 6-step image generation 7.84s/img (1.73x, 51.6 GB peak VRAM); NVFP4\n\nOrin: 2048x2048 6-step image generation 89.36s/img; reference-image editing; BF16",
+      "description": "Thor：2048×2048 6 步生图 7.84s/张（1.73x，显存峰值 51.6 GB）；NVFP4\n\nOrin：2048×2048 6 步生图（JP7 启用 O_DIRECT 冷启动就绪 2.80x / 452s，显存峰值降至 12.0 GB）；支持参考图编辑；BF16",
+      "descriptionEn": "Thor: 2048x2048 6-step image generation 7.84s/img (1.73x, 51.6 GB peak VRAM); NVFP4\n\nOrin: 2048x2048 6-step image generation (JP7 O_DIRECT 2.80x cold-start readiness / 452s, peak VRAM reduced to 12.0 GB); reference-image editing; BF16",
       "precision": {
         "thor": "NVFP4",
         "orin": "BF16",
@@ -3071,6 +3071,44 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-29 00:10:01",
+      "appVersion": "2.3.437",
+      "prevAppVersion": "2.3.431",
+      "totalVisible": 62,
+      "added": [],
+      "updated": [
+        {
+          "title": "DeepSeek V4.1 Flash 1017 未审查版",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "DeepSeek V4 Flash Vision 未审查版",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Hy4 Flash",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Qwen 3.5 4B",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Nemotron 3.5 Bolt E4B",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "MiniCPM5-2B",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "MiniMax-H3-Image",
+          "categoryZh": "图像生成"
+        }
+      ],
+      "removed": []
+    },
     {
       "ts": "2026-11-28 18:55:01",
       "appVersion": "2.3.431",
