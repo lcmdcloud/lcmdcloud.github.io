@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.424",
-  "appUpdatedAt": "2026-11-28 15:12:35",
-  "syncedAt": "2026-11-28 15:15:06",
-  "syncedTs": 1795850106,
+  "appVersion": "2.3.431",
+  "appUpdatedAt": "2026-11-28 18:54:41",
+  "syncedAt": "2026-11-28 18:55:06",
+  "syncedTs": 1795863306,
   "stats": {
     "visibleCount": 62,
     "totalCount": 62,
@@ -405,8 +405,8 @@
         "thor"
       ],
       "isMultiNode": true,
-      "description": "单流 22.54–23.80 TPS，8 并发 37.20 TPS，2K/8K Prefill 178.3/166.7 TPS，TTFT 2.26s；8 共享槽，12K 上下文；EXLR8",
-      "descriptionEn": "Single-stream 22.54–23.80 TPS, 8-way 37.20 TPS, 2K/8K Prefill 178.3/166.7 TPS, TTFT 2.26s; 8 shared slots, 12K context; EXLR8",
+      "description": "单流代码 26.8 TPS（正文 13.4），4 并发 31.2–31.9 TPS，8K Prefill 155 TPS（缓存 TTFT 0.12s）；4 共享槽，40K 上下文，INT4 KV + 48GB SSD 卸载；EXLR8",
+      "descriptionEn": "Single-stream code 26.8 TPS (prose 13.4), 4-way 31.2–31.9 TPS, 8K Prefill 155 TPS (cached TTFT 0.12s); 4 shared slots, 40K context, INT4 KV + 48GB SSD offload; EXLR8",
       "precision": {
         "thor": "EXLR8",
         "orin": "",
@@ -1419,8 +1419,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：延迟 0.86ms，1983 条/s；INT8\n\nOrin：延迟 6.25ms，457 条/s；多语种离线文本翻译；INT8",
-      "descriptionEn": "Thor: Latency 0.86ms, 1983 req/s; INT8\n\nOrin: Latency 6.25ms, 457 req/s; offline multilingual text translation; INT8",
+      "description": "Thor：延迟 0.86ms，1983 条/s；INT8\n\nOrin：8 并发 347 条/s（1.61x），12 并发 403 条/s（1.70x），短句 15.6ms；INT8",
+      "descriptionEn": "Thor: Latency 0.86ms, 1983 req/s; INT8\n\nOrin: 8-way 347 req/s (1.61x), 12-way 403 req/s (1.70x), short 15.6ms; INT8",
       "precision": {
         "thor": "INT8",
         "orin": "INT8",
@@ -1468,13 +1468,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单流 0.67s，4 并发 5.89 条/s；FP8\n\nOrin：单流 1.90s，4 并发 2.08 条/s；14B 中英文本同传；INT8",
-      "descriptionEn": "Thor: Single-stream 0.67s, 4-way 5.89 req/s; FP8\n\nOrin: Single-stream 1.90s, 4-way 2.08 req/s; 14B ZH-EN live text translation; INT8",
+      "description": "Thor：单流 0.67s，4 并发 5.89 条/s；FP8\n\nOrin：单流 2.18s（1.66x），4 并发 0.83 条/s；14B 中英文本同传；INT4 + BF16",
+      "descriptionEn": "Thor: Single-stream 0.67s, 4-way 5.89 req/s; FP8\n\nOrin: Single-stream 2.18s (1.66x), 4-way 0.83 req/s; 14B ZH-EN live text translation; INT4 + BF16",
       "precision": {
         "thor": "FP8",
-        "orin": "INT8",
-        "zh": "FP8 / INT8",
-        "en": "FP8 / INT8"
+        "orin": "INT4 + BF16",
+        "zh": "FP8 / INT4 + BF16",
+        "en": "FP8 / INT4 + BF16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1909,8 +1909,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：6.74s 中文音频 163.1ms（41.3 倍实时，4 并发 212.6ms / 16.1 条/s）；BF16\n\nOrin：6.74s 中文音频 409ms（16.5 倍实时，4 并发 2.44 条/s）；BF16",
-      "descriptionEn": "Thor: 6.74s ZH audio 163.1ms (41.3x RT, 4-way 212.6ms / 16.1 req/s); BF16\n\nOrin: 6.74s ZH audio 409ms (16.5x RT, 4-way 2.44 req/s); BF16",
+      "description": "Thor：6.74s 中文音频 163.1ms（41.3 倍实时，4 并发 212.6ms / 16.1 条/s）；BF16\n\nOrin：16.9s 中文音频 2.43s（2.31x，6.96x 实时），4 并发 5.03s（p95 2.61x，吞吐 2.42x）；BF16",
+      "descriptionEn": "Thor: 6.74s ZH audio 163.1ms (41.3x RT, 4-way 212.6ms / 16.1 req/s); BF16\n\nOrin: 16.9s ZH audio 2.43s (2.31x, 6.96x RT), 4-way 5.03s (p95 2.61x, 2.42x throughput); BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -3071,6 +3071,32 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-28 18:55:01",
+      "appVersion": "2.3.431",
+      "prevAppVersion": "2.3.424",
+      "totalVisible": 62,
+      "added": [],
+      "updated": [
+        {
+          "title": "GLM 5.3 Full",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Firefox Translations 机器翻译",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "title": "Confucius4-T3PO",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "title": "Confucius4-R2T2",
+          "categoryZh": "语音识别"
+        }
+      ],
+      "removed": []
+    },
     {
       "ts": "2026-11-28 15:15:01",
       "appVersion": "2.3.424",
