@@ -2,10 +2,10 @@
   "schemaVersion": 1,
   "sourceUrl": "https://lcmdcloud.github.io/model-store/",
   "appName": "AI Pod",
-  "appVersion": "2.3.413",
-  "appUpdatedAt": "2026-11-28 03:00:27",
-  "syncedAt": "2026-11-28 04:15:07",
-  "syncedTs": 1795810507,
+  "appVersion": "2.3.424",
+  "appUpdatedAt": "2026-11-28 15:12:35",
+  "syncedAt": "2026-11-28 15:15:06",
+  "syncedTs": 1795850106,
   "stats": {
     "visibleCount": 62,
     "totalCount": 62,
@@ -1321,8 +1321,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：512×512 8 步生图 1.78s/张（1.56x），1024×1024 7.43s/张（1.39x）；INT8\n\nOrin：512×512 8 步生图 15.2s/张；支持图片编辑；INT8",
-      "descriptionEn": "Thor: 512x512 8-step 1.78s/img (1.56x), 1024x1024 7.43s/img (1.39x); INT8\n\nOrin: 512x512 8-step 15.2s/img; image editing; INT8",
+      "description": "Thor：512×512 8 步生图 1.78s/张（1.56x），1024×1024 7.43s/张（1.39x）；INT8\n\nOrin：512×512 8 步生图 9.47s/张（1.42x），1024×1024 37.62s/张（1.10x）；支持图片编辑；INT8",
+      "descriptionEn": "Thor: 512x512 8-step 1.78s/img (1.56x), 1024x1024 7.43s/img (1.39x); INT8\n\nOrin: 512x512 8-step 9.47s/img (1.42x), 1024x1024 37.62s/img (1.10x); image editing; INT8",
       "precision": {
         "thor": "INT8",
         "orin": "INT8",
@@ -1370,8 +1370,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：512×512 25 步生图 4.49s/张（1.69x）；W4A8（支持 BF16/NVFP4/GGUF）\n\nOrin：512×512 20 步生图 27.8s/张；W4A8（支持 BF16/GGUF）",
-      "descriptionEn": "Thor: 512x512 25-step 4.49s/img (1.69x); W4A8 (BF16/NVFP4/GGUF supported)\n\nOrin: 512x512 20-step 27.8s/img; W4A8 (BF16/GGUF supported)",
+      "description": "Thor：512×512 25 步生图 4.49s/张（1.69x）；W4A8（支持 BF16/NVFP4/GGUF）\n\nOrin：512×512 20 步生图 21.08s/张（1.02x），1024×1024 89.29s/张（1.03x）；W4A8（支持 BF16/GGUF）",
+      "descriptionEn": "Thor: 512x512 25-step 4.49s/img (1.69x); W4A8 (BF16/NVFP4/GGUF supported)\n\nOrin: 512x512 20-step 21.08s/img (1.02x), 1024x1024 89.29s/img (1.03x); W4A8 (BF16/GGUF supported)",
       "precision": {
         "thor": "W4A8",
         "orin": "W4A8 / BF16 / GGUF",
@@ -1566,13 +1566,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：1.8B 180.6 TPS（FP8 127.8），7B 57.4 TPS，TTFT 14.5/41.5ms；BF16 / FP8\n\nOrin：1.8B 44.4 TPS，7B 10.3 TPS，TTFT 52/199ms；支持 32/256 并发；BF16",
-      "descriptionEn": "Thor: 1.8B 180.6 TPS (FP8 127.8), 7B 57.4 TPS, TTFT 14.5/41.5ms; BF16 / FP8\n\nOrin: 1.8B 44.4 TPS, 7B 10.3 TPS, TTFT 52/199ms; 32/256 concurrency; BF16",
+      "description": "Thor：1.8B 180.6 TPS（FP8 127.8），7B 57.4 TPS，TTFT 14.5/41.5ms；BF16 / FP8\n\nOrin：1.8B 单流 113.5 TPS（2.80x），TTFT 32.0ms，8 并发 46.0 TPS；Marlin INT4",
+      "descriptionEn": "Thor: 1.8B 180.6 TPS (FP8 127.8), 7B 57.4 TPS, TTFT 14.5/41.5ms; BF16 / FP8\n\nOrin: 1.8B single 113.5 TPS (2.80x), TTFT 32.0ms, 8-way 46.0 TPS; Marlin INT4",
       "precision": {
         "thor": "BF16 / FP8",
-        "orin": "BF16",
-        "zh": "BF16 / FP8",
-        "en": "BF16 / FP8"
+        "orin": "Marlin INT4",
+        "zh": "BF16 / FP8 / Marlin INT4",
+        "en": "BF16 / FP8 / Marlin INT4"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1713,8 +1713,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：5.55s 中文 WAV 4.6ms（1,200 倍实时），MP3 10.5ms，8 并发 388 rps；Q4_K\n\nOrin：5.55s 中文 WAV 86ms（64 倍实时），MP3 163ms；Q4_K",
-      "descriptionEn": "Thor: 5.55s ZH WAV 4.6ms (1,200x RT), MP3 10.5ms, 8-way 388 rps; Q4_K\n\nOrin: 5.55s ZH WAV 86ms (64x RT), MP3 163ms; Q4_K",
+      "description": "Thor：5.55s 中文 WAV 4.6ms（1,200 倍实时），MP3 10.5ms，8 并发 388 rps；Q4_K\n\nOrin：5.55s 中文 WAV 8.71ms（637 倍实时，9.69x），MP3 10.41ms，8 并发 123.4 rps；Q4_K",
+      "descriptionEn": "Thor: 5.55s ZH WAV 4.6ms (1,200x RT), MP3 10.5ms, 8-way 388 rps; Q4_K\n\nOrin: 5.55s ZH WAV 8.71ms (637x RT, 9.69x), MP3 10.41ms, 8-way 123.4 rps; Q4_K",
       "precision": {
         "thor": "Q4_K",
         "orin": "Q4_K",
@@ -1762,13 +1762,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：16.93s 中文音频 0.93s（18.9 倍实时），4 并发 25.0 倍实时；IQ4_NL\n\nOrin：16.93s 中文音频 3.37s；单次最长 1 小时录音转写；IQ4_NL",
-      "descriptionEn": "Thor: 16.93s ZH audio 0.93s (18.9x RT), 4-way 25.0x RT; IQ4_NL\n\nOrin: 16.93s ZH audio 3.37s; up to 1-hour single transcription; IQ4_NL",
+      "description": "Thor：16.93s 中文音频 0.93s（18.9 倍实时），4 并发 25.0 倍实时；IQ4_NL\n\nOrin：16.93s 中文音频 1.92s（8.80 倍实时，1.75x），4 并发 21.2 倍实时；IQ4_NL + MTP",
+      "descriptionEn": "Thor: 16.93s ZH audio 0.93s (18.9x RT), 4-way 25.0x RT; IQ4_NL\n\nOrin: 16.93s ZH audio 1.92s (8.80x RT, 1.75x), 4-way 21.2x RT; IQ4_NL + MTP",
       "precision": {
         "thor": "IQ4_NL",
-        "orin": "IQ4_NL",
-        "zh": "IQ4_NL",
-        "en": "IQ4_NL"
+        "orin": "IQ4_NL + MTP",
+        "zh": "IQ4_NL / IQ4_NL + MTP",
+        "en": "IQ4_NL / IQ4_NL + MTP"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1811,13 +1811,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：0.6B/1.7B 短音频 47ms/69ms，长音频 222ms/360ms（最高 2.83x）；BF16\n\nOrin：0.6B 2.2s 中文音频 318ms；支持 0.6B/1.7B 流式识别，单次最长 30s；BF16",
-      "descriptionEn": "Thor: 0.6B/1.7B short audio 47ms/69ms, long audio 222ms/360ms (up to 2.83x); BF16\n\nOrin: 0.6B 2.2s ZH audio 318ms; 0.6B/1.7B streaming ASR up to 30s; BF16",
+      "description": "Thor：0.6B/1.7B 短音频 47ms/69ms，长音频 222ms/360ms（最高 2.83x）；BF16\n\nOrin：0.6B 短音频 88ms（1.54x），长音频 326ms（1.94x，51.9x RT）；Marlin INT4",
+      "descriptionEn": "Thor: 0.6B/1.7B short 47ms/69ms, long 222ms/360ms (up to 2.83x); BF16\n\nOrin: 0.6B short 88ms (1.54x), long 326ms (1.94x, 51.9x RT); Marlin INT4",
       "precision": {
         "thor": "BF16",
-        "orin": "BF16",
-        "zh": "BF16",
-        "en": "BF16"
+        "orin": "Marlin INT4",
+        "zh": "BF16 / Marlin INT4",
+        "en": "BF16 / Marlin INT4"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1860,13 +1860,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：短音频 46.2/48.3ms，109.4 倍实时（1.64x），4 并发 171.0 倍实时；FP16\n\nOrin：2.2s 中文音频 187.6ms，4 并发 68.17 倍实时；支持 100 种语言识别与翻译；FP16",
-      "descriptionEn": "Thor: Short audio 46.2/48.3ms, 109.4x RT (1.64x), 4-way 171.0x RT; FP16\n\nOrin: 2.2s ZH audio 187.6ms, 4-way 68.17x RT; 100-language ASR & translation; FP16",
+      "description": "Thor：短音频 46.2/48.3ms，109.4 倍实时（1.64x），4 并发 171.0 倍实时；FP16\n\nOrin：短音频 140/144ms（1.32x），长音频 218/323ms（最高 1.85x），46.0x 实时（1.60x），4 并发 76.2x 实时；FP16 + INT4",
+      "descriptionEn": "Thor: Short audio 46.2/48.3ms, 109.4x RT (1.64x), 4-way 171.0x RT; FP16\n\nOrin: Short audio 140/144ms (1.32x), long audio 218/323ms (up to 1.85x), 46.0x RT (1.60x), 4-way 76.2x RT; FP16 + INT4",
       "precision": {
         "thor": "FP16",
-        "orin": "FP16",
-        "zh": "FP16",
-        "en": "FP16"
+        "orin": "FP16 + INT4",
+        "zh": "FP16 / FP16 + INT4",
+        "en": "FP16 / FP16 + INT4"
       },
       "badge": "",
       "imageFit": "cover",
@@ -1958,13 +1958,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10.93s 音频对齐 14.4ms（短音频 8.7ms）；BF16\n\nOrin：10.93s 音频对齐 82.8ms；11 种语言词/字级时间戳对齐，最长 300s；BF16",
-      "descriptionEn": "Thor: 10.93s audio alignment 14.4ms (short 8.7ms); BF16\n\nOrin: 10.93s audio alignment 82.8ms; 11-language word/char timestamps up to 300s; BF16",
+      "description": "Thor：10.93s 音频对齐 14.4ms（短音频 8.7ms）；BF16\n\nOrin：15s 音频对齐 31.8ms（2.71x，短音频 21.1ms）；11 种语言词/字级时间戳对齐，最长 300s；INT8 W8A8",
+      "descriptionEn": "Thor: 10.93s audio alignment 14.4ms (short 8.7ms); BF16\n\nOrin: 15s audio alignment 31.8ms (2.71x, short 21.1ms); 11-language word/char timestamps up to 300s; INT8 W8A8",
       "precision": {
         "thor": "BF16",
-        "orin": "BF16",
-        "zh": "BF16",
-        "en": "BF16"
+        "orin": "INT8 W8A8",
+        "zh": "BF16 / INT8 W8A8",
+        "en": "BF16 / INT8 W8A8"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2007,13 +2007,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：23.98s 音频四轨分离 0.23s（推理 0.15s，4.33x）；FP32\n\nOrin：23.97s 音频四轨分离 1.86s；44.1kHz 人声、伴奏、鼓与贝斯分离，最长 180s；FP32",
-      "descriptionEn": "Thor: 23.98s 4-stem separation 0.23s (infer 0.15s, 4.33x); FP32\n\nOrin: 23.97s 4-stem separation 1.86s; 44.1kHz vocals/drums/bass/other up to 180s; FP32",
+      "description": "Thor：23.98s 音频四轨分离 0.23s（推理 0.15s，4.33x）；FP32\n\nOrin：30s 音频四轨分离 0.44s（推理 0.35s，4.07x）；44.1kHz 人声、伴奏、鼓与贝斯分离，最长 180s；FP16",
+      "descriptionEn": "Thor: 23.98s 4-stem separation 0.23s (infer 0.15s, 4.33x); FP32\n\nOrin: 30s 4-stem separation 0.44s (infer 0.35s, 4.07x); 44.1kHz vocals/accompaniment/drums/bass up to 180s; FP16",
       "precision": {
         "thor": "FP32",
-        "orin": "FP32",
-        "zh": "FP32",
-        "en": "FP32"
+        "orin": "FP16",
+        "zh": "FP32 / FP16",
+        "en": "FP32 / FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2056,13 +2056,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10s/30s 音频分段 10.8ms/45.9ms（3.17x/1.86x）；FP32\n\nOrin：10s/30s 音频分段 50.4ms/112.7ms；语音活动、说话人切换与重叠检测；FP32",
-      "descriptionEn": "Thor: 10s/30s segmentation 10.8ms/45.9ms (3.17x/1.86x); FP32\n\nOrin: 10s/30s segmentation 50.4ms/112.7ms; VAD, speaker change & overlap; FP32",
+      "description": "Thor：10s/30s 音频分段 10.8ms/45.9ms（3.17x/1.86x）；FP32\n\nOrin：10s/30s 音频分段 13.2ms/58.2ms（3.82x/1.53x）；语音活动、说话人切换与重叠检测；FP32/TF32",
+      "descriptionEn": "Thor: 10s/30s segmentation 10.8ms/45.9ms (3.17x/1.86x); FP32\n\nOrin: 10s/30s segmentation 13.2ms/58.2ms (3.82x/1.53x); VAD, speaker change & overlap detection; FP32/TF32",
       "precision": {
         "thor": "FP32",
-        "orin": "FP32",
-        "zh": "FP32",
-        "en": "FP32"
+        "orin": "FP32 / TF32",
+        "zh": "FP32 / TF32",
+        "en": "FP32 / TF32"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2105,13 +2105,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：10s/30s 声纹提取 4.5ms/7.1ms（5.68x/9.99x）；FP32\n\nOrin：10s/30s 声纹提取 38.4ms/99.9ms；192 维声纹特征，支持最多 8 段批量聚类；FP32",
-      "descriptionEn": "Thor: 10s/30s speaker embedding 4.5ms/7.1ms (5.68x/9.99x); FP32\n\nOrin: 10s/30s speaker embedding 38.4ms/99.9ms; 192-D speaker vectors, up to 8-clip batch; FP32",
+      "description": "Thor：10s/30s 声纹提取 4.5ms/7.1ms（5.68x/9.99x）；FP32\n\nOrin：10s/30s 声纹提取 8.7ms/19.3ms（4.30x/4.96x）；192 维声纹特征，支持最多 8 段批量聚类；FP16",
+      "descriptionEn": "Thor: 10s/30s speaker embedding 4.5ms/7.1ms (5.68x/9.99x); FP32\n\nOrin: 10s/30s speaker embedding 8.7ms/19.3ms (4.30x/4.96x); 192-D speaker vectors, up to 8-segment batch clustering; FP16",
       "precision": {
         "thor": "FP32",
-        "orin": "FP32",
-        "zh": "FP32",
-        "en": "FP32"
+        "orin": "FP16",
+        "zh": "FP32 / FP16",
+        "en": "FP32 / FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2154,13 +2154,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：5s/60s 音频 11.5ms/156.1ms（2.10x/3.69x），4 并发 480x RT；Q8_0\n\nOrin：5s 音频 30.4ms，1h 音频 62.77s；支持最多 8 位说话人与重叠检测；Q8_0",
-      "descriptionEn": "Thor: 5s/60s audio 11.5ms/156.1ms (2.10x/3.69x), 4-way 480x RT; Q8_0\n\nOrin: 5s audio 30.4ms, 1h audio 62.77s; up to 8 speakers & overlap detection; Q8_0",
+      "description": "Thor：5s/60s 音频 11.5ms/156.1ms（2.10x/3.69x），4 并发 480x RT；Q8_0\n\nOrin：5s/60s 音频 21.1ms/559.9ms（1.46x/1.98x），4 并发 153x RT；FP16/Q8_0",
+      "descriptionEn": "Thor: 5s/60s audio 11.5ms/156.1ms (2.10x/3.69x), 4-way 480x RT; Q8_0\n\nOrin: 5s/60s audio 21.1ms/559.9ms (1.46x/1.98x), 4-way 153x RT; FP16/Q8_0",
       "precision": {
         "thor": "Q8_0",
-        "orin": "Q8_0",
-        "zh": "Q8_0",
-        "en": "Q8_0"
+        "orin": "FP16 / Q8_0",
+        "zh": "Q8_0 / FP16",
+        "en": "Q8_0 / FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2203,13 +2203,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中/英文短句 26.6ms/30.7ms（3.14x/3.02x），4 并发 44.30 条/s；FP32\n\nOrin：中/英文短句 224.4ms/176.3ms，4 并发 6.55 条/s；支持 157 种音色；FP32",
-      "descriptionEn": "Thor: ZH/EN short 26.6ms/30.7ms (3.14x/3.02x), 4-way 44.30 req/s; FP32\n\nOrin: ZH/EN short 224.4ms/176.3ms, 4-way 6.55 req/s; 157 voices; FP32",
+      "description": "Thor：中/英文短句 26.6ms/30.7ms（3.14x/3.02x），4 并发 44.30 条/s；FP32\n\nOrin：短句 100.9ms（1.24x），中句 156.6ms（1.14x），长句 345.9ms（1.01x），冷启动 3.61x；FP16/FP32",
+      "descriptionEn": "Thor: ZH/EN short 26.6ms/30.7ms (3.14x/3.02x), 4-way 44.30 req/s; FP32\n\nOrin: short 100.9ms (1.24x), medium 156.6ms (1.14x), long 345.9ms (1.01x), cold load 3.61x; FP16/FP32",
       "precision": {
         "thor": "FP32",
-        "orin": "FP32",
-        "zh": "FP32",
-        "en": "FP32"
+        "orin": "FP16 / FP32",
+        "zh": "FP32 / FP16",
+        "en": "FP32 / FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2252,13 +2252,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：2s 英/3s 中/2s 编辑 0.34s/0.41s/0.67s（2.62x/2.64x/2.23x），8s 长句 0.73s（2.85x）；BF16 + FP32\n\nOrin：2s 英/3s 中/2s 编辑 2.06s/2.77s/3.87s；中英语音生成与编辑；BF16 + FP32",
-      "descriptionEn": "Thor: 2s EN/3s ZH/2s edit 0.34s/0.41s/0.67s (2.62x/2.64x/2.23x), 8s long 0.73s (2.85x); BF16 + FP32\n\nOrin: 2s EN/3s ZH/2s edit 2.06s/2.77s/3.87s; bilingual speech generation & editing; BF16 + FP32",
+      "description": "Thor：2s 英/3s 中/2s 编辑 0.34s/0.41s/0.67s（2.62x/2.64x/2.23x），8s 长句 0.73s（2.85x）；BF16 + FP32\n\nOrin：2s 英/3s 中/2s 编辑 0.85s/1.06s/1.56s（2.67x/2.79x/2.63x），8s 长句 1.97s–2.00s（2.97x）；INT8 + BF16 + FP16",
+      "descriptionEn": "Thor: 2s EN/3s ZH/2s edit 0.34s/0.41s/0.67s (2.62x/2.64x/2.23x), 8s long 0.73s (2.85x); BF16 + FP32\n\nOrin: 2s EN/3s ZH/2s edit 0.85s/1.06s/1.56s (2.67x/2.79x/2.63x), 8s long 1.97s–2.00s (2.97x); INT8 + BF16 + FP16",
       "precision": {
         "thor": "BF16 + FP32",
-        "orin": "BF16 + FP32",
-        "zh": "BF16 + FP32",
-        "en": "BF16 + FP32"
+        "orin": "INT8 + BF16 + FP16",
+        "zh": "BF16 + FP32 / INT8 + BF16 + FP16",
+        "en": "BF16 + FP32 / INT8 + BF16 + FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2301,13 +2301,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中文短句 0.49s（2.66x），英文短句 0.60s（2.81x），长句最高 4.62x；FP16 / FP32\n\nOrin：中文短句 2.76s，英文短句 3.58s；五语种声音克隆、情绪语速与流式合成；FP32",
-      "descriptionEn": "Thor: ZH short 0.49s (2.66x), EN short 0.60s (2.81x), long up to 4.62x; FP16 / FP32\n\nOrin: ZH short 2.76s, EN short 3.58s; 5-language voice cloning, emotion & streaming; FP32",
+      "description": "Thor：中文短句 0.49s（2.66x），英文短句 0.60s（2.81x），长句最高 4.62x；FP16 / FP32\n\nOrin：短句 1.40s（2.89x，RTF 0.373），中长句 2.42s（3.52x，RTF 0.323）；BF16 + Triton",
+      "descriptionEn": "Thor: ZH short 0.49s (2.66x), EN short 0.60s (2.81x), long up to 4.62x; FP16 / FP32\n\nOrin: Short 1.40s (2.89x, RTF 0.373), medium 2.42s (3.52x, RTF 0.323); BF16 + Triton",
       "precision": {
         "thor": "FP16 / FP32",
-        "orin": "FP32",
-        "zh": "FP16 / FP32",
-        "en": "FP16 / FP32"
+        "orin": "BF16 + Triton",
+        "zh": "FP16 / FP32 / BF16 + Triton",
+        "en": "FP16 / FP32 / BF16 + Triton"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2350,13 +2350,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：中文短句 0.44s（2.10x），首音 0.10s，长段 2.66x，4 并发 5.93 条/s（5.46x）；BF16\n\nOrin：中文短句整句 1.34s，首音 0.39s；支持零样本声音克隆；BF16",
-      "descriptionEn": "Thor: ZH short 0.44s (2.10x), TTFA 0.10s, long 2.66x, 4-way 5.93 req/s (5.46x); BF16\n\nOrin: ZH short 1.34s, TTFA 0.39s; zero-shot voice cloning; BF16",
+      "description": "Thor：中文短句 0.44s（2.10x），首音 0.10s，长段 2.66x，4 并发 5.93 条/s（5.46x）；BF16\n\nOrin：中文短句 0.85s（4.14x），首音 0.30s（2.51x），长段 2.89x，4 并发 2.34 条/s（8.36x）；W4/W8 + BF16",
+      "descriptionEn": "Thor: ZH short 0.44s (2.10x), TTFA 0.10s, long 2.66x, 4-way 5.93 req/s (5.46x); BF16\n\nOrin: ZH short 0.85s (4.14x), TTFA 0.30s (2.51x), long 2.89x, 4-way 2.34 req/s (8.36x); W4/W8 + BF16",
       "precision": {
         "thor": "BF16",
-        "orin": "BF16",
-        "zh": "BF16",
-        "en": "BF16"
+        "orin": "W4 / W8 + BF16",
+        "zh": "BF16 / W4 / W8 + BF16",
+        "en": "BF16 / W4 / W8 + BF16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2399,13 +2399,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：首音 2.12s（1.71x），首字 0.18s（2.46x），RTF 0.533（2.34x），双路吞吐 2.91x（2.20x）；FP8 + BF16\n\nOrin：首音 4.02s，首字 0.45s，并发首音 4.74s；全双工实时语音对话与 Tag 情感合成；FP8 + BF16",
-      "descriptionEn": "Thor: TTFA 2.12s (1.71x), TTFT 0.18s (2.46x), RTF 0.533 (2.34x), 2-way 2.91x RT (2.20x); FP8 + BF16\n\nOrin: TTFA 4.02s, TTFT 0.45s, 2-way TTFA 4.74s; full-duplex real-time voice & emotion tags; FP8 + BF16",
+      "description": "Thor：首音 2.12s（1.71x），首字 0.18s（2.46x），RTF 0.533（2.34x），双路吞吐 2.91x（2.20x）；FP8 + BF16\n\nOrin：首音 3.38s，首字 0.46s，RTF 1.044（1.05x），并发首音 4.05s（1.08x）；FP8 + W8",
+      "descriptionEn": "Thor: TTFA 2.12s (1.71x), TTFT 0.18s (2.46x), RTF 0.533 (2.34x), 2-way 2.91x (2.20x); FP8 + BF16\n\nOrin: TTFA 3.38s, TTFT 0.46s, RTF 1.044 (1.05x), C2 TTFA 4.05s (1.08x); FP8 + W8",
       "precision": {
         "thor": "FP8 + BF16",
-        "orin": "FP8 + BF16",
-        "zh": "FP8 + BF16",
-        "en": "FP8 + BF16"
+        "orin": "FP8 + W8",
+        "zh": "FP8 + BF16 / FP8 + W8",
+        "en": "FP8 + BF16 / FP8 + W8"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2448,13 +2448,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：首音 0.31s（p50 0.26s，2.20x），首字 0.07s（2.00x），RTF 0.285（2.19x），双路吞吐 5.56x（2.42x）；BF16\n\nOrin：首音 0.81s，首字 0.14s，RTF 0.73，双路吞吐 1.97x；4B 轻量全双工实时语音对话；BF16",
-      "descriptionEn": "Thor: TTFA 0.31s (p50 0.26s, 2.20x), TTFT 0.07s (2.00x), RTF 0.285 (2.19x), 2-way 5.56x RT (2.42x); BF16\n\nOrin: TTFA 0.81s, TTFT 0.14s, RTF 0.73, 2-way 1.97x RT; 4B lightweight full-duplex voice; BF16",
+      "description": "Thor：首音 0.31s（p50 0.26s，2.20x），首字 0.07s（2.00x），RTF 0.285（2.19x），双路吞吐 5.56x（2.42x）；BF16\n\nOrin：首音 0.37s（1.83x），首字 0.06s（1.96x），RTF 0.301（2.35x），双路吞吐 3.41x（2.14x）；Marlin INT4 + BF16",
+      "descriptionEn": "Thor: TTFA 0.31s (p50 0.26s, 2.20x), TTFT 0.07s (2.00x), RTF 0.285 (2.19x), 2-way 5.56x (2.42x); BF16\n\nOrin: TTFA 0.37s (1.83x), TTFT 0.06s (1.96x), RTF 0.301 (2.35x), 2-way 3.41x (2.14x); Marlin INT4 + BF16",
       "precision": {
         "thor": "BF16",
-        "orin": "BF16",
-        "zh": "BF16",
-        "en": "BF16"
+        "orin": "Marlin INT4 + BF16",
+        "zh": "BF16 / Marlin INT4 + BF16",
+        "en": "BF16 / Marlin INT4 + BF16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2497,13 +2497,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单图版面分析 11.38ms（3.43x），双图 21.43ms（3.75x）；FP16\n\nOrin：单图版面分析 90.07ms；文字、表格与图像区域检测，支持 4 图批量；FP32",
-      "descriptionEn": "Thor: Single-page layout 11.38ms (3.43x), 2-page 21.43ms (3.75x); FP16\n\nOrin: Single-page layout 90.07ms; text, table & figure detection, 4-image batch; FP32",
+      "description": "Thor：单图版面分析 11.38ms（3.43x），双图 21.43ms（3.75x）；FP16\n\nOrin：单图版面分析 61.64ms（1.74x），4 图批量 170.71ms（1.82x）；文字、表格与图像区域检测；FP16",
+      "descriptionEn": "Thor: Single-page layout 11.38ms (3.43x), 2-page 21.43ms (3.75x); FP16\n\nOrin: Single-page layout 61.64ms (1.74x), 4-page batch 170.71ms (1.82x); text, table & figure detection; FP16",
       "precision": {
         "thor": "FP16",
-        "orin": "FP32",
-        "zh": "FP16 / FP32",
-        "en": "FP16 / FP32"
+        "orin": "FP16",
+        "zh": "FP16",
+        "en": "FP16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2546,8 +2546,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：短图 0.21s（1.69x），长页 2.61s（1.79x）；BF16\n\nOrin：短文 1.41s，长文 3.29s；支持中英文、多页及 PDF 识别；BF16",
-      "descriptionEn": "Thor: Short image 0.21s (1.69x), long page 2.61s (1.79x); BF16\n\nOrin: Short text 1.41s, long text 3.29s; ZH/EN, multi-page & PDF OCR; BF16",
+      "description": "Thor：短图 0.21s（1.69x），长页 2.61s（1.79x）；BF16\n\nOrin：短文 1.10s（1.82x）；支持中英文、多页及 PDF 识别；BF16",
+      "descriptionEn": "Thor: Short doc 0.21s (1.69x), long page 2.61s (1.79x); BF16\n\nOrin: Short doc 1.10s (1.82x); Chinese/English, multi-page & PDF OCR; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2595,13 +2595,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：短图 0.32s（1.24x），长页 4.67s（1.27x）；BF16\n\nOrin：英/中/两页 0.95s/1.16s/1.92s；支持中英文、多页及百页连续识别；BF16",
-      "descriptionEn": "Thor: Short image 0.32s (1.24x), long page 4.67s (1.27x); BF16\n\nOrin: EN/ZH/2-page 0.95s/1.16s/1.92s; ZH/EN, multi-page & 100-page OCR; BF16",
+      "description": "Thor：短图 0.32s（1.24x），长页 4.67s（1.27x）；BF16\n\nOrin：短图 1.92s（1.05x，加载 72.7s）；支持中英文、多页及百页连续识别；BF16+INT8 Head",
+      "descriptionEn": "Thor: Short doc 0.32s (1.24x), long page 4.67s (1.27x); BF16\n\nOrin: Short doc 1.92s (1.05x, load 72.7s); Chinese/English, multi-page & 100-page OCR; BF16+INT8 Head",
       "precision": {
         "thor": "BF16",
-        "orin": "BF16",
-        "zh": "BF16",
-        "en": "BF16"
+        "orin": "BF16+INT8 Head",
+        "zh": "BF16 / BF16+INT8 Head",
+        "en": "BF16 / BF16+INT8 Head"
       },
       "badge": "",
       "imageFit": "cover",
@@ -2644,8 +2644,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：Small 短图 3.91ms（1.15x，C4 449.1 张/s），登机牌 18.72ms（1.11x，C4 76.8 张/s）；FP16\n\nOrin：896×528 登机牌（Tiny/Small/Medium）35.1/18.4/11.8 张/s；FP16",
-      "descriptionEn": "Thor: Small short 3.91ms (1.15x, C4 449.1 img/s), boarding pass 18.72ms (1.11x, C4 76.8 img/s); FP16\n\nOrin: 896x528 boarding pass (Tiny/Small/Medium) 35.1/18.4/11.8 img/s; FP16",
+      "description": "Thor：Small 短图 3.91ms（1.15x，C4 449.1 张/s），登机牌 18.72ms（1.11x，C4 76.8 张/s）；FP16\n\nOrin：Small 短图 6.85ms（1.19x，C4 269.6 张/s），896×528 多行图 34.43ms（1.07x，C4 40.2 张/s）；FP16",
+      "descriptionEn": "Thor: Small short 3.91ms (1.15x, C4 449.1 img/s), boarding pass 18.72ms (1.11x, C4 76.8 img/s); FP16\n\nOrin: Small short 6.85ms (1.19x, C4 269.6 img/s), 896x528 multi-line 34.43ms (1.07x, C4 40.2 img/s); FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2742,8 +2742,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：0.6B 128-token 单条 7.31ms（1.25x），8K 长文本 178.4ms（1.64x）；BF16\n\nOrin：0.6B 128-token 单条 JP6 19.2ms / JP7 27ms；支持 0.6B/4B/8B、指令与可变维度，32K 上下文；BF16",
-      "descriptionEn": "Thor: 0.6B 128-token single 7.31ms (1.25x), 8K long text 178.4ms (1.64x); BF16\n\nOrin: 0.6B 128-token single JP6 19.2ms / JP7 27ms; 0.6B/4B/8B, instructions & variable dims, 32K context; BF16",
+      "description": "Thor：0.6B 128-token 单条 7.31ms（1.25x），8K 长文本 178.4ms（1.64x）；BF16\n\nOrin：0.6B 128-token 单条 17.3ms（1.69x），8K 长文本 651ms，4 并发 78.6 req/s（1.18x），冷启动 3.50x；BF16",
+      "descriptionEn": "Thor: 0.6B 128-token single 7.31ms (1.25x), 8K long text 178.4ms (1.64x); BF16\n\nOrin: 0.6B 128-token single 17.3ms (1.69x), 8K long text 651ms, 4-way 78.6 req/s (1.18x), cold start 3.50x; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2791,8 +2791,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单条 3.68ms（1.89x），8 条批量 6.26ms（2.75x）；FP16\n\nOrin：单条 30ms，8 条批量 51ms；1024 维多语种稠密向量；FP16",
-      "descriptionEn": "Thor: Single 3.68ms (1.89x), batch-8 6.26ms (2.75x); FP16\n\nOrin: Single 30ms, batch-8 51ms; 1024-D multilingual dense embeddings; FP16",
+      "description": "Thor：单条 3.68ms（1.89x），8 条批量 6.26ms（2.75x）；FP16\n\nOrin：单条 6.88ms（4.45x），8 条批量 14.12ms（3.56x），4 并发 257.3 req/s；1024 维多语种稠密向量；FP16",
+      "descriptionEn": "Thor: Single 3.68ms (1.89x), batch-8 6.26ms (2.75x); FP16\n\nOrin: Single 6.88ms (4.45x), batch-8 14.12ms (3.56x), c4 257.3 req/s; 1024-D multilingual dense embeddings; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2840,8 +2840,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单文/单图/8 图 3.99/10.07/29.60ms，32 图 84.16ms（1.58x）；FP8\n\nOrin：单文/单图/8 图 9.8/17.8/82.8ms；768 维中文图文向量；FP16",
-      "descriptionEn": "Thor: Text/image/8-img 3.99/10.07/29.60ms, 32-img 84.16ms (1.58x); FP8\n\nOrin: Text/image/8-img 9.8/17.8/82.8ms; 768-D Chinese text-image embeddings; FP16",
+      "description": "Thor：单文/单图/8 图 3.99/10.07/29.60ms，32 图 84.16ms（1.58x）；FP8\n\nOrin：单文/单图/8 图 8.28/16.70/68.96ms，32 图 250.94ms（1.19x）；768 维中文图文向量；FP16",
+      "descriptionEn": "Thor: Text/image/8-img 3.99/10.07/29.60ms, 32-img 84.16ms (1.58x); FP8\n\nOrin: Text/image/8-img 8.28/16.70/68.96ms, 32-img 250.94ms (1.19x); 768-D Chinese text-image embeddings; FP16",
       "precision": {
         "thor": "FP8",
         "orin": "FP16",
@@ -2889,8 +2889,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：文本/图片/音频/视频 3.26/22.50/10.43/38.18ms（最高 3.82x）；BF16\n\nOrin：文本/图片/音频/视频 9.13/174.97/24.37/151.95ms；100+ 语言与 128–768 维度，8K 上下文；BF16",
-      "descriptionEn": "Thor: Text/image/audio/video 3.26/22.50/10.43/38.18ms (up to 3.82x); BF16\n\nOrin: Text/image/audio/video 9.13/174.97/24.37/151.95ms; 100+ languages, 128–768 dims, 8K context; BF16",
+      "description": "Thor：文本/图片/音频/视频 3.26/22.50/10.43/38.18ms（最高 3.82x）；BF16\n\nOrin：文本/图片/音频/视频 6.56/61.54/16.94/100.02ms（最高 2.87x）；100+ 语言与 128–768 维度，8K 上下文；BF16",
+      "descriptionEn": "Thor: Text/image/audio/video 3.26/22.50/10.43/38.18ms (up to 3.82x); BF16\n\nOrin: Text/image/audio/video 6.56/61.54/16.94/100.02ms (up to 2.87x); 100+ languages, 128–768 dims, 8K context; BF16",
       "precision": {
         "thor": "BF16",
         "orin": "BF16",
@@ -2938,8 +2938,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单次重排 3.81ms（2.75x），8 文档 4.25ms（2.88x）；FP16\n\nOrin：单次重排 31ms；多语言检索结果精排；FP16",
-      "descriptionEn": "Thor: Single rerank 3.81ms (2.75x), 8-doc 4.25ms (2.88x); FP16\n\nOrin: Single rerank 31ms; multilingual retrieval reranking; FP16",
+      "description": "Thor：单次重排 3.81ms（2.75x），8 文档 4.25ms（2.88x）；FP16\n\nOrin：单次重排 7.01ms（4.61x），8 文档 10.28ms（4.29x），4 并发 250.0 req/s；多语言检索结果精排；FP16",
+      "descriptionEn": "Thor: Single rerank 3.81ms (2.75x), 8-doc 4.25ms (2.88x); FP16\n\nOrin: Single rerank 7.01ms (4.61x), 8-doc 10.28ms (4.29x), c4 250.0 req/s; multilingual retrieval reranking; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -2987,8 +2987,8 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单图 8.80ms（2.33x），8 并发 33.57ms（2.80x，223 req/s）；FP16\n\nOrin：6 张人脸检测 54ms；人脸检测与特征提取；FP16",
-      "descriptionEn": "Thor: Single image 8.80ms (2.33x), 8-way 33.57ms (2.80x, 223 req/s); FP16\n\nOrin: 6-face detection 54ms; face detection & embedding extraction; FP16",
+      "description": "Thor：单图 8.80ms（2.33x），8 并发 33.57ms（2.80x，223 req/s）；FP16\n\nOrin：单图 17.43ms（2.16x），4 并发 36.48ms（2.46x，105 req/s）；人脸检测与特征提取；FP16",
+      "descriptionEn": "Thor: Single image 8.80ms (2.33x), 8-way 33.57ms (2.80x, 223 req/s); FP16\n\nOrin: Single image 17.43ms (2.16x), 4-way 36.48ms (2.46x, 105 req/s); face detection & embedding extraction; FP16",
       "precision": {
         "thor": "FP16",
         "orin": "FP16",
@@ -3036,13 +3036,13 @@
         "orin"
       ],
       "isMultiNode": false,
-      "description": "Thor：单图 60.67ms（3.31x），4 并发 143.83ms（5.42x），4 图批量 107.81ms；FP16\n\nOrin：单图 332.1ms，3 图 662.6ms；英文图片描述，支持 1–32 图批量；FP32",
-      "descriptionEn": "Thor: Single image 60.67ms (3.31x), 4-way 143.83ms (5.42x), batch-4 107.81ms; FP16\n\nOrin: Single image 332.1ms, 3-img 662.6ms; English image captioning, 1–32 batch; FP32",
+      "description": "Thor：单图 60.67ms（3.31x），4 并发 143.83ms（5.42x），4 图批量 107.81ms；FP16\n\nOrin：单图 86.89ms（3.33x），4 并发 305.82ms（3.38x），3 图批量 242.04ms（2.63x）；INT8 W8A16/BF16",
+      "descriptionEn": "Thor: Single image 60.67ms (3.31x), 4-way 143.83ms (5.42x), batch-4 107.81ms; FP16\n\nOrin: Single image 86.89ms (3.33x), 4-way 305.82ms (3.38x), batch-3 242.04ms (2.63x); INT8 W8A16/BF16",
       "precision": {
         "thor": "FP16",
-        "orin": "FP32",
-        "zh": "FP16 / FP32",
-        "en": "FP16 / FP32"
+        "orin": "INT8 W8A16 / BF16",
+        "zh": "FP16 / INT8 W8A16 / BF16",
+        "en": "FP16 / INT8 W8A16 / BF16"
       },
       "badge": "",
       "imageFit": "cover",
@@ -3071,6 +3071,140 @@
     }
   ],
   "changelog": [
+    {
+      "ts": "2026-11-28 15:15:01",
+      "appVersion": "2.3.424",
+      "prevAppVersion": "2.3.413",
+      "totalVisible": 62,
+      "added": [],
+      "updated": [
+        {
+          "title": "DeepSeek V4.1 Flash 1017 未审查版",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Qwen 3.8 27B 未审查版 DSpine",
+          "categoryZh": "大语言模型"
+        },
+        {
+          "title": "Qwen Image 2.1 Turbo",
+          "categoryZh": "图像生成"
+        },
+        {
+          "title": "Qwen Image 2.1 Heretic",
+          "categoryZh": "图像生成"
+        },
+        {
+          "title": "Hy-MT2 翻译",
+          "categoryZh": "语言翻译"
+        },
+        {
+          "title": "SenseVoiceSmall Q4_K",
+          "categoryZh": "语音识别"
+        },
+        {
+          "title": "Nemotron 3.5 Transcribe",
+          "categoryZh": "语音识别"
+        },
+        {
+          "title": "Qwen3-ASR",
+          "categoryZh": "语音识别"
+        },
+        {
+          "title": "Whisper Large V3 Turbo",
+          "categoryZh": "语音识别"
+        },
+        {
+          "title": "Qwen3 ForcedAligner",
+          "categoryZh": "语音对齐"
+        },
+        {
+          "title": "Demucs",
+          "categoryZh": "人声分离"
+        },
+        {
+          "title": "Pyannote Segmentation 3.0",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "title": "CAM++",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "title": "Nemotron 3 Diarization",
+          "categoryZh": "说话人分离"
+        },
+        {
+          "title": "Kokoro-82M v1.1-zh",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "AuK",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "IndexTTS 2.5",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "Qwen3-TTS 0.6B",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "Sophon-Realtime 32B",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "Sophon-Realtime 4B Flash",
+          "categoryZh": "语音合成"
+        },
+        {
+          "title": "PP-DocLayoutV3",
+          "categoryZh": "版面分析"
+        },
+        {
+          "title": "Unlimited-OCR",
+          "categoryZh": "文字识别"
+        },
+        {
+          "title": "Unlimited-OCR-2",
+          "categoryZh": "文字识别"
+        },
+        {
+          "title": "PP-OCRv6",
+          "categoryZh": "文字识别"
+        },
+        {
+          "title": "Qwen3-Embedding",
+          "categoryZh": "文本向量"
+        },
+        {
+          "title": "BGE-M3 稠密向量",
+          "categoryZh": "文本向量"
+        },
+        {
+          "title": "ZH-CLIP 中文图文向量",
+          "categoryZh": "图文向量"
+        },
+        {
+          "title": "EmbeddingGemma 2",
+          "categoryZh": "多模态向量"
+        },
+        {
+          "title": "BGE-Reranker-v2-M3 重排",
+          "categoryZh": "检索重排"
+        },
+        {
+          "title": "buffalo_l 人脸识别",
+          "categoryZh": "人脸识别"
+        },
+        {
+          "title": "BLIP 图片描述",
+          "categoryZh": "图片描述"
+        }
+      ],
+      "removed": []
+    },
     {
       "ts": "2026-11-28 03:05:01",
       "appVersion": "2.3.413",
